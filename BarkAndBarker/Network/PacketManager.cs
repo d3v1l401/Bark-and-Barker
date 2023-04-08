@@ -67,9 +67,13 @@ namespace BarkAndBarker.Network
             m_requests.Add(PacketCommand.C2SClassLevelInfoReq, PacketProcessors.HandleClassLevelInfoReq);
             m_responses.Add(PacketCommand.S2CClassLevelInfoRes, PacketProcessors.HandleClassLevelInfoRes);
 
+            // Matchmaking registration/withdrawal requests
             m_requests.Add(PacketCommand.C2SAutoMatchRegReq, PacketProcessors.HandleMatchmakingReq);
             m_responses.Add(PacketCommand.S2CAutoMatchRegRes, PacketProcessors.HandleMatchmakingRes);
 
+            // Merchants list
+            m_requests.Add(PacketCommand.C2SMerchantListReq, PacketProcessors.HandleMerchantListReq);
+            m_responses.Add(PacketCommand.S2CMerchantListRes, PacketProcessors.HandleMerchantListRes);
         }
 
         public MemoryStream Handle(ClientSession session, MemoryStream packet)
