@@ -1,0 +1,23 @@
+name: Windows
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: "Setup dotnet"
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.x.x
+
+      - name: "Build"
+        run: |
+          dotnet restore
+          dotnet build --configuration Release
+          dotnet test
