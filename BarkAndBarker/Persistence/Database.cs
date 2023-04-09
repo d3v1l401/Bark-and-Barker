@@ -65,8 +65,13 @@ namespace BarkAndBarker.Persistence
             if (!this.IsConnected())
                 this.Connect();
 
-            using (var conn = this.m_connection)
-                return (T)conn.QuerySingle<T>(filter, param);
+            try
+            {
+                using (var conn = this.m_connection)
+                    return (T)conn.QuerySingle<T>(filter, param);
+            } catch {
+                return default(T);
+            }
         }
 
         public int Execute(string filter, object? param)

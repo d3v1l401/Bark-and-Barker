@@ -16,12 +16,15 @@ namespace BarkAndBarker.Persistence
         public int      State;
         public DateTime LastLogin;
         public string   HWID;
+        public string   LastIP;
 
         public static string QuerySelectAllAccounts = "SELECT * FROM barker.accounts;";
         public static string QuerySelectAccount = "SELECT * FROM barker.accounts WHERE SteamID = @SID";
         public static string QueryUpdateLastLogin = "UPDATE barker.accounts SET barker.accounts.LastLogin = CURRENT_TIMESTAMP;";
         public static string QueryUpdateHWID = "UPDATE barker.accounts SET barker.accounts.HWID = @HWID;";
+        public static string QueryUpdateIP = "UPDATE barker.accounts SET barker.accounts.LastIP = @IP;";
         public static string QueryFindDuplicateHWID = "SELECT * FROM barker.accounts WHERE HWID = @HWID;";
+        public static string QueryCreateAccount = "INSERT INTO barker.accounts (`SteamID`, `State`) VALUES (@SID, '1');";
 
         public static string QueryCreateTable = ""; // TODO
     }
