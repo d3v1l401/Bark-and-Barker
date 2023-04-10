@@ -13,6 +13,22 @@ namespace BarkAndBarker
         private HttpListener m_listener = null;
         private static readonly string ClientUserAgent = "DungeonCrawler/++UE5+Release-5.0-CL-0 Windows/10.0.22621.1.256.64bit";
 
+        private static async Task<HttpListenerResponse> indexHandler(HttpListenerRequest request)
+        {
+            return null;
+        }
+
+        private static async Task<HttpListenerResponse> clientEntrypointHandler(HttpListenerRequest request)
+        {
+            return await Endpoints.ClientEntrypoint();
+        }
+
+        private static readonly Dictionary<string, Func<HttpListenerRequest, Task<HttpListenerResponse>>> m_methodsMap = new Dictionary<string, HttpListenerResponse>()
+        {
+            { "/", indexHandler },
+            { "/dc/helloWorld", clientEntrypointHandler }
+        };
+
         // https://stackoverflow.com/questions/4019466/httplistener-access-denied
         public CentralServer(string bindAddress = "*", UInt16 port = 80)
         {
@@ -61,8 +77,7 @@ namespace BarkAndBarker
             }
         }
 
-        // TODO: Map URL => invoke async method
-        private async Task<MemoryStream> dispatcher(HttpListenerRequest request, HttpListenerResponse response)
+        private async Task<MemoryStream> dispatcher(HttpListenerRequest request)
         {
             if (request == null)
                 return null;
@@ -73,8 +88,21 @@ namespace BarkAndBarker
 #if DEBUG
             Console.WriteLine("[CentralServer] Client hit: " + request.RawUrl);
 #endif
-
             response.ContentType = "text/html";
+
+            var requestedUrl = request.RawUrl;
+            if (request.RawUrl == string.Empty)
+                requestedUrl = "/";
+
+            HttpListenerResponse response;
+            response.ContentType = "text/html";
+
+            var invoker = m_methodsMap[requestedUrl];
+            if (invoker != null)
+                await invoker.Invoke(request);
+            else
+                await indexHandler(request);
+
             switch (request.RawUrl)
             {
                 case "/":
