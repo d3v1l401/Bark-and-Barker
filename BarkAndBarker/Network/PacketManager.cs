@@ -74,6 +74,10 @@ namespace BarkAndBarker.Network
             // Merchants list
             m_requests.Add(PacketCommand.C2SMerchantListReq, PacketProcessors.HandleMerchantListReq);
             m_responses.Add(PacketCommand.S2CMerchantListRes, PacketProcessors.HandleMerchantListRes);
+
+            // Leaderboard
+            m_requests.Add(PacketCommand.C2SRankingRangeReq, PacketProcessors.HandleRankingReq);
+            m_responses.Add(PacketCommand.S2CRankingRangeRes, PacketProcessors.HandleRankingRes);
         }
 
         public MemoryStream Handle(ClientSession session, MemoryStream packet)
