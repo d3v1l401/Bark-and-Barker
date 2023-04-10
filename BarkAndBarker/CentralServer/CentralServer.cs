@@ -1,4 +1,5 @@
 ﻿
+using Azure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,49 @@ namespace BarkAndBarker
     {
         private HttpListener m_listener = null;
         private static readonly string ClientUserAgent = "DungeonCrawler/++UE5+Release-5.0-CL-0 Windows/10.0.22621.1.256.64bit";
+
+        private static bool isCorrectUserAgent(string userAgent)
+            => userAgent == ClientUserAgent ? true : false;
+
+        private static async Task<bool> isValidRequest(HttpListenerRequest request, HttpListenerResponse response)
+        {
+            if (!isCorrectUserAgent(request.UserAgent))
+            {
+                response.StatusCode = 403;
+                await response.OutputStream.WriteAsync("Access denied".ToByteArray());
+
+                return false;
+            }
+
+            return true;
+        }
+
+        private static async Task<HttpListenerResponse> indexHandler(HttpListenerRequest request, HttpListenerResponse response)
+        {
+            if (!await isValidRequest(request, response))
+                return response;
+
+            await response.OutputStream.WriteAsync("Index".ToByteArray());
+
+            return response;
+        }
+
+        private static async Task<HttpListenerResponse> clientEntrypointHandler(HttpListenerRequest request, HttpListenerResponse response)
+        {
+            if (!await isValidRequest(request, response))
+                return response;
+
+            var responseBuffer = await Endpoints.ClientEntrypoint();
+            await response.OutputStream.WriteAsync(responseBuffer.ToArray());
+
+            return response;
+        }
+
+        private static readonly Dictionary<string, Func<HttpListenerRequest, HttpListenerResponse, Task< HttpListenerResponse > >> m_methodsMap = new Dictionary<string, Func<HttpListenerRequest, HttpListenerResponse, Task<HttpListenerResponse>>>()
+        {
+            { "/",              indexHandler },
+            { "/dc/helloWorld", clientEntrypointHandler }
+        };
 
         // https://stackoverflow.com/questions/4019466/httplistener-access-denied
         public CentralServer(string bindAddress = "*", UInt16 port = 80)
@@ -46,44 +90,33 @@ namespace BarkAndBarker
             {
                 var context = this.m_listener.EndGetContext(result);
 
-                var request = context.Request;
-
-                if (request != null)
-                {
-                    var response = await this.dispatcher(request, context.Response);
-
-                    await context.Response.OutputStream.WriteAsync(response.ToArray());
-
-                    context.Response.Close();
-                }
+                if (context.Request != null)
+                    this.dispatcher(context.Request, context.Response);
 
                 this.awaitRequest();
             }
         }
 
-        // TODO: Map URL => invoke async method
-        private async Task<MemoryStream> dispatcher(HttpListenerRequest request, HttpListenerResponse response)
+        private async void dispatcher(HttpListenerRequest request, HttpListenerResponse response)
         {
             if (request == null)
-                return null;
-
-            if (request.UserAgent != ClientUserAgent)
-                return new MemoryStream(Encoding.UTF8.GetBytes("403 - Access denied.")); // Responding with 200 OK but a payload of a 403...MEH!
+                return;
 
 #if DEBUG
             Console.WriteLine("[CentralServer] Client hit: " + request.RawUrl);
 #endif
 
-            response.ContentType = "text/html";
-            switch (request.RawUrl)
-            {
-                case "/":
-                    return new MemoryStream(Encoding.UTF8.GetBytes("Index"));
-                case "/dc/helloWorld":
-                    return await Endpoints.ClientEntrypoint();
-                default:
-                    return new MemoryStream(Encoding.UTF8.GetBytes("404 - Not Found."));
-            }
+            var requestedUrl = request.RawUrl;
+            if (request.RawUrl == string.Empty)
+                requestedUrl = "/";
+
+            var invoker = m_methodsMap[requestedUrl];
+            if (invoker != null)
+                response = await invoker.Invoke(request, response);
+            else
+                response = await indexHandler(request, response);
+
+            response.Close();
         }
     }
 }
