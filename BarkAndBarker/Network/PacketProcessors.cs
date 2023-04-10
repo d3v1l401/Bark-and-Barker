@@ -101,6 +101,8 @@ namespace BarkAndBarker.Network
                 session.m_currentPlayer.CurrentHWID = loggingHWID;
             }
 
+            session.SteamId = inputedSteamID;
+
             return loggedPlayer;
         }
 
@@ -130,7 +132,7 @@ namespace BarkAndBarker.Network
             var request = ((WrapperDeserializer)deserializer).Parse<SC2S_ACCOUNT_CHARACTER_CREATE_REQ>();
             var response = new SS2C_ACCOUNT_CHARACTER_CREATE_RES();
 
-            var characters = session.GetDB().Select<ModelCharacter>(ModelCharacter.QuerySelectAllByUserAccount, new { AID = 1 }); // TODO: SteamID
+            var characters = session.GetDB().Select<ModelCharacter>(ModelCharacter.QuerySelectAllByUserAccount, new { AID = session.SteamId });
 
             if (characters.Count() > 7)
             {
@@ -173,7 +175,7 @@ namespace BarkAndBarker.Network
             var request = ((WrapperDeserializer)deserializer).Parse<SC2S_ACCOUNT_CHARACTER_LIST_REQ>();
             var response = new SS2C_ACCOUNT_CHARACTER_LIST_RES();
 
-            var characters = session.GetDB().Select<ModelCharacter>(ModelCharacter.QuerySelectAllByUserAccount, new { AID = 1 }); // TODO
+            var characters = session.GetDB().Select<ModelCharacter>(ModelCharacter.QuerySelectAllByUserAccount, new { AID = session.SteamId });
             if (characters.Count() > 7)
             {
                 session.Disconnect(); // Ugly, client won't know why but theoretically we should never hit this.
