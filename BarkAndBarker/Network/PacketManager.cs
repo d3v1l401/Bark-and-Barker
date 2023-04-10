@@ -7,6 +7,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BarkAndBarker.Network.PacketProcessor;
 using static BarkAndBarker.Network.PacketManager;
 
 namespace BarkAndBarker.Network
@@ -76,8 +77,8 @@ namespace BarkAndBarker.Network
             m_responses.Add(PacketCommand.S2CMerchantListRes, PacketProcessors.HandleMerchantListRes);
 
             // Leaderboard
-            m_requests.Add(PacketCommand.C2SRankingRangeReq, PacketProcessors.HandleRankingReq);
-            m_responses.Add(PacketCommand.S2CRankingRangeRes, PacketProcessors.HandleRankingRes);
+            m_requests.Add(PacketCommand.C2SRankingRangeReq, RankingProcessors.HandleRankingReq);
+            m_responses.Add(PacketCommand.S2CRankingRangeRes, RankingProcessors.HandleRankingRes);
         }
 
         public MemoryStream Handle(ClientSession session, MemoryStream packet)

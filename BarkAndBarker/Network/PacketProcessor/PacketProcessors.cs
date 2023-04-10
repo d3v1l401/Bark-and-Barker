@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Google.Protobuf.Collections;
 
-namespace BarkAndBarker.Network
+namespace BarkAndBarker.Network.PacketProcessor
 {
     internal class Helpers
     {
@@ -70,7 +70,8 @@ namespace BarkAndBarker.Network
                         SteamID = inputedSteamID,
                         State = (int)LoginResponseResult.FAIL_OVERFLOW_ID_OR_PASSWORD, // Will report to the client an account already exists
                     };
-                } else
+                }
+                else
                     loggedPlayer = session.GetDB().SelectFirst<ModelAccount>(ModelAccount.QuerySelectAccount, new { SID = inputedSteamID });
             }
 
@@ -94,7 +95,9 @@ namespace BarkAndBarker.Network
                     var referencedAccounts = session.GetDB().Select<ModelAccount>(ModelAccount.QueryFindDuplicateHWID, new { HWID = loggingHWID });
                     if (referencedAccounts.Count() > 1)
                         loggedPlayer.State = (int)LoginResponseResult.FAIL_LOGIN_BAN_HARDWARE;
-                } else {
+                }
+                else
+                {
                     session.GetDB().Execute(ModelAccount.QueryUpdateHWID, new { HWID = session.m_currentPlayer.CurrentHWID });
                     session.GetDB().Execute(ModelAccount.QueryUpdateLastLogin, new { IP = parsed.OwnershipTicketExternalIP.ToString() });
                 }
@@ -152,7 +155,7 @@ namespace BarkAndBarker.Network
                 Nickname = request.NickName,
                 Class = request.CharacterClass,
                 Level = 666,
-                Gender = request.Gender,
+                request.Gender,
             });
 
             if (queryRes > 0)
@@ -231,7 +234,8 @@ namespace BarkAndBarker.Network
                     session.m_currentCharacter = selectedCharacter;
                     response.Result = (uint)LoginResponseResult.SUCCESS;
                 }
-            } else
+            }
+            else
                 response.Result = (uint)LoginResponseResult.FAIL_PASSWORD;
 
             return response;
@@ -290,13 +294,13 @@ namespace BarkAndBarker.Network
         }
 
         public static object HandleOpenLobbyMapReq(ClientSession session, dynamic deserializer)
-        { 
+        {
             var request = ((WrapperDeserializer)deserializer).Parse<SC2S_OPEN_LOBBY_MAP_REQ>();
             return new SS2C_OPEN_LOBBY_MAP_RES();
         }
 
         public static MemoryStream HandleOpenLobbyMapRes(ClientSession session, dynamic inputClass)
-        { 
+        {
             var response = (SS2C_OPEN_LOBBY_MAP_RES)inputClass;
 
             var serial = new WrapperSerializer<SS2C_OPEN_LOBBY_MAP_RES>(response, PacketCommand.S2COpenLobbyMapRes);
@@ -330,11 +334,11 @@ namespace BarkAndBarker.Network
         public static MemoryStream HandleClassEquipInfoRes(ClientSession session, dynamic inputClass)
         {
             var response = (SS2C_CLASS_EQUIP_INFO_RES)inputClass;
-            
+
             // TODO: Find item IDs, handle all the data
             response.Equips.Add(new SCLASS_EQUIP_INFO
             {
-                
+
             });
 
             var serial = new WrapperSerializer<SS2C_CLASS_EQUIP_INFO_RES>(response, PacketCommand.S2CClassEquipInfoRes);
@@ -440,51 +444,6 @@ namespace BarkAndBarker.Network
             });
 
             var serial = new WrapperSerializer<SS2C_MERCHANT_LIST_RES>(response, PacketCommand.S2CAutoMatchRegRes);
-            return serial.Serialize();
-        }
-
-        public static object HandleRankingReq(ClientSession session, dynamic deserializer)
-        {
-            var request = ((WrapperDeserializer)deserializer).Parse<SC2S_RANKING_RANGE_REQ>();
-
-            var response = new SS2C_RANKING_RANGE_RES();
-            response.RankType = request.RankType;
-            response.StartIndex = request.StartIndex;
-            response.EndIndex = request.EndIndex;
-            response.CharacterClass = request.CharacterClass;
-
-            return response;
-        }
-
-        public static MemoryStream HandleRankingRes(ClientSession session, dynamic inputClass)
-        {
-            var response = (SS2C_RANKING_RANGE_RES)inputClass;
-
-            response.Result = (uint)MatchmakingResponseResult.SUCCESS;
-
-            response.AllRowCount = 1;
-
-            //TODO
-            var record = new SRankRecord
-            {
-                PageIndex = 0,
-                Rank = 1,
-                Score = 6969,
-                Percentage = 30,
-                AccountId = "421421412",
-                NickName = new SACCOUNT_NICKNAME()
-                {
-                    OriginalNickName = "BestOne",
-                    StreamingModeNickName = "BestOne",
-                    KarmaRating = 100,
-                },
-                CharacterClass = response.CharacterClass
-            };
-
-            response.Records.Add(record);
-
-
-            var serial = new WrapperSerializer<SS2C_RANKING_RANGE_RES>(response, PacketCommand.S2CRankingRangeRes);
             return serial.Serialize();
         }
     }
