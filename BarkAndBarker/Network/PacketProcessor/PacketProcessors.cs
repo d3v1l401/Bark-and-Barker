@@ -241,6 +241,40 @@ namespace BarkAndBarker.Network.PacketProcessor
             return response;
         }
 
+        public static object HandleCharacterDeletionReq(ClientSession session, dynamic deserializer)
+        {
+            var request = ((WrapperDeserializer)deserializer).Parse<SC2S_ACCOUNT_CHARACTER_DELETE_REQ>();
+            var response = new SS2C_ACCOUNT_CHARACTER_DELETE_RES();
+
+            var selectedCharacter = session.GetDB().SelectFirst<ModelCharacter>(ModelCharacter.QuerySelectCharacterByID, new { CID = request.CharacterId });
+            if (selectedCharacter != null)
+            {
+                var charOwnedAccount = session.GetDB().SelectFirst<ModelAccount>(ModelCharacter.QueryOwnerAccountForCharacterID, new { CID = request.CharacterId });
+                if (charOwnedAccount.SteamID != null && charOwnedAccount.SteamID == session.m_currentPlayer.SteamID)
+                {
+                    // TODO: Make this a transaction, if deletion will affect more than 1 row we need to rollback as something went wrong.
+                    var deletedCharactersCount = session.GetDB().Execute(ModelCharacter.QueryDeleteCharacter, new
+                    {
+                        AID = charOwnedAccount.SteamID,
+                        CID = selectedCharacter.CharID,
+                    });
+
+                    if (deletedCharactersCount >= 1)
+                        response.Result = (uint)LoginResponseResult.SUCCESS;
+                }
+            } else
+                response.Result = (uint)LoginResponseResult.FAIL_PASSWORD;
+
+            return response;
+        }
+
+        public static MemoryStream HandleCharacterDeletionRes(ClientSession session, dynamic inputClass)
+        {
+            var response = (SS2C_ACCOUNT_CHARACTER_DELETE_RES)inputClass;
+            var serial = new WrapperSerializer<SS2C_ACCOUNT_CHARACTER_DELETE_RES>(response, PacketCommand.S2CAccountCharacterListRes);
+            return serial.Serialize();
+        }
+
         public static MemoryStream HandleLobbyEnterRes(ClientSession session, dynamic inputClass)
         {
             var response = (SS2C_LOBBY_ENTER_RES)inputClass;
