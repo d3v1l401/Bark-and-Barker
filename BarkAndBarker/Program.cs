@@ -49,6 +49,8 @@ namespace BarkAndBarker
                 return;
             }
 
+            DBGeneral.CheckAndCreateDatabase(database);
+
             Console.WriteLine("Fireing up ClientManager...");
             ClientManager m_clientManager = new ClientManager(IPAddress.Parse(m_settings.LobbyAddress), m_settings.LobbyPort);
             if (!m_clientManager.Start())
