@@ -18,8 +18,8 @@ public class ModelCharacter : IModel
     public static readonly string QueryOwnerAccountForCharacterID = "SELECT barker.accounts.* FROM barker.accounts, barker.characters WHERE barker.characters.CharID = @CID";
 
     public static readonly string QueryCreateTable = @"CREATE TABLE IF NOT EXISTS `characters` (
-                                                              `accountID` varchar(50) NOT NULL,
                                                               `CharID` varchar(45) NOT NULL,
+                                                              `accountID` varchar(50) NOT NULL,
                                                               `Nickname` varchar(20) NOT NULL,
                                                               `Class` varchar(60) NOT NULL,
                                                               `Level` int NOT NULL DEFAULT '1',
@@ -28,7 +28,7 @@ public class ModelCharacter : IModel
                                                               `LastLogin` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
                                                               `KarmaScore` int NOT NULL DEFAULT '0',
                                                               `IsDeleted` timestamp NULL DEFAULT NULL,
-                                                              PRIMARY KEY (`accountID`,`CharID`),
+                                                              PRIMARY KEY (`CharID`),
                                                               CONSTRAINT `charOwner` FOREIGN KEY (`accountID`) REFERENCES `accounts` (`SteamID`)
                                                             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
 
