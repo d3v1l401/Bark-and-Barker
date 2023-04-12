@@ -19,6 +19,10 @@ namespace BarkAndBarker
 
         private static async Task<bool> isValidRequest(HttpListenerRequest request, HttpListenerResponse response)
         {
+#if DEBUG
+            return true;
+#endif
+
             if (!isCorrectUserAgent(request.UserAgent))
             {
                 response.StatusCode = 403;
