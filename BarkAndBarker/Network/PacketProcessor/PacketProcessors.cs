@@ -1,5 +1,4 @@
 ﻿using Azure;
-using BarkAndBarker.Persistence;
 using BarkAndBarker.Session;
 using BarkAndBarker.Steam;
 using DC.Packet;
@@ -12,6 +11,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Google.Protobuf.Collections;
+using BarkAndBarker.Persistence.Models;
 
 namespace BarkAndBarker.Network.PacketProcessor
 {
