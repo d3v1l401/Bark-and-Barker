@@ -10,6 +10,7 @@
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="Dapper.StrongName" Version="2.0.123" />
+    <PackageReference Include="FluentScheduler" Version="5.5.1" />
     <PackageReference Include="Google.Protobuf" Version="3.22.1" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
     <PackageReference Include="MySql.Data" Version="8.0.32.1" />
@@ -22,6 +23,12 @@
     <Reference Include="NetCoreServer">
       <HintPath>bin\Debug\net7.0\NetCoreServer.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="settings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   
   <Target Name="StrongNameAlias" BeforeTargets="FindReferenceAssembliesForReferences;ResolveReferences">
