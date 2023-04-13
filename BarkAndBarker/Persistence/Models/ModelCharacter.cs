@@ -32,5 +32,5 @@ public class ModelCharacter : IModel
                                                               CONSTRAINT `charOwner` FOREIGN KEY (`accountID`) REFERENCES `accounts` (`SteamID`)
                                                             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
 
-    public static int Importance { get; set; } = 10;
+    public static readonly int TableCreationOrder = 10;
 }

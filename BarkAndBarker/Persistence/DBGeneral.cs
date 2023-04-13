@@ -44,10 +44,10 @@ namespace BarkAndBarker.Persistence
             var modelsClasses = typeof(IModel).GetImplementors(Assembly.GetExecutingAssembly()).Reverse();
             foreach (var model in modelsClasses
                          .Where(el => el.Name.StartsWith("Model"))
-                         .OrderByDescending(el => (int)el.GetMember("Importance").First().GetValue(el)))
+                         .OrderByDescending(el => (int)el.GetMember(nameof(IModel.TableCreationOrder)).First().GetValue(el)))
             {
                 // Get the QueryCreateTable static field
-                var createQuery = model.GetMembers().First(x => x.Name == "QueryCreateTable");
+                var createQuery = model.GetMembers().First(x => x.Name == nameof(IModel.QueryCreateTable));
                 string? queryExecute =
                     createQuery.GetValue(createQuery) as string; // Gets its value, THIS ONLY WORKS FOR STATIC FIELDS
                 if (queryExecute != null)
