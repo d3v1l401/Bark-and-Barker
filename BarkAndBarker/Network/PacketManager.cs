@@ -30,10 +30,12 @@ namespace BarkAndBarker.Network
             m_responses.Add(PacketCommand.S2CAccountLoginRes, PacketProcessors.HandleLoginRes);
 
             // Character management
-            m_requests.Add(PacketCommand.C2SAccountCharacterCreateReq, PacketProcessors.HandleCharacterCreateReq);
-            m_responses.Add(PacketCommand.S2CAccountCharacterCreateRes, PacketProcessors.HandleCharacterCreateRes);
-            m_requests.Add(PacketCommand.C2SAccountCharacterListReq, PacketProcessors.HandleCharacterListReq);
-            m_responses.Add(PacketCommand.S2CAccountCharacterListRes, PacketProcessors.HandleCharacterListRes);
+            m_requests.Add(PacketCommand.C2SAccountCharacterCreateReq, CharacterProcessors.HandleCharacterCreateReq);
+            m_responses.Add(PacketCommand.S2CAccountCharacterCreateRes, CharacterProcessors.HandleCharacterCreateRes);
+            m_requests.Add(PacketCommand.C2SAccountCharacterListReq, CharacterProcessors.HandleCharacterListReq);
+            m_responses.Add(PacketCommand.S2CAccountCharacterListRes, CharacterProcessors.HandleCharacterListRes);
+            m_requests.Add(PacketCommand.C2SAccountCharacterDeleteReq, CharacterProcessors.HandleCharacterDeletionReq);
+            m_responses.Add(PacketCommand.S2CAccountCharacterDeleteRes, CharacterProcessors.HandleCharacterDeletionRes);
 
             // Lobby
             m_requests.Add(PacketCommand.C2SLobbyEnterReq, PacketProcessors.HandleLobbyEnterReq);
@@ -79,6 +81,9 @@ namespace BarkAndBarker.Network
             // Leaderboard
             m_requests.Add(PacketCommand.C2SRankingRangeReq, RankingProcessors.HandleRankingReq);
             m_responses.Add(PacketCommand.S2CRankingRangeRes, RankingProcessors.HandleRankingRes);
+
+            m_requests.Add(PacketCommand.C2SGatheringHallChannelListReq, GatheringHallProcessors.HandleGhateringHallListReq);
+            m_responses.Add(PacketCommand.S2CGatheringHallChannelListRes, GatheringHallProcessors.HandleGatheringHallListRes);
         }
 
         public MemoryStream Handle(ClientSession session, MemoryStream packet)
