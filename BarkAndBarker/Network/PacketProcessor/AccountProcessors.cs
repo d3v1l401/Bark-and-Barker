@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BarkAndBarker.Persistence.Models;
+using BarkAndBarker.Steam;
+using DC.Packet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +11,7 @@ namespace BarkAndBarker.Network.PacketProcessor
 {
     internal class AccountProcessors
     {
-
+        private const uint STEAM_APPID = 211;
 
         public static object HandleLoginReq(ClientSession session, dynamic deserializer)
         {

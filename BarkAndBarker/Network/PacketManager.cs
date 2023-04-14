@@ -26,24 +26,24 @@ namespace BarkAndBarker.Network
             { PacketCommand.C2SAccountCharacterListReq, CharacterProcessors.HandleCharacterListReq },
             { PacketCommand.C2SAccountCharacterDeleteReq, CharacterProcessors.HandleCharacterDeletionReq },
             // Lobby
-            { PacketCommand.C2SLobbyEnterReq, PacketProcessors.HandleLobbyEnterReq },
+            { PacketCommand.C2SLobbyEnterReq, LobbyProcessors.HandleLobbyEnterReq },
             // In-Lobby
-            { PacketCommand.C2SCustomizeCharacterInfoReq, PacketProcessors.HandleCustomizeCharacterInfoReq },
-            { PacketCommand.C2SCustomizeActionInfoReq, PacketProcessors.HandleCustomizeActionInfoReq },
+            { PacketCommand.C2SCustomizeCharacterInfoReq, CustomizationProcessors.HandleCustomizeCharacterInfoReq },
+            { PacketCommand.C2SCustomizeActionInfoReq, CustomizationProcessors.HandleCustomizeActionInfoReq },
             // Lobby opening, region selection
-            { PacketCommand.C2SOpenLobbyMapReq, PacketProcessors.HandleOpenLobbyMapReq },
+            { PacketCommand.C2SOpenLobbyMapReq, LobbyProcessors.HandleOpenLobbyMapReq },
             // Matchmaking region
-            { PacketCommand.C2SMetaLocationReq, PacketProcessors.HandleMetaLocationReq },
+            { PacketCommand.C2SMetaLocationReq, LobbyProcessors.HandleMetaLocationReq },
             // Current equipped items
-            { PacketCommand.C2SClassEquipInfoReq, PacketProcessors.HandleClassEquipInfoReq },
+            { PacketCommand.C2SClassEquipInfoReq, EquipProcessors.HandleClassEquipInfoReq },
             // Customization items 
-            { PacketCommand.C2SCustomizeItemInfoReq, PacketProcessors.HandleCustomizeItemInfoReq },
+            { PacketCommand.C2SCustomizeItemInfoReq, EquipProcessors.HandleCustomizeItemInfoReq },
             // Character level, exp and ability points
-            { PacketCommand.C2SClassLevelInfoReq, PacketProcessors.HandleClassLevelInfoReq },
+            { PacketCommand.C2SClassLevelInfoReq, ProgressionProcessors.HandleClassLevelInfoReq },
             // Matchmaking registration
-            { PacketCommand.C2SAutoMatchRegReq, PacketProcessors.HandleMatchmakingReq },
+            { PacketCommand.C2SAutoMatchRegReq, MatchmakingProcessors.HandleMatchmakingReq },
             // Merchants operations
-            { PacketCommand.C2SMerchantListReq, PacketProcessors.HandleMerchantListReq },
+            { PacketCommand.C2SMerchantListReq, MerchantProcessors.HandleMerchantListReq },
             // Leaderboards 
             { PacketCommand.C2SRankingRangeReq, RankingProcessors.HandleRankingReq },
             // Gathering hall
@@ -60,16 +60,16 @@ namespace BarkAndBarker.Network
             { PacketCommand.S2CAccountCharacterListRes, CharacterProcessors.HandleCharacterListRes },
             { PacketCommand.S2CAccountCharacterDeleteRes, CharacterProcessors.HandleCharacterDeletionRes },
 
-            { PacketCommand.S2CLobbyEnterRes, PacketProcessors.HandleLobbyEnterRes },
-            { PacketCommand.S2CCustomizeCharacterInfoRes, PacketProcessors.HandleCustomizeCharacterInfoRes },
-            { PacketCommand.S2CCustomizeActionInfoRes, PacketProcessors.HandleCustomizeActionInfoRes },
-            { PacketCommand.S2COpenLobbyMapRes, PacketProcessors.HandleOpenLobbyMapRes },
-            { PacketCommand.S2CMetaLocationRes, PacketProcessors.HandleMetaLocationRes },
-            { PacketCommand.S2CClassEquipInfoRes, PacketProcessors.HandleClassEquipInfoRes },
-            { PacketCommand.S2CCustomizeItemInfoRes, PacketProcessors.HandleCustomizeItemInfoRes },
-            { PacketCommand.S2CClassLevelInfoRes, PacketProcessors.HandleClassLevelInfoRes },
-            { PacketCommand.S2CAutoMatchRegRes, PacketProcessors.HandleMatchmakingRes },
-            { PacketCommand.S2CMerchantListRes, PacketProcessors.HandleMerchantListRes },
+            { PacketCommand.S2CLobbyEnterRes, LobbyProcessors.HandleLobbyEnterRes },
+            { PacketCommand.S2CCustomizeCharacterInfoRes, CustomizationProcessors.HandleCustomizeCharacterInfoRes },
+            { PacketCommand.S2CCustomizeActionInfoRes, CustomizationProcessors.HandleCustomizeActionInfoRes },
+            { PacketCommand.S2COpenLobbyMapRes, LobbyProcessors.HandleOpenLobbyMapRes },
+            { PacketCommand.S2CMetaLocationRes, LobbyProcessors.HandleMetaLocationRes },
+            { PacketCommand.S2CClassEquipInfoRes, EquipProcessors.HandleClassEquipInfoRes },
+            { PacketCommand.S2CCustomizeItemInfoRes, EquipProcessors.HandleCustomizeItemInfoRes },
+            { PacketCommand.S2CClassLevelInfoRes, ProgressionProcessors.HandleClassLevelInfoRes },
+            { PacketCommand.S2CAutoMatchRegRes, MatchmakingProcessors.HandleMatchmakingRes },
+            { PacketCommand.S2CMerchantListRes, MerchantProcessors.HandleMerchantListRes },
             { PacketCommand.S2CRankingRangeRes, RankingProcessors.HandleRankingRes },
             { PacketCommand.S2CGatheringHallChannelListRes, GatheringHallProcessors.HandleGatheringHallListRes }
         };
