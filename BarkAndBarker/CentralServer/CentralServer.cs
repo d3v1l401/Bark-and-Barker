@@ -12,10 +12,10 @@ namespace BarkAndBarker
     public class CentralServer
     {
         private HttpListener m_listener = null;
-        private static readonly string ClientUserAgent = "DungeonCrawler/++UE5+Release-5.0-CL-0 Windows/10.0.22621.1.256.64bit";
+        private static readonly string ClientUserAgent = "DungeonCrawler/++UE5+Release-5.0-CL-0";
 
         private static bool isCorrectUserAgent(string userAgent)
-            => userAgent == ClientUserAgent ? true : false;
+            => userAgent.StartsWith(ClientUserAgent);
 
         private static async Task<bool> isValidRequest(HttpListenerRequest request, HttpListenerResponse response)
         {
