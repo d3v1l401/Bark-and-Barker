@@ -2,6 +2,8 @@
 using NetCoreServer;
 using System.Collections.Concurrent;
 using System.Net;
+using System.Xml.Schema;
+using BarkAndBarker.Jobs;
 using BarkAndBarker.Shared.Persistence;
 
 namespace BarkAndBarker
@@ -52,6 +54,10 @@ namespace BarkAndBarker
 
             DBGeneral.CheckAndCreateDatabase(database);
 
+            Console.WriteLine("Initializing jobs...");
+            var jobController = new JobController();
+            jobController.Init();
+            
             Console.WriteLine("Fireing up ClientManager...");
             ClientManager m_clientManager = new ClientManager(IPAddress.Parse(m_settings.LobbyAddress), m_settings.LobbyPort);
             if (!m_clientManager.Start())

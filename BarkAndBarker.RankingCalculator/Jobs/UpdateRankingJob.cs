@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace BarkAndBarker.RankingCalculator.Jobs
 {
-    internal class FetchRankingJob : IJob
+    internal class UpdateRankingJob : IJob
     {
         private class MappedStatistics
         {
@@ -128,7 +128,7 @@ namespace BarkAndBarker.RankingCalculator.Jobs
             database.Connect();
             if (!database.IsConnected())
             {
-                Console.WriteLine(nameof(FetchRankingJob) + "> Could not connect to the database, please fix.");
+                Console.WriteLine(nameof(UpdateRankingJob) + "> Could not connect to the database, please fix.");
                 return;
             }
 
