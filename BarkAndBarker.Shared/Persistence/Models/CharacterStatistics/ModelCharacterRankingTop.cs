@@ -1,9 +1,10 @@
 ﻿namespace BarkAndBarker.Shared.Persistence.Models.CharacterStatistics
 {
-    internal class ModelCharacterRankingTop : IModel
+    public class ModelCharacterRankingTop : IModel
     {
         public int ID { get; set; } //PK
         public int CharacterRankingID { get; set; } //FK
+        public ClassType ClassType { get; set; }
         public RankType RankType { get; set; }
         public int Rank { get; set; }
 
@@ -11,6 +12,7 @@
         public static readonly string QueryCreateTable = $@"CREATE TABLE IF NOT EXISTS character_ranking_top (
                                                 `{nameof(ID)}` int,
                                                 `{nameof(CharacterRankingID)}` int,
+                                                `{nameof(ClassType)}` int,
                                                 `{nameof(RankType)}` int,
                                                 `{nameof(Rank)}` int,
 
@@ -21,7 +23,7 @@
         public static readonly int TableCreationOrder = 1;
     }
 
-    internal enum RankType : int
+    public enum ClassType : int
     {
         All,
         Fighter,
@@ -30,5 +32,15 @@
         Ranger,
         Rogue,
         Wizard
+    }
+
+    public enum RankType : int
+    {
+        VeteranAdventureCount,
+        TreasureCollectorCount,
+        KillerOutlawCount,
+        EscapeArtistCount,
+        LichSlayerCount,
+        GhostKingSlayerCount
     }
 }
