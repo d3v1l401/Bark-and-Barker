@@ -20,6 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BarkAndBarker.Shared\BarkAndBarker.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="NetCoreServer">
       <HintPath>bin\Debug\net7.0\NetCoreServer.dll</HintPath>
     </Reference>
