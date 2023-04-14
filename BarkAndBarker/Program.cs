@@ -60,6 +60,9 @@ namespace BarkAndBarker
             }
 
             Console.WriteLine("Fireing up CentralServer...");
+            Endpoints.m_clientManagerAddress = m_settings.CSAddress;
+            Endpoints.m_clientManagerPort = m_settings.CSPort;
+
             CentralServer m_centralServer = new CentralServer(m_settings.CSAddress, m_settings.CSPort);
             m_centralServer.Start();
 
