@@ -12,9 +12,14 @@
         public int LichSlayerCount { get; set; }
         public int GhostKingSlayerCount { get; set; }
 
+        public static readonly string QueryResetTable = @"DELETE FROM character_ranking";
+
+        public static readonly string QueryPopulate = @"INSERT INTO character_ranking
+                (CharID, ClassName, VeteranAdventureCount, TreasureCollectorCount, KillerOutlawCount, EscapeArtistCount, LichSlayerCount, GhostKingSlayerCount)
+                VALUES ";
 
         public static readonly string QueryCreateTable = $@"CREATE TABLE IF NOT EXISTS character_ranking (
-                                                `{nameof(ID)}` int,
+                                                `{nameof(ID)}` int AUTO_INCREMENT,
                                                 `{nameof(CharID)}` VARCHAR(45),
                                                 `{nameof(ClassName)}` VARCHAR(255),
                                                 `{nameof(VeteranAdventureCount)}` int,

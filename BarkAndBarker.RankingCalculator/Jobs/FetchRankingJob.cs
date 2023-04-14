@@ -2,6 +2,7 @@
 using BarkAndBarker.Shared.Persistence.Models;
 using BarkAndBarker.Shared.Persistence.Models.CharacterStatistics;
 using FluentScheduler;
+using System.Linq;
 
 namespace BarkAndBarker.RankingCalculator.Jobs
 {
@@ -27,6 +28,12 @@ namespace BarkAndBarker.RankingCalculator.Jobs
             public TopRankingsOfType RankingEscapeArtist { get; set; }
             public TopRankingsOfType RankingLichSlayer { get; set; }
             public TopRankingsOfType RankingGhostKingSlayer { get; set; }
+            public IEnumerable<ModelCharacterRankingTop> GetAll =>
+                RankingVeteranAdventure.GetAll.Concat(RankingTreasureCollector.GetAll)
+                    .Concat(RankingKillerOutlaw.GetAll)
+                    .Concat(RankingEscapeArtist.GetAll)
+                    .Concat(RankingLichSlayer.GetAll)
+                    .Concat(RankingGhostKingSlayer.GetAll);
 
             public TopRankings()
             {
@@ -50,6 +57,14 @@ namespace BarkAndBarker.RankingCalculator.Jobs
             public List<ModelCharacterRankingTop> RankingRogue { get; set; }
             public List<ModelCharacterRankingTop> RankingRanger { get; set; }
             public List<ModelCharacterRankingTop> RankingWizard { get; set; }
+
+            public IEnumerable<ModelCharacterRankingTop> GetAll =>
+                RankingAll.Concat(RankingFighter)
+                    .Concat(RankingBarbarian)
+                    .Concat(RankingCleric)
+                    .Concat(RankingRogue)
+                    .Concat(RankingRanger)
+                    .Concat(RankingWizard);
 
             public TopRankingsOfType(RankType rankType)
             {
@@ -99,7 +114,7 @@ namespace BarkAndBarker.RankingCalculator.Jobs
                     .Take(100)
                     .Select((character, i) => new ModelCharacterRankingTop
                     {
-                        CharacterRankingID = character.ID,
+                        CharID = character.CharID,
                         ClassType = classType,
                         RankType = rankType,
                         Rank = i+1
@@ -120,6 +135,52 @@ namespace BarkAndBarker.RankingCalculator.Jobs
             var mappedStatistics = GetMappedStatistics(database);
             var rankings = CalculateCharacterRankings(mappedStatistics, database);
             var topRankings = CalculateTopRankings(rankings, database);
+
+            database.Execute(ModelCharacterRanking.QueryResetTable, null);
+            database.Execute(ModelCharacterRankingTop.QueryResetTable, null);
+
+            var characterRankingValues = new List<string>();
+            var characterRankingParameters = new Dictionary<string, object>();
+            for (int i = 0; i < rankings.Count; i++)
+            {
+                var ranking = rankings[i];
+                characterRankingValues.Add($"(@CharID{i}, @ClassName{i}, @VeteranAdventureCount{i}, @TreasureCollectorCount{i}, @KillerOutlawCount{i}, @EscapeArtistCount{i}, @LichSlayerCount{i}, @GhostKingSlayerCount{i})");
+
+                characterRankingParameters.Add($"@CharID{i}", ranking.CharID);
+                characterRankingParameters.Add($"@ClassName{i}", ranking.ClassName);
+                characterRankingParameters.Add($"@VeteranAdventureCount{i}", ranking.VeteranAdventureCount);
+                characterRankingParameters.Add($"@TreasureCollectorCount{i}", ranking.TreasureCollectorCount);
+                characterRankingParameters.Add($"@KillerOutlawCount{i}", ranking.KillerOutlawCount);
+                characterRankingParameters.Add($"@EscapeArtistCount{i}", ranking.EscapeArtistCount);
+                characterRankingParameters.Add($"@LichSlayerCount{i}", ranking.LichSlayerCount);
+                characterRankingParameters.Add($"@GhostKingSlayerCount{i}", ranking.GhostKingSlayerCount);
+            }
+            var populateRankingQuery = ModelCharacterRanking.QueryPopulate;
+            populateRankingQuery += string.Join(", ", characterRankingValues);
+
+            if(characterRankingParameters.Count > 0)
+                database.Execute(populateRankingQuery, characterRankingParameters);
+
+
+            var characterRankingTopValues = new List<string>();
+            var characterRankingTopParameters = new Dictionary<string, object>();
+            var topRankingsList = topRankings.GetAll.ToList();
+            for (int i = 0; i < topRankingsList.Count; i++)
+            {
+                var ranking = topRankingsList[i];
+                characterRankingTopValues.Add($"(@CharID{i}, @ClassType{i}, @RankType{i}, @Rank{i})");
+
+                characterRankingTopParameters.Add($"@CharID{i}", ranking.CharID);
+                characterRankingTopParameters.Add($"@ClassType{i}", ranking.ClassType);
+                characterRankingTopParameters.Add($"@RankType{i}", ranking.RankType);
+                characterRankingTopParameters.Add($"@Rank{i}", ranking.Rank);
+            }
+
+            var populateRankingTopQuery = ModelCharacterRankingTop.QueryPopulate;
+            populateRankingTopQuery += string.Join(", ", characterRankingTopValues);
+
+            if(characterRankingTopParameters.Count > 0)
+                database.Execute(populateRankingTopQuery, characterRankingTopParameters);
         }
 
         private List<MappedStatistics> GetMappedStatistics(Database database)
