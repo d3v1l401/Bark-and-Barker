@@ -41,7 +41,7 @@ namespace BarkAndBarker.Persistence
 
             // Get all implementors of IModel
             // All table models should start with "Model*"
-            var modelsClasses = typeof(IModel).GetImplementors(Assembly.GetExecutingAssembly()).Reverse();
+            var modelsClasses = typeof(IModel).GetImplementors(Assembly.GetExecutingAssembly());
             foreach (var model in modelsClasses
                          .Where(el => el.Name.StartsWith("Model"))
                          .OrderByDescending(el => (int)el.GetMember(nameof(IModel.TableCreationOrder)).First().GetValue(el)))

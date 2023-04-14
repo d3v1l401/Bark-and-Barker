@@ -30,6 +30,7 @@ public class ModelCharacter : IModel
                                                               `KarmaScore` int NOT NULL DEFAULT '0',
                                                               `IsDeleted` timestamp NULL DEFAULT NULL,
                                                               PRIMARY KEY (`CharID`),
+                                                              KEY `charIndex` (`CharID`),
                                                               CONSTRAINT `charOwner` FOREIGN KEY (`accountID`) REFERENCES `accounts` (`SteamID`)
                                                             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
 
