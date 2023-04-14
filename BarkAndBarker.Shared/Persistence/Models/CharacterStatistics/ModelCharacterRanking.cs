@@ -1,6 +1,6 @@
 ﻿namespace BarkAndBarker.Shared.Persistence.Models.CharacterStatistics
 {
-    internal class ModelCharacterRanking : IModel
+    public class ModelCharacterRanking : IModel
     {
         public int ID { get; set; } //PK
         public string CharID { get; set; } //FK

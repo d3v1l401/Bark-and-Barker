@@ -1,7 +1,9 @@
-﻿using BarkAndBarker.RankingCalculator.Jobs;
+﻿using BarkAndBarker.RankingCalculator.Jobs;using BarkAndBarker.Shared.Persistence;
 using FluentScheduler;
 
 Console.WriteLine("Bark!");
+
+Database.ConnectionString = @"Server=127.0.0.1;User=bark;Password=barkbark;Database=barker;"; //TODO
 
 var jobRegistry = new SchedulerRegistry();
 

@@ -1,6 +1,6 @@
 ﻿namespace BarkAndBarker.Shared.Persistence.Models.CharacterStatistics
 {
-    internal class ModelCharacterStatistics : IModel
+    public class ModelCharacterStatistics : IModel
     {
         public string CharID { get; set; } //PK, FK
         public int PlaytimeInMinutes { get; set; }
@@ -19,6 +19,8 @@
         public int NpcKilled { get; set; }
         public int LichKilled { get; set; }
         public int GhostKingKilled { get; set; }
+
+        public static readonly string QuerySelectAll = "SELECT * FROM barker.character_statistics;";
 
         public static readonly string QueryCreateTable = @"CREATE TABLE IF NOT EXISTS character_statistics (
                                                 `CharID` VARCHAR(45),
