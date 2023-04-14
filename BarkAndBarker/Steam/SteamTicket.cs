@@ -47,20 +47,28 @@ namespace BarkAndBarker.Steam
                                                         gdTckPv+T1JzZsuVcNfFjrocejN1oWI0Rrtgt4Bo+hOneoo3S57G9F1fOpn5nsQ6
                                                         6WOiu4gZKODnFMBCiQIBEQ==
                                                         -----END PUBLIC KEY-----";
+
+        private static RSAParameters m_rsaParams;
+        private static bool m_paramsParsed = false;
+
         private static bool verifyTicket(byte[] buffer, byte[] signature)
         {
             if (buffer == null)
                 return false;
 
-            var rsaImporter = RSA.Create();
-            rsaImporter.ImportFromPem(m_publicKey.ToCharArray());
+            if (!m_paramsParsed)
+            {
+                var rsaImporter = RSA.Create();
+                rsaImporter.ImportFromPem(m_publicKey.ToCharArray());
+                m_rsaParams = rsaImporter.ExportParameters(false);
+                m_paramsParsed = true;
+            }
 
             RSACryptoServiceProvider rsaProvider = new RSACryptoServiceProvider();
             SHA1Managed sha1 = new SHA1Managed();
 
-            var rsaParams = rsaImporter.ExportParameters(false);
 
-            rsaProvider.ImportParameters(rsaParams);
+            rsaProvider.ImportParameters(m_rsaParams);
             var healthyData =  rsaProvider.VerifyData(buffer, CryptoConfig.MapNameToOID("SHA1"), signature);
             var hashed = sha1.ComputeHash(buffer);
             return rsaProvider.VerifyHash(hashed, CryptoConfig.MapNameToOID("SHA1"), signature) && healthyData;
@@ -165,11 +173,7 @@ namespace BarkAndBarker.Steam
                 var ownershipTicket = ticketReader.ReadBytes(ownershipTicketLength);
 
                 details.HasValidSignature = details.Signature != null && verifyTicket(ownershipTicket, details.Signature);
-                //details.IsValid = !details.IsExpired && details.HasValidSignature);
-                //if (!details.HasValidSignature && !allowInvalidSignature)
-                //{
-                //    throw new Exception("Missing or invalid signature");
-                //}
+                details.IsValid = !details.IsExpired && details.HasValidSignature;
             }
             catch
             {
