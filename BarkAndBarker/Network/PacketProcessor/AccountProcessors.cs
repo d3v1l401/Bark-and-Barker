@@ -53,7 +53,7 @@ namespace BarkAndBarker.Network.PacketProcessor
             }
 
             // Invalid steam ownership ticket
-            if (!parsed.IsValid && parsed.HasValidSignature)
+            if (!parsed.IsValid || !parsed.HasValidSignature)
             {
                 loggedPlayer = new ModelAccount()
                 {
