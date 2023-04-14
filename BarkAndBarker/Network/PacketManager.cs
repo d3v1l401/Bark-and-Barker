@@ -15,76 +15,66 @@ namespace BarkAndBarker.Network
     public class PacketManager
     {
         // Handles the request, needs a PacketCommand, a WrapperDeserializer & returns the deserialized object
-        private static Dictionary<PacketCommand, Func<ClientSession, dynamic, object>>       m_requests  = new Dictionary<PacketCommand, Func<ClientSession, dynamic, object>>();
-        private static Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>> m_responses = new Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>>();
-
-        public PacketManager()
+        private static readonly Dictionary<PacketCommand, Func<ClientSession, dynamic, object>> m_requests = new Dictionary<PacketCommand, Func<ClientSession, dynamic, object>>()
         {
-            //  Pre-lobby and/or General
             // Heartbeat
-            m_requests.Add(PacketCommand.C2SAliveReq, PacketProcessors.HandleAliveReq);
-            m_responses.Add(PacketCommand.S2CAliveRes, PacketProcessors.HandleAliveRes);
-
+            { PacketCommand.C2SAliveReq, MiscProcessors.HandleAliveReq },
             // Login
-            m_requests.Add(PacketCommand.C2SAccountLoginReq, PacketProcessors.HandleLoginReq);
-            m_responses.Add(PacketCommand.S2CAccountLoginRes, PacketProcessors.HandleLoginRes);
-
+            { PacketCommand.C2SAccountLoginReq, AccountProcessors.HandleLoginReq },
             // Character management
-            m_requests.Add(PacketCommand.C2SAccountCharacterCreateReq, CharacterProcessors.HandleCharacterCreateReq);
-            m_responses.Add(PacketCommand.S2CAccountCharacterCreateRes, CharacterProcessors.HandleCharacterCreateRes);
-            m_requests.Add(PacketCommand.C2SAccountCharacterListReq, CharacterProcessors.HandleCharacterListReq);
-            m_responses.Add(PacketCommand.S2CAccountCharacterListRes, CharacterProcessors.HandleCharacterListRes);
-            m_requests.Add(PacketCommand.C2SAccountCharacterDeleteReq, CharacterProcessors.HandleCharacterDeletionReq);
-            m_responses.Add(PacketCommand.S2CAccountCharacterDeleteRes, CharacterProcessors.HandleCharacterDeletionRes);
-
+            { PacketCommand.C2SAccountCharacterCreateReq, CharacterProcessors.HandleCharacterCreateReq },
+            { PacketCommand.C2SAccountCharacterListReq, CharacterProcessors.HandleCharacterListReq },
+            { PacketCommand.C2SAccountCharacterDeleteReq, CharacterProcessors.HandleCharacterDeletionReq },
             // Lobby
-            m_requests.Add(PacketCommand.C2SLobbyEnterReq, PacketProcessors.HandleLobbyEnterReq);
-            m_responses.Add(PacketCommand.S2CLobbyEnterRes, PacketProcessors.HandleLobbyEnterRes);
-
-            //  In-lobby stuff
-            // No idea
-            m_requests.Add(PacketCommand.C2SCustomizeCharacterInfoReq, PacketProcessors.HandleCustomizeCharacterInfoReq);
-            m_responses.Add(PacketCommand.S2CCustomizeCharacterInfoRes, PacketProcessors.HandleCustomizeCharacterInfoRes);
-
-            // No idea yet
-            m_requests.Add(PacketCommand.C2SCustomizeActionInfoReq, PacketProcessors.HandleCustomizeActionInfoReq);
-            m_responses.Add(PacketCommand.S2CCustomizeActionInfoRes, PacketProcessors.HandleCustomizeActionInfoRes);
-
-            // Opening the lobby, telling the client which region the client is
-            m_requests.Add(PacketCommand.C2SOpenLobbyMapReq, PacketProcessors.HandleOpenLobbyMapReq);
-            m_responses.Add(PacketCommand.S2COpenLobbyMapRes, PacketProcessors.HandleOpenLobbyMapRes);
-
+            { PacketCommand.C2SLobbyEnterReq, PacketProcessors.HandleLobbyEnterReq },
+            // In-Lobby
+            { PacketCommand.C2SCustomizeCharacterInfoReq, PacketProcessors.HandleCustomizeCharacterInfoReq },
+            { PacketCommand.C2SCustomizeActionInfoReq, PacketProcessors.HandleCustomizeActionInfoReq },
+            // Lobby opening, region selection
+            { PacketCommand.C2SOpenLobbyMapReq, PacketProcessors.HandleOpenLobbyMapReq },
             // Matchmaking region
-            m_requests.Add(PacketCommand.C2SMetaLocationReq, PacketProcessors.HandleMetaLocationReq);
-            m_responses.Add(PacketCommand.S2CMetaLocationRes, PacketProcessors.HandleMetaLocationRes);
+            { PacketCommand.C2SMetaLocationReq, PacketProcessors.HandleMetaLocationReq },
+            // Current equipped items
+            { PacketCommand.C2SClassEquipInfoReq, PacketProcessors.HandleClassEquipInfoReq },
+            // Customization items 
+            { PacketCommand.C2SCustomizeItemInfoReq, PacketProcessors.HandleCustomizeItemInfoReq },
+            // Character level, exp and ability points
+            { PacketCommand.C2SClassLevelInfoReq, PacketProcessors.HandleClassLevelInfoReq },
+            // Matchmaking registration
+            { PacketCommand.C2SAutoMatchRegReq, PacketProcessors.HandleMatchmakingReq },
+            // Merchants operations
+            { PacketCommand.C2SMerchantListReq, PacketProcessors.HandleMerchantListReq },
+            // Leaderboards 
+            { PacketCommand.C2SRankingRangeReq, RankingProcessors.HandleRankingReq },
+            // Gathering hall
+            { PacketCommand.C2SGatheringHallChannelListReq, GatheringHallProcessors.HandleGhateringHallListReq },
 
-            // Current player equipment items
-            m_requests.Add(PacketCommand.C2SClassEquipInfoReq, PacketProcessors.HandleClassEquipInfoReq);
-            m_responses.Add(PacketCommand.S2CClassEquipInfoRes, PacketProcessors.HandleClassEquipInfoRes);
+        };
+        private static readonly Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>> m_responses = new Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>>()
+        {
+            { PacketCommand.S2CAliveRes, MiscProcessors.HandleAliveRes },
+            
+            { PacketCommand.S2CAccountLoginRes, AccountProcessors.HandleLoginRes },
+            
+            { PacketCommand.S2CAccountCharacterCreateRes, CharacterProcessors.HandleCharacterCreateRes },
+            { PacketCommand.S2CAccountCharacterListRes, CharacterProcessors.HandleCharacterListRes },
+            { PacketCommand.S2CAccountCharacterDeleteRes, CharacterProcessors.HandleCharacterDeletionRes },
 
-            // I believe current customization items?
-            m_requests.Add(PacketCommand.C2SCustomizeItemInfoReq, PacketProcessors.HandleCustomizeItemInfoReq);
-            m_responses.Add(PacketCommand.S2CCustomizeItemInfoRes, PacketProcessors.HandleCustomizeItemInfoRes);
+            { PacketCommand.S2CLobbyEnterRes, PacketProcessors.HandleLobbyEnterRes },
+            { PacketCommand.S2CCustomizeCharacterInfoRes, PacketProcessors.HandleCustomizeCharacterInfoRes },
+            { PacketCommand.S2CCustomizeActionInfoRes, PacketProcessors.HandleCustomizeActionInfoRes },
+            { PacketCommand.S2COpenLobbyMapRes, PacketProcessors.HandleOpenLobbyMapRes },
+            { PacketCommand.S2CMetaLocationRes, PacketProcessors.HandleMetaLocationRes },
+            { PacketCommand.S2CClassEquipInfoRes, PacketProcessors.HandleClassEquipInfoRes },
+            { PacketCommand.S2CCustomizeItemInfoRes, PacketProcessors.HandleCustomizeItemInfoRes },
+            { PacketCommand.S2CClassLevelInfoRes, PacketProcessors.HandleClassLevelInfoRes },
+            { PacketCommand.S2CAutoMatchRegRes, PacketProcessors.HandleMatchmakingRes },
+            { PacketCommand.S2CMerchantListRes, PacketProcessors.HandleMerchantListRes },
+            { PacketCommand.S2CRankingRangeRes, RankingProcessors.HandleRankingRes },
+            { PacketCommand.S2CGatheringHallChannelListRes, GatheringHallProcessors.HandleGatheringHallListRes }
+        };
 
-            // Character level, experience and skill points; last playtest they didn't have this feature.
-            m_requests.Add(PacketCommand.C2SClassLevelInfoReq, PacketProcessors.HandleClassLevelInfoReq);
-            m_responses.Add(PacketCommand.S2CClassLevelInfoRes, PacketProcessors.HandleClassLevelInfoRes);
-
-            // Matchmaking registration/withdrawal requests
-            m_requests.Add(PacketCommand.C2SAutoMatchRegReq, PacketProcessors.HandleMatchmakingReq);
-            m_responses.Add(PacketCommand.S2CAutoMatchRegRes, PacketProcessors.HandleMatchmakingRes);
-
-            // Merchants list
-            m_requests.Add(PacketCommand.C2SMerchantListReq, PacketProcessors.HandleMerchantListReq);
-            m_responses.Add(PacketCommand.S2CMerchantListRes, PacketProcessors.HandleMerchantListRes);
-
-            // Leaderboard
-            m_requests.Add(PacketCommand.C2SRankingRangeReq, RankingProcessors.HandleRankingReq);
-            m_responses.Add(PacketCommand.S2CRankingRangeRes, RankingProcessors.HandleRankingRes);
-
-            m_requests.Add(PacketCommand.C2SGatheringHallChannelListReq, GatheringHallProcessors.HandleGhateringHallListReq);
-            m_responses.Add(PacketCommand.S2CGatheringHallChannelListRes, GatheringHallProcessors.HandleGatheringHallListRes);
-        }
+        public PacketManager() { }
 
         public MemoryStream Handle(ClientSession session, MemoryStream packet)
         {
