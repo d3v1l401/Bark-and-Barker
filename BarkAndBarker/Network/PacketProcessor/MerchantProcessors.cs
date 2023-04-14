@@ -36,7 +36,7 @@ namespace BarkAndBarker.Network.PacketProcessor
                 RemainTime = 1092831,
             });
 
-            var serial = new WrapperSerializer<SS2C_MERCHANT_LIST_RES>(response, PacketCommand.S2CAutoMatchRegRes);
+            var serial = new WrapperSerializer<SS2C_MERCHANT_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CAutoMatchRegRes);
             return serial.Serialize();
         }
     }

@@ -1,6 +1,7 @@
 ﻿using BarkAndBarker;
 using BarkAndBarker.Network;
 using DC.Packet;
+using MySqlX.XDevAPI;
 using Org.BouncyCastle.Utilities.Net;
 using System;
 using System.Collections.Generic;
@@ -57,7 +58,7 @@ namespace BarkAndBarker
 
                     Console.WriteLine("NotifyClients is sending updates");
 
-                    var serial = new WrapperSerializer<SS2C_ENTER_GAME_SERVER_NOT>(packet, PacketCommand.S2CEnterGameServerNot);
+                    var serial = new WrapperSerializer<SS2C_ENTER_GAME_SERVER_NOT>(packet, client.m_currentPacketSequence++, PacketCommand.S2CEnterGameServerNot);
 
                     if (client.SendAsync(serial.Serialize().ToArray()))
                         notified++;

@@ -26,7 +26,7 @@ namespace BarkAndBarker.Network.PacketProcessor
 
             });
 
-            var serial = new WrapperSerializer<SS2C_CLASS_EQUIP_INFO_RES>(response, PacketCommand.S2CClassEquipInfoRes);
+            var serial = new WrapperSerializer<SS2C_CLASS_EQUIP_INFO_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CClassEquipInfoRes);
             return serial.Serialize();
         }
 
@@ -47,7 +47,7 @@ namespace BarkAndBarker.Network.PacketProcessor
 
             });
 
-            var serial = new WrapperSerializer<SS2C_CUSTOMIZE_ITEM_INFO_RES>(response, PacketCommand.S2CCustomizeItemInfoRes);
+            var serial = new WrapperSerializer<SS2C_CUSTOMIZE_ITEM_INFO_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CCustomizeItemInfoRes);
             return serial.Serialize();
         }
     }
