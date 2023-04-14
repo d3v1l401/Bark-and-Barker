@@ -49,7 +49,7 @@ namespace BarkAndBarker.Network.PacketProcessor
         {
             var response = (SS2C_ACCOUNT_CHARACTER_CREATE_RES)inputClass;
 
-            var serial = new WrapperSerializer<SS2C_ACCOUNT_CHARACTER_CREATE_RES>(response, PacketCommand.S2CAccountCharacterCreateRes);
+            var serial = new WrapperSerializer<SS2C_ACCOUNT_CHARACTER_CREATE_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CAccountCharacterCreateRes);
             return serial.Serialize();
         }
 
@@ -95,7 +95,7 @@ namespace BarkAndBarker.Network.PacketProcessor
             response.PageIndex = 1; // Only supporting 1 page for now
             response.TotalCharacterCount = (uint)response.CharacterList.Count;
 
-            var serial = new WrapperSerializer<SS2C_ACCOUNT_CHARACTER_LIST_RES>(response, PacketCommand.S2CAccountCharacterListRes);
+            var serial = new WrapperSerializer<SS2C_ACCOUNT_CHARACTER_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CAccountCharacterListRes);
             return serial.Serialize();
         }
 
@@ -131,7 +131,7 @@ namespace BarkAndBarker.Network.PacketProcessor
         public static MemoryStream HandleCharacterDeletionRes(ClientSession session, dynamic inputClass)
         {
             var response = (SS2C_ACCOUNT_CHARACTER_DELETE_RES)inputClass;
-            var serial = new WrapperSerializer<SS2C_ACCOUNT_CHARACTER_DELETE_RES>(response, PacketCommand.S2CAccountCharacterListRes);
+            var serial = new WrapperSerializer<SS2C_ACCOUNT_CHARACTER_DELETE_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CAccountCharacterListRes);
             return serial.Serialize();
         }
     }

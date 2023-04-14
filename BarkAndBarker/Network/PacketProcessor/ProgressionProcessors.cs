@@ -26,7 +26,7 @@ namespace BarkAndBarker.Network.PacketProcessor
             response.ExpLimit = 10000;
             response.RewardPoint = 5;
 
-            var serial = new WrapperSerializer<SS2C_CLASS_LEVEL_INFO_RES>(response, PacketCommand.S2CClassLevelInfoRes);
+            var serial = new WrapperSerializer<SS2C_CLASS_LEVEL_INFO_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CClassLevelInfoRes);
             return serial.Serialize();
         }
     }

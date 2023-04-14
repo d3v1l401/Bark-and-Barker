@@ -63,7 +63,7 @@ namespace BarkAndBarker.Network.PacketProcessor
             response.Records.Add(record2);
 
 
-            var serial = new WrapperSerializer<SS2C_RANKING_RANGE_RES>(response, PacketCommand.S2CRankingRangeRes);
+            var serial = new WrapperSerializer<SS2C_RANKING_RANGE_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CRankingRangeRes);
             return serial.Serialize();
         }
     }
