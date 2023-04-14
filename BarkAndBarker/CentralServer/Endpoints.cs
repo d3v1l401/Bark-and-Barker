@@ -22,6 +22,8 @@ namespace BarkAndBarker
 
     internal class Endpoints
     {
+        public static string m_clientManagerAddress = "127.0.0.1";
+        public static UInt16 m_clientManagerPort = 1339;
         
         private class ClientEntrypointACK
         {
@@ -35,8 +37,8 @@ namespace BarkAndBarker
             {
                 var response = new ClientEntrypointACK() // TODO: Proper configuration medium
                 {
-                    ipAddress = "127.0.0.1",
-                    port = 1339,
+                    ipAddress = m_clientManagerAddress,
+                    port = m_clientManagerPort,
                 };
 
                 var rawPayload = JsonConvert.SerializeObject(response);
