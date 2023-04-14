@@ -79,6 +79,9 @@ namespace BarkAndBarker.Network
             // Leaderboard
             m_requests.Add(PacketCommand.C2SRankingRangeReq, RankingProcessors.HandleRankingReq);
             m_responses.Add(PacketCommand.S2CRankingRangeRes, RankingProcessors.HandleRankingRes);
+
+            m_requests.Add(PacketCommand.C2SGatheringHallChannelListReq, GatheringHallProcessors.HandleGhateringHallListReq);
+            m_responses.Add(PacketCommand.S2CGatheringHallChannelListRes, GatheringHallProcessors.HandleGatheringHallListRes);
         }
 
         public MemoryStream Handle(ClientSession session, MemoryStream packet)
