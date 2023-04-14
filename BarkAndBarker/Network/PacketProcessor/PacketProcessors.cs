@@ -11,7 +11,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Google.Protobuf.Collections;
-using BarkAndBarker.Persistence.Models;
 
 namespace BarkAndBarker.Network.PacketProcessor
 {

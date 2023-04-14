@@ -1,4 +1,4 @@
-﻿namespace BarkAndBarker.Persistence.Models.CharacterStatistics
+﻿namespace BarkAndBarker.Shared.Persistence.Models.CharacterStatistics
 {
     internal class ModelCharacterRanking : IModel
     {

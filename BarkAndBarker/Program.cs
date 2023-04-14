@@ -2,6 +2,7 @@
 using NetCoreServer;
 using System.Collections.Concurrent;
 using System.Net;
+using BarkAndBarker.Shared.Persistence;
 
 namespace BarkAndBarker
 {
