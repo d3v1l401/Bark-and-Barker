@@ -34,7 +34,7 @@ namespace BarkAndBarker.Network.PacketProcessor
             Matchmaking.Instance().AcceptPlayers();
             _ = Matchmaking.Instance().Matchmake();
 
-            var serial = new WrapperSerializer<SS2C_AUTO_MATCH_REG_RES>(response, PacketCommand.S2CAutoMatchRegRes);
+            var serial = new WrapperSerializer<SS2C_AUTO_MATCH_REG_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CAutoMatchRegRes);
             return serial.Serialize();
         }
     }

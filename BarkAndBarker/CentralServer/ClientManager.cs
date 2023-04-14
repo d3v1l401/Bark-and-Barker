@@ -32,6 +32,8 @@ namespace BarkAndBarker
         public ModelCharacter m_currentCharacter = null;
         private Database m_databaseSession = new Database();
 
+        public UInt16 m_currentPacketSequence { get; set; } = 0;
+
         public string SteamId { get; set; }
 
         public Database GetDB() { return m_databaseSession; }

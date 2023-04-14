@@ -45,7 +45,7 @@ namespace BarkAndBarker.Network.PacketProcessor
         public static MemoryStream HandleGatheringHallListRes(ClientSession session, dynamic inputClass)
         {
             var response = (SS2C_GATHERING_HALL_CHANNEL_LIST_RES)inputClass;
-            var serial = new WrapperSerializer<SS2C_GATHERING_HALL_CHANNEL_LIST_RES>(response, PacketCommand.S2CGatheringHallChannelListRes);
+            var serial = new WrapperSerializer<SS2C_GATHERING_HALL_CHANNEL_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CGatheringHallChannelListRes);
             return serial.Serialize();
         }
     }

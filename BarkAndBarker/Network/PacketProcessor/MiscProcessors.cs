@@ -18,7 +18,7 @@ namespace BarkAndBarker.Network.PacketProcessor
         public static MemoryStream HandleAliveRes(ClientSession session, dynamic inputClass)
         {
             var res = new SS2C_ALIVE_RES();
-            var response = new WrapperSerializer<SS2C_ALIVE_RES>(res, PacketCommand.S2CAliveRes);
+            var response = new WrapperSerializer<SS2C_ALIVE_RES>(res, session.m_currentPacketSequence++, PacketCommand.S2CAliveRes);
             return response.Serialize();
         }
     }

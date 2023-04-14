@@ -49,7 +49,7 @@ namespace BarkAndBarker.Network
 
         private uint m_packetSize = 0; // 4 bytes
         private uint m_packetType = 0; // +2 bytes
-        private uint m_packetUnk = 0;  // +2 bytes
+        private uint m_packetSequence = 0;  // +2 bytes
 
         private BinaryReader m_stream;
         public WrapperDeserializer(MemoryStream inputStream)
@@ -111,7 +111,7 @@ namespace BarkAndBarker.Network
         {
             this.m_packetSize = this.GetUInt();
             this.m_packetType = this.GetUShort();
-            this.m_packetUnk = this.GetUShort();
+            this.m_packetSequence = this.GetUShort();
 
             if ((this.m_stream.BaseStream.Length == this.m_packetSize) || (this.m_packetSize == 8)) // ALIVE_REQ does not use the wrapping header
             {
@@ -147,8 +147,9 @@ namespace BarkAndBarker.Network
     {
         private T m_packet;
         private PacketCommand m_packetClass = PacketCommand.PacketNone;
+        private UInt16 m_packetSequence = 0;
 
-        public WrapperSerializer(T packet, PacketCommand packetClass) 
+        public WrapperSerializer(T packet, UInt16 sendSequence, PacketCommand packetClass) 
         {
             if (packet == null)
                 throw new ArgumentException();
@@ -174,7 +175,7 @@ namespace BarkAndBarker.Network
                     {
                         writer.Write((UInt32)(headerSize + packetPayload.Length));
                         writer.Write((UInt16)this.m_packetClass); 
-                        writer.Write((UInt16)2);
+                        writer.Write((UInt16)this.m_packetSequence);
                         writer.Write(packetPayload.ToArray());
                     }
 

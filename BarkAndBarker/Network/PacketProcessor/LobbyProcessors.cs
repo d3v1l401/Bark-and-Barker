@@ -36,7 +36,7 @@ namespace BarkAndBarker.Network.PacketProcessor
             var response = (SS2C_LOBBY_ENTER_RES)inputClass;
             response.AccountId = session.m_currentPlayer.SteamID;
 
-            var serial = new WrapperSerializer<SS2C_LOBBY_ENTER_RES>(response, PacketCommand.S2CLobbyEnterRes);
+            var serial = new WrapperSerializer<SS2C_LOBBY_ENTER_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CLobbyEnterRes);
             return serial.Serialize();
         }
         public static object HandleOpenLobbyMapReq(ClientSession session, dynamic deserializer)
@@ -49,7 +49,7 @@ namespace BarkAndBarker.Network.PacketProcessor
         {
             var response = (SS2C_OPEN_LOBBY_MAP_RES)inputClass;
 
-            var serial = new WrapperSerializer<SS2C_OPEN_LOBBY_MAP_RES>(response, PacketCommand.S2COpenLobbyMapRes);
+            var serial = new WrapperSerializer<SS2C_OPEN_LOBBY_MAP_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2COpenLobbyMapRes);
             return serial.Serialize();
         }
 
@@ -66,7 +66,7 @@ namespace BarkAndBarker.Network.PacketProcessor
         public static MemoryStream HandleMetaLocationRes(ClientSession session, dynamic inputClass)
         {
             var response = (SS2C_META_LOCATION_RES)inputClass;
-            var serial = new WrapperSerializer<SS2C_META_LOCATION_RES>(response, PacketCommand.S2CMetaLocationRes);
+            var serial = new WrapperSerializer<SS2C_META_LOCATION_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CMetaLocationRes);
             return serial.Serialize();
         }
 
