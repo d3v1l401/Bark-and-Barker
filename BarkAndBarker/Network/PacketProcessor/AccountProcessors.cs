@@ -104,7 +104,7 @@ namespace BarkAndBarker.Network.PacketProcessor
 
             session.m_currentPlayer.SteamID = loggedPlayer.SteamID.ToString();
 
-            var serializer = new WrapperSerializer<SS2C_ACCOUNT_LOGIN_RES>(responsePacket, PacketCommand.S2CAccountLoginRes);
+            var serializer = new WrapperSerializer<SS2C_ACCOUNT_LOGIN_RES>(responsePacket, session.m_currentPacketSequence++, PacketCommand.S2CAccountLoginRes);
             return serializer.Serialize();
         }
     }
