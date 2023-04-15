@@ -35,40 +35,44 @@ namespace DC.Packet {
             "bnQYCCABKA0SJgoIbWV0YUl0ZW0YCSABKAsyFC5EQy5QYWNrZXQuU0l0ZW1N",
             "ZXRhEjYKFHByaW1hcnlQcm9wZXJ0eUFycmF5GAogAygLMhguREMuUGFja2V0",
             "LlNJdGVtUHJvcGVydHkSOAoWc2Vjb25kYXJ5UHJvcGVydHlBcnJheRgLIAMo",
-            "CzIYLkRDLlBhY2tldC5TSXRlbVByb3BlcnR5IpwCCgVTSXRlbRIUCgxpdGVt",
+            "CzIYLkRDLlBhY2tldC5TSXRlbVByb3BlcnR5IokCCgVTSXRlbRIUCgxpdGVt",
             "VW5pcXVlSWQYASABKAQSDgoGaXRlbUlkGAIgASgJEhEKCWl0ZW1Db3VudBgD",
-            "IAEoDRITCgtpbnZlbnRvcnlJZBgEIAEoDRIOCgZzbG90SWQYBSABKA0SEQoJ",
-            "YkVxdWlwcGVkGAYgASgNEhUKDWl0ZW1BbW1vQ291bnQYByABKA0SGQoRaXRl",
-            "bUNvbnRlbnRzQ291bnQYCCABKA0SNgoUcHJpbWFyeVByb3BlcnR5QXJyYXkY",
-            "CSADKAsyGC5EQy5QYWNrZXQuU0l0ZW1Qcm9wZXJ0eRI4ChZzZWNvbmRhcnlQ",
-            "cm9wZXJ0eUFycmF5GAogAygLMhguREMuUGFja2V0LlNJdGVtUHJvcGVydHki",
-            "PgoNU0l0ZW1Qcm9wZXJ0eRIWCg5wcm9wZXJ0eVR5cGVJZBgBIAEoCRIVCg1w",
-            "cm9wZXJ0eVZhbHVlGAIgASgFIigKBlNJdGVtcxIeCgRpdGVtGAEgAygLMhAu",
-            "REMuUGFja2V0LlNJdGVtIiYKBVNQZXJrEg0KBWluZGV4GAEgASgNEg4KBnBl",
-            "cmtJZBgCIAEoCSIoCgZTU2tpbGwSDQoFaW5kZXgYASABKA0SDwoHc2tpbGxJ",
-            "ZBgCIAEoCSJDCgZTU3BlbGwSEQoJc2xvdEluZGV4GAEgASgNEhUKDXNlcXVl",
-            "bmNlSW5kZXgYAiABKA0SDwoHc3BlbGxJZBgDIAEoCSJFChRTQ1VTVE9NSVpF",
-            "X0NIQVJBQ1RFUhIcChRjdXN0b21pemVDaGFyYWN0ZXJJZBgBIAEoCRIPCgdp",
-            "c0VxdWlwGAIgASgFIjsKD1NDVVNUT01JWkVfSVRFTRIXCg9jdXN0b21pemVJ",
-            "dGVtSWQYASABKAkSDwoHaXNFcXVpcBgCIAEoBSIxCgZTRU1PVEUSDwoHZW1v",
-            "dGVJZBgBIAEoCRIWCg5lcXVpcFNsb3RJbmRleBgCIAEoBSI/ChFTQ1VTVE9N",
-            "SVpFX0FDVElPThIZChFjdXN0b21pemVBY3Rpb25JZBgBIAEoCRIPCgdpc0Vx",
-            "dWlwGAIgASgFQhoKEGNvbS5wYWNrZXRzLml0ZW1CBGl0ZW1QAGIGcHJvdG8z"));
+            "IAEoDRITCgtpbnZlbnRvcnlJZBgEIAEoDRIOCgZzbG90SWQYBSABKA0SFQoN",
+            "aXRlbUFtbW9Db3VudBgHIAEoDRIZChFpdGVtQ29udGVudHNDb3VudBgIIAEo",
+            "DRI2ChRwcmltYXJ5UHJvcGVydHlBcnJheRgJIAMoCzIYLkRDLlBhY2tldC5T",
+            "SXRlbVByb3BlcnR5EjgKFnNlY29uZGFyeVByb3BlcnR5QXJyYXkYCiADKAsy",
+            "GC5EQy5QYWNrZXQuU0l0ZW1Qcm9wZXJ0eSI+Cg1TSXRlbVByb3BlcnR5EhYK",
+            "DnByb3BlcnR5VHlwZUlkGAEgASgJEhUKDXByb3BlcnR5VmFsdWUYAiABKAUi",
+            "KAoGU0l0ZW1zEh4KBGl0ZW0YASADKAsyEC5EQy5QYWNrZXQuU0l0ZW0iJgoF",
+            "U1BlcmsSDQoFaW5kZXgYASABKA0SDgoGcGVya0lkGAIgASgJIigKBlNTa2ls",
+            "bBINCgVpbmRleBgBIAEoDRIPCgdza2lsbElkGAIgASgJIkMKBlNTcGVsbBIR",
+            "CglzbG90SW5kZXgYASABKA0SFQoNc2VxdWVuY2VJbmRleBgCIAEoDRIPCgdz",
+            "cGVsbElkGAMgASgJIlQKFFNDVVNUT01JWkVfQ0hBUkFDVEVSEhwKFGN1c3Rv",
+            "bWl6ZUNoYXJhY3RlcklkGAEgASgJEg8KB2lzRXF1aXAYAiABKAUSDQoFaXNO",
+            "ZXcYAyABKAUiSgoPU0NVU1RPTUlaRV9JVEVNEhcKD2N1c3RvbWl6ZUl0ZW1J",
+            "ZBgBIAEoCRIPCgdpc0VxdWlwGAIgASgFEg0KBWlzTmV3GAMgASgFIkAKBlNF",
+            "TU9URRIPCgdlbW90ZUlkGAEgASgJEhYKDmVxdWlwU2xvdEluZGV4GAIgASgF",
+            "Eg0KBWlzTmV3GAMgASgFIk4KEVNDVVNUT01JWkVfQUNUSU9OEhkKEWN1c3Rv",
+            "bWl6ZUFjdGlvbklkGAEgASgJEg8KB2lzRXF1aXAYAiABKAUSDQoFaXNOZXcY",
+            "AyABKAUiVQoWU0NVU1RPTUlaRV9MT0JCWV9FTU9URRIUCgxsb2JieUVtb3Rl",
+            "SWQYASABKAkSFgoOZXF1aXBTbG90SW5kZXgYAiABKAUSDQoFaXNOZXcYAyAB",
+            "KAVCGgoQY29tLnBhY2tldHMuaXRlbUIEaXRlbVAAYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SItemMeta), global::DC.Packet.SItemMeta.Parser, new[]{ "SoulHeartAccountId", "SoulHeartPartyId", "SoulHeartNickNameOrigin", "SoulHeartNickNameStreaming", "AvailableValue" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SDownItem), global::DC.Packet.SDownItem.Parser, new[]{ "ItemUniqueId", "ItemId", "ItemCount", "InventoryId", "SlotId", "BEquipped", "ItemAmmoCount", "ItemContentsCount", "MetaItem", "PrimaryPropertyArray", "SecondaryPropertyArray" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SItem), global::DC.Packet.SItem.Parser, new[]{ "ItemUniqueId", "ItemId", "ItemCount", "InventoryId", "SlotId", "BEquipped", "ItemAmmoCount", "ItemContentsCount", "PrimaryPropertyArray", "SecondaryPropertyArray" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SItem), global::DC.Packet.SItem.Parser, new[]{ "ItemUniqueId", "ItemId", "ItemCount", "InventoryId", "SlotId", "ItemAmmoCount", "ItemContentsCount", "PrimaryPropertyArray", "SecondaryPropertyArray" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SItemProperty), global::DC.Packet.SItemProperty.Parser, new[]{ "PropertyTypeId", "PropertyValue" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SItems), global::DC.Packet.SItems.Parser, new[]{ "Item" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SPerk), global::DC.Packet.SPerk.Parser, new[]{ "Index", "PerkId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SSkill), global::DC.Packet.SSkill.Parser, new[]{ "Index", "SkillId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SSpell), global::DC.Packet.SSpell.Parser, new[]{ "SlotIndex", "SequenceIndex", "SpellId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SCUSTOMIZE_CHARACTER), global::DC.Packet.SCUSTOMIZE_CHARACTER.Parser, new[]{ "CustomizeCharacterId", "IsEquip" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SCUSTOMIZE_ITEM), global::DC.Packet.SCUSTOMIZE_ITEM.Parser, new[]{ "CustomizeItemId", "IsEquip" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SEMOTE), global::DC.Packet.SEMOTE.Parser, new[]{ "EmoteId", "EquipSlotIndex" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SCUSTOMIZE_ACTION), global::DC.Packet.SCUSTOMIZE_ACTION.Parser, new[]{ "CustomizeActionId", "IsEquip" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SCUSTOMIZE_CHARACTER), global::DC.Packet.SCUSTOMIZE_CHARACTER.Parser, new[]{ "CustomizeCharacterId", "IsEquip", "IsNew" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SCUSTOMIZE_ITEM), global::DC.Packet.SCUSTOMIZE_ITEM.Parser, new[]{ "CustomizeItemId", "IsEquip", "IsNew" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SEMOTE), global::DC.Packet.SEMOTE.Parser, new[]{ "EmoteId", "EquipSlotIndex", "IsNew" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SCUSTOMIZE_ACTION), global::DC.Packet.SCUSTOMIZE_ACTION.Parser, new[]{ "CustomizeActionId", "IsEquip", "IsNew" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SCUSTOMIZE_LOBBY_EMOTE), global::DC.Packet.SCUSTOMIZE_LOBBY_EMOTE.Parser, new[]{ "LobbyEmoteId", "EquipSlotIndex", "IsNew" }, null, null, null, null)
           }));
     }
     #endregion
@@ -997,7 +1001,6 @@ namespace DC.Packet {
       itemCount_ = other.itemCount_;
       inventoryId_ = other.inventoryId_;
       slotId_ = other.slotId_;
-      bEquipped_ = other.bEquipped_;
       itemAmmoCount_ = other.itemAmmoCount_;
       itemContentsCount_ = other.itemContentsCount_;
       primaryPropertyArray_ = other.primaryPropertyArray_.Clone();
@@ -1071,18 +1074,6 @@ namespace DC.Packet {
       }
     }
 
-    /// <summary>Field number for the "bEquipped" field.</summary>
-    public const int BEquippedFieldNumber = 6;
-    private uint bEquipped_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint BEquipped {
-      get { return bEquipped_; }
-      set {
-        bEquipped_ = value;
-      }
-    }
-
     /// <summary>Field number for the "itemAmmoCount" field.</summary>
     public const int ItemAmmoCountFieldNumber = 7;
     private uint itemAmmoCount_;
@@ -1149,7 +1140,6 @@ namespace DC.Packet {
       if (ItemCount != other.ItemCount) return false;
       if (InventoryId != other.InventoryId) return false;
       if (SlotId != other.SlotId) return false;
-      if (BEquipped != other.BEquipped) return false;
       if (ItemAmmoCount != other.ItemAmmoCount) return false;
       if (ItemContentsCount != other.ItemContentsCount) return false;
       if(!primaryPropertyArray_.Equals(other.primaryPropertyArray_)) return false;
@@ -1166,7 +1156,6 @@ namespace DC.Packet {
       if (ItemCount != 0) hash ^= ItemCount.GetHashCode();
       if (InventoryId != 0) hash ^= InventoryId.GetHashCode();
       if (SlotId != 0) hash ^= SlotId.GetHashCode();
-      if (BEquipped != 0) hash ^= BEquipped.GetHashCode();
       if (ItemAmmoCount != 0) hash ^= ItemAmmoCount.GetHashCode();
       if (ItemContentsCount != 0) hash ^= ItemContentsCount.GetHashCode();
       hash ^= primaryPropertyArray_.GetHashCode();
@@ -1209,10 +1198,6 @@ namespace DC.Packet {
         output.WriteRawTag(40);
         output.WriteUInt32(SlotId);
       }
-      if (BEquipped != 0) {
-        output.WriteRawTag(48);
-        output.WriteUInt32(BEquipped);
-      }
       if (ItemAmmoCount != 0) {
         output.WriteRawTag(56);
         output.WriteUInt32(ItemAmmoCount);
@@ -1253,10 +1238,6 @@ namespace DC.Packet {
         output.WriteRawTag(40);
         output.WriteUInt32(SlotId);
       }
-      if (BEquipped != 0) {
-        output.WriteRawTag(48);
-        output.WriteUInt32(BEquipped);
-      }
       if (ItemAmmoCount != 0) {
         output.WriteRawTag(56);
         output.WriteUInt32(ItemAmmoCount);
@@ -1292,9 +1273,6 @@ namespace DC.Packet {
       if (SlotId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SlotId);
       }
-      if (BEquipped != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BEquipped);
-      }
       if (ItemAmmoCount != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ItemAmmoCount);
       }
@@ -1329,9 +1307,6 @@ namespace DC.Packet {
       }
       if (other.SlotId != 0) {
         SlotId = other.SlotId;
-      }
-      if (other.BEquipped != 0) {
-        BEquipped = other.BEquipped;
       }
       if (other.ItemAmmoCount != 0) {
         ItemAmmoCount = other.ItemAmmoCount;
@@ -1374,10 +1349,6 @@ namespace DC.Packet {
           }
           case 40: {
             SlotId = input.ReadUInt32();
-            break;
-          }
-          case 48: {
-            BEquipped = input.ReadUInt32();
             break;
           }
           case 56: {
@@ -1429,10 +1400,6 @@ namespace DC.Packet {
           }
           case 40: {
             SlotId = input.ReadUInt32();
-            break;
-          }
-          case 48: {
-            BEquipped = input.ReadUInt32();
             break;
           }
           case 56: {
@@ -2613,6 +2580,7 @@ namespace DC.Packet {
     public SCUSTOMIZE_CHARACTER(SCUSTOMIZE_CHARACTER other) : this() {
       customizeCharacterId_ = other.customizeCharacterId_;
       isEquip_ = other.isEquip_;
+      isNew_ = other.isNew_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2646,6 +2614,18 @@ namespace DC.Packet {
       }
     }
 
+    /// <summary>Field number for the "isNew" field.</summary>
+    public const int IsNewFieldNumber = 3;
+    private int isNew_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int IsNew {
+      get { return isNew_; }
+      set {
+        isNew_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -2663,6 +2643,7 @@ namespace DC.Packet {
       }
       if (CustomizeCharacterId != other.CustomizeCharacterId) return false;
       if (IsEquip != other.IsEquip) return false;
+      if (IsNew != other.IsNew) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2672,6 +2653,7 @@ namespace DC.Packet {
       int hash = 1;
       if (CustomizeCharacterId.Length != 0) hash ^= CustomizeCharacterId.GetHashCode();
       if (IsEquip != 0) hash ^= IsEquip.GetHashCode();
+      if (IsNew != 0) hash ^= IsNew.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2698,6 +2680,10 @@ namespace DC.Packet {
         output.WriteRawTag(16);
         output.WriteInt32(IsEquip);
       }
+      if (IsNew != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(IsNew);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2716,6 +2702,10 @@ namespace DC.Packet {
         output.WriteRawTag(16);
         output.WriteInt32(IsEquip);
       }
+      if (IsNew != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(IsNew);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2731,6 +2721,9 @@ namespace DC.Packet {
       }
       if (IsEquip != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(IsEquip);
+      }
+      if (IsNew != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(IsNew);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2749,6 +2742,9 @@ namespace DC.Packet {
       }
       if (other.IsEquip != 0) {
         IsEquip = other.IsEquip;
+      }
+      if (other.IsNew != 0) {
+        IsNew = other.IsNew;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2773,6 +2769,10 @@ namespace DC.Packet {
             IsEquip = input.ReadInt32();
             break;
           }
+          case 24: {
+            IsNew = input.ReadInt32();
+            break;
+          }
         }
       }
     #endif
@@ -2794,6 +2794,10 @@ namespace DC.Packet {
           }
           case 16: {
             IsEquip = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            IsNew = input.ReadInt32();
             break;
           }
         }
@@ -2839,6 +2843,7 @@ namespace DC.Packet {
     public SCUSTOMIZE_ITEM(SCUSTOMIZE_ITEM other) : this() {
       customizeItemId_ = other.customizeItemId_;
       isEquip_ = other.isEquip_;
+      isNew_ = other.isNew_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2872,6 +2877,18 @@ namespace DC.Packet {
       }
     }
 
+    /// <summary>Field number for the "isNew" field.</summary>
+    public const int IsNewFieldNumber = 3;
+    private int isNew_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int IsNew {
+      get { return isNew_; }
+      set {
+        isNew_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -2889,6 +2906,7 @@ namespace DC.Packet {
       }
       if (CustomizeItemId != other.CustomizeItemId) return false;
       if (IsEquip != other.IsEquip) return false;
+      if (IsNew != other.IsNew) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2898,6 +2916,7 @@ namespace DC.Packet {
       int hash = 1;
       if (CustomizeItemId.Length != 0) hash ^= CustomizeItemId.GetHashCode();
       if (IsEquip != 0) hash ^= IsEquip.GetHashCode();
+      if (IsNew != 0) hash ^= IsNew.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2924,6 +2943,10 @@ namespace DC.Packet {
         output.WriteRawTag(16);
         output.WriteInt32(IsEquip);
       }
+      if (IsNew != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(IsNew);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2942,6 +2965,10 @@ namespace DC.Packet {
         output.WriteRawTag(16);
         output.WriteInt32(IsEquip);
       }
+      if (IsNew != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(IsNew);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2957,6 +2984,9 @@ namespace DC.Packet {
       }
       if (IsEquip != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(IsEquip);
+      }
+      if (IsNew != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(IsNew);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2975,6 +3005,9 @@ namespace DC.Packet {
       }
       if (other.IsEquip != 0) {
         IsEquip = other.IsEquip;
+      }
+      if (other.IsNew != 0) {
+        IsNew = other.IsNew;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2999,6 +3032,10 @@ namespace DC.Packet {
             IsEquip = input.ReadInt32();
             break;
           }
+          case 24: {
+            IsNew = input.ReadInt32();
+            break;
+          }
         }
       }
     #endif
@@ -3020,6 +3057,10 @@ namespace DC.Packet {
           }
           case 16: {
             IsEquip = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            IsNew = input.ReadInt32();
             break;
           }
         }
@@ -3065,6 +3106,7 @@ namespace DC.Packet {
     public SEMOTE(SEMOTE other) : this() {
       emoteId_ = other.emoteId_;
       equipSlotIndex_ = other.equipSlotIndex_;
+      isNew_ = other.isNew_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3098,6 +3140,18 @@ namespace DC.Packet {
       }
     }
 
+    /// <summary>Field number for the "isNew" field.</summary>
+    public const int IsNewFieldNumber = 3;
+    private int isNew_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int IsNew {
+      get { return isNew_; }
+      set {
+        isNew_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3115,6 +3169,7 @@ namespace DC.Packet {
       }
       if (EmoteId != other.EmoteId) return false;
       if (EquipSlotIndex != other.EquipSlotIndex) return false;
+      if (IsNew != other.IsNew) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3124,6 +3179,7 @@ namespace DC.Packet {
       int hash = 1;
       if (EmoteId.Length != 0) hash ^= EmoteId.GetHashCode();
       if (EquipSlotIndex != 0) hash ^= EquipSlotIndex.GetHashCode();
+      if (IsNew != 0) hash ^= IsNew.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3150,6 +3206,10 @@ namespace DC.Packet {
         output.WriteRawTag(16);
         output.WriteInt32(EquipSlotIndex);
       }
+      if (IsNew != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(IsNew);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3168,6 +3228,10 @@ namespace DC.Packet {
         output.WriteRawTag(16);
         output.WriteInt32(EquipSlotIndex);
       }
+      if (IsNew != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(IsNew);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3183,6 +3247,9 @@ namespace DC.Packet {
       }
       if (EquipSlotIndex != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(EquipSlotIndex);
+      }
+      if (IsNew != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(IsNew);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3201,6 +3268,9 @@ namespace DC.Packet {
       }
       if (other.EquipSlotIndex != 0) {
         EquipSlotIndex = other.EquipSlotIndex;
+      }
+      if (other.IsNew != 0) {
+        IsNew = other.IsNew;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3225,6 +3295,10 @@ namespace DC.Packet {
             EquipSlotIndex = input.ReadInt32();
             break;
           }
+          case 24: {
+            IsNew = input.ReadInt32();
+            break;
+          }
         }
       }
     #endif
@@ -3246,6 +3320,10 @@ namespace DC.Packet {
           }
           case 16: {
             EquipSlotIndex = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            IsNew = input.ReadInt32();
             break;
           }
         }
@@ -3291,6 +3369,7 @@ namespace DC.Packet {
     public SCUSTOMIZE_ACTION(SCUSTOMIZE_ACTION other) : this() {
       customizeActionId_ = other.customizeActionId_;
       isEquip_ = other.isEquip_;
+      isNew_ = other.isNew_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3324,6 +3403,18 @@ namespace DC.Packet {
       }
     }
 
+    /// <summary>Field number for the "isNew" field.</summary>
+    public const int IsNewFieldNumber = 3;
+    private int isNew_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int IsNew {
+      get { return isNew_; }
+      set {
+        isNew_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3341,6 +3432,7 @@ namespace DC.Packet {
       }
       if (CustomizeActionId != other.CustomizeActionId) return false;
       if (IsEquip != other.IsEquip) return false;
+      if (IsNew != other.IsNew) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3350,6 +3442,7 @@ namespace DC.Packet {
       int hash = 1;
       if (CustomizeActionId.Length != 0) hash ^= CustomizeActionId.GetHashCode();
       if (IsEquip != 0) hash ^= IsEquip.GetHashCode();
+      if (IsNew != 0) hash ^= IsNew.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3376,6 +3469,10 @@ namespace DC.Packet {
         output.WriteRawTag(16);
         output.WriteInt32(IsEquip);
       }
+      if (IsNew != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(IsNew);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3394,6 +3491,10 @@ namespace DC.Packet {
         output.WriteRawTag(16);
         output.WriteInt32(IsEquip);
       }
+      if (IsNew != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(IsNew);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3409,6 +3510,9 @@ namespace DC.Packet {
       }
       if (IsEquip != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(IsEquip);
+      }
+      if (IsNew != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(IsNew);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3427,6 +3531,9 @@ namespace DC.Packet {
       }
       if (other.IsEquip != 0) {
         IsEquip = other.IsEquip;
+      }
+      if (other.IsNew != 0) {
+        IsNew = other.IsNew;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3451,6 +3558,10 @@ namespace DC.Packet {
             IsEquip = input.ReadInt32();
             break;
           }
+          case 24: {
+            IsNew = input.ReadInt32();
+            break;
+          }
         }
       }
     #endif
@@ -3472,6 +3583,273 @@ namespace DC.Packet {
           }
           case 16: {
             IsEquip = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            IsNew = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class SCUSTOMIZE_LOBBY_EMOTE : pb::IMessage<SCUSTOMIZE_LOBBY_EMOTE>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SCUSTOMIZE_LOBBY_EMOTE> _parser = new pb::MessageParser<SCUSTOMIZE_LOBBY_EMOTE>(() => new SCUSTOMIZE_LOBBY_EMOTE());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SCUSTOMIZE_LOBBY_EMOTE> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DC.Packet.ItemReflection.Descriptor.MessageTypes[12]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SCUSTOMIZE_LOBBY_EMOTE() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SCUSTOMIZE_LOBBY_EMOTE(SCUSTOMIZE_LOBBY_EMOTE other) : this() {
+      lobbyEmoteId_ = other.lobbyEmoteId_;
+      equipSlotIndex_ = other.equipSlotIndex_;
+      isNew_ = other.isNew_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SCUSTOMIZE_LOBBY_EMOTE Clone() {
+      return new SCUSTOMIZE_LOBBY_EMOTE(this);
+    }
+
+    /// <summary>Field number for the "lobbyEmoteId" field.</summary>
+    public const int LobbyEmoteIdFieldNumber = 1;
+    private string lobbyEmoteId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string LobbyEmoteId {
+      get { return lobbyEmoteId_; }
+      set {
+        lobbyEmoteId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "equipSlotIndex" field.</summary>
+    public const int EquipSlotIndexFieldNumber = 2;
+    private int equipSlotIndex_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int EquipSlotIndex {
+      get { return equipSlotIndex_; }
+      set {
+        equipSlotIndex_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "isNew" field.</summary>
+    public const int IsNewFieldNumber = 3;
+    private int isNew_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int IsNew {
+      get { return isNew_; }
+      set {
+        isNew_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SCUSTOMIZE_LOBBY_EMOTE);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SCUSTOMIZE_LOBBY_EMOTE other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (LobbyEmoteId != other.LobbyEmoteId) return false;
+      if (EquipSlotIndex != other.EquipSlotIndex) return false;
+      if (IsNew != other.IsNew) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (LobbyEmoteId.Length != 0) hash ^= LobbyEmoteId.GetHashCode();
+      if (EquipSlotIndex != 0) hash ^= EquipSlotIndex.GetHashCode();
+      if (IsNew != 0) hash ^= IsNew.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (LobbyEmoteId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(LobbyEmoteId);
+      }
+      if (EquipSlotIndex != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(EquipSlotIndex);
+      }
+      if (IsNew != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(IsNew);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (LobbyEmoteId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(LobbyEmoteId);
+      }
+      if (EquipSlotIndex != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(EquipSlotIndex);
+      }
+      if (IsNew != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(IsNew);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (LobbyEmoteId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(LobbyEmoteId);
+      }
+      if (EquipSlotIndex != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(EquipSlotIndex);
+      }
+      if (IsNew != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(IsNew);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SCUSTOMIZE_LOBBY_EMOTE other) {
+      if (other == null) {
+        return;
+      }
+      if (other.LobbyEmoteId.Length != 0) {
+        LobbyEmoteId = other.LobbyEmoteId;
+      }
+      if (other.EquipSlotIndex != 0) {
+        EquipSlotIndex = other.EquipSlotIndex;
+      }
+      if (other.IsNew != 0) {
+        IsNew = other.IsNew;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            LobbyEmoteId = input.ReadString();
+            break;
+          }
+          case 16: {
+            EquipSlotIndex = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            IsNew = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            LobbyEmoteId = input.ReadString();
+            break;
+          }
+          case 16: {
+            EquipSlotIndex = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            IsNew = input.ReadInt32();
             break;
           }
         }

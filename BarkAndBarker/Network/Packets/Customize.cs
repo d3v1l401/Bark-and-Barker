@@ -34,42 +34,58 @@ namespace DC.Packet {
             "Q1VTVE9NSVpFX0lURU0iHwodU0MyU19DVVNUT01JWkVfRU1PVEVfSU5GT19S",
             "RVEiVAodU1MyQ19DVVNUT01JWkVfRU1PVEVfSU5GT19SRVMSEAoIbG9vcEZs",
             "YWcYASABKA0SIQoGZW1vdGVzGAIgAygLMhEuREMuUGFja2V0LlNFTU9URSIg",
-            "Ch5TQzJTX0NVU1RPTUlaRV9BQ1RJT05fSU5GT19SRVEicQoeU1MyQ19DVVNU",
-            "T01JWkVfQUNUSU9OX0lORk9fUkVTEhAKCGxvb3BGbGFnGAEgASgNEj0KF2N1",
-            "c3RvbWl6ZUxvYmJ5QWN0aW9uSWRzGAIgAygLMhwuREMuUGFja2V0LlNDVVNU",
-            "T01JWkVfQUNUSU9OIkIKIlNDMlNfQ1VTVE9NSVpFX0NIQVJBQ1RFUl9NT1VO",
-            "VF9SRVESHAoUY3VzdG9taXplQ2hhcmFjdGVySWQYASABKAkidwoiU1MyQ19D",
-            "VVNUT01JWkVfQ0hBUkFDVEVSX01PVU5UX1JFUxIOCgZyZXN1bHQYASABKA0S",
-            "QQoYZXF1aXBDdXN0b21pemVDaGFyYWN0ZXJzGAIgAygLMh8uREMuUGFja2V0",
-            "LlNDVVNUT01JWkVfQ0hBUkFDVEVSIkQKJFNDMlNfQ1VTVE9NSVpFX0NIQVJB",
-            "Q1RFUl9VTk1PVU5UX1JFURIcChRjdXN0b21pemVDaGFyYWN0ZXJJZBgBIAEo",
-            "CSJ5CiRTUzJDX0NVU1RPTUlaRV9DSEFSQUNURVJfVU5NT1VOVF9SRVMSDgoG",
-            "cmVzdWx0GAEgASgNEkEKGGVxdWlwQ3VzdG9taXplQ2hhcmFjdGVycxgCIAMo",
-            "CzIfLkRDLlBhY2tldC5TQ1VTVE9NSVpFX0NIQVJBQ1RFUiJQCh1TQzJTX0NV",
-            "U1RPTUlaRV9JVEVNX01PVU5UX1JFURIXCg9jdXN0b21pemVJdGVtSWQYASAB",
-            "KAkSFgoOZXF1aXBTbG90SW5kZXgYAiABKAUiaAodU1MyQ19DVVNUT01JWkVf",
-            "SVRFTV9NT1VOVF9SRVMSDgoGcmVzdWx0GAEgASgNEjcKE2VxdWlwQ3VzdG9t",
-            "aXplSXRlbXMYAiADKAsyGi5EQy5QYWNrZXQuU0NVU1RPTUlaRV9JVEVNIjoK",
-            "H1NDMlNfQ1VTVE9NSVpFX0lURU1fVU5NT1VOVF9SRVESFwoPY3VzdG9taXpl",
-            "SXRlbUlkGAEgASgJImoKH1NTMkNfQ1VTVE9NSVpFX0lURU1fVU5NT1VOVF9S",
-            "RVMSDgoGcmVzdWx0GAEgASgNEjcKE2VxdWlwQ3VzdG9taXplSXRlbXMYAiAD",
-            "KAsyGi5EQy5QYWNrZXQuU0NVU1RPTUlaRV9JVEVNIkkKHlNDMlNfQ1VTVE9N",
-            "SVpFX0VNT1RFX01PVU5UX1JFURIPCgdlbW90ZUlkGAEgASgJEhYKDmVxdWlw",
-            "U2xvdEluZGV4GAIgASgNIlgKHlNTMkNfQ1VTVE9NSVpFX0VNT1RFX01PVU5U",
-            "X1JFUxIOCgZyZXN1bHQYASABKA0SJgoLZXF1aXBFbW90ZXMYAiADKAsyES5E",
-            "Qy5QYWNrZXQuU0VNT1RFIjMKIFNDMlNfQ1VTVE9NSVpFX0VNT1RFX1VOTU9V",
-            "TlRfUkVREg8KB2Vtb3RlSWQYASABKAkiWgogU1MyQ19DVVNUT01JWkVfRU1P",
-            "VEVfVU5NT1VOVF9SRVMSDgoGcmVzdWx0GAEgASgNEiYKC2VxdWlwRW1vdGVz",
-            "GAIgAygLMhEuREMuUGFja2V0LlNFTU9URSI8Ch9TQzJTX0NVU1RPTUlaRV9B",
-            "Q1RJT05fTU9VTlRfUkVREhkKEWN1c3RvbWl6ZUFjdGlvbklkGAEgASgJInAK",
-            "H1NTMkNfQ1VTVE9NSVpFX0FDVElPTl9NT1VOVF9SRVMSDgoGcmVzdWx0GAEg",
-            "ASgNEj0KF2VxdWlwQ3VzdG9taXplQWN0aW9uSWRzGAIgAygLMhwuREMuUGFj",
-            "a2V0LlNDVVNUT01JWkVfQUNUSU9OIj4KIVNDMlNfQ1VTVE9NSVpFX0FDVElP",
-            "Tl9VTk1PVU5UX1JFURIZChFjdXN0b21pemVBY3Rpb25JZBgBIAEoCSJyCiFT",
-            "UzJDX0NVU1RPTUlaRV9BQ1RJT05fVU5NT1VOVF9SRVMSDgoGcmVzdWx0GAEg",
-            "ASgNEj0KF2VxdWlwQ3VzdG9taXplQWN0aW9uSWRzGAIgAygLMhwuREMuUGFj",
-            "a2V0LlNDVVNUT01JWkVfQUNUSU9OQiQKFWNvbS5wYWNrZXRzLmN1c3RvbWl6",
-            "ZUIJY3VzdG9taXplUABiBnByb3RvMw=="));
+            "Ch5TQzJTX0NVU1RPTUlaRV9BQ1RJT05fSU5GT19SRVEibAoeU1MyQ19DVVNU",
+            "T01JWkVfQUNUSU9OX0lORk9fUkVTEhAKCGxvb3BGbGFnGAEgASgNEjgKEmN1",
+            "c3RvbWl6ZUFjdGlvbklkcxgCIAMoCzIcLkRDLlBhY2tldC5TQ1VTVE9NSVpF",
+            "X0FDVElPTiIlCiNTQzJTX0NVU1RPTUlaRV9MT0JCWV9FTU9URV9JTkZPX1JF",
+            "USJ6CiNTUzJDX0NVU1RPTUlaRV9MT0JCWV9FTU9URV9JTkZPX1JFUxIQCghs",
+            "b29wRmxhZxgBIAEoDRJBChZjdXN0b21pemVMb2JieUVtb3RlSWRzGAIgAygL",
+            "MiEuREMuUGFja2V0LlNDVVNUT01JWkVfTE9CQllfRU1PVEUiQgoiU0MyU19D",
+            "VVNUT01JWkVfQ0hBUkFDVEVSX01PVU5UX1JFURIcChRjdXN0b21pemVDaGFy",
+            "YWN0ZXJJZBgBIAEoCSJ3CiJTUzJDX0NVU1RPTUlaRV9DSEFSQUNURVJfTU9V",
+            "TlRfUkVTEg4KBnJlc3VsdBgBIAEoDRJBChhlcXVpcEN1c3RvbWl6ZUNoYXJh",
+            "Y3RlcnMYAiADKAsyHy5EQy5QYWNrZXQuU0NVU1RPTUlaRV9DSEFSQUNURVIi",
+            "RAokU0MyU19DVVNUT01JWkVfQ0hBUkFDVEVSX1VOTU9VTlRfUkVREhwKFGN1",
+            "c3RvbWl6ZUNoYXJhY3RlcklkGAEgASgJInkKJFNTMkNfQ1VTVE9NSVpFX0NI",
+            "QVJBQ1RFUl9VTk1PVU5UX1JFUxIOCgZyZXN1bHQYASABKA0SQQoYZXF1aXBD",
+            "dXN0b21pemVDaGFyYWN0ZXJzGAIgAygLMh8uREMuUGFja2V0LlNDVVNUT01J",
+            "WkVfQ0hBUkFDVEVSIlAKHVNDMlNfQ1VTVE9NSVpFX0lURU1fTU9VTlRfUkVR",
+            "EhcKD2N1c3RvbWl6ZUl0ZW1JZBgBIAEoCRIWCg5lcXVpcFNsb3RJbmRleBgC",
+            "IAEoBSJoCh1TUzJDX0NVU1RPTUlaRV9JVEVNX01PVU5UX1JFUxIOCgZyZXN1",
+            "bHQYASABKA0SNwoTZXF1aXBDdXN0b21pemVJdGVtcxgCIAMoCzIaLkRDLlBh",
+            "Y2tldC5TQ1VTVE9NSVpFX0lURU0iOgofU0MyU19DVVNUT01JWkVfSVRFTV9V",
+            "Tk1PVU5UX1JFURIXCg9jdXN0b21pemVJdGVtSWQYASABKAkiagofU1MyQ19D",
+            "VVNUT01JWkVfSVRFTV9VTk1PVU5UX1JFUxIOCgZyZXN1bHQYASABKA0SNwoT",
+            "ZXF1aXBDdXN0b21pemVJdGVtcxgCIAMoCzIaLkRDLlBhY2tldC5TQ1VTVE9N",
+            "SVpFX0lURU0iSQoeU0MyU19DVVNUT01JWkVfRU1PVEVfTU9VTlRfUkVREg8K",
+            "B2Vtb3RlSWQYASABKAkSFgoOZXF1aXBTbG90SW5kZXgYAiABKA0iWAoeU1My",
+            "Q19DVVNUT01JWkVfRU1PVEVfTU9VTlRfUkVTEg4KBnJlc3VsdBgBIAEoDRIm",
+            "CgtlcXVpcEVtb3RlcxgCIAMoCzIRLkRDLlBhY2tldC5TRU1PVEUiMwogU0My",
+            "U19DVVNUT01JWkVfRU1PVEVfVU5NT1VOVF9SRVESDwoHZW1vdGVJZBgBIAEo",
+            "CSJaCiBTUzJDX0NVU1RPTUlaRV9FTU9URV9VTk1PVU5UX1JFUxIOCgZyZXN1",
+            "bHQYASABKA0SJgoLZXF1aXBFbW90ZXMYAiADKAsyES5EQy5QYWNrZXQuU0VN",
+            "T1RFIjwKH1NDMlNfQ1VTVE9NSVpFX0FDVElPTl9NT1VOVF9SRVESGQoRY3Vz",
+            "dG9taXplQWN0aW9uSWQYASABKAkicAofU1MyQ19DVVNUT01JWkVfQUNUSU9O",
+            "X01PVU5UX1JFUxIOCgZyZXN1bHQYASABKA0SPQoXZXF1aXBDdXN0b21pemVB",
+            "Y3Rpb25JZHMYAiADKAsyHC5EQy5QYWNrZXQuU0NVU1RPTUlaRV9BQ1RJT04i",
+            "PgohU0MyU19DVVNUT01JWkVfQUNUSU9OX1VOTU9VTlRfUkVREhkKEWN1c3Rv",
+            "bWl6ZUFjdGlvbklkGAEgASgJInIKIVNTMkNfQ1VTVE9NSVpFX0FDVElPTl9V",
+            "Tk1PVU5UX1JFUxIOCgZyZXN1bHQYASABKA0SPQoXZXF1aXBDdXN0b21pemVB",
+            "Y3Rpb25JZHMYAiADKAsyHC5EQy5QYWNrZXQuU0NVU1RPTUlaRV9BQ1RJT04i",
+            "XQokU0MyU19DVVNUT01JWkVfTE9CQllfRU1PVEVfTU9VTlRfUkVREh0KFWN1",
+            "c3RvbWl6ZUxvYmJ5RW1vdGVJZBgBIAEoCRIWCg5lcXVpcFNsb3RJbmRleBgC",
+            "IAEoDSJ+CiRTUzJDX0NVU1RPTUlaRV9MT0JCWV9FTU9URV9NT1VOVF9SRVMS",
+            "DgoGcmVzdWx0GAEgASgNEkYKG2VxdWlwQ3VzdG9taXplTG9iYnlFbW90ZUlk",
+            "cxgCIAMoCzIhLkRDLlBhY2tldC5TQ1VTVE9NSVpFX0xPQkJZX0VNT1RFIkcK",
+            "JlNDMlNfQ1VTVE9NSVpFX0xPQkJZX0VNT1RFX1VOTU9VTlRfUkVREh0KFWN1",
+            "c3RvbWl6ZUxvYmJ5RW1vdGVJZBgBIAEoCSKAAQomU1MyQ19DVVNUT01JWkVf",
+            "TE9CQllfRU1PVEVfVU5NT1VOVF9SRVMSDgoGcmVzdWx0GAEgASgNEkYKG2Vx",
+            "dWlwQ3VzdG9taXplTG9iYnlFbW90ZUlkcxgCIAMoCzIhLkRDLlBhY2tldC5T",
+            "Q1VTVE9NSVpFX0xPQkJZX0VNT1RFIjMKIVNDMlNfQ1VTVE9NSVpFX05FV19J",
+            "VEVNX0NIRUNLX1JFURIOCgZpdGVtSWQYASABKAkiIwohU1MyQ19DVVNUT01J",
+            "WkVfTkVXX0lURU1fQ0hFQ0tfUkVTIiMKIVNTMkNfQ1VTVE9NSVpFX05FV19J",
+            "VEVNX0FMRVJUX05PVEIkChVjb20ucGFja2V0cy5jdXN0b21pemVCCWN1c3Rv",
+            "bWl6ZVAAYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DC.Packet.ItemReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -80,7 +96,9 @@ namespace DC.Packet {
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SC2S_CUSTOMIZE_EMOTE_INFO_REQ), global::DC.Packet.SC2S_CUSTOMIZE_EMOTE_INFO_REQ.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_CUSTOMIZE_EMOTE_INFO_RES), global::DC.Packet.SS2C_CUSTOMIZE_EMOTE_INFO_RES.Parser, new[]{ "LoopFlag", "Emotes" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SC2S_CUSTOMIZE_ACTION_INFO_REQ), global::DC.Packet.SC2S_CUSTOMIZE_ACTION_INFO_REQ.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_CUSTOMIZE_ACTION_INFO_RES), global::DC.Packet.SS2C_CUSTOMIZE_ACTION_INFO_RES.Parser, new[]{ "LoopFlag", "CustomizeLobbyActionIds" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_CUSTOMIZE_ACTION_INFO_RES), global::DC.Packet.SS2C_CUSTOMIZE_ACTION_INFO_RES.Parser, new[]{ "LoopFlag", "CustomizeActionIds" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SC2S_CUSTOMIZE_LOBBY_EMOTE_INFO_REQ), global::DC.Packet.SC2S_CUSTOMIZE_LOBBY_EMOTE_INFO_REQ.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_CUSTOMIZE_LOBBY_EMOTE_INFO_RES), global::DC.Packet.SS2C_CUSTOMIZE_LOBBY_EMOTE_INFO_RES.Parser, new[]{ "LoopFlag", "CustomizeLobbyEmoteIds" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SC2S_CUSTOMIZE_CHARACTER_MOUNT_REQ), global::DC.Packet.SC2S_CUSTOMIZE_CHARACTER_MOUNT_REQ.Parser, new[]{ "CustomizeCharacterId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_CUSTOMIZE_CHARACTER_MOUNT_RES), global::DC.Packet.SS2C_CUSTOMIZE_CHARACTER_MOUNT_RES.Parser, new[]{ "Result", "EquipCustomizeCharacters" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SC2S_CUSTOMIZE_CHARACTER_UNMOUNT_REQ), global::DC.Packet.SC2S_CUSTOMIZE_CHARACTER_UNMOUNT_REQ.Parser, new[]{ "CustomizeCharacterId" }, null, null, null, null),
@@ -96,7 +114,14 @@ namespace DC.Packet {
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SC2S_CUSTOMIZE_ACTION_MOUNT_REQ), global::DC.Packet.SC2S_CUSTOMIZE_ACTION_MOUNT_REQ.Parser, new[]{ "CustomizeActionId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_CUSTOMIZE_ACTION_MOUNT_RES), global::DC.Packet.SS2C_CUSTOMIZE_ACTION_MOUNT_RES.Parser, new[]{ "Result", "EquipCustomizeActionIds" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SC2S_CUSTOMIZE_ACTION_UNMOUNT_REQ), global::DC.Packet.SC2S_CUSTOMIZE_ACTION_UNMOUNT_REQ.Parser, new[]{ "CustomizeActionId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_CUSTOMIZE_ACTION_UNMOUNT_RES), global::DC.Packet.SS2C_CUSTOMIZE_ACTION_UNMOUNT_RES.Parser, new[]{ "Result", "EquipCustomizeActionIds" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_CUSTOMIZE_ACTION_UNMOUNT_RES), global::DC.Packet.SS2C_CUSTOMIZE_ACTION_UNMOUNT_RES.Parser, new[]{ "Result", "EquipCustomizeActionIds" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SC2S_CUSTOMIZE_LOBBY_EMOTE_MOUNT_REQ), global::DC.Packet.SC2S_CUSTOMIZE_LOBBY_EMOTE_MOUNT_REQ.Parser, new[]{ "CustomizeLobbyEmoteId", "EquipSlotIndex" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_CUSTOMIZE_LOBBY_EMOTE_MOUNT_RES), global::DC.Packet.SS2C_CUSTOMIZE_LOBBY_EMOTE_MOUNT_RES.Parser, new[]{ "Result", "EquipCustomizeLobbyEmoteIds" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SC2S_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_REQ), global::DC.Packet.SC2S_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_REQ.Parser, new[]{ "CustomizeLobbyEmoteId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_RES), global::DC.Packet.SS2C_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_RES.Parser, new[]{ "Result", "EquipCustomizeLobbyEmoteIds" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SC2S_CUSTOMIZE_NEW_ITEM_CHECK_REQ), global::DC.Packet.SC2S_CUSTOMIZE_NEW_ITEM_CHECK_REQ.Parser, new[]{ "ItemId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_CUSTOMIZE_NEW_ITEM_CHECK_RES), global::DC.Packet.SS2C_CUSTOMIZE_NEW_ITEM_CHECK_RES.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_CUSTOMIZE_NEW_ITEM_ALERT_NOT), global::DC.Packet.SS2C_CUSTOMIZE_NEW_ITEM_ALERT_NOT.Parser, null, null, null, null, null)
           }));
     }
     #endregion
@@ -1391,7 +1416,7 @@ namespace DC.Packet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SS2C_CUSTOMIZE_ACTION_INFO_RES(SS2C_CUSTOMIZE_ACTION_INFO_RES other) : this() {
       loopFlag_ = other.loopFlag_;
-      customizeLobbyActionIds_ = other.customizeLobbyActionIds_.Clone();
+      customizeActionIds_ = other.customizeActionIds_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1413,15 +1438,15 @@ namespace DC.Packet {
       }
     }
 
-    /// <summary>Field number for the "customizeLobbyActionIds" field.</summary>
-    public const int CustomizeLobbyActionIdsFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::DC.Packet.SCUSTOMIZE_ACTION> _repeated_customizeLobbyActionIds_codec
+    /// <summary>Field number for the "customizeActionIds" field.</summary>
+    public const int CustomizeActionIdsFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::DC.Packet.SCUSTOMIZE_ACTION> _repeated_customizeActionIds_codec
         = pb::FieldCodec.ForMessage(18, global::DC.Packet.SCUSTOMIZE_ACTION.Parser);
-    private readonly pbc::RepeatedField<global::DC.Packet.SCUSTOMIZE_ACTION> customizeLobbyActionIds_ = new pbc::RepeatedField<global::DC.Packet.SCUSTOMIZE_ACTION>();
+    private readonly pbc::RepeatedField<global::DC.Packet.SCUSTOMIZE_ACTION> customizeActionIds_ = new pbc::RepeatedField<global::DC.Packet.SCUSTOMIZE_ACTION>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::DC.Packet.SCUSTOMIZE_ACTION> CustomizeLobbyActionIds {
-      get { return customizeLobbyActionIds_; }
+    public pbc::RepeatedField<global::DC.Packet.SCUSTOMIZE_ACTION> CustomizeActionIds {
+      get { return customizeActionIds_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1440,7 +1465,7 @@ namespace DC.Packet {
         return true;
       }
       if (LoopFlag != other.LoopFlag) return false;
-      if(!customizeLobbyActionIds_.Equals(other.customizeLobbyActionIds_)) return false;
+      if(!customizeActionIds_.Equals(other.customizeActionIds_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1449,7 +1474,7 @@ namespace DC.Packet {
     public override int GetHashCode() {
       int hash = 1;
       if (LoopFlag != 0) hash ^= LoopFlag.GetHashCode();
-      hash ^= customizeLobbyActionIds_.GetHashCode();
+      hash ^= customizeActionIds_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1472,7 +1497,7 @@ namespace DC.Packet {
         output.WriteRawTag(8);
         output.WriteUInt32(LoopFlag);
       }
-      customizeLobbyActionIds_.WriteTo(output, _repeated_customizeLobbyActionIds_codec);
+      customizeActionIds_.WriteTo(output, _repeated_customizeActionIds_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1487,7 +1512,7 @@ namespace DC.Packet {
         output.WriteRawTag(8);
         output.WriteUInt32(LoopFlag);
       }
-      customizeLobbyActionIds_.WriteTo(ref output, _repeated_customizeLobbyActionIds_codec);
+      customizeActionIds_.WriteTo(ref output, _repeated_customizeActionIds_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1501,7 +1526,7 @@ namespace DC.Packet {
       if (LoopFlag != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LoopFlag);
       }
-      size += customizeLobbyActionIds_.CalculateSize(_repeated_customizeLobbyActionIds_codec);
+      size += customizeActionIds_.CalculateSize(_repeated_customizeActionIds_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1517,7 +1542,7 @@ namespace DC.Packet {
       if (other.LoopFlag != 0) {
         LoopFlag = other.LoopFlag;
       }
-      customizeLobbyActionIds_.Add(other.customizeLobbyActionIds_);
+      customizeActionIds_.Add(other.customizeActionIds_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1538,7 +1563,7 @@ namespace DC.Packet {
             break;
           }
           case 18: {
-            customizeLobbyActionIds_.AddEntriesFrom(input, _repeated_customizeLobbyActionIds_codec);
+            customizeActionIds_.AddEntriesFrom(input, _repeated_customizeActionIds_codec);
             break;
           }
         }
@@ -1561,7 +1586,374 @@ namespace DC.Packet {
             break;
           }
           case 18: {
-            customizeLobbyActionIds_.AddEntriesFrom(ref input, _repeated_customizeLobbyActionIds_codec);
+            customizeActionIds_.AddEntriesFrom(ref input, _repeated_customizeActionIds_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class SC2S_CUSTOMIZE_LOBBY_EMOTE_INFO_REQ : pb::IMessage<SC2S_CUSTOMIZE_LOBBY_EMOTE_INFO_REQ>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SC2S_CUSTOMIZE_LOBBY_EMOTE_INFO_REQ> _parser = new pb::MessageParser<SC2S_CUSTOMIZE_LOBBY_EMOTE_INFO_REQ>(() => new SC2S_CUSTOMIZE_LOBBY_EMOTE_INFO_REQ());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SC2S_CUSTOMIZE_LOBBY_EMOTE_INFO_REQ> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SC2S_CUSTOMIZE_LOBBY_EMOTE_INFO_REQ() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SC2S_CUSTOMIZE_LOBBY_EMOTE_INFO_REQ(SC2S_CUSTOMIZE_LOBBY_EMOTE_INFO_REQ other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SC2S_CUSTOMIZE_LOBBY_EMOTE_INFO_REQ Clone() {
+      return new SC2S_CUSTOMIZE_LOBBY_EMOTE_INFO_REQ(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SC2S_CUSTOMIZE_LOBBY_EMOTE_INFO_REQ);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SC2S_CUSTOMIZE_LOBBY_EMOTE_INFO_REQ other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SC2S_CUSTOMIZE_LOBBY_EMOTE_INFO_REQ other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class SS2C_CUSTOMIZE_LOBBY_EMOTE_INFO_RES : pb::IMessage<SS2C_CUSTOMIZE_LOBBY_EMOTE_INFO_RES>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SS2C_CUSTOMIZE_LOBBY_EMOTE_INFO_RES> _parser = new pb::MessageParser<SS2C_CUSTOMIZE_LOBBY_EMOTE_INFO_RES>(() => new SS2C_CUSTOMIZE_LOBBY_EMOTE_INFO_RES());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SS2C_CUSTOMIZE_LOBBY_EMOTE_INFO_RES> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[9]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SS2C_CUSTOMIZE_LOBBY_EMOTE_INFO_RES() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SS2C_CUSTOMIZE_LOBBY_EMOTE_INFO_RES(SS2C_CUSTOMIZE_LOBBY_EMOTE_INFO_RES other) : this() {
+      loopFlag_ = other.loopFlag_;
+      customizeLobbyEmoteIds_ = other.customizeLobbyEmoteIds_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SS2C_CUSTOMIZE_LOBBY_EMOTE_INFO_RES Clone() {
+      return new SS2C_CUSTOMIZE_LOBBY_EMOTE_INFO_RES(this);
+    }
+
+    /// <summary>Field number for the "loopFlag" field.</summary>
+    public const int LoopFlagFieldNumber = 1;
+    private uint loopFlag_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint LoopFlag {
+      get { return loopFlag_; }
+      set {
+        loopFlag_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "customizeLobbyEmoteIds" field.</summary>
+    public const int CustomizeLobbyEmoteIdsFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::DC.Packet.SCUSTOMIZE_LOBBY_EMOTE> _repeated_customizeLobbyEmoteIds_codec
+        = pb::FieldCodec.ForMessage(18, global::DC.Packet.SCUSTOMIZE_LOBBY_EMOTE.Parser);
+    private readonly pbc::RepeatedField<global::DC.Packet.SCUSTOMIZE_LOBBY_EMOTE> customizeLobbyEmoteIds_ = new pbc::RepeatedField<global::DC.Packet.SCUSTOMIZE_LOBBY_EMOTE>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::DC.Packet.SCUSTOMIZE_LOBBY_EMOTE> CustomizeLobbyEmoteIds {
+      get { return customizeLobbyEmoteIds_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SS2C_CUSTOMIZE_LOBBY_EMOTE_INFO_RES);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SS2C_CUSTOMIZE_LOBBY_EMOTE_INFO_RES other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (LoopFlag != other.LoopFlag) return false;
+      if(!customizeLobbyEmoteIds_.Equals(other.customizeLobbyEmoteIds_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (LoopFlag != 0) hash ^= LoopFlag.GetHashCode();
+      hash ^= customizeLobbyEmoteIds_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (LoopFlag != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(LoopFlag);
+      }
+      customizeLobbyEmoteIds_.WriteTo(output, _repeated_customizeLobbyEmoteIds_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (LoopFlag != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(LoopFlag);
+      }
+      customizeLobbyEmoteIds_.WriteTo(ref output, _repeated_customizeLobbyEmoteIds_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (LoopFlag != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LoopFlag);
+      }
+      size += customizeLobbyEmoteIds_.CalculateSize(_repeated_customizeLobbyEmoteIds_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SS2C_CUSTOMIZE_LOBBY_EMOTE_INFO_RES other) {
+      if (other == null) {
+        return;
+      }
+      if (other.LoopFlag != 0) {
+        LoopFlag = other.LoopFlag;
+      }
+      customizeLobbyEmoteIds_.Add(other.customizeLobbyEmoteIds_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            LoopFlag = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            customizeLobbyEmoteIds_.AddEntriesFrom(input, _repeated_customizeLobbyEmoteIds_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            LoopFlag = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            customizeLobbyEmoteIds_.AddEntriesFrom(ref input, _repeated_customizeLobbyEmoteIds_codec);
             break;
           }
         }
@@ -1585,7 +1977,7 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[8]; }
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1774,7 +2166,7 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[9]; }
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1989,7 +2381,7 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[10]; }
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2178,7 +2570,7 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[11]; }
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2393,7 +2785,7 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[12]; }
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2619,7 +3011,7 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[13]; }
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2834,7 +3226,7 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[14]; }
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3023,7 +3415,7 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[15]; }
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3238,7 +3630,7 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[16]; }
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3464,7 +3856,7 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[17]; }
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3679,7 +4071,7 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[18]; }
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3868,7 +4260,7 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[19]; }
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4083,7 +4475,7 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[20]; }
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4272,7 +4664,7 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[21]; }
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4487,7 +4879,7 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[22]; }
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4676,7 +5068,7 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[23]; }
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4870,6 +5262,1344 @@ namespace DC.Packet {
             equipCustomizeActionIds_.AddEntriesFrom(ref input, _repeated_equipCustomizeActionIds_codec);
             break;
           }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class SC2S_CUSTOMIZE_LOBBY_EMOTE_MOUNT_REQ : pb::IMessage<SC2S_CUSTOMIZE_LOBBY_EMOTE_MOUNT_REQ>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SC2S_CUSTOMIZE_LOBBY_EMOTE_MOUNT_REQ> _parser = new pb::MessageParser<SC2S_CUSTOMIZE_LOBBY_EMOTE_MOUNT_REQ>(() => new SC2S_CUSTOMIZE_LOBBY_EMOTE_MOUNT_REQ());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SC2S_CUSTOMIZE_LOBBY_EMOTE_MOUNT_REQ> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[26]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SC2S_CUSTOMIZE_LOBBY_EMOTE_MOUNT_REQ() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SC2S_CUSTOMIZE_LOBBY_EMOTE_MOUNT_REQ(SC2S_CUSTOMIZE_LOBBY_EMOTE_MOUNT_REQ other) : this() {
+      customizeLobbyEmoteId_ = other.customizeLobbyEmoteId_;
+      equipSlotIndex_ = other.equipSlotIndex_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SC2S_CUSTOMIZE_LOBBY_EMOTE_MOUNT_REQ Clone() {
+      return new SC2S_CUSTOMIZE_LOBBY_EMOTE_MOUNT_REQ(this);
+    }
+
+    /// <summary>Field number for the "customizeLobbyEmoteId" field.</summary>
+    public const int CustomizeLobbyEmoteIdFieldNumber = 1;
+    private string customizeLobbyEmoteId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string CustomizeLobbyEmoteId {
+      get { return customizeLobbyEmoteId_; }
+      set {
+        customizeLobbyEmoteId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "equipSlotIndex" field.</summary>
+    public const int EquipSlotIndexFieldNumber = 2;
+    private uint equipSlotIndex_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint EquipSlotIndex {
+      get { return equipSlotIndex_; }
+      set {
+        equipSlotIndex_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SC2S_CUSTOMIZE_LOBBY_EMOTE_MOUNT_REQ);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SC2S_CUSTOMIZE_LOBBY_EMOTE_MOUNT_REQ other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (CustomizeLobbyEmoteId != other.CustomizeLobbyEmoteId) return false;
+      if (EquipSlotIndex != other.EquipSlotIndex) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (CustomizeLobbyEmoteId.Length != 0) hash ^= CustomizeLobbyEmoteId.GetHashCode();
+      if (EquipSlotIndex != 0) hash ^= EquipSlotIndex.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (CustomizeLobbyEmoteId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(CustomizeLobbyEmoteId);
+      }
+      if (EquipSlotIndex != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(EquipSlotIndex);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (CustomizeLobbyEmoteId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(CustomizeLobbyEmoteId);
+      }
+      if (EquipSlotIndex != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(EquipSlotIndex);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (CustomizeLobbyEmoteId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CustomizeLobbyEmoteId);
+      }
+      if (EquipSlotIndex != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EquipSlotIndex);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SC2S_CUSTOMIZE_LOBBY_EMOTE_MOUNT_REQ other) {
+      if (other == null) {
+        return;
+      }
+      if (other.CustomizeLobbyEmoteId.Length != 0) {
+        CustomizeLobbyEmoteId = other.CustomizeLobbyEmoteId;
+      }
+      if (other.EquipSlotIndex != 0) {
+        EquipSlotIndex = other.EquipSlotIndex;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            CustomizeLobbyEmoteId = input.ReadString();
+            break;
+          }
+          case 16: {
+            EquipSlotIndex = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            CustomizeLobbyEmoteId = input.ReadString();
+            break;
+          }
+          case 16: {
+            EquipSlotIndex = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class SS2C_CUSTOMIZE_LOBBY_EMOTE_MOUNT_RES : pb::IMessage<SS2C_CUSTOMIZE_LOBBY_EMOTE_MOUNT_RES>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SS2C_CUSTOMIZE_LOBBY_EMOTE_MOUNT_RES> _parser = new pb::MessageParser<SS2C_CUSTOMIZE_LOBBY_EMOTE_MOUNT_RES>(() => new SS2C_CUSTOMIZE_LOBBY_EMOTE_MOUNT_RES());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SS2C_CUSTOMIZE_LOBBY_EMOTE_MOUNT_RES> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[27]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SS2C_CUSTOMIZE_LOBBY_EMOTE_MOUNT_RES() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SS2C_CUSTOMIZE_LOBBY_EMOTE_MOUNT_RES(SS2C_CUSTOMIZE_LOBBY_EMOTE_MOUNT_RES other) : this() {
+      result_ = other.result_;
+      equipCustomizeLobbyEmoteIds_ = other.equipCustomizeLobbyEmoteIds_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SS2C_CUSTOMIZE_LOBBY_EMOTE_MOUNT_RES Clone() {
+      return new SS2C_CUSTOMIZE_LOBBY_EMOTE_MOUNT_RES(this);
+    }
+
+    /// <summary>Field number for the "result" field.</summary>
+    public const int ResultFieldNumber = 1;
+    private uint result_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Result {
+      get { return result_; }
+      set {
+        result_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "equipCustomizeLobbyEmoteIds" field.</summary>
+    public const int EquipCustomizeLobbyEmoteIdsFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::DC.Packet.SCUSTOMIZE_LOBBY_EMOTE> _repeated_equipCustomizeLobbyEmoteIds_codec
+        = pb::FieldCodec.ForMessage(18, global::DC.Packet.SCUSTOMIZE_LOBBY_EMOTE.Parser);
+    private readonly pbc::RepeatedField<global::DC.Packet.SCUSTOMIZE_LOBBY_EMOTE> equipCustomizeLobbyEmoteIds_ = new pbc::RepeatedField<global::DC.Packet.SCUSTOMIZE_LOBBY_EMOTE>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::DC.Packet.SCUSTOMIZE_LOBBY_EMOTE> EquipCustomizeLobbyEmoteIds {
+      get { return equipCustomizeLobbyEmoteIds_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SS2C_CUSTOMIZE_LOBBY_EMOTE_MOUNT_RES);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SS2C_CUSTOMIZE_LOBBY_EMOTE_MOUNT_RES other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Result != other.Result) return false;
+      if(!equipCustomizeLobbyEmoteIds_.Equals(other.equipCustomizeLobbyEmoteIds_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Result != 0) hash ^= Result.GetHashCode();
+      hash ^= equipCustomizeLobbyEmoteIds_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Result != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Result);
+      }
+      equipCustomizeLobbyEmoteIds_.WriteTo(output, _repeated_equipCustomizeLobbyEmoteIds_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Result != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Result);
+      }
+      equipCustomizeLobbyEmoteIds_.WriteTo(ref output, _repeated_equipCustomizeLobbyEmoteIds_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Result != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Result);
+      }
+      size += equipCustomizeLobbyEmoteIds_.CalculateSize(_repeated_equipCustomizeLobbyEmoteIds_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SS2C_CUSTOMIZE_LOBBY_EMOTE_MOUNT_RES other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Result != 0) {
+        Result = other.Result;
+      }
+      equipCustomizeLobbyEmoteIds_.Add(other.equipCustomizeLobbyEmoteIds_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Result = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            equipCustomizeLobbyEmoteIds_.AddEntriesFrom(input, _repeated_equipCustomizeLobbyEmoteIds_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Result = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            equipCustomizeLobbyEmoteIds_.AddEntriesFrom(ref input, _repeated_equipCustomizeLobbyEmoteIds_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class SC2S_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_REQ : pb::IMessage<SC2S_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_REQ>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SC2S_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_REQ> _parser = new pb::MessageParser<SC2S_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_REQ>(() => new SC2S_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_REQ());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SC2S_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_REQ> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[28]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SC2S_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_REQ() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SC2S_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_REQ(SC2S_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_REQ other) : this() {
+      customizeLobbyEmoteId_ = other.customizeLobbyEmoteId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SC2S_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_REQ Clone() {
+      return new SC2S_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_REQ(this);
+    }
+
+    /// <summary>Field number for the "customizeLobbyEmoteId" field.</summary>
+    public const int CustomizeLobbyEmoteIdFieldNumber = 1;
+    private string customizeLobbyEmoteId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string CustomizeLobbyEmoteId {
+      get { return customizeLobbyEmoteId_; }
+      set {
+        customizeLobbyEmoteId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SC2S_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_REQ);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SC2S_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_REQ other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (CustomizeLobbyEmoteId != other.CustomizeLobbyEmoteId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (CustomizeLobbyEmoteId.Length != 0) hash ^= CustomizeLobbyEmoteId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (CustomizeLobbyEmoteId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(CustomizeLobbyEmoteId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (CustomizeLobbyEmoteId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(CustomizeLobbyEmoteId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (CustomizeLobbyEmoteId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CustomizeLobbyEmoteId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SC2S_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_REQ other) {
+      if (other == null) {
+        return;
+      }
+      if (other.CustomizeLobbyEmoteId.Length != 0) {
+        CustomizeLobbyEmoteId = other.CustomizeLobbyEmoteId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            CustomizeLobbyEmoteId = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            CustomizeLobbyEmoteId = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class SS2C_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_RES : pb::IMessage<SS2C_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_RES>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SS2C_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_RES> _parser = new pb::MessageParser<SS2C_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_RES>(() => new SS2C_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_RES());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SS2C_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_RES> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[29]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SS2C_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_RES() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SS2C_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_RES(SS2C_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_RES other) : this() {
+      result_ = other.result_;
+      equipCustomizeLobbyEmoteIds_ = other.equipCustomizeLobbyEmoteIds_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SS2C_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_RES Clone() {
+      return new SS2C_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_RES(this);
+    }
+
+    /// <summary>Field number for the "result" field.</summary>
+    public const int ResultFieldNumber = 1;
+    private uint result_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Result {
+      get { return result_; }
+      set {
+        result_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "equipCustomizeLobbyEmoteIds" field.</summary>
+    public const int EquipCustomizeLobbyEmoteIdsFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::DC.Packet.SCUSTOMIZE_LOBBY_EMOTE> _repeated_equipCustomizeLobbyEmoteIds_codec
+        = pb::FieldCodec.ForMessage(18, global::DC.Packet.SCUSTOMIZE_LOBBY_EMOTE.Parser);
+    private readonly pbc::RepeatedField<global::DC.Packet.SCUSTOMIZE_LOBBY_EMOTE> equipCustomizeLobbyEmoteIds_ = new pbc::RepeatedField<global::DC.Packet.SCUSTOMIZE_LOBBY_EMOTE>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::DC.Packet.SCUSTOMIZE_LOBBY_EMOTE> EquipCustomizeLobbyEmoteIds {
+      get { return equipCustomizeLobbyEmoteIds_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SS2C_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_RES);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SS2C_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_RES other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Result != other.Result) return false;
+      if(!equipCustomizeLobbyEmoteIds_.Equals(other.equipCustomizeLobbyEmoteIds_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Result != 0) hash ^= Result.GetHashCode();
+      hash ^= equipCustomizeLobbyEmoteIds_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Result != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Result);
+      }
+      equipCustomizeLobbyEmoteIds_.WriteTo(output, _repeated_equipCustomizeLobbyEmoteIds_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Result != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Result);
+      }
+      equipCustomizeLobbyEmoteIds_.WriteTo(ref output, _repeated_equipCustomizeLobbyEmoteIds_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Result != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Result);
+      }
+      size += equipCustomizeLobbyEmoteIds_.CalculateSize(_repeated_equipCustomizeLobbyEmoteIds_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SS2C_CUSTOMIZE_LOBBY_EMOTE_UNMOUNT_RES other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Result != 0) {
+        Result = other.Result;
+      }
+      equipCustomizeLobbyEmoteIds_.Add(other.equipCustomizeLobbyEmoteIds_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Result = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            equipCustomizeLobbyEmoteIds_.AddEntriesFrom(input, _repeated_equipCustomizeLobbyEmoteIds_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Result = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            equipCustomizeLobbyEmoteIds_.AddEntriesFrom(ref input, _repeated_equipCustomizeLobbyEmoteIds_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class SC2S_CUSTOMIZE_NEW_ITEM_CHECK_REQ : pb::IMessage<SC2S_CUSTOMIZE_NEW_ITEM_CHECK_REQ>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SC2S_CUSTOMIZE_NEW_ITEM_CHECK_REQ> _parser = new pb::MessageParser<SC2S_CUSTOMIZE_NEW_ITEM_CHECK_REQ>(() => new SC2S_CUSTOMIZE_NEW_ITEM_CHECK_REQ());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SC2S_CUSTOMIZE_NEW_ITEM_CHECK_REQ> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[30]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SC2S_CUSTOMIZE_NEW_ITEM_CHECK_REQ() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SC2S_CUSTOMIZE_NEW_ITEM_CHECK_REQ(SC2S_CUSTOMIZE_NEW_ITEM_CHECK_REQ other) : this() {
+      itemId_ = other.itemId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SC2S_CUSTOMIZE_NEW_ITEM_CHECK_REQ Clone() {
+      return new SC2S_CUSTOMIZE_NEW_ITEM_CHECK_REQ(this);
+    }
+
+    /// <summary>Field number for the "itemId" field.</summary>
+    public const int ItemIdFieldNumber = 1;
+    private string itemId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ItemId {
+      get { return itemId_; }
+      set {
+        itemId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SC2S_CUSTOMIZE_NEW_ITEM_CHECK_REQ);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SC2S_CUSTOMIZE_NEW_ITEM_CHECK_REQ other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ItemId != other.ItemId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ItemId.Length != 0) hash ^= ItemId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (ItemId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ItemId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ItemId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ItemId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (ItemId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ItemId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SC2S_CUSTOMIZE_NEW_ITEM_CHECK_REQ other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ItemId.Length != 0) {
+        ItemId = other.ItemId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            ItemId = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            ItemId = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class SS2C_CUSTOMIZE_NEW_ITEM_CHECK_RES : pb::IMessage<SS2C_CUSTOMIZE_NEW_ITEM_CHECK_RES>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SS2C_CUSTOMIZE_NEW_ITEM_CHECK_RES> _parser = new pb::MessageParser<SS2C_CUSTOMIZE_NEW_ITEM_CHECK_RES>(() => new SS2C_CUSTOMIZE_NEW_ITEM_CHECK_RES());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SS2C_CUSTOMIZE_NEW_ITEM_CHECK_RES> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[31]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SS2C_CUSTOMIZE_NEW_ITEM_CHECK_RES() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SS2C_CUSTOMIZE_NEW_ITEM_CHECK_RES(SS2C_CUSTOMIZE_NEW_ITEM_CHECK_RES other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SS2C_CUSTOMIZE_NEW_ITEM_CHECK_RES Clone() {
+      return new SS2C_CUSTOMIZE_NEW_ITEM_CHECK_RES(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SS2C_CUSTOMIZE_NEW_ITEM_CHECK_RES);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SS2C_CUSTOMIZE_NEW_ITEM_CHECK_RES other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SS2C_CUSTOMIZE_NEW_ITEM_CHECK_RES other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class SS2C_CUSTOMIZE_NEW_ITEM_ALERT_NOT : pb::IMessage<SS2C_CUSTOMIZE_NEW_ITEM_ALERT_NOT>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SS2C_CUSTOMIZE_NEW_ITEM_ALERT_NOT> _parser = new pb::MessageParser<SS2C_CUSTOMIZE_NEW_ITEM_ALERT_NOT>(() => new SS2C_CUSTOMIZE_NEW_ITEM_ALERT_NOT());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SS2C_CUSTOMIZE_NEW_ITEM_ALERT_NOT> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DC.Packet.CustomizeReflection.Descriptor.MessageTypes[32]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SS2C_CUSTOMIZE_NEW_ITEM_ALERT_NOT() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SS2C_CUSTOMIZE_NEW_ITEM_ALERT_NOT(SS2C_CUSTOMIZE_NEW_ITEM_ALERT_NOT other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SS2C_CUSTOMIZE_NEW_ITEM_ALERT_NOT Clone() {
+      return new SS2C_CUSTOMIZE_NEW_ITEM_ALERT_NOT(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SS2C_CUSTOMIZE_NEW_ITEM_ALERT_NOT);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SS2C_CUSTOMIZE_NEW_ITEM_ALERT_NOT other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SS2C_CUSTOMIZE_NEW_ITEM_ALERT_NOT other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
         }
       }
     }
