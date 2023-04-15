@@ -28,9 +28,21 @@ public class ModelAccount : IModel
     public string HWID;
     public string LastIP;
 
+    public static readonly string QueryCreateTable = @"CREATE TABLE IF NOT EXISTS `accounts` (
+                                                              `ID` INT NOT NULL AUTO_INCREMENT,
+                                                              `Username` varchar(50) NOT NULL,
+                                                              `Password` varchar(50) NOT NULL,
+                                                              `State` int NOT NULL DEFAULT '1',
+                                                              `LastLogin` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                                                              `HWID` varchar(120) DEFAULT NULL,
+                                                              `LastIP` varchar(60) DEFAULT NULL,
+                                                              PRIMARY KEY (`ID`)
+                                                            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
+
 #endif
     public static readonly string QuerySelectAllAccounts = "SELECT * FROM barker.accounts;";
     public static readonly string QuerySelectAccount = "SELECT * FROM barker.accounts WHERE ID = @ID";
+    public static readonly string QueryLoginAccount = "SELECT * FROM barker.accounts WHERE Username = @Username AND Password = @Password;";
     public static readonly string QueryUpdateLastLogin = "UPDATE barker.accounts SET barker.accounts.LastLogin = CURRENT_TIMESTAMP;";
     public static readonly string QueryUpdateHWID = "UPDATE barker.accounts SET barker.accounts.HWID = @HWID;";
     public static readonly string QueryUpdateIP = "UPDATE barker.accounts SET barker.accounts.LastIP = @IP;";

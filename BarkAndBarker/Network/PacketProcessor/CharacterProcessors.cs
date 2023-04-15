@@ -15,21 +15,26 @@ namespace BarkAndBarker.Network.PacketProcessor
             var request = ((WrapperDeserializer)deserializer).Parse<SC2S_ACCOUNT_CHARACTER_CREATE_REQ>();
             var response = new SS2C_ACCOUNT_CHARACTER_CREATE_RES();
 
-            var characters = session.GetDB().Select<ModelCharacter>(ModelCharacter.QuerySelectAllByUserAccount, new { AID = session.SteamId });
+            var charsWithNickname = session.GetDB().SelectFirst<int>(ModelCharacter.QuerySelectAllNicknames, new { Nickname = request.NickName });
+#if USE_STEAM
+            var userChars = session.GetDB().Select<ModelCharacter>(ModelCharacter.QuerySelectAllByUserAccount, new { AID = session.m_currentPlayer.SteamID });
+#else
+            var userChars = session.GetDB().Select<ModelCharacter>(ModelCharacter.QuerySelectAllByUserAccount, new { AID = session.m_currentPlayer.AccountID }); 
+#endif
 
-            if (characters.Count() > 7)
+            if (userChars.Count() > 7 || charsWithNickname > 0)
             {
                 response.Result = (uint)LoginResponseResult.FAIL_PASSWORD;
-            }
-
-            if (characters.Any(x => x.Nickname == request.NickName))
-            {
-                response.Result = (uint)LoginResponseResult.FAIL_PASSWORD;
+                return response;
             }
 
             var queryRes = session.GetDB().Execute(ModelCharacter.QueryCreateCharacter, new
             {
+#if USE_STEAM
                 AID = session.m_currentPlayer.SteamID,
+#else
+                AID = session.m_currentPlayer.AccountID,
+#endif
                 CID = Guid.NewGuid().ToString(),
                 Nickname = request.NickName,
                 Class = request.CharacterClass,
@@ -58,7 +63,11 @@ namespace BarkAndBarker.Network.PacketProcessor
             var request = ((WrapperDeserializer)deserializer).Parse<SC2S_ACCOUNT_CHARACTER_LIST_REQ>();
             var response = new SS2C_ACCOUNT_CHARACTER_LIST_RES();
 
-            var characters = session.GetDB().Select<ModelCharacter>(ModelCharacter.QuerySelectAllByUserAccount, new { AID = session.SteamId });
+#if USE_STEAM
+            var characters = session.GetDB().Select<ModelCharacter>(ModelCharacter.QuerySelectAllByUserAccount, new { AID = session.m_currentPlayer.SteamID });
+#else
+            var characters = session.GetDB().Select<ModelCharacter>(ModelCharacter.QuerySelectAllByUserAccount, new { AID = session.m_currentPlayer.AccountID });
+#endif
             if (characters.Count() > 7)
             {
                 session.Disconnect(); // Ugly, client won't know why but theoretically we should never hit this.
@@ -109,6 +118,7 @@ namespace BarkAndBarker.Network.PacketProcessor
             if (selectedCharacter != null)
             {
                 var charOwnedAccount = session.GetDB().SelectFirst<ModelAccount>(ModelCharacter.QueryOwnerAccountForCharacterID, new { CID = request.CharacterId });
+#if USE_STEAM
                 if (charOwnedAccount.SteamID != null && charOwnedAccount.SteamID == session.m_currentPlayer.SteamID)
                 {
                     // TODO: Make this a transaction, if deletion will affect more than 1 row we need to rollback as something went wrong.
@@ -121,6 +131,20 @@ namespace BarkAndBarker.Network.PacketProcessor
                     if (deletedCharactersCount >= 1)
                         response.Result = (uint)LoginResponseResult.SUCCESS;
                 }
+#else
+                if (charOwnedAccount.ID != null && charOwnedAccount.ID == session.m_currentPlayer.AccountID)
+                {
+                    // TODO: Make this a transaction, if deletion will affect more than 1 row we need to rollback as something went wrong.
+                    var deletedCharactersCount = session.GetDB().Execute(ModelCharacter.QueryDeleteCharacter, new
+                    {
+                        AID = charOwnedAccount.ID,
+                        CID = selectedCharacter.CharID,
+                    });
+
+                    if (deletedCharactersCount >= 1)
+                        response.Result = (uint)LoginResponseResult.SUCCESS;
+                }
+#endif
             }
             else
                 response.Result = (uint)LoginResponseResult.FAIL_PASSWORD;

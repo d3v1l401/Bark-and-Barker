@@ -44,7 +44,11 @@ namespace BarkAndBarker
                     var packet = new SS2C_ENTER_GAME_SERVER_NOT();
 
                     packet.SessionId = Guid.NewGuid().ToString();
+#if USE_STEAM
                     packet.AccountId = client.m_currentPlayer.SteamID;
+#else
+                    packet.AccountId = client.m_currentPlayer.AccountID.ToString();
+#endif
                     packet.NickName = new SACCOUNT_NICKNAME()
                     {
                         OriginalNickName = client.m_currentCharacter.Nickname,

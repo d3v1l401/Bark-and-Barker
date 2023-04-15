@@ -96,10 +96,13 @@ namespace BarkAndBarker.Network
             
             try
             {
+                Console.WriteLine("< " + deser.GetPacketClass());
                 var requestProcessor = m_requests[deser.GetPacketClass()];
                 var outputData = requestProcessor.Invoke(session, deser);
 
                 var responsePacket = deser.GetPacketClass() + 1;
+
+                Console.WriteLine("> " + responsePacket);
                 var responseProcessor = m_responses[responsePacket];
 
                 return responseProcessor.Invoke(session, outputData);

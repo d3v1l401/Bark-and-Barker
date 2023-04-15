@@ -99,12 +99,27 @@ namespace BarkAndBarker.Network.PacketProcessor
 #else
             var loginData = ((WrapperDeserializer)deserializer).Parse<IronMace_Login>();
 
-            var loginResponse = new IronMace_Login_Res();
-            loginResponse.Result = (uint)IronMace_Login_Result.SUCCESS; // TODO
+            var loggedInAccount = session.GetDB().SelectFirst<ModelAccount>(ModelAccount.QueryLoginAccount, new
+            {
+                Username = loginData.LoginId,
+                Password = loginData.Password,
+            });
 
-            loginResponse.ErrorMessage = "";
+            if (loggedInAccount == null)
+            {
+                var loginResponseFail = new IronMace_Login_Res();
 
-            return loginResponse;
+                loginResponseFail.Result = (uint)IronMace_Login_Result.FAIL_NOT_FOUND_ACCOUNT;
+
+                return loginResponseFail;
+            } else {
+                var loginResponse = new IronMace_Token_Res();
+
+                session.m_currentPlayer.AccountID = loggedInAccount.ID;
+                loginResponse.Token = Guid.NewGuid().ToString();
+
+                return loginResponse;
+            }
 #endif
         }
 
@@ -131,9 +146,20 @@ namespace BarkAndBarker.Network.PacketProcessor
 
         }
 #else
-            var responsePacket = (IronMace_Token_Res)inputClass;
-            var serializer = new WrapperSerializer<IronMace_Token_Res>(responsePacket, session.m_currentPacketSequence++, PacketCommand.Token); // TODO
-            return serializer.Serialize();
+            // It's a login fail
+            if (inputClass is IronMace_Login_Res)
+            {
+                var responsePacket = (IronMace_Login_Res)inputClass;
+                var serializer = new WrapperSerializer<IronMace_Login_Res>(responsePacket, session.m_currentPacketSequence++, PacketCommand.S2CAccountLoginRes); // TODO
+                return serializer.Serialize();
+            } else if (inputClass is IronMace_Token_Res) {
+                var responsePacket = (IronMace_Token_Res)inputClass;
+                var serializer = new WrapperSerializer<IronMace_Token_Res>(responsePacket, session.m_currentPacketSequence++, PacketCommand.S2CAccountLoginRes); // TODO
+                return serializer.Serialize();
+            } else {
+                throw new Exception("wtf is this account response?");
+            }
+
 #endif
         }
     }
