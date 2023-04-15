@@ -35,8 +35,8 @@ namespace BarkAndBarker.RankingCalculator.Jobs
             var rankings = CalculateCharacterRankings(mappedStatistics, database);
             var topRankings = CalculateTopRankings(rankings, database);
 
-            database.Execute(ModelCharacterRanking.QueryResetTable, null);
             database.Execute(ModelCharacterRankingTop.QueryResetTable, null);
+            database.Execute(ModelCharacterRanking.QueryResetTable, null);
 
             var characterRankingValues = new List<string>();
             var characterRankingParameters = new Dictionary<string, object>();

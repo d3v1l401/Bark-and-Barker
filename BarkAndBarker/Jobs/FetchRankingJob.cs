@@ -199,7 +199,7 @@ namespace BarkAndBarker.Jobs
         private List<ModelCharacterRankingTop> GetUnfilteredTopRankingsFromDatabase(Database database)
         {
             var topRankings = database.Select<ModelCharacterRankingTop>(
-                ModelCharacterStatistics.QuerySelectAll, null);
+                ModelCharacterRankingTop.QuerySelectAll, null);
 
             return topRankings.ToList();
         }
