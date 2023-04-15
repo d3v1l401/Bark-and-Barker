@@ -43,8 +43,10 @@ namespace DC.Packet {
             "U0MyU19SRUNPTk5FQ1RfSU5HQU1FX1JFURIRCglpc1JlZnVzYWwYASABKA0S",
             "LgoIbmlja05hbWUYAiABKAsyHC5EQy5QYWNrZXQuU0FDQ09VTlRfTklDS05B",
             "TUUiPwoZU1MyQ19SRUNPTk5FQ1RfSU5HQU1FX1JFUxIOCgZyZXN1bHQYASAB",
-            "KA0SEgoKc2VydmljZVVybBgCIAEoCUIeChJjb20ucGFja2V0cy5pbmdhbWVC",
-            "BmluZ2FtZVAAYgZwcm90bzM="));
+            "KA0SEgoKc2VydmljZVVybBgCIAEoCSJIChlTUzJDX0ZMT09SX01BVENITUFL",
+            "RURfTk9UEgwKBHBvcnQYASABKA0SCgoCaXAYAiABKAkSEQoJc2Vzc2lvbklk",
+            "GAMgASgJQh4KEmNvbS5wYWNrZXRzLmluZ2FtZUIGaW5nYW1lUABiBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DC.Packet.CharacterReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -54,7 +56,8 @@ namespace DC.Packet {
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SC2S_GAME_ENTER_COMPLETE_NOT), global::DC.Packet.SC2S_GAME_ENTER_COMPLETE_NOT.Parser, new[]{ "IsSuccess" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_AUTO_MATCH_REG_TEAM_NOT), global::DC.Packet.SS2C_AUTO_MATCH_REG_TEAM_NOT.Parser, new[]{ "Result", "Mode" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SC2S_RECONNECT_INGAME_REQ), global::DC.Packet.SC2S_RECONNECT_INGAME_REQ.Parser, new[]{ "IsRefusal", "NickName" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_RECONNECT_INGAME_RES), global::DC.Packet.SS2C_RECONNECT_INGAME_RES.Parser, new[]{ "Result", "ServiceUrl" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_RECONNECT_INGAME_RES), global::DC.Packet.SS2C_RECONNECT_INGAME_RES.Parser, new[]{ "Result", "ServiceUrl" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_FLOOR_MATCHMAKED_NOT), global::DC.Packet.SS2C_FLOOR_MATCHMAKED_NOT.Parser, new[]{ "Port", "Ip", "SessionId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1798,6 +1801,269 @@ namespace DC.Packet {
           }
           case 18: {
             ServiceUrl = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class SS2C_FLOOR_MATCHMAKED_NOT : pb::IMessage<SS2C_FLOOR_MATCHMAKED_NOT>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SS2C_FLOOR_MATCHMAKED_NOT> _parser = new pb::MessageParser<SS2C_FLOOR_MATCHMAKED_NOT>(() => new SS2C_FLOOR_MATCHMAKED_NOT());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SS2C_FLOOR_MATCHMAKED_NOT> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DC.Packet.InGameReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SS2C_FLOOR_MATCHMAKED_NOT() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SS2C_FLOOR_MATCHMAKED_NOT(SS2C_FLOOR_MATCHMAKED_NOT other) : this() {
+      port_ = other.port_;
+      ip_ = other.ip_;
+      sessionId_ = other.sessionId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SS2C_FLOOR_MATCHMAKED_NOT Clone() {
+      return new SS2C_FLOOR_MATCHMAKED_NOT(this);
+    }
+
+    /// <summary>Field number for the "port" field.</summary>
+    public const int PortFieldNumber = 1;
+    private uint port_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Port {
+      get { return port_; }
+      set {
+        port_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ip" field.</summary>
+    public const int IpFieldNumber = 2;
+    private string ip_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Ip {
+      get { return ip_; }
+      set {
+        ip_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "sessionId" field.</summary>
+    public const int SessionIdFieldNumber = 3;
+    private string sessionId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SessionId {
+      get { return sessionId_; }
+      set {
+        sessionId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SS2C_FLOOR_MATCHMAKED_NOT);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SS2C_FLOOR_MATCHMAKED_NOT other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Port != other.Port) return false;
+      if (Ip != other.Ip) return false;
+      if (SessionId != other.SessionId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Port != 0) hash ^= Port.GetHashCode();
+      if (Ip.Length != 0) hash ^= Ip.GetHashCode();
+      if (SessionId.Length != 0) hash ^= SessionId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Port != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Port);
+      }
+      if (Ip.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Ip);
+      }
+      if (SessionId.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(SessionId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Port != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Port);
+      }
+      if (Ip.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Ip);
+      }
+      if (SessionId.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(SessionId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Port != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Port);
+      }
+      if (Ip.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Ip);
+      }
+      if (SessionId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SessionId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SS2C_FLOOR_MATCHMAKED_NOT other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Port != 0) {
+        Port = other.Port;
+      }
+      if (other.Ip.Length != 0) {
+        Ip = other.Ip;
+      }
+      if (other.SessionId.Length != 0) {
+        SessionId = other.SessionId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Port = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            Ip = input.ReadString();
+            break;
+          }
+          case 26: {
+            SessionId = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Port = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            Ip = input.ReadString();
+            break;
+          }
+          case 26: {
+            SessionId = input.ReadString();
             break;
           }
         }

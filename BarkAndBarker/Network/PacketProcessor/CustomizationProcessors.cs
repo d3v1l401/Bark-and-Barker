@@ -42,10 +42,11 @@ namespace BarkAndBarker.Network.PacketProcessor
             var response = (SS2C_CUSTOMIZE_ACTION_INFO_RES)inputClass;
 
             response.LoopFlag = 0;
-            response.CustomizeLobbyActionIds.Add(new SCUSTOMIZE_ACTION()
+            response.CustomizeActionIds.Add(new SCUSTOMIZE_ACTION()
             {
-                CustomizeActionId = "", // Figure out action IDs
+                CustomizeActionId = "",
                 IsEquip = 1,
+                IsNew = 1,
             });
 
             var serial = new WrapperSerializer<SS2C_CUSTOMIZE_ACTION_INFO_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CCustomizeActionInfoRes);

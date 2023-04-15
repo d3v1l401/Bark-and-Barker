@@ -33,7 +33,7 @@ namespace BarkAndBarker.Network
             // Get all assemblies in the application
             var appDomainAssemblies = AppDomain.CurrentDomain.GetAssemblies();
             // Select only client to server packets classes
-            var messages = typeof(IMessage).GetImplementors(appDomainAssemblies).Where(x => x.Name.StartsWith("SC2S"));
+            var messages = typeof(IMessage).GetImplementors(appDomainAssemblies).Where(x => x.Name.StartsWith("SC2S") || x.Name.StartsWith("IronMace"));
 
             foreach (var message in messages)
             {

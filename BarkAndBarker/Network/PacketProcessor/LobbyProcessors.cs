@@ -19,11 +19,19 @@ namespace BarkAndBarker.Network.PacketProcessor
             if (selectedCharacter != null)
             {
                 var charOwnedAccount = session.GetDB().SelectFirst<ModelAccount>(ModelCharacter.QueryOwnerAccountForCharacterID, new { CID = request.CharacterId });
+#if USE_STEAM
                 if (charOwnedAccount.SteamID != null && charOwnedAccount.SteamID == session.m_currentPlayer.SteamID)
                 {
                     session.m_currentCharacter = selectedCharacter;
                     response.Result = (uint)LoginResponseResult.SUCCESS;
                 }
+#else
+                if (charOwnedAccount.ID != null && charOwnedAccount.ID == session.m_currentPlayer.AccountID)
+                {
+                    session.m_currentCharacter = selectedCharacter;
+                    response.Result = (uint)LoginResponseResult.SUCCESS;
+                }
+#endif
             }
             else
                 response.Result = (uint)LoginResponseResult.FAIL_PASSWORD;
@@ -34,7 +42,7 @@ namespace BarkAndBarker.Network.PacketProcessor
         public static MemoryStream HandleLobbyEnterRes(ClientSession session, dynamic inputClass)
         {
             var response = (SS2C_LOBBY_ENTER_RES)inputClass;
-            response.AccountId = session.m_currentPlayer.SteamID;
+            response.AccountId = session.m_currentPlayer.AccountID.ToString();
 
             var serial = new WrapperSerializer<SS2C_LOBBY_ENTER_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CLobbyEnterRes);
             return serial.Serialize();

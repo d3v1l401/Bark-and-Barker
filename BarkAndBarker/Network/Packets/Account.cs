@@ -32,47 +32,49 @@ namespace DC.Packet {
             "YXRlQXQYBCABKAQSDgoGZ2VuZGVyGAUgASgNEg0KBWxldmVsGAYgASgNEhUK",
             "DWxhc3Rsb2dpbkRhdGUYByABKAQSJwoNZXF1aXBJdGVtTGlzdBgIIAMoCzIQ",
             "LkRDLlBhY2tldC5TSXRlbRIeChZlcXVpcENoYXJhY3RlclNraW5MaXN0GAkg",
-            "AygJEhkKEWVxdWlwSXRlbVNraW5MaXN0GAogAygJIpgBChZTQzJTX0FDQ09V",
-            "TlRfTE9HSU5fUkVREhQKB2xvZ2luSWQYASABKAlIAIgBARIQCghwYXNzV29y",
-            "ZBgCIAEoCRIRCglpcEFkZHJlc3MYAyABKAkSFAoMc3RlYW1CdWlsZElkGAQg",
-            "ASgNEg0KBWh3SWRzGAUgAygJEhIKCm1hY0FkZHJlc3MYBiABKAlCCgoIX2xv",
-            "Z2luSWQi4wQKFlNTMkNfQUNDT1VOVF9MT0dJTl9SRVMSDgoGUmVzdWx0GAEg",
-            "ASgNEjMKC0FjY291bnRJbmZvGAIgASgLMh4uREMuUGFja2V0LlNMT0dJTl9B",
-            "Q0NPVU5UX0lORk8SEwoLaXNSZWNvbm5lY3QYAyABKA0SDwoHYWRkcmVzcxgE",
-            "IAEoCRIRCglzZXNzaW9uSWQYBSABKAkSEQoJYWNjb3VudElkGAYgASgJEhYK",
-            "DnNlcnZlckxvY2F0aW9uGAcgASgNIp8DCgZSRVNVTFQSDwoLUkVTVUxUX05P",
-            "TkUQABILCgdTVUNDRVNTEAESEQoNU1VDQ0VTU19GSVJTVBACEhEKDUZBSUxf",
-            "UEFTU1dPUkQQAxIQCgxGQUlMX0NPTk5FQ1QQBBIdChlGQUlMX1NIT1JUX0lE",
-            "X09SX1BBU1NXT1JEEAUSIAocRkFJTF9PVkVSRkxPV19JRF9PUl9QQVNTV09S",
-            "RBAGEhAKDEZBSUxfSVBfUE9SVBAHEhYKEkZBSUxfT1ZFUkxBUF9MT0dJThAI",
-            "EhcKE0ZBSUxfU1RFQU1fQlVJTERfSUQQCxIXChNGQUlMX0xPR0lOX0JBTl9V",
-            "U0VSEAwSHwobRkFJTF9MT0dJTl9CQU5fVVNFUl9DSEVBVEVSEA0SKgomRkFJ",
-            "TF9MT0dJTl9CQU5fVVNFUl9JTkFQUFJPUFJJQVRFX05BTUUQDhIbChdGQUlM",
-            "X0xPR0lOX0JBTl9VU0VSX0VUQxAPEhsKF0ZBSUxfTE9HSU5fQkFOX0hBUkRX",
-            "QVJFEBASGwoXU1VDQ0VTU19BR1JFRV9DSEVDS19SRVMQMyJdCiFTQzJTX0FD",
-            "Q09VTlRfQ0hBUkFDVEVSX0NSRUFURV9SRVESEAoIbmlja05hbWUYASABKAkS",
-            "FgoOY2hhcmFjdGVyQ2xhc3MYAiABKAkSDgoGZ2VuZGVyGAMgASgNIjMKIVNT",
-            "MkNfQUNDT1VOVF9DSEFSQUNURVJfQ1JFQVRFX1JFUxIOCgZyZXN1bHQYASAB",
-            "KA0iSgofU0MyU19BQ0NPVU5UX0NIQVJBQ1RFUl9MSVNUX1JFURIRCglwYWdl",
-            "SW5kZXgYASABKA0SFAoMcGFnZUNhcGFjaXR5GAIgASgNIooBCh9TUzJDX0FD",
-            "Q09VTlRfQ0hBUkFDVEVSX0xJU1RfUkVTEhsKE3RvdGFsQ2hhcmFjdGVyQ291",
-            "bnQYASABKA0SEQoJcGFnZUluZGV4GAIgASgNEjcKDWNoYXJhY3Rlckxpc3QY",
-            "AyADKAsyIC5EQy5QYWNrZXQuU0xPR0lOX0NIQVJBQ1RFUl9JTkZPIjgKIVND",
-            "MlNfQUNDT1VOVF9DSEFSQUNURVJfREVMRVRFX1JFURITCgtjaGFyYWN0ZXJJ",
-            "ZBgBIAEoCSIzCiFTUzJDX0FDQ09VTlRfQ0hBUkFDVEVSX0RFTEVURV9SRVMS",
-            "DgoGcmVzdWx0GAEgASgNIisKFFNDMlNfTE9CQllfRU5URVJfUkVREhMKC2No",
-            "YXJhY3RlcklkGAEgASgJIjkKFFNTMkNfTE9CQllfRU5URVJfUkVTEg4KBnJl",
-            "c3VsdBgBIAEoDRIRCglhY2NvdW50SWQYAiABKAkiMAodU0MyU19BQ0NPVU5U",
-            "X0FHUkVFX0FOU1dFUl9SRVESDwoHaXNBZ3JlZRgBIAEoDSIvCh1TUzJDX0FD",
-            "Q09VTlRfQUdSRUVfQU5TV0VSX1JFUxIOCgZyZXN1bHQYASABKA1CIAoTY29t",
-            "LnBhY2tldHMuYWNjb3VudEIHYWNjb3VudFAAYgZwcm90bzM="));
+            "AygJEhkKEWVxdWlwSXRlbVNraW5MaXN0GAogAygJIrEBChZTQzJTX0FDQ09V",
+            "TlRfTE9HSU5fUkVREg8KB2xvZ2luSWQYASABKAkSEAoIcGFzc3dvcmQYAiAB",
+            "KAkSEQoJaXBBZGRyZXNzGAMgASgJEhQKDHN0ZWFtQnVpbGRJZBgEIAEoDRIN",
+            "CgVod0lkcxgFIAMoCRISCgptYWNBZGRyZXNzGAYgASgJEhIKCnBsYXRmb3Jt",
+            "SWQYByABKA0SFAoMYnVpbGRWZXJzaW9uGAggASgJIpMFChZTUzJDX0FDQ09V",
+            "TlRfTE9HSU5fUkVTEg4KBlJlc3VsdBgBIAEoDRIzCgtBY2NvdW50SW5mbxgC",
+            "IAEoCzIeLkRDLlBhY2tldC5TTE9HSU5fQUNDT1VOVF9JTkZPEhMKC2lzUmVj",
+            "b25uZWN0GAMgASgNEg8KB2FkZHJlc3MYBCABKAkSEQoJc2Vzc2lvbklkGAUg",
+            "ASgJEhEKCWFjY291bnRJZBgGIAEoCRIWCg5zZXJ2ZXJMb2NhdGlvbhgHIAEo",
+            "DRITCgtzZWNyZXRUb2tlbhgIIAEoCSK6AwoGUkVTVUxUEg8KC1JFU1VMVF9O",
+            "T05FEAASCwoHU1VDQ0VTUxABEhEKDVNVQ0NFU1NfRklSU1QQAhIRCg1GQUlM",
+            "X1BBU1NXT1JEEAMSEAoMRkFJTF9DT05ORUNUEAQSHQoZRkFJTF9TSE9SVF9J",
+            "RF9PUl9QQVNTV09SRBAFEiAKHEZBSUxfT1ZFUkZMT1dfSURfT1JfUEFTU1dP",
+            "UkQQBhIQCgxGQUlMX0lQX1BPUlQQBxIWChJGQUlMX09WRVJMQVBfTE9HSU4Q",
+            "CBIXChNGQUlMX1NURUFNX0JVSUxEX0lEEAsSFwoTRkFJTF9MT0dJTl9CQU5f",
+            "VVNFUhAMEh8KG0ZBSUxfTE9HSU5fQkFOX1VTRVJfQ0hFQVRFUhANEioKJkZB",
+            "SUxfTE9HSU5fQkFOX1VTRVJfSU5BUFBST1BSSUFURV9OQU1FEA4SGwoXRkFJ",
+            "TF9MT0dJTl9CQU5fVVNFUl9FVEMQDxIbChdGQUlMX0xPR0lOX0JBTl9IQVJE",
+            "V0FSRRAQEhkKFUZBSUxfQlVJTERfVkVSU0lPTl9JRBApEhsKF1NVQ0NFU1Nf",
+            "QUdSRUVfQ0hFQ0tfUkVTEDMiXQohU0MyU19BQ0NPVU5UX0NIQVJBQ1RFUl9D",
+            "UkVBVEVfUkVREhAKCG5pY2tOYW1lGAEgASgJEhYKDmNoYXJhY3RlckNsYXNz",
+            "GAIgASgJEg4KBmdlbmRlchgDIAEoDSIzCiFTUzJDX0FDQ09VTlRfQ0hBUkFD",
+            "VEVSX0NSRUFURV9SRVMSDgoGcmVzdWx0GAEgASgNIkoKH1NDMlNfQUNDT1VO",
+            "VF9DSEFSQUNURVJfTElTVF9SRVESEQoJcGFnZUluZGV4GAEgASgNEhQKDHBh",
+            "Z2VDYXBhY2l0eRgCIAEoDSKKAQofU1MyQ19BQ0NPVU5UX0NIQVJBQ1RFUl9M",
+            "SVNUX1JFUxIbChN0b3RhbENoYXJhY3RlckNvdW50GAEgASgNEhEKCXBhZ2VJ",
+            "bmRleBgCIAEoDRI3Cg1jaGFyYWN0ZXJMaXN0GAMgAygLMiAuREMuUGFja2V0",
+            "LlNMT0dJTl9DSEFSQUNURVJfSU5GTyI4CiFTQzJTX0FDQ09VTlRfQ0hBUkFD",
+            "VEVSX0RFTEVURV9SRVESEwoLY2hhcmFjdGVySWQYASABKAkiMwohU1MyQ19B",
+            "Q0NPVU5UX0NIQVJBQ1RFUl9ERUxFVEVfUkVTEg4KBnJlc3VsdBgBIAEoDSIr",
+            "ChRTQzJTX0xPQkJZX0VOVEVSX1JFURITCgtjaGFyYWN0ZXJJZBgBIAEoCSI5",
+            "ChRTUzJDX0xPQkJZX0VOVEVSX1JFUxIOCgZyZXN1bHQYASABKA0SEQoJYWNj",
+            "b3VudElkGAIgASgJIjAKHVNDMlNfQUNDT1VOVF9BR1JFRV9BTlNXRVJfUkVR",
+            "Eg8KB2lzQWdyZWUYASABKA0iLwodU1MyQ19BQ0NPVU5UX0FHUkVFX0FOU1dF",
+            "Ul9SRVMSDgoGcmVzdWx0GAEgASgNQiAKE2NvbS5wYWNrZXRzLmFjY291bnRC",
+            "B2FjY291bnRQAGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DC.Packet.ItemReflection.Descriptor, global::DC.Packet.CharacterReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SLOGIN_ACCOUNT_INFO), global::DC.Packet.SLOGIN_ACCOUNT_INFO.Parser, new[]{ "AccountID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SLOGIN_CHARACTER_INFO), global::DC.Packet.SLOGIN_CHARACTER_INFO.Parser, new[]{ "CharacterId", "NickName", "CharacterClass", "CreateAt", "Gender", "Level", "LastloginDate", "EquipItemList", "EquipCharacterSkinList", "EquipItemSkinList" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SC2S_ACCOUNT_LOGIN_REQ), global::DC.Packet.SC2S_ACCOUNT_LOGIN_REQ.Parser, new[]{ "LoginId", "PassWord", "IpAddress", "SteamBuildId", "HwIds", "MacAddress" }, new[]{ "LoginId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_ACCOUNT_LOGIN_RES), global::DC.Packet.SS2C_ACCOUNT_LOGIN_RES.Parser, new[]{ "Result", "AccountInfo", "IsReconnect", "Address", "SessionId", "AccountId", "ServerLocation" }, null, new[]{ typeof(global::DC.Packet.SS2C_ACCOUNT_LOGIN_RES.Types.RESULT) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SC2S_ACCOUNT_LOGIN_REQ), global::DC.Packet.SC2S_ACCOUNT_LOGIN_REQ.Parser, new[]{ "LoginId", "Password", "IpAddress", "SteamBuildId", "HwIds", "MacAddress", "PlatformId", "BuildVersion" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_ACCOUNT_LOGIN_RES), global::DC.Packet.SS2C_ACCOUNT_LOGIN_RES.Parser, new[]{ "Result", "AccountInfo", "IsReconnect", "Address", "SessionId", "AccountId", "ServerLocation", "SecretToken" }, null, new[]{ typeof(global::DC.Packet.SS2C_ACCOUNT_LOGIN_RES.Types.RESULT) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SC2S_ACCOUNT_CHARACTER_CREATE_REQ), global::DC.Packet.SC2S_ACCOUNT_CHARACTER_CREATE_REQ.Parser, new[]{ "NickName", "CharacterClass", "Gender" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_ACCOUNT_CHARACTER_CREATE_RES), global::DC.Packet.SS2C_ACCOUNT_CHARACTER_CREATE_RES.Parser, new[]{ "Result" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SC2S_ACCOUNT_CHARACTER_LIST_REQ), global::DC.Packet.SC2S_ACCOUNT_CHARACTER_LIST_REQ.Parser, new[]{ "PageIndex", "PageCapacity" }, null, null, null, null),
@@ -811,11 +813,13 @@ namespace DC.Packet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SC2S_ACCOUNT_LOGIN_REQ(SC2S_ACCOUNT_LOGIN_REQ other) : this() {
       loginId_ = other.loginId_;
-      passWord_ = other.passWord_;
+      password_ = other.password_;
       ipAddress_ = other.ipAddress_;
       steamBuildId_ = other.steamBuildId_;
       hwIds_ = other.hwIds_.Clone();
       macAddress_ = other.macAddress_;
+      platformId_ = other.platformId_;
+      buildVersion_ = other.buildVersion_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -827,37 +831,25 @@ namespace DC.Packet {
 
     /// <summary>Field number for the "loginId" field.</summary>
     public const int LoginIdFieldNumber = 1;
-    private string loginId_;
+    private string loginId_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string LoginId {
-      get { return loginId_ ?? ""; }
+      get { return loginId_; }
       set {
         loginId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
-    /// <summary>Gets whether the "loginId" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasLoginId {
-      get { return loginId_ != null; }
-    }
-    /// <summary>Clears the value of the "loginId" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearLoginId() {
-      loginId_ = null;
-    }
 
-    /// <summary>Field number for the "passWord" field.</summary>
-    public const int PassWordFieldNumber = 2;
-    private string passWord_ = "";
+    /// <summary>Field number for the "password" field.</summary>
+    public const int PasswordFieldNumber = 2;
+    private string password_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string PassWord {
-      get { return passWord_; }
+    public string Password {
+      get { return password_; }
       set {
-        passWord_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        password_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -908,6 +900,30 @@ namespace DC.Packet {
       }
     }
 
+    /// <summary>Field number for the "platformId" field.</summary>
+    public const int PlatformIdFieldNumber = 7;
+    private uint platformId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint PlatformId {
+      get { return platformId_; }
+      set {
+        platformId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "buildVersion" field.</summary>
+    public const int BuildVersionFieldNumber = 8;
+    private string buildVersion_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string BuildVersion {
+      get { return buildVersion_; }
+      set {
+        buildVersion_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -924,11 +940,13 @@ namespace DC.Packet {
         return true;
       }
       if (LoginId != other.LoginId) return false;
-      if (PassWord != other.PassWord) return false;
+      if (Password != other.Password) return false;
       if (IpAddress != other.IpAddress) return false;
       if (SteamBuildId != other.SteamBuildId) return false;
       if(!hwIds_.Equals(other.hwIds_)) return false;
       if (MacAddress != other.MacAddress) return false;
+      if (PlatformId != other.PlatformId) return false;
+      if (BuildVersion != other.BuildVersion) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -936,12 +954,14 @@ namespace DC.Packet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (HasLoginId) hash ^= LoginId.GetHashCode();
-      if (PassWord.Length != 0) hash ^= PassWord.GetHashCode();
+      if (LoginId.Length != 0) hash ^= LoginId.GetHashCode();
+      if (Password.Length != 0) hash ^= Password.GetHashCode();
       if (IpAddress.Length != 0) hash ^= IpAddress.GetHashCode();
       if (SteamBuildId != 0) hash ^= SteamBuildId.GetHashCode();
       hash ^= hwIds_.GetHashCode();
       if (MacAddress.Length != 0) hash ^= MacAddress.GetHashCode();
+      if (PlatformId != 0) hash ^= PlatformId.GetHashCode();
+      if (BuildVersion.Length != 0) hash ^= BuildVersion.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -960,13 +980,13 @@ namespace DC.Packet {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (HasLoginId) {
+      if (LoginId.Length != 0) {
         output.WriteRawTag(10);
         output.WriteString(LoginId);
       }
-      if (PassWord.Length != 0) {
+      if (Password.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(PassWord);
+        output.WriteString(Password);
       }
       if (IpAddress.Length != 0) {
         output.WriteRawTag(26);
@@ -981,6 +1001,14 @@ namespace DC.Packet {
         output.WriteRawTag(50);
         output.WriteString(MacAddress);
       }
+      if (PlatformId != 0) {
+        output.WriteRawTag(56);
+        output.WriteUInt32(PlatformId);
+      }
+      if (BuildVersion.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(BuildVersion);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -991,13 +1019,13 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasLoginId) {
+      if (LoginId.Length != 0) {
         output.WriteRawTag(10);
         output.WriteString(LoginId);
       }
-      if (PassWord.Length != 0) {
+      if (Password.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(PassWord);
+        output.WriteString(Password);
       }
       if (IpAddress.Length != 0) {
         output.WriteRawTag(26);
@@ -1012,6 +1040,14 @@ namespace DC.Packet {
         output.WriteRawTag(50);
         output.WriteString(MacAddress);
       }
+      if (PlatformId != 0) {
+        output.WriteRawTag(56);
+        output.WriteUInt32(PlatformId);
+      }
+      if (BuildVersion.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(BuildVersion);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1022,11 +1058,11 @@ namespace DC.Packet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (HasLoginId) {
+      if (LoginId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(LoginId);
       }
-      if (PassWord.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(PassWord);
+      if (Password.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Password);
       }
       if (IpAddress.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(IpAddress);
@@ -1037,6 +1073,12 @@ namespace DC.Packet {
       size += hwIds_.CalculateSize(_repeated_hwIds_codec);
       if (MacAddress.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(MacAddress);
+      }
+      if (PlatformId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PlatformId);
+      }
+      if (BuildVersion.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(BuildVersion);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1050,11 +1092,11 @@ namespace DC.Packet {
       if (other == null) {
         return;
       }
-      if (other.HasLoginId) {
+      if (other.LoginId.Length != 0) {
         LoginId = other.LoginId;
       }
-      if (other.PassWord.Length != 0) {
-        PassWord = other.PassWord;
+      if (other.Password.Length != 0) {
+        Password = other.Password;
       }
       if (other.IpAddress.Length != 0) {
         IpAddress = other.IpAddress;
@@ -1065,6 +1107,12 @@ namespace DC.Packet {
       hwIds_.Add(other.hwIds_);
       if (other.MacAddress.Length != 0) {
         MacAddress = other.MacAddress;
+      }
+      if (other.PlatformId != 0) {
+        PlatformId = other.PlatformId;
+      }
+      if (other.BuildVersion.Length != 0) {
+        BuildVersion = other.BuildVersion;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1086,7 +1134,7 @@ namespace DC.Packet {
             break;
           }
           case 18: {
-            PassWord = input.ReadString();
+            Password = input.ReadString();
             break;
           }
           case 26: {
@@ -1103,6 +1151,14 @@ namespace DC.Packet {
           }
           case 50: {
             MacAddress = input.ReadString();
+            break;
+          }
+          case 56: {
+            PlatformId = input.ReadUInt32();
+            break;
+          }
+          case 66: {
+            BuildVersion = input.ReadString();
             break;
           }
         }
@@ -1125,7 +1181,7 @@ namespace DC.Packet {
             break;
           }
           case 18: {
-            PassWord = input.ReadString();
+            Password = input.ReadString();
             break;
           }
           case 26: {
@@ -1142,6 +1198,14 @@ namespace DC.Packet {
           }
           case 50: {
             MacAddress = input.ReadString();
+            break;
+          }
+          case 56: {
+            PlatformId = input.ReadUInt32();
+            break;
+          }
+          case 66: {
+            BuildVersion = input.ReadString();
             break;
           }
         }
@@ -1192,6 +1256,7 @@ namespace DC.Packet {
       sessionId_ = other.sessionId_;
       accountId_ = other.accountId_;
       serverLocation_ = other.serverLocation_;
+      secretToken_ = other.secretToken_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1285,6 +1350,18 @@ namespace DC.Packet {
       }
     }
 
+    /// <summary>Field number for the "secretToken" field.</summary>
+    public const int SecretTokenFieldNumber = 8;
+    private string secretToken_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SecretToken {
+      get { return secretToken_; }
+      set {
+        secretToken_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1307,6 +1384,7 @@ namespace DC.Packet {
       if (SessionId != other.SessionId) return false;
       if (AccountId != other.AccountId) return false;
       if (ServerLocation != other.ServerLocation) return false;
+      if (SecretToken != other.SecretToken) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1321,6 +1399,7 @@ namespace DC.Packet {
       if (SessionId.Length != 0) hash ^= SessionId.GetHashCode();
       if (AccountId.Length != 0) hash ^= AccountId.GetHashCode();
       if (ServerLocation != 0) hash ^= ServerLocation.GetHashCode();
+      if (SecretToken.Length != 0) hash ^= SecretToken.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1367,6 +1446,10 @@ namespace DC.Packet {
         output.WriteRawTag(56);
         output.WriteUInt32(ServerLocation);
       }
+      if (SecretToken.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(SecretToken);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1405,6 +1488,10 @@ namespace DC.Packet {
         output.WriteRawTag(56);
         output.WriteUInt32(ServerLocation);
       }
+      if (SecretToken.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(SecretToken);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1435,6 +1522,9 @@ namespace DC.Packet {
       }
       if (ServerLocation != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ServerLocation);
+      }
+      if (SecretToken.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SecretToken);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1471,6 +1561,9 @@ namespace DC.Packet {
       }
       if (other.ServerLocation != 0) {
         ServerLocation = other.ServerLocation;
+      }
+      if (other.SecretToken.Length != 0) {
+        SecretToken = other.SecretToken;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1516,6 +1609,10 @@ namespace DC.Packet {
           }
           case 56: {
             ServerLocation = input.ReadUInt32();
+            break;
+          }
+          case 66: {
+            SecretToken = input.ReadString();
             break;
           }
         }
@@ -1564,6 +1661,10 @@ namespace DC.Packet {
             ServerLocation = input.ReadUInt32();
             break;
           }
+          case 66: {
+            SecretToken = input.ReadString();
+            break;
+          }
         }
       }
     }
@@ -1590,6 +1691,7 @@ namespace DC.Packet {
         [pbr::OriginalName("FAIL_LOGIN_BAN_USER_INAPPROPRIATE_NAME")] FailLoginBanUserInappropriateName = 14,
         [pbr::OriginalName("FAIL_LOGIN_BAN_USER_ETC")] FailLoginBanUserEtc = 15,
         [pbr::OriginalName("FAIL_LOGIN_BAN_HARDWARE")] FailLoginBanHardware = 16,
+        [pbr::OriginalName("FAIL_BUILD_VERSION_ID")] FailBuildVersionId = 41,
         [pbr::OriginalName("SUCCESS_AGREE_CHECK_RES")] SuccessAgreeCheckRes = 51,
       }
 

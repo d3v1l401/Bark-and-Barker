@@ -3,18 +3,29 @@ using BarkAndBarker.Steam;
 using DC.Packet;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+//#define USE_STEAM // This will use Steam for authentication, used till playtest 4.
 
 namespace BarkAndBarker.Network.PacketProcessor
 {
     internal class AccountProcessors
     {
         private const uint STEAM_APPID = 211;
+        enum IronMace_Login_Result
+        {
+            NONE = 0,
+            SUCCESS = 1,
+            FAIL_NOT_FOUND_ACCOUNT = 100,
+            FAIL_WRONG_PASSWORD = 101
+        }
 
         public static object HandleLoginReq(ClientSession session, dynamic deserializer)
         {
+#if USE_STEAM
             var des = (WrapperDeserializer)deserializer;
             var loginData = des.Parse<SC2S_ACCOUNT_LOGIN_REQ>();
 
@@ -85,11 +96,37 @@ namespace BarkAndBarker.Network.PacketProcessor
             session.SteamId = inputedSteamID;
 
             return loggedPlayer;
+#else
+            var loginData = ((WrapperDeserializer)deserializer).Parse<IronMace_Login>();
+
+            var loggedInAccount = session.GetDB().SelectFirst<ModelAccount>(ModelAccount.QueryLoginAccount, new
+            {
+                Username = loginData.LoginId,
+                Password = loginData.Password,
+            });
+
+            if (loggedInAccount == null)
+            {
+                var loginResponseFail = new IronMace_Login_Res();
+
+                loginResponseFail.Result = (uint)IronMace_Login_Result.FAIL_NOT_FOUND_ACCOUNT;
+
+                return loginResponseFail;
+            } else {
+                var loginResponse = new IronMace_Token_Res();
+
+                session.m_currentPlayer.AccountID = loggedInAccount.ID;
+                loginResponse.Token = Guid.NewGuid().ToString();
+
+                return loginResponse;
+            }
+#endif
         }
 
         public static MemoryStream HandleLoginRes(ClientSession session, dynamic inputClass)
         {
-            var loggedPlayer = (ModelAccount)inputClass;
+#if USE_STEAM
+        var loggedPlayer = (ModelAccount)inputClass;
 
             var responsePacket = new SS2C_ACCOUNT_LOGIN_RES()
             {
@@ -104,8 +141,26 @@ namespace BarkAndBarker.Network.PacketProcessor
 
             session.m_currentPlayer.SteamID = loggedPlayer.SteamID.ToString();
 
-            var serializer = new WrapperSerializer<SS2C_ACCOUNT_LOGIN_RES>(responsePacket, PacketCommand.S2CAccountLoginRes);
+            var serializer = new WrapperSerializer<SS2C_ACCOUNT_LOGIN_RES>(responsePacket, session.m_currentPacketSequence++, PacketCommand.S2CAccountLoginRes);
             return serializer.Serialize();
+
+        }
+#else
+            // It's a login fail
+            if (inputClass is IronMace_Login_Res)
+            {
+                var responsePacket = (IronMace_Login_Res)inputClass;
+                var serializer = new WrapperSerializer<IronMace_Login_Res>(responsePacket, session.m_currentPacketSequence++, PacketCommand.S2CAccountLoginRes); // TODO
+                return serializer.Serialize();
+            } else if (inputClass is IronMace_Token_Res) {
+                var responsePacket = (IronMace_Token_Res)inputClass;
+                var serializer = new WrapperSerializer<IronMace_Token_Res>(responsePacket, session.m_currentPacketSequence++, PacketCommand.S2CAccountLoginRes); // TODO
+                return serializer.Serialize();
+            } else {
+                throw new Exception("wtf is this account response?");
+            }
+
+#endif
         }
     }
 }

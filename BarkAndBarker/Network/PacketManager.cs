@@ -48,14 +48,21 @@ namespace BarkAndBarker.Network
             { PacketCommand.C2SRankingRangeReq, RankingProcessors.HandleRankingReq },
             // Gathering hall
             { PacketCommand.C2SGatheringHallChannelListReq, GatheringHallProcessors.HandleGhateringHallListReq },
+            // Party packets
+            { PacketCommand.C2SPartyInviteReq, PartyProcessors.HandlePartyInviteReq },
+            { PacketCommand.C2SPartyExitReq, PartyProcessors.HandlePartyExitReq },
+            { PacketCommand.C2SPartyInviteAnswerReq, PartyProcessors.HandlePartyInviteAnswerReq },
+            { PacketCommand.C2SPartyMemberKickReq, PartyProcessors.HandlePartyMemberKickReq },
+            { PacketCommand.C2SPartyReadyReq, PartyProcessors.HandlePartyReadyReq },
+            { PacketCommand.C2SPartyChatReq, PartyProcessors.HandlePartyChatReq },
 
         };
         private static readonly Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>> m_responses = new Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>>()
         {
             { PacketCommand.S2CAliveRes, MiscProcessors.HandleAliveRes },
-            
+
             { PacketCommand.S2CAccountLoginRes, AccountProcessors.HandleLoginRes },
-            
+
             { PacketCommand.S2CAccountCharacterCreateRes, CharacterProcessors.HandleCharacterCreateRes },
             { PacketCommand.S2CAccountCharacterListRes, CharacterProcessors.HandleCharacterListRes },
             { PacketCommand.S2CAccountCharacterDeleteRes, CharacterProcessors.HandleCharacterDeletionRes },
@@ -71,7 +78,14 @@ namespace BarkAndBarker.Network
             { PacketCommand.S2CAutoMatchRegRes, MatchmakingProcessors.HandleMatchmakingRes },
             { PacketCommand.S2CMerchantListRes, MerchantProcessors.HandleMerchantListRes },
             { PacketCommand.S2CRankingRangeRes, RankingProcessors.HandleRankingRes },
-            { PacketCommand.S2CGatheringHallChannelListRes, GatheringHallProcessors.HandleGatheringHallListRes }
+            { PacketCommand.S2CGatheringHallChannelListRes, GatheringHallProcessors.HandleGatheringHallListRes },
+
+            { PacketCommand.S2CPartyInviteRes, PartyProcessors.HandlePartyInviteRes },
+            { PacketCommand.S2CPartyExitRes, PartyProcessors.HandlePartyExitRes },
+            { PacketCommand.S2CPartyInviteAnswerRes, PartyProcessors.HandlePartyInviteAnswerRes },
+            { PacketCommand.S2CPartyMemberKickRes, PartyProcessors.HandlePartyMemberKickRes },
+            { PacketCommand.S2CPartyReadyRes, PartyProcessors.HandlePartyReadyRes },
+            { PacketCommand.S2CPartyChatRes, PartyProcessors.HandlePartyChatRes },
         };
 
         public PacketManager() { }
@@ -82,10 +96,13 @@ namespace BarkAndBarker.Network
             
             try
             {
+                Console.WriteLine("< " + deser.GetPacketClass());
                 var requestProcessor = m_requests[deser.GetPacketClass()];
                 var outputData = requestProcessor.Invoke(session, deser);
 
                 var responsePacket = deser.GetPacketClass() + 1;
+
+                Console.WriteLine("> " + responsePacket);
                 var responseProcessor = m_responses[responsePacket];
 
                 return responseProcessor.Invoke(session, outputData);
