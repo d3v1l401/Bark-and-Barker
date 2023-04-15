@@ -1,4 +1,5 @@
-﻿using BarkAndBarker.Shared.Persistence;
+﻿using BarkAndBarker.Ranking;
+using BarkAndBarker.Shared.Persistence;
 using BarkAndBarker.Shared.Persistence.Models.CharacterStatistics;
 using BarkAndBarker.Shared.Ranking;
 using FluentScheduler;
@@ -18,6 +19,7 @@ namespace BarkAndBarker.Jobs
             }
 
             var topRankings = GetTopRankings(database);
+            RankingCache.Update(topRankings);
         }
 
         private TopRankings GetTopRankings(Database database)
