@@ -13,6 +13,8 @@
                 (CharID, ClassType, RankType, `Rank`)
                 VALUES ";
 
+        public static readonly string QuerySelectAll = "SELECT * FROM barker.character_ranking_top;";
+
         public static readonly string QueryCreateTable = $@"CREATE TABLE IF NOT EXISTS character_ranking_top (
                                                 `{nameof(ID)}` int AUTO_INCREMENT,
                                                 `{nameof(CharID)}` VARCHAR(45),
