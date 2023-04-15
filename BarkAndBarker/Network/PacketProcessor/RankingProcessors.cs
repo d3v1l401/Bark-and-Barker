@@ -23,6 +23,8 @@ namespace BarkAndBarker.Network.PacketProcessor
 
             response.Result = (uint)MatchmakingResponseResult.SUCCESS;
 
+            //HOOK WORKS!
+
             response.AllRowCount = 1;
 
             //TODO
