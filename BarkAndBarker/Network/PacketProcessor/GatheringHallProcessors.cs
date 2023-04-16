@@ -9,7 +9,7 @@ namespace BarkAndBarker.Network.PacketProcessor
 {
     internal class GatheringHallProcessors
     {
-        public static object HandleGhateringHallListReq(ClientSession session, dynamic deserializer)
+        public static object HandleGatheringHallListReq(ClientSession session, dynamic deserializer)
         {
             var request = ((WrapperDeserializer)deserializer).Parse<SC2S_GATHERING_HALL_CHANNEL_LIST_REQ>();
 

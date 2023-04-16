@@ -47,7 +47,7 @@ namespace BarkAndBarker.Network
             // Leaderboards 
             { PacketCommand.C2SRankingRangeReq, RankingProcessors.HandleRankingReq },
             // Gathering hall
-            { PacketCommand.C2SGatheringHallChannelListReq, GatheringHallProcessors.HandleGhateringHallListReq },
+            { PacketCommand.C2SGatheringHallChannelListReq, GatheringHallProcessors.HandleGatheringHallListReq },
             // Party packets
             { PacketCommand.C2SPartyInviteReq, PartyProcessors.HandlePartyInviteReq },
             { PacketCommand.C2SPartyExitReq, PartyProcessors.HandlePartyExitReq },
