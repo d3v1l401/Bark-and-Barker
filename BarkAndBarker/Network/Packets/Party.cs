@@ -70,15 +70,17 @@ namespace DC.Packet {
             "LkRDLlBhY2tldC5TQ0hBVERBVEESDAoEdGltZRgCIAEoBCJWChtTUzJDX1BB",
             "UlRZX1JFQURZX0NIQU5HRV9OT1QSEQoJYWNjb3VudElkGAEgASgJEhMKC2No",
             "YXJhY3RlcklkGAIgASgJEg8KB2lzUmVhZHkYAyABKA0iGwoZU1MyQ19QQVJU",
-            "WV9LSUNLRURfT1VUX05PVCJcChxTUzJDX1BBUlRZX01FTUJFUl9BQ1RJT05f",
-            "Tk9UEhEKCWFjY291bnRJZBgBIAEoCRITCgtjaGFyYWN0ZXJJZBgCIAEoCRIU",
-            "CgxhY3Rpb25JZExpc3QYAyADKAkiHQobU0MyU19QQVJUWV9TVEFSVF9BQ1RJ",
-            "T05fUkVRIi0KG1NTMkNfUEFSVFlfU1RBUlRfQUNUSU9OX1JFUxIOCgZyZXN1",
-            "bHQYASABKA0iRQobU1MyQ19QQVJUWV9TVEFSVF9BQ1RJT05fTk9UEhEKCWFj",
-            "Y291bnRJZBgBIAEoCRITCgtjaGFyYWN0ZXJJZBgCIAEoCSphChNQQVJUWV9J",
-            "TlZJVEVfQU5TV0VSEhYKEklOVklURV9BTlNXRVJfTk9ORRAAEhgKFElOVklU",
-            "RV9BTlNXRVJfQUNFRVBUEAESGAoUSU5WSVRFX0FOU1dFUl9DQU5DRUwQAkIc",
-            "ChFjb20ucGFja2V0cy5wYXJ0eUIFcGFydHlQAGIGcHJvdG8z"));
+            "WV9LSUNLRURfT1VUX05PVCJlCiFTUzJDX1BBUlRZX01FTUJFUl9MT0JCWV9F",
+            "TU9URV9OT1QSEQoJYWNjb3VudElkGAEgASgJEhMKC2NoYXJhY3RlcklkGAIg",
+            "ASgJEhgKEGxvYmJ5RW1vdGVJZExpc3QYAyADKAkiOAogU0MyU19QQVJUWV9T",
+            "VEFSVF9MT0JCWV9FTU9URV9SRVESFAoMbG9iYnlFbW90ZUlkGAEgASgJIjIK",
+            "IFNTMkNfUEFSVFlfU1RBUlRfTE9CQllfRU1PVEVfUkVTEg4KBnJlc3VsdBgB",
+            "IAEoDSJgCiBTUzJDX1BBUlRZX1NUQVJUX0xPQkJZX0VNT1RFX05PVBIRCglh",
+            "Y2NvdW50SWQYASABKAkSEwoLY2hhcmFjdGVySWQYAiABKAkSFAoMbG9iYnlF",
+            "bW90ZUlkGAMgASgJKmEKE1BBUlRZX0lOVklURV9BTlNXRVISFgoSSU5WSVRF",
+            "X0FOU1dFUl9OT05FEAASGAoUSU5WSVRFX0FOU1dFUl9BQ0VFUFQQARIYChRJ",
+            "TlZJVEVfQU5TV0VSX0NBTkNFTBACQhwKEWNvbS5wYWNrZXRzLnBhcnR5QgVw",
+            "YXJ0eVAAYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DC.Packet.ChatReflection.Descriptor, global::DC.Packet.CharacterReflection.Descriptor, global::DC.Packet.ItemReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DC.Packet.PARTY_INVITE_ANSWER), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -108,10 +110,10 @@ namespace DC.Packet {
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_PARTY_CHAT_NOT), global::DC.Packet.SS2C_PARTY_CHAT_NOT.Parser, new[]{ "ChatData", "Time" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_PARTY_READY_CHANGE_NOT), global::DC.Packet.SS2C_PARTY_READY_CHANGE_NOT.Parser, new[]{ "AccountId", "CharacterId", "IsReady" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_PARTY_KICKED_OUT_NOT), global::DC.Packet.SS2C_PARTY_KICKED_OUT_NOT.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_PARTY_MEMBER_ACTION_NOT), global::DC.Packet.SS2C_PARTY_MEMBER_ACTION_NOT.Parser, new[]{ "AccountId", "CharacterId", "ActionIdList" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SC2S_PARTY_START_ACTION_REQ), global::DC.Packet.SC2S_PARTY_START_ACTION_REQ.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_PARTY_START_ACTION_RES), global::DC.Packet.SS2C_PARTY_START_ACTION_RES.Parser, new[]{ "Result" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_PARTY_START_ACTION_NOT), global::DC.Packet.SS2C_PARTY_START_ACTION_NOT.Parser, new[]{ "AccountId", "CharacterId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_PARTY_MEMBER_LOBBY_EMOTE_NOT), global::DC.Packet.SS2C_PARTY_MEMBER_LOBBY_EMOTE_NOT.Parser, new[]{ "AccountId", "CharacterId", "LobbyEmoteIdList" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SC2S_PARTY_START_LOBBY_EMOTE_REQ), global::DC.Packet.SC2S_PARTY_START_LOBBY_EMOTE_REQ.Parser, new[]{ "LobbyEmoteId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_PARTY_START_LOBBY_EMOTE_RES), global::DC.Packet.SS2C_PARTY_START_LOBBY_EMOTE_RES.Parser, new[]{ "Result" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DC.Packet.SS2C_PARTY_START_LOBBY_EMOTE_NOT), global::DC.Packet.SS2C_PARTY_START_LOBBY_EMOTE_NOT.Parser, new[]{ "AccountId", "CharacterId", "LobbyEmoteId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -5882,16 +5884,16 @@ namespace DC.Packet {
 
   }
 
-  public sealed partial class SS2C_PARTY_MEMBER_ACTION_NOT : pb::IMessage<SS2C_PARTY_MEMBER_ACTION_NOT>
+  public sealed partial class SS2C_PARTY_MEMBER_LOBBY_EMOTE_NOT : pb::IMessage<SS2C_PARTY_MEMBER_LOBBY_EMOTE_NOT>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SS2C_PARTY_MEMBER_ACTION_NOT> _parser = new pb::MessageParser<SS2C_PARTY_MEMBER_ACTION_NOT>(() => new SS2C_PARTY_MEMBER_ACTION_NOT());
+    private static readonly pb::MessageParser<SS2C_PARTY_MEMBER_LOBBY_EMOTE_NOT> _parser = new pb::MessageParser<SS2C_PARTY_MEMBER_LOBBY_EMOTE_NOT>(() => new SS2C_PARTY_MEMBER_LOBBY_EMOTE_NOT());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SS2C_PARTY_MEMBER_ACTION_NOT> Parser { get { return _parser; } }
+    public static pb::MessageParser<SS2C_PARTY_MEMBER_LOBBY_EMOTE_NOT> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5907,7 +5909,7 @@ namespace DC.Packet {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SS2C_PARTY_MEMBER_ACTION_NOT() {
+    public SS2C_PARTY_MEMBER_LOBBY_EMOTE_NOT() {
       OnConstruction();
     }
 
@@ -5915,17 +5917,17 @@ namespace DC.Packet {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SS2C_PARTY_MEMBER_ACTION_NOT(SS2C_PARTY_MEMBER_ACTION_NOT other) : this() {
+    public SS2C_PARTY_MEMBER_LOBBY_EMOTE_NOT(SS2C_PARTY_MEMBER_LOBBY_EMOTE_NOT other) : this() {
       accountId_ = other.accountId_;
       characterId_ = other.characterId_;
-      actionIdList_ = other.actionIdList_.Clone();
+      lobbyEmoteIdList_ = other.lobbyEmoteIdList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SS2C_PARTY_MEMBER_ACTION_NOT Clone() {
-      return new SS2C_PARTY_MEMBER_ACTION_NOT(this);
+    public SS2C_PARTY_MEMBER_LOBBY_EMOTE_NOT Clone() {
+      return new SS2C_PARTY_MEMBER_LOBBY_EMOTE_NOT(this);
     }
 
     /// <summary>Field number for the "accountId" field.</summary>
@@ -5952,26 +5954,26 @@ namespace DC.Packet {
       }
     }
 
-    /// <summary>Field number for the "actionIdList" field.</summary>
-    public const int ActionIdListFieldNumber = 3;
-    private static readonly pb::FieldCodec<string> _repeated_actionIdList_codec
+    /// <summary>Field number for the "lobbyEmoteIdList" field.</summary>
+    public const int LobbyEmoteIdListFieldNumber = 3;
+    private static readonly pb::FieldCodec<string> _repeated_lobbyEmoteIdList_codec
         = pb::FieldCodec.ForString(26);
-    private readonly pbc::RepeatedField<string> actionIdList_ = new pbc::RepeatedField<string>();
+    private readonly pbc::RepeatedField<string> lobbyEmoteIdList_ = new pbc::RepeatedField<string>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<string> ActionIdList {
-      get { return actionIdList_; }
+    public pbc::RepeatedField<string> LobbyEmoteIdList {
+      get { return lobbyEmoteIdList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as SS2C_PARTY_MEMBER_ACTION_NOT);
+      return Equals(other as SS2C_PARTY_MEMBER_LOBBY_EMOTE_NOT);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SS2C_PARTY_MEMBER_ACTION_NOT other) {
+    public bool Equals(SS2C_PARTY_MEMBER_LOBBY_EMOTE_NOT other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -5980,7 +5982,7 @@ namespace DC.Packet {
       }
       if (AccountId != other.AccountId) return false;
       if (CharacterId != other.CharacterId) return false;
-      if(!actionIdList_.Equals(other.actionIdList_)) return false;
+      if(!lobbyEmoteIdList_.Equals(other.lobbyEmoteIdList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -5990,7 +5992,7 @@ namespace DC.Packet {
       int hash = 1;
       if (AccountId.Length != 0) hash ^= AccountId.GetHashCode();
       if (CharacterId.Length != 0) hash ^= CharacterId.GetHashCode();
-      hash ^= actionIdList_.GetHashCode();
+      hash ^= lobbyEmoteIdList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -6017,7 +6019,7 @@ namespace DC.Packet {
         output.WriteRawTag(18);
         output.WriteString(CharacterId);
       }
-      actionIdList_.WriteTo(output, _repeated_actionIdList_codec);
+      lobbyEmoteIdList_.WriteTo(output, _repeated_lobbyEmoteIdList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -6036,7 +6038,7 @@ namespace DC.Packet {
         output.WriteRawTag(18);
         output.WriteString(CharacterId);
       }
-      actionIdList_.WriteTo(ref output, _repeated_actionIdList_codec);
+      lobbyEmoteIdList_.WriteTo(ref output, _repeated_lobbyEmoteIdList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -6053,7 +6055,7 @@ namespace DC.Packet {
       if (CharacterId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(CharacterId);
       }
-      size += actionIdList_.CalculateSize(_repeated_actionIdList_codec);
+      size += lobbyEmoteIdList_.CalculateSize(_repeated_lobbyEmoteIdList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -6062,7 +6064,7 @@ namespace DC.Packet {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SS2C_PARTY_MEMBER_ACTION_NOT other) {
+    public void MergeFrom(SS2C_PARTY_MEMBER_LOBBY_EMOTE_NOT other) {
       if (other == null) {
         return;
       }
@@ -6072,7 +6074,7 @@ namespace DC.Packet {
       if (other.CharacterId.Length != 0) {
         CharacterId = other.CharacterId;
       }
-      actionIdList_.Add(other.actionIdList_);
+      lobbyEmoteIdList_.Add(other.lobbyEmoteIdList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -6097,7 +6099,7 @@ namespace DC.Packet {
             break;
           }
           case 26: {
-            actionIdList_.AddEntriesFrom(input, _repeated_actionIdList_codec);
+            lobbyEmoteIdList_.AddEntriesFrom(input, _repeated_lobbyEmoteIdList_codec);
             break;
           }
         }
@@ -6124,7 +6126,7 @@ namespace DC.Packet {
             break;
           }
           case 26: {
-            actionIdList_.AddEntriesFrom(ref input, _repeated_actionIdList_codec);
+            lobbyEmoteIdList_.AddEntriesFrom(ref input, _repeated_lobbyEmoteIdList_codec);
             break;
           }
         }
@@ -6134,16 +6136,16 @@ namespace DC.Packet {
 
   }
 
-  public sealed partial class SC2S_PARTY_START_ACTION_REQ : pb::IMessage<SC2S_PARTY_START_ACTION_REQ>
+  public sealed partial class SC2S_PARTY_START_LOBBY_EMOTE_REQ : pb::IMessage<SC2S_PARTY_START_LOBBY_EMOTE_REQ>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SC2S_PARTY_START_ACTION_REQ> _parser = new pb::MessageParser<SC2S_PARTY_START_ACTION_REQ>(() => new SC2S_PARTY_START_ACTION_REQ());
+    private static readonly pb::MessageParser<SC2S_PARTY_START_LOBBY_EMOTE_REQ> _parser = new pb::MessageParser<SC2S_PARTY_START_LOBBY_EMOTE_REQ>(() => new SC2S_PARTY_START_LOBBY_EMOTE_REQ());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SC2S_PARTY_START_ACTION_REQ> Parser { get { return _parser; } }
+    public static pb::MessageParser<SC2S_PARTY_START_LOBBY_EMOTE_REQ> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -6159,7 +6161,7 @@ namespace DC.Packet {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SC2S_PARTY_START_ACTION_REQ() {
+    public SC2S_PARTY_START_LOBBY_EMOTE_REQ() {
       OnConstruction();
     }
 
@@ -6167,31 +6169,45 @@ namespace DC.Packet {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SC2S_PARTY_START_ACTION_REQ(SC2S_PARTY_START_ACTION_REQ other) : this() {
+    public SC2S_PARTY_START_LOBBY_EMOTE_REQ(SC2S_PARTY_START_LOBBY_EMOTE_REQ other) : this() {
+      lobbyEmoteId_ = other.lobbyEmoteId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SC2S_PARTY_START_ACTION_REQ Clone() {
-      return new SC2S_PARTY_START_ACTION_REQ(this);
+    public SC2S_PARTY_START_LOBBY_EMOTE_REQ Clone() {
+      return new SC2S_PARTY_START_LOBBY_EMOTE_REQ(this);
+    }
+
+    /// <summary>Field number for the "lobbyEmoteId" field.</summary>
+    public const int LobbyEmoteIdFieldNumber = 1;
+    private string lobbyEmoteId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string LobbyEmoteId {
+      get { return lobbyEmoteId_; }
+      set {
+        lobbyEmoteId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as SC2S_PARTY_START_ACTION_REQ);
+      return Equals(other as SC2S_PARTY_START_LOBBY_EMOTE_REQ);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SC2S_PARTY_START_ACTION_REQ other) {
+    public bool Equals(SC2S_PARTY_START_LOBBY_EMOTE_REQ other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (LobbyEmoteId != other.LobbyEmoteId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -6199,6 +6215,7 @@ namespace DC.Packet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (LobbyEmoteId.Length != 0) hash ^= LobbyEmoteId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -6217,6 +6234,10 @@ namespace DC.Packet {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (LobbyEmoteId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(LobbyEmoteId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -6227,6 +6248,10 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (LobbyEmoteId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(LobbyEmoteId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -6237,6 +6262,9 @@ namespace DC.Packet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (LobbyEmoteId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(LobbyEmoteId);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -6245,9 +6273,12 @@ namespace DC.Packet {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SC2S_PARTY_START_ACTION_REQ other) {
+    public void MergeFrom(SC2S_PARTY_START_LOBBY_EMOTE_REQ other) {
       if (other == null) {
         return;
+      }
+      if (other.LobbyEmoteId.Length != 0) {
+        LobbyEmoteId = other.LobbyEmoteId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -6264,6 +6295,10 @@ namespace DC.Packet {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 10: {
+            LobbyEmoteId = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -6279,6 +6314,10 @@ namespace DC.Packet {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
+          case 10: {
+            LobbyEmoteId = input.ReadString();
+            break;
+          }
         }
       }
     }
@@ -6286,16 +6325,16 @@ namespace DC.Packet {
 
   }
 
-  public sealed partial class SS2C_PARTY_START_ACTION_RES : pb::IMessage<SS2C_PARTY_START_ACTION_RES>
+  public sealed partial class SS2C_PARTY_START_LOBBY_EMOTE_RES : pb::IMessage<SS2C_PARTY_START_LOBBY_EMOTE_RES>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SS2C_PARTY_START_ACTION_RES> _parser = new pb::MessageParser<SS2C_PARTY_START_ACTION_RES>(() => new SS2C_PARTY_START_ACTION_RES());
+    private static readonly pb::MessageParser<SS2C_PARTY_START_LOBBY_EMOTE_RES> _parser = new pb::MessageParser<SS2C_PARTY_START_LOBBY_EMOTE_RES>(() => new SS2C_PARTY_START_LOBBY_EMOTE_RES());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SS2C_PARTY_START_ACTION_RES> Parser { get { return _parser; } }
+    public static pb::MessageParser<SS2C_PARTY_START_LOBBY_EMOTE_RES> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -6311,7 +6350,7 @@ namespace DC.Packet {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SS2C_PARTY_START_ACTION_RES() {
+    public SS2C_PARTY_START_LOBBY_EMOTE_RES() {
       OnConstruction();
     }
 
@@ -6319,15 +6358,15 @@ namespace DC.Packet {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SS2C_PARTY_START_ACTION_RES(SS2C_PARTY_START_ACTION_RES other) : this() {
+    public SS2C_PARTY_START_LOBBY_EMOTE_RES(SS2C_PARTY_START_LOBBY_EMOTE_RES other) : this() {
       result_ = other.result_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SS2C_PARTY_START_ACTION_RES Clone() {
-      return new SS2C_PARTY_START_ACTION_RES(this);
+    public SS2C_PARTY_START_LOBBY_EMOTE_RES Clone() {
+      return new SS2C_PARTY_START_LOBBY_EMOTE_RES(this);
     }
 
     /// <summary>Field number for the "result" field.</summary>
@@ -6345,12 +6384,12 @@ namespace DC.Packet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as SS2C_PARTY_START_ACTION_RES);
+      return Equals(other as SS2C_PARTY_START_LOBBY_EMOTE_RES);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SS2C_PARTY_START_ACTION_RES other) {
+    public bool Equals(SS2C_PARTY_START_LOBBY_EMOTE_RES other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -6423,7 +6462,7 @@ namespace DC.Packet {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SS2C_PARTY_START_ACTION_RES other) {
+    public void MergeFrom(SS2C_PARTY_START_LOBBY_EMOTE_RES other) {
       if (other == null) {
         return;
       }
@@ -6475,16 +6514,16 @@ namespace DC.Packet {
 
   }
 
-  public sealed partial class SS2C_PARTY_START_ACTION_NOT : pb::IMessage<SS2C_PARTY_START_ACTION_NOT>
+  public sealed partial class SS2C_PARTY_START_LOBBY_EMOTE_NOT : pb::IMessage<SS2C_PARTY_START_LOBBY_EMOTE_NOT>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SS2C_PARTY_START_ACTION_NOT> _parser = new pb::MessageParser<SS2C_PARTY_START_ACTION_NOT>(() => new SS2C_PARTY_START_ACTION_NOT());
+    private static readonly pb::MessageParser<SS2C_PARTY_START_LOBBY_EMOTE_NOT> _parser = new pb::MessageParser<SS2C_PARTY_START_LOBBY_EMOTE_NOT>(() => new SS2C_PARTY_START_LOBBY_EMOTE_NOT());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SS2C_PARTY_START_ACTION_NOT> Parser { get { return _parser; } }
+    public static pb::MessageParser<SS2C_PARTY_START_LOBBY_EMOTE_NOT> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -6500,7 +6539,7 @@ namespace DC.Packet {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SS2C_PARTY_START_ACTION_NOT() {
+    public SS2C_PARTY_START_LOBBY_EMOTE_NOT() {
       OnConstruction();
     }
 
@@ -6508,16 +6547,17 @@ namespace DC.Packet {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SS2C_PARTY_START_ACTION_NOT(SS2C_PARTY_START_ACTION_NOT other) : this() {
+    public SS2C_PARTY_START_LOBBY_EMOTE_NOT(SS2C_PARTY_START_LOBBY_EMOTE_NOT other) : this() {
       accountId_ = other.accountId_;
       characterId_ = other.characterId_;
+      lobbyEmoteId_ = other.lobbyEmoteId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SS2C_PARTY_START_ACTION_NOT Clone() {
-      return new SS2C_PARTY_START_ACTION_NOT(this);
+    public SS2C_PARTY_START_LOBBY_EMOTE_NOT Clone() {
+      return new SS2C_PARTY_START_LOBBY_EMOTE_NOT(this);
     }
 
     /// <summary>Field number for the "accountId" field.</summary>
@@ -6544,15 +6584,27 @@ namespace DC.Packet {
       }
     }
 
+    /// <summary>Field number for the "lobbyEmoteId" field.</summary>
+    public const int LobbyEmoteIdFieldNumber = 3;
+    private string lobbyEmoteId_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as SS2C_PARTY_START_ACTION_NOT);
+    public string LobbyEmoteId {
+      get { return lobbyEmoteId_; }
+      set {
+        lobbyEmoteId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SS2C_PARTY_START_ACTION_NOT other) {
+    public override bool Equals(object other) {
+      return Equals(other as SS2C_PARTY_START_LOBBY_EMOTE_NOT);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SS2C_PARTY_START_LOBBY_EMOTE_NOT other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -6561,6 +6613,7 @@ namespace DC.Packet {
       }
       if (AccountId != other.AccountId) return false;
       if (CharacterId != other.CharacterId) return false;
+      if (LobbyEmoteId != other.LobbyEmoteId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -6570,6 +6623,7 @@ namespace DC.Packet {
       int hash = 1;
       if (AccountId.Length != 0) hash ^= AccountId.GetHashCode();
       if (CharacterId.Length != 0) hash ^= CharacterId.GetHashCode();
+      if (LobbyEmoteId.Length != 0) hash ^= LobbyEmoteId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -6596,6 +6650,10 @@ namespace DC.Packet {
         output.WriteRawTag(18);
         output.WriteString(CharacterId);
       }
+      if (LobbyEmoteId.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(LobbyEmoteId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -6614,6 +6672,10 @@ namespace DC.Packet {
         output.WriteRawTag(18);
         output.WriteString(CharacterId);
       }
+      if (LobbyEmoteId.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(LobbyEmoteId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -6630,6 +6692,9 @@ namespace DC.Packet {
       if (CharacterId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(CharacterId);
       }
+      if (LobbyEmoteId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(LobbyEmoteId);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -6638,7 +6703,7 @@ namespace DC.Packet {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SS2C_PARTY_START_ACTION_NOT other) {
+    public void MergeFrom(SS2C_PARTY_START_LOBBY_EMOTE_NOT other) {
       if (other == null) {
         return;
       }
@@ -6647,6 +6712,9 @@ namespace DC.Packet {
       }
       if (other.CharacterId.Length != 0) {
         CharacterId = other.CharacterId;
+      }
+      if (other.LobbyEmoteId.Length != 0) {
+        LobbyEmoteId = other.LobbyEmoteId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -6671,6 +6739,10 @@ namespace DC.Packet {
             CharacterId = input.ReadString();
             break;
           }
+          case 26: {
+            LobbyEmoteId = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -6692,6 +6764,10 @@ namespace DC.Packet {
           }
           case 18: {
             CharacterId = input.ReadString();
+            break;
+          }
+          case 26: {
+            LobbyEmoteId = input.ReadString();
             break;
           }
         }

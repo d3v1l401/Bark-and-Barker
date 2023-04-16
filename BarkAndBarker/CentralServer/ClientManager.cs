@@ -35,8 +35,6 @@ namespace BarkAndBarker
 
         public UInt16 m_currentPacketSequence { get; set; } = 0;
 
-        public string SteamId { get; set; }
-
         public Database GetDB() { return m_databaseSession; }
 
         public ClientSession(TcpServer server) : base(server) 
