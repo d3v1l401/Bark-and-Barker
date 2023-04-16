@@ -50,11 +50,11 @@
 
     public enum RankType : int
     {
-        VeteranAdventureCount = 1,
-        TreasureCollectorCount,
-        KillerOutlawCount,
-        EscapeArtistCount,
-        LichSlayerCount,
-        GhostKingSlayerCount
+        TreasureCollectorCount = 1,
+        KillerOutlawCount = 2,
+        EscapeArtistCount = 3,
+        VeteranAdventureCount = 4,
+        LichSlayerCount = 5,
+        GhostKingSlayerCount = 6
     }
 }
