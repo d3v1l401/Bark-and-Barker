@@ -1,9 +1,25 @@
-﻿using DC.Packet;
+﻿using BarkAndBarker.Ranking;
+using BarkAndBarker.Shared.Persistence.Models.CharacterStatistics;
+using DC.Packet;
 
 namespace BarkAndBarker.Network.PacketProcessor
 {
     internal class RankingProcessors
     {
+        public static ClassType StringToClassType(string s)
+        {
+            if (string.IsNullOrWhiteSpace(s)) return ClassType.All;
+
+            var types = Enum.GetValues<ClassType>();
+
+            foreach (var type in types)
+            {
+                if (s.Contains(type.ToString())) return type;
+            }
+
+            return ClassType.All;
+        }
+
         public static object HandleRankingReq(ClientSession session, dynamic deserializer)
         {
             var request = ((WrapperDeserializer)deserializer).Parse<SC2S_RANKING_RANGE_REQ>();
@@ -23,47 +39,35 @@ namespace BarkAndBarker.Network.PacketProcessor
 
             response.Result = (uint)MatchmakingResponseResult.SUCCESS;
 
-            //HOOK WORKS!
+            var topList = RankingCache.CachedTopRankings;
 
-            response.AllRowCount = 1;
-
-            //TODO
-            var record1 = new SRankRecord
+            var classType = StringToClassType(response.CharacterClass);
+            var rankType = (RankType)response.RankType;
+            foreach (var modelCharacterRankingTop in topList.GetAll)
             {
-                PageIndex = 0,
-                Rank = 1,
-                Score = 6969,
-                Percentage = 30,
-                AccountId = "421421412",
-                NickName = new SACCOUNT_NICKNAME()
+                if (modelCharacterRankingTop.ClassType == classType && modelCharacterRankingTop.RankType == rankType)
                 {
-                    OriginalNickName = "BestOne",
-                    StreamingModeNickName = "BestOne",
-                    KarmaRating = 100,
-                },
-                CharacterClass = response.CharacterClass
-            };
+                    var record = new SRankRecord
+                    {
+                        PageIndex = 0,
+                        Rank = (uint)modelCharacterRankingTop.Rank,
+                        Score = (uint)modelCharacterRankingTop.Score,
+                        Percentage = 100, //TODO
+                        AccountId = modelCharacterRankingTop.AccountID.ToString(),
+                        NickName = new SACCOUNT_NICKNAME()
+                        {
+                            OriginalNickName = modelCharacterRankingTop.Nickname,
+                            StreamingModeNickName = "RedactedForPrivacy", //TODO
+                            KarmaRating = 100, //TODO
+                        },
+                        CharacterClass = response.CharacterClass
+                    };
 
-            response.Records.Add(record1);
+                    response.Records.Add(record);
+                }
+            }
 
-            var record2 = new SRankRecord
-            {
-                PageIndex = 0,
-                Rank = 2,
-                Score = 1337,
-                Percentage = 20,
-                AccountId = "421121412",
-                NickName = new SACCOUNT_NICKNAME()
-                {
-                    OriginalNickName = "Second",
-                    StreamingModeNickName = "Second",
-                    KarmaRating = 20,
-                },
-                CharacterClass = response.CharacterClass
-            };
-
-            response.Records.Add(record2);
-
+            response.AllRowCount = (uint)response.Records.Count;
 
             var serial = new WrapperSerializer<SS2C_RANKING_RANGE_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CRankingRangeRes);
             return serial.Serialize();
