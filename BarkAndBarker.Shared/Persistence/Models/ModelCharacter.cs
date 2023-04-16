@@ -12,6 +12,7 @@ public class ModelCharacter : IModel
     public DateTime LastLogin;
     public int KarmaScore;
 
+    public static readonly string QuerySelectAllCharacters = "SELECT * FROM barker.characters;";
     public static readonly string QuerySelectAllByUserAccount = "SELECT * FROM barker.characters WHERE barker.characters.accountID = @AID AND barker.characters.IsDeleted IS NULL;";
     public static readonly string QuerySelectAllNicknames = "SELECT COUNT(*) FROM barker.characters WHERE barker.characters.Nickname = @Nickname;";
     public static readonly string QuerySelectCharacterByID = "SELECT * FROM barker.characters WHERE barker.characters.CharID = @CID AND barker.characters.IsDeleted IS NULL;";

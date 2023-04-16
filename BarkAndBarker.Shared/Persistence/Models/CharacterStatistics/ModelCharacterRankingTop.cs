@@ -13,7 +13,7 @@
 
         public static readonly string QueryResetTable = @"DELETE FROM character_ranking_top";
         public static readonly string QueryPopulate = @"INSERT INTO character_ranking_top
-                (CharID, ClassType, RankType, `Rank`)
+                (CharID, AccountID, Nickname, ClassType, RankType, `Rank`, Score)
                 VALUES ";
 
         public static readonly string QuerySelectAll = "SELECT * FROM barker.character_ranking_top;";
@@ -30,7 +30,7 @@
 
                                                 PRIMARY KEY (`{nameof(ID)}`),
                                                 CONSTRAINT `charRankingId` FOREIGN KEY (`{nameof(CharID)}`) REFERENCES `characters` (`{nameof(ModelCharacter.CharID)}`),
-                                                CONSTRAINT `accRankingId` FOREIGN KEY (`{nameof(AccountID)}`) REFERENCES `character_ranking` (`{nameof(ModelAccount.ID)}`)
+                                                CONSTRAINT `accRankingId` FOREIGN KEY (`{nameof(AccountID)}`) REFERENCES `accounts` (`{nameof(ModelAccount.ID)}`)
                                                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
 
         public static readonly int TableCreationOrder = 1;

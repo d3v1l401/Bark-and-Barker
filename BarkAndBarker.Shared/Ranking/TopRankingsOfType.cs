@@ -71,15 +71,45 @@ namespace BarkAndBarker.Shared.Ranking
                 default:
                     throw new ArgumentOutOfRangeException(nameof(classType), classType, "Invalid class type");
             }
+            
+            
 
             rankings.AddRange(characterRankings.OrderByDescending(selector)
                 .Take(100)
-                .Select((character, i) => new ModelCharacterRankingTop
+                .Select((character, i) =>
                 {
-                    CharID = character.CharID,
-                    ClassType = classType,
-                    RankType = rankType,
-                    Rank = i + 1
+                    var score = 0;
+                    switch (rankType)
+                    {
+                        case RankType.VeteranAdventureCount:
+                            score = character.VeteranAdventureCount;
+                            break;
+                        case RankType.TreasureCollectorCount:
+                            score = character.TreasureCollectorCount;
+                            break;
+                        case RankType.KillerOutlawCount:
+                            score = character.KillerOutlawCount;
+                            break;
+                        case RankType.EscapeArtistCount:
+                            score = character.EscapeArtistCount;
+                            break;
+                        case RankType.LichSlayerCount:
+                            score = character.LichSlayerCount;
+                            break;
+                        case RankType.GhostKingSlayerCount:
+                            score = character.GhostKingSlayerCount;
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException(nameof(rankType), rankType, null);
+                    }
+                    return new ModelCharacterRankingTop
+                    {
+                        CharID = character.CharID,
+                        ClassType = classType,
+                        RankType = rankType,
+                        Rank = i + 1,
+                        Score = score
+                    };
                 }));
         }
     }

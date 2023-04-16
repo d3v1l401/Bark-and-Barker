@@ -67,12 +67,15 @@ namespace BarkAndBarker.RankingCalculator.Jobs
             for (int i = 0; i < topRankingsList.Count; i++)
             {
                 var ranking = topRankingsList[i];
-                characterRankingTopValues.Add($"(@CharID{i}, @ClassType{i}, @RankType{i}, @Rank{i})");
+                characterRankingTopValues.Add($"(@CharID{i}, @AccountID{i}, @Nickname{i}, @ClassType{i}, @RankType{i}, @Rank{i}, @Score{i})");
 
                 characterRankingTopParameters.Add($"@CharID{i}", ranking.CharID);
+                characterRankingTopParameters.Add($"@AccountID{i}", ranking.AccountID);
+                characterRankingTopParameters.Add($"@Nickname{i}", ranking.Nickname);
                 characterRankingTopParameters.Add($"@ClassType{i}", ranking.ClassType);
                 characterRankingTopParameters.Add($"@RankType{i}", ranking.RankType);
                 characterRankingTopParameters.Add($"@Rank{i}", ranking.Rank);
+                characterRankingTopParameters.Add($"@Score{i}", ranking.Score);
             }
 
             var populateRankingTopQuery = ModelCharacterRankingTop.QueryPopulate;
@@ -141,6 +144,16 @@ namespace BarkAndBarker.RankingCalculator.Jobs
                 topRankings.RankingEscapeArtist.AddRankingsForClass(filteredRankings, f => f.EscapeArtistCount, classType, RankType.EscapeArtistCount);
                 topRankings.RankingLichSlayer.AddRankingsForClass(filteredRankings, f => f.LichSlayerCount, classType, RankType.LichSlayerCount);
                 topRankings.RankingGhostKingSlayer.AddRankingsForClass(filteredRankings, f => f.GhostKingSlayerCount, classType, RankType.GhostKingSlayerCount);
+            }
+
+            var accounts = database.Select<ModelAccount>(ModelAccount.QuerySelectAllAccounts, null);
+            var characters = database.Select<ModelCharacter>(ModelCharacter.QuerySelectAllCharacters, null);
+
+            foreach (var modelCharacterRankingTop in topRankings.GetAll)
+            {
+                var character = characters.First(c => c.CharID == modelCharacterRankingTop.CharID);
+                modelCharacterRankingTop.Nickname = character .Nickname;
+                modelCharacterRankingTop.AccountID = accounts.First(a => a.ID == character.accountID).ID;
             }
 
             return topRankings;
