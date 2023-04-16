@@ -128,8 +128,8 @@ namespace BarkAndBarker.RankingCalculator.Jobs
         private TopRankings CalculateTopRankings(List<ModelCharacterRanking> characterRankings, Database database)
         {
             var topRankings = new TopRankings();
-
-            var classTypes = new List<ClassType> { ClassType.Fighter, ClassType.Barbarian, ClassType.Cleric, ClassType.Rogue, ClassType.Ranger, ClassType.Wizard, ClassType.All };
+            
+            var classTypes = Enum.GetValues<ClassType>();
 
             foreach (var classType in classTypes)
             {
