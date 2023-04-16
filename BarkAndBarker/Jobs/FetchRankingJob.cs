@@ -53,6 +53,9 @@ namespace BarkAndBarker.Jobs
                             case ClassType.Wizard:
                                 topRankings.RankingVeteranAdventure.RankingWizard.Add(modelCharacterRankingTop);
                                 break;
+                            case ClassType.Bard:
+                                topRankings.RankingVeteranAdventure.RankingBard.Add(modelCharacterRankingTop);
+                                break;
                             case ClassType.All:
                                 topRankings.RankingVeteranAdventure.RankingAll.Add(modelCharacterRankingTop);
                                 break;
@@ -79,6 +82,9 @@ namespace BarkAndBarker.Jobs
                                 break;
                             case ClassType.Wizard:
                                 topRankings.RankingTreasureCollector.RankingWizard.Add(modelCharacterRankingTop);
+                                break;
+                            case ClassType.Bard:
+                                topRankings.RankingTreasureCollector.RankingBard.Add(modelCharacterRankingTop);
                                 break;
                             case ClassType.All:
                                 topRankings.RankingTreasureCollector.RankingAll.Add(modelCharacterRankingTop);
@@ -107,6 +113,9 @@ namespace BarkAndBarker.Jobs
                             case ClassType.Wizard:
                                 topRankings.RankingKillerOutlaw.RankingWizard.Add(modelCharacterRankingTop);
                                 break;
+                            case ClassType.Bard:
+                                topRankings.RankingKillerOutlaw.RankingBard.Add(modelCharacterRankingTop);
+                                break;
                             case ClassType.All:
                                 topRankings.RankingKillerOutlaw.RankingAll.Add(modelCharacterRankingTop);
                                 break;
@@ -132,6 +141,9 @@ namespace BarkAndBarker.Jobs
                                 break;
                             case ClassType.Wizard:
                                 topRankings.RankingEscapeArtist.RankingWizard.Add(modelCharacterRankingTop);
+                                break;
+                            case ClassType.Bard:
+                                topRankings.RankingEscapeArtist.RankingBard.Add(modelCharacterRankingTop);
                                 break;
                             case ClassType.All:
                                 topRankings.RankingEscapeArtist.RankingAll.Add(modelCharacterRankingTop);
@@ -159,6 +171,9 @@ namespace BarkAndBarker.Jobs
                             case ClassType.Wizard:
                                 topRankings.RankingLichSlayer.RankingWizard.Add(modelCharacterRankingTop);
                                 break;
+                            case ClassType.Bard:
+                                topRankings.RankingLichSlayer.RankingBard.Add(modelCharacterRankingTop);
+                                break;
                             case ClassType.All:
                                 topRankings.RankingLichSlayer.RankingAll.Add(modelCharacterRankingTop);
                                 break;
@@ -184,6 +199,9 @@ namespace BarkAndBarker.Jobs
                                 break;
                             case ClassType.Wizard:
                                 topRankings.RankingGhostKingSlayer.RankingWizard.Add(modelCharacterRankingTop);
+                                break;
+                            case ClassType.Bard:
+                                topRankings.RankingGhostKingSlayer.RankingBard.Add(modelCharacterRankingTop);
                                 break;
                             case ClassType.All:
                                 topRankings.RankingGhostKingSlayer.RankingAll.Add(modelCharacterRankingTop);

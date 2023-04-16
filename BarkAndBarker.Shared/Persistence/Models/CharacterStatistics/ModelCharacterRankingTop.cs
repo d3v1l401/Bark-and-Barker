@@ -37,7 +37,8 @@
         Cleric,
         Ranger,
         Rogue,
-        Wizard
+        Wizard,
+        Bard
     }
 
     public enum RankType : int

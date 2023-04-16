@@ -13,6 +13,7 @@ namespace BarkAndBarker.Shared.Ranking
         public List<ModelCharacterRankingTop> RankingRogue { get; set; }
         public List<ModelCharacterRankingTop> RankingRanger { get; set; }
         public List<ModelCharacterRankingTop> RankingWizard { get; set; }
+        public List<ModelCharacterRankingTop> RankingBard { get; set; }
 
         public IEnumerable<ModelCharacterRankingTop> GetAll =>
             RankingAll.Concat(RankingFighter)
@@ -20,7 +21,8 @@ namespace BarkAndBarker.Shared.Ranking
                 .Concat(RankingCleric)
                 .Concat(RankingRogue)
                 .Concat(RankingRanger)
-                .Concat(RankingWizard);
+                .Concat(RankingWizard)
+                .Concat(RankingBard);
 
         public TopRankingsOfType(RankType rankType)
         {
@@ -32,6 +34,7 @@ namespace BarkAndBarker.Shared.Ranking
             RankingRogue = new List<ModelCharacterRankingTop>();
             RankingRanger = new List<ModelCharacterRankingTop>();
             RankingWizard = new List<ModelCharacterRankingTop>();
+            RankingBard = new List<ModelCharacterRankingTop>();
         }
 
         public void AddRankingsForClass(IEnumerable<ModelCharacterRanking> characterRankings,
@@ -58,6 +61,9 @@ namespace BarkAndBarker.Shared.Ranking
                     break;
                 case ClassType.Wizard:
                     rankings = RankingWizard;
+                    break;
+                case ClassType.Bard:
+                    rankings = RankingBard;
                     break;
                 case ClassType.All:
                     rankings = RankingAll;
