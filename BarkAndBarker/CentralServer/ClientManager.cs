@@ -32,7 +32,10 @@ namespace BarkAndBarker
         public ModelCharacter m_currentCharacter = null;
         private Database m_databaseSession = new Database();
 
+        public string m_currentPlayerSessionToken = string.Empty;
+
         public UInt16 m_currentPacketSequence { get; set; } = 0;
+        public bool m_scheduledDisconnect = false;
 
         public Database GetDB() { return m_databaseSession; }
 
@@ -64,6 +67,9 @@ namespace BarkAndBarker
             try
             {
                 SendAsync(m_packetManager.Handle(this, inputStream).ToArray());
+                if (m_scheduledDisconnect)
+                    this.Disconnect();
+
             } catch (Exception ex) {
                 Console.WriteLine("[" + base.Id + "] Could not process packet: " + ex.Message);
 #if !DEBUG

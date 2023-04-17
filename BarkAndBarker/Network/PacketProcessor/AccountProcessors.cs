@@ -110,13 +110,14 @@ namespace BarkAndBarker.Network.PacketProcessor
                 var loginResponseFail = new IronMace_Login_Res();
 
                 loginResponseFail.Result = (uint)IronMace_Login_Result.FAIL_NOT_FOUND_ACCOUNT;
+                loginResponseFail.ErrorMessage = "The account does not exist, or the password is wrong";
 
                 return loginResponseFail;
             } else {
                 var loginResponse = new IronMace_Token_Res();
 
                 session.m_currentPlayer.AccountID = loggedInAccount.ID;
-                loginResponse.Token = Guid.NewGuid().ToString();
+                loginResponse.Token = session.m_currentPlayerSessionToken = Guid.NewGuid().ToString();
 
                 return loginResponse;
             }
@@ -150,11 +151,13 @@ namespace BarkAndBarker.Network.PacketProcessor
             if (inputClass is IronMace_Login_Res)
             {
                 var responsePacket = (IronMace_Login_Res)inputClass;
-                var serializer = new WrapperSerializer<IronMace_Login_Res>(responsePacket, session.m_currentPacketSequence++, PacketCommand.S2CAccountLoginRes); // TODO
+                var serializer = new WrapperSerializer<IronMace_Login_Res>(responsePacket, session.m_currentPacketSequence++, PacketCommand.S2CAccountLoginRes);
+                session.m_scheduledDisconnect = true;
+
                 return serializer.Serialize();
-            } else if (inputClass is IronMace_Token_Res) {
+            } else if (inputClass is IronMace_Token_Res) { // Success, give it a token
                 var responsePacket = (IronMace_Token_Res)inputClass;
-                var serializer = new WrapperSerializer<IronMace_Token_Res>(responsePacket, session.m_currentPacketSequence++, PacketCommand.S2CAccountLoginRes); // TODO
+                var serializer = new WrapperSerializer<IronMace_Token_Res>(responsePacket, session.m_currentPacketSequence++, PacketCommand.S2CAccountLoginRes);
                 return serializer.Serialize();
             } else {
                 throw new Exception("wtf is this account response?");
