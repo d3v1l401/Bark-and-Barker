@@ -1,9 +1,25 @@
-﻿using BarkAndBarker.RankingCalculator.Jobs;using BarkAndBarker.Shared.Persistence;
+﻿using BarkAndBarker.RankingCalculator.Jobs;
+using BarkAndBarker.Shared.Persistence;
+using BarkAndBarker.Shared.Settings;
 using FluentScheduler;
 
 Console.WriteLine("Bark!");
 
-Database.ConnectionString = @"Server=127.0.0.1;User=bark;Password=barkbark;Database=barker;"; //TODO
+#if DEBUG
+Console.WriteLine("Importing settings from 'settings.json'...");
+var settings = Settings.ImportSettings("./settings.json");
+#else
+Console.WriteLine("Importing settings from environment...");
+var settings = Settings.ImportSettings();
+#endif
+if (settings == null)
+{
+    Console.WriteLine("Could not import settings.");
+    return;
+}
+
+Console.WriteLine("Connecting to database...");
+Database.ConnectionString = settings.DBConnectionString;
 
 var jobRegistry = new SchedulerRegistry();
 

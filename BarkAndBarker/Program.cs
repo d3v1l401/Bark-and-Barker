@@ -7,6 +7,7 @@ using System.Net;
 using System.Xml.Schema;
 using BarkAndBarker.Jobs;
 using BarkAndBarker.Shared.Persistence;
+using BarkAndBarker.Shared.Settings;
 
 namespace BarkAndBarker
 {

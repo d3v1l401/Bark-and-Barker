@@ -15,4 +15,10 @@
     <ProjectReference Include="..\BarkAndBarker.Shared\BarkAndBarker.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="settings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
