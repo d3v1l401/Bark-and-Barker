@@ -6,7 +6,8 @@ using System.Net;
 using System.Net.Sockets;
 using BarkAndBarker.Persistence;
 using System.Collections.Concurrent;
-using BarkAndBarker.Persistence.Models;
+using BarkAndBarker.Shared.Persistence;
+using BarkAndBarker.Shared.Persistence.Models;
 
 namespace BarkAndBarker
 {

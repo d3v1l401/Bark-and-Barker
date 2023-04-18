@@ -1,4 +1,4 @@
-﻿namespace BarkAndBarker.Persistence.Models;
+﻿namespace BarkAndBarker.Shared.Persistence.Models;
 
 public class ModelAccount : IModel
 {

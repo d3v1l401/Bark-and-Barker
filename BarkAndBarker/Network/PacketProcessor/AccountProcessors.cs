@@ -1,5 +1,4 @@
-﻿using BarkAndBarker.Persistence.Models;
-using BarkAndBarker.Steam;
+﻿using BarkAndBarker.Steam;
 using DC.Packet;
 using System;
 using System.Collections.Generic;
@@ -7,6 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BarkAndBarker.Shared.Persistence.Models;
 
 //#define USE_STEAM // This will use Steam for authentication, used till playtest 4.
 
