@@ -1,6 +1,8 @@
-﻿namespace BarkAndBarker.Persistence.Models;
+﻿using BarkAndBarker.Shared.Persistence.Models;
 
-    internal class ModelMerchants : IModel
+namespace BarkAndBarker.Persistence.Models;
+
+    public class ModelMerchants : IModel
     {
 
         public string MerchantID;
