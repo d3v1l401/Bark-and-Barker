@@ -8,11 +8,16 @@ namespace BarkAndBarker.Proxy
         private BlockingCollection<string> logQueue = new BlockingCollection<string>();
         private string logFilePath;
 
-        public Logger()
+        private bool printToConsole;
+
+        public Logger(string logFilePath, bool printToConsole)
         {
-            logFilePath = $"packetLog_{DateTime.Now.Ticks}.txt";
+            this.printToConsole = printToConsole;
+
+            this.logFilePath = logFilePath;
 
             Task.Run(() => ProcessLogQueueAsync());
+            this.printToConsole = printToConsole;
         }
 
         public void Log(string logEntry)
@@ -27,7 +32,11 @@ namespace BarkAndBarker.Proxy
             {
                 if (logQueue.TryTake(out string logEntry, TimeSpan.FromSeconds(1)))
                 {
-                    Console.WriteLine(logEntry);
+                    if (printToConsole)
+                    {
+                        Console.WriteLine(logEntry);
+                    }
+
                     await fileWriter.WriteLineAsync(logEntry);
                     await fileWriter.FlushAsync();
                 }

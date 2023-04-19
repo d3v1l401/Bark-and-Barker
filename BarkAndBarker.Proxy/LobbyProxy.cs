@@ -6,7 +6,7 @@ namespace BarkAndBarker.Proxy
 {
     internal class LobbyProxy
     {
-        private readonly Logger logger;
+        private readonly PacketAnalyzer analyzer;
 
         private readonly string localAddress;
         private readonly int localPort;
@@ -15,7 +15,7 @@ namespace BarkAndBarker.Proxy
 
         public LobbyProxy(string localAddress, int localPort, string remoteAddress, int remotePort)
         {
-            logger = new Logger();
+            analyzer = new PacketAnalyzer();
 
             this.localAddress = localAddress;
             this.localPort = localPort;
@@ -87,7 +87,10 @@ namespace BarkAndBarker.Proxy
                     sb.AppendFormat("0x{0:X2} ", buffer[i]);
                 }
 
-                logger.Log(sb.ToString());
+
+                var memoryStream = new MemoryStream();
+                memoryStream.Write(buffer, 0, bytesRead);
+                analyzer.Analyze(memoryStream, direction, sb.ToString());
 
                 outputStream.Write(buffer, 0, bytesRead);
             }

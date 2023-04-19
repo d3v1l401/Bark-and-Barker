@@ -30,7 +30,7 @@ namespace BarkAndBarker.Network
         };
 
         // Handles the request, needs a PacketCommand, a WrapperDeserializer & returns the deserialized object
-        private static readonly Dictionary<PacketCommand, Func<ClientSession, dynamic, object>> m_requests = new Dictionary<PacketCommand, Func<ClientSession, dynamic, object>>()
+        public static readonly Dictionary<PacketCommand, Func<ClientSession, dynamic, object>> m_requests = new Dictionary<PacketCommand, Func<ClientSession, dynamic, object>>()
         {
             // Heartbeat
             { PacketCommand.C2SAliveReq, MiscProcessors.HandleAliveReq },
@@ -72,7 +72,7 @@ namespace BarkAndBarker.Network
             { PacketCommand.C2SPartyChatReq, PartyProcessors.HandlePartyChatReq },
 
         };
-        private static readonly Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>> m_responses = new Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>>()
+        public static readonly Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>> m_responses = new Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>>()
         {
             { PacketCommand.S2CAliveRes, MiscProcessors.HandleAliveRes },
 
