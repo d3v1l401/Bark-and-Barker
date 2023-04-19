@@ -67,7 +67,12 @@ namespace BarkAndBarker
 
             try
             {
-                SendAsync(m_packetManager.Handle(this, inputStream).ToArray());
+                var responseQueue = m_packetManager.Handle(this, inputStream);
+                foreach (var response in responseQueue)
+                {
+                    SendAsync(response.ToArray());
+                }
+
                 if (m_scheduledDisconnect)
                     this.Disconnect();
 

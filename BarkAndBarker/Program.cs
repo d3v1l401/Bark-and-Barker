@@ -8,6 +8,8 @@ using System.Xml.Schema;
 using BarkAndBarker.Jobs;
 using BarkAndBarker.Shared.Persistence;
 using BarkAndBarker.Shared.Settings;
+using BarkAndBarker.Network;
+using DC.Packet;
 
 namespace BarkAndBarker
 {
@@ -16,19 +18,6 @@ namespace BarkAndBarker
         private static bool     m_keepRunning = false;
         private static DateTime m_lastTickUpdate = DateTime.MinValue;
         private static Settings.SData m_settings = null;
-
-        private static Tuple<long, long> GetSessionsStatistics(ConcurrentDictionary<Guid, TcpSession> sessions)
-        {
-            long sent = 0, recv = 0;
-
-            foreach (var session in sessions)
-            {
-                sent += session.Value.BytesSent;
-                recv += session.Value.BytesReceived;
-            }
-
-            return new Tuple<long, long>(sent, recv);
-        }
 
         static void Main(string[] args)
         {
@@ -84,16 +73,7 @@ namespace BarkAndBarker
                 var lastUpdate = DateTime.Now.Subtract(m_lastTickUpdate);
                 if (lastUpdate.TotalSeconds >= 5)
                 {
-                    var sessions = m_clientManager.GetSessions();
-                    var stats = GetSessionsStatistics(sessions);
-                    var sessCount = sessions.Count();
-                    
-                    var statsReport = string.Format("Total bytes sent: {0}, received: {1}; total clients: {2}", stats.Item1, stats.Item2, sessCount);
-                    
-                    Console.WriteLine(statsReport);
-                    
-                    sessions = null;
-                    stats = null;
+
                     m_lastTickUpdate = DateTime.Now;
                 }
             }
