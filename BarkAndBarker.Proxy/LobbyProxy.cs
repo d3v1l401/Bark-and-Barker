@@ -71,10 +71,10 @@ namespace BarkAndBarker.Proxy
                 switch (direction)
                 {
                     case Direction.C2S:
-                        sb.Append("C2S-");
+                        sb.Append("C2S\n");
                         break;
                     case Direction.S2C:
-                        sb.Append("S2C-");
+                        sb.Append("S2C\n");
                         break;
                 }
 
@@ -82,6 +82,8 @@ namespace BarkAndBarker.Proxy
                 {
                     sb.AppendFormat("0x{0:X2} ", buffer[i]);
                 }
+
+                Console.WriteLine(sb.ToString());
 
                 outputStream.Write(buffer, 0, bytesRead);
             }
