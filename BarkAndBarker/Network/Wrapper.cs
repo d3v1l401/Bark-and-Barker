@@ -32,13 +32,17 @@ namespace BarkAndBarker.Network
 
             // Get all assemblies in the application
             var appDomainAssemblies = AppDomain.CurrentDomain.GetAssemblies();
-            // Select only client to server packets classes
+#if DEBUG
+            // Select all packets
+            var messages = typeof(IMessage).GetImplementors(appDomainAssemblies).Where(x => x.Name.StartsWith("SC2S") || x.Name.StartsWith("SS2C") || x.Name.StartsWith("IronMace"));
+#else
+            // Select all client to server packets
             var messages = typeof(IMessage).GetImplementors(appDomainAssemblies).Where(x => x.Name.StartsWith("SC2S") || x.Name.StartsWith("IronMace"));
+#endif
 
             foreach (var message in messages)
             {
-                var desc = message.GetProperty("Descriptor", BindingFlags.Public | BindingFlags.Static).GetValue(null, null) as MessageDescriptor;
-                if (desc != null)
+                if (message.GetProperty("Descriptor", BindingFlags.Public | BindingFlags.Static).GetValue(null, null) is MessageDescriptor desc)
                     CachedParsers.Add(message, desc);
                 else
                     Console.WriteLine("WARNING: " + message.Name + " does not contain the Descriptor member!");
