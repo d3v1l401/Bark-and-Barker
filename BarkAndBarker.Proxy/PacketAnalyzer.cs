@@ -19,16 +19,21 @@ namespace BarkAndBarker.Proxy
         {
             rawLogger.Log(rawStringified);
 
-            var deser = new WrapperDeserializer(buffer);
-            
+
             try
             {
+                var deser = new WrapperDeserializer(buffer);
+
                 var packetType = deser.GetPacketClass().ToString();
 
                 analyzedLogger.Log(packetType);
 
             }
-            catch (Exception ex) { throw new Exception(ex.Message); }
+            catch (Exception ex)
+            {
+                rawLogger.Log(ex.Message);
+                analyzedLogger.Log("UNRECOGNIZED!" + rawStringified);
+            }
         }
     }
 }
