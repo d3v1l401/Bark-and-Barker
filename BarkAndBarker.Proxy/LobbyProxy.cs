@@ -43,9 +43,9 @@ namespace BarkAndBarker.Proxy
                     remoteClient.Connect(remoteAddress, remotePort);
 
                     var clientToRemoteThread =
-                        new Thread(() => ForwardTraffic(client.GetStream(), remoteClient.GetStream()));
+                        new Thread(() => ForwardTraffic(client.GetStream(), remoteClient.GetStream(), Direction.C2S));
                     var remoteToClientThread =
-                        new Thread(() => ForwardTraffic(remoteClient.GetStream(), client.GetStream()));
+                        new Thread(() => ForwardTraffic(remoteClient.GetStream(), client.GetStream(), Direction.S2C));
 
                     clientToRemoteThread.Start();
                     remoteToClientThread.Start();
@@ -60,17 +60,37 @@ namespace BarkAndBarker.Proxy
             }
         }
 
-        private void ForwardTraffic(NetworkStream inputStream, NetworkStream outputStream)
+        private void ForwardTraffic(NetworkStream inputStream, NetworkStream outputStream, Direction direction)
         {
             var buffer = new byte[4096];
             int bytesRead;
             while ((bytesRead = inputStream.Read(buffer, 0, buffer.Length)) != 0)
             {
-                string packetData = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                Console.WriteLine($"Packet data: {packetData}");
+                StringBuilder sb = new StringBuilder();
+
+                switch (direction)
+                {
+                    case Direction.C2S:
+                        sb.Append("C2S-");
+                        break;
+                    case Direction.S2C:
+                        sb.Append("S2C-");
+                        break;
+                }
+
+                for (int i = 0; i < bytesRead; i++)
+                {
+                    sb.AppendFormat("0x{0:X2} ", buffer[i]);
+                }
 
                 outputStream.Write(buffer, 0, bytesRead);
             }
         }
+    }
+
+    enum Direction
+    {
+        C2S,
+        S2C
     }
 }
