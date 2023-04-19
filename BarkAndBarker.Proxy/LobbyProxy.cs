@@ -17,7 +17,7 @@ namespace BarkAndBarker.Proxy
         public LobbyProxy(string localAddress, int localPort, string remoteAddress, int remotePort)
         {
             var rawLogger = new Logger($"rawPacketLog_{DateTime.Now.Ticks}.txt", false);
-            var analyzedLogger = new Logger($"analyPacketLog_{DateTime.Now.Ticks}.txt", true);
+            var analyzedLogger = new Logger($"analyPacketLog_{DateTime.Now.Ticks}.txt", false);
             c2sAnalyzer = new PacketAnalyzer(rawLogger, analyzedLogger);
             s2cAnalyzer = new PacketAnalyzer(rawLogger, analyzedLogger);
 
