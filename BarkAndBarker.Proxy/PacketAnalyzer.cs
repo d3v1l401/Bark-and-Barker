@@ -9,24 +9,36 @@ namespace BarkAndBarker.Proxy
         private Logger rawLogger;
         private Logger analyzedLogger;
 
-        public PacketAnalyzer()
+        private Queue<byte> internalBuffer;
+
+        public PacketAnalyzer(Logger rawLogger, Logger analyzedLogger)
         {
-            rawLogger = new Logger($"rawPacketLog_{DateTime.Now.Ticks}.txt", false);
-            analyzedLogger = new Logger($"analyPacketLog_{DateTime.Now.Ticks}.txt", true);
+            internalBuffer = new Queue<byte>();
+
+            this.rawLogger = rawLogger;
+            this.analyzedLogger = analyzedLogger;
         }
 
-        public void Analyze(MemoryStream buffer, Direction dir, string rawStringified)
+        public void Analyze(byte[] buffer, string rawStringified)
         {
             rawLogger.Log(rawStringified);
 
+            foreach (var b in buffer)
+            {
+
+                internalBuffer.Enqueue(b);
+            }
 
             try
             {
-                var deser = new WrapperDeserializer(buffer);
+                var memoryStream = new MemoryStream();
+                memoryStream.Write(buffer, 0, buffer.Length);
 
-                var packetType = deser.GetPacketClass().ToString();
-
-                analyzedLogger.Log(packetType);
+                //var deser = new WrapperDeserializer(buffer);
+                //
+                //var packetType = deser.GetPacketClass().ToString();
+                //
+                //analyzedLogger.Log(packetType);
 
             }
             catch (Exception ex)

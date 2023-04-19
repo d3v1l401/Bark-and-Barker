@@ -111,6 +111,9 @@ namespace BarkAndBarker.Network
         public PacketCommand GetPacketClass()
             => (PacketCommand)this.m_packetType;
 
+        public uint GetPacketSize()
+            => this.m_packetSize;
+
         private void parseHeader()
         {
             this.m_packetSize = this.GetUInt();
