@@ -54,6 +54,7 @@ namespace BarkAndBarker.Network
         private uint m_packetSize = 0; // 4 bytes
         private uint m_packetType = 0; // +2 bytes
         private uint m_packetSequence = 0;  // +2 bytes
+        private byte[] m_payloadBuffer = null;
 
         private BinaryReader m_stream;
         public WrapperDeserializer(MemoryStream inputStream)
@@ -114,6 +115,18 @@ namespace BarkAndBarker.Network
         public uint GetPacketSize()
             => this.m_packetSize;
 
+        public byte[] GetPayloadBuffer()
+        {
+            if (this.m_payloadBuffer != null)
+                return this.m_payloadBuffer;
+
+            if (!this.m_headerParsed)
+                this.parseHeader();
+
+            this.m_payloadBuffer = this.m_stream.ReadBytes((int)this.m_packetSize - 4 - 2 - 2);
+            return this.m_payloadBuffer;
+        }
+
         private void parseHeader()
         {
             this.m_packetSize = this.GetUInt();
@@ -132,17 +145,17 @@ namespace BarkAndBarker.Network
 
         public T Parse<T>() where T : class
         {
-
             if (!this.m_headerParsed)
                 this.parseHeader();
 
-            var protoBuffer = this.m_stream.ReadBytes((int)this.m_packetSize - 4 - 2 - 2);
+            if (this.m_payloadBuffer == null)
+                this.m_payloadBuffer = this.m_stream.ReadBytes((int)this.m_packetSize - 4 - 2 - 2);
 
             try
             {
                 MessageDescriptor? parser = null;
                 if (CachedParsers.TryGetValue(typeof(T), out parser) && parser != null)
-                    return (T)CachedParsers[typeof(T)].Parser.ParseFrom(protoBuffer);
+                    return (T)CachedParsers[typeof(T)].Parser.ParseFrom(this.m_payloadBuffer);
                 else
                     throw new Exception("Unimplemented packet MessageDescriptor: " + typeof(T).Name);
 
