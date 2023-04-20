@@ -8,6 +8,8 @@ namespace BarkAndBarker.Game.Items
 {
     public static class Usables
     {
+        public static readonly string ItemPrefix = "DesignDataItem:";
+
         public static readonly List<string> ItemIDs = new List<string>()
         {
             "Id_Item_GoldenKey",

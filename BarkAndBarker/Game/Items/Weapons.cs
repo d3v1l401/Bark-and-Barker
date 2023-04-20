@@ -8,6 +8,8 @@ namespace BarkAndBarker.Game.Items
 {
     public static class Weapons
     {
+        public static readonly string ItemPrefix = "DesignDataItem:";
+
         public static readonly List<string> ItemIDs = new List<string>()
         {
             "Id_Item_ArmingSword_0001", "Id_Item_ArmingSword_1001", "Id_Item_ArmingSword_2001",
