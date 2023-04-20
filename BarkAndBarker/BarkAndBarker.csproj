@@ -8,12 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Game\**" />
-    <EmbeddedResource Remove="Game\**" />
-    <None Remove="Game\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="Dapper.StrongName" Version="2.0.123" />
     <PackageReference Include="FluentScheduler" Version="5.5.1" />

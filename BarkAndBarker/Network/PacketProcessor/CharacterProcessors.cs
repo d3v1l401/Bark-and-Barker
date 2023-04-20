@@ -94,6 +94,54 @@ namespace BarkAndBarker.Network.PacketProcessor
                 });
             }
 
+            // Fill the inventory 
+            foreach (var character in response.CharacterList)
+            {
+                var ownerID = character.CharacterId;
+
+                var items = ModelInventoryItem.GetAllUserItems(session.GetDB(), character.CharacterId);
+                foreach (var item in items)
+                {
+                    var itemInstance = new SItem()
+                    {
+                        SlotId = (uint)item.Key.SlotID,
+                        InventoryId = (uint)item.Key.InventoryID,
+                        ItemCount = (uint)item.Key.ItemCount,
+                        ItemId = item.Key.ItemBlueprint,
+                    };
+
+                    if (item.Value.Count > 4)
+                    {
+                        throw new Exception("Illegal item properties count!");
+                    }
+
+                    var switchArray = false;
+                    foreach (var prop in item.Value)
+                    {
+                        if (!switchArray)
+                        {
+                            itemInstance.PrimaryPropertyArray.Add(new SItemProperty()
+                            {
+                                PropertyTypeId = prop.PropertyID,
+                                PropertyValue = prop.PropertyValue
+                            });
+
+                            if (itemInstance.PrimaryPropertyArray.Count >= 2)
+                                switchArray = true;
+
+                        } else {
+                            itemInstance.SecondaryPropertyArray.Add(new SItemProperty()
+                            {
+                                PropertyTypeId = prop.PropertyID,
+                                PropertyValue = prop.PropertyValue
+                            });
+                        }
+                    }
+
+                    character.EquipItemList.Add(itemInstance);
+                }
+            }
+
             return response;
         }
 

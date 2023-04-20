@@ -8,13 +8,13 @@ namespace BarkAndBarker.Shared.Persistence.Models
 {
     public class ModelProperty : IModel
     {
-        public string OwnerID { get; set; }
-        public string PropertyBlueprint { get; set; }
+        public long ItemID { get; set; }
+        public string PropertyID { get; set; }
         public short PropertyValue { get; set; }
 
+        public static readonly string QueryGetItemProperties = "SELECT * FROM barker.item_properties WHERE barker.item_properties.ItemID = @IID;";
 
-        public static readonly string QueryCreateTable = @"DROP TABLE IF EXISTS `item_properties`;
-                                                            CREATE TABLE `item_properties` (
+        public static readonly string QueryCreateTable = @"CREATE TABLE IF NOT EXISTS `item_properties` (
                                                               `ItemID` int NOT NULL,
                                                               `PropertyID` varchar(150) NOT NULL DEFAULT 'DesignDataItemPropertyType:Id_ItemPropertyType_Effect_ArmorRating',
                                                               `PropertyValue` int NOT NULL DEFAULT '0',
