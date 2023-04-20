@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace BarkAndBarker.Network
 {
+    public enum InventoryType : uint
+    {
+        INVENTORY_NONE = 0,
+        INVENTORY_CHARACTER = 3,
+        INVENTORY_STASH = 4,
+    }
     public enum LoginResponseResult : uint
     {
         RESULT_NONE = 0,

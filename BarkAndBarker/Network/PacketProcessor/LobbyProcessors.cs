@@ -42,7 +42,9 @@ namespace BarkAndBarker.Network.PacketProcessor
         public static MemoryStream HandleLobbyEnterRes(ClientSession session, dynamic inputClass)
         {
             var response = (SS2C_LOBBY_ENTER_RES)inputClass;
+
             response.AccountId = session.m_currentPlayer.AccountID.ToString();
+            response.Result = (uint)LoginResponseResult.SUCCESS;
 
             var serial = new WrapperSerializer<SS2C_LOBBY_ENTER_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CLobbyEnterRes);
             return serial.Serialize();
@@ -74,6 +76,7 @@ namespace BarkAndBarker.Network.PacketProcessor
         public static MemoryStream HandleMetaLocationRes(ClientSession session, dynamic inputClass)
         {
             var response = (SS2C_META_LOCATION_RES)inputClass;
+
             var serial = new WrapperSerializer<SS2C_META_LOCATION_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CMetaLocationRes);
             return serial.Serialize();
         }
