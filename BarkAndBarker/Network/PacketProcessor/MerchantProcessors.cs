@@ -20,18 +20,10 @@ namespace BarkAndBarker.Network.PacketProcessor
         {
             var response = (SS2C_MERCHANT_LIST_RES)inputClass;
             var merchants = session.GetDB().Select<ModelMerchants>(ModelMerchants.QueryMerchantList, null);
-
-            // Check if merchant list is empty. If yes, then insert merchants into the DB. This is only temporary.
-
-            if (merchants.Count() <= 0)
-            {
-                session.GetDB().Execute(ModelMerchants.QueryInsertMerchants, null);
-                Console.WriteLine("Merchants inserted into the database, switch tabs to refresh the merchant list!");
-            }
-
+           
             // Merchants list TODO: Keep their Inventory on Redist? Calculate RemainTime using UnixTimeStamps?
             // NOTE: Most merchant items must be random for each player.
- 
+
             foreach (var merchant in merchants)
             {
                 response.MerchantList.Add(new SMERCHANT_INFO()

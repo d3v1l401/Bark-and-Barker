@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BarkAndBarker.Shared.Persistence;
 using BarkAndBarker.Shared.Persistence.Models;
+using BarkAndBarker.Persistence.Models;
 
 namespace BarkAndBarker.Persistence
 {
@@ -40,9 +41,11 @@ namespace BarkAndBarker.Persistence
             if (databaseIntance == null)
                 throw new Exception("database instance not parsed");
 
+            
+           
             // Get all implementors of IModel
             // All table models should start with "Model*"
-            
+
             var modelsClasses = typeof(IModel).GetImplementors(Assembly.GetAssembly(typeof(IModel))).Reverse();
             foreach (var model in modelsClasses
                          .Where(el => el.Name.StartsWith("Model"))
@@ -55,6 +58,19 @@ namespace BarkAndBarker.Persistence
                 if (queryExecute != null)
                 {
                     databaseIntance.Execute(queryExecute, null); // Execute the creation, if the table doesn't exists.
+                }
+            }
+
+
+            // Check & Insert Merchants 
+
+            var merchants = databaseIntance.Select<ModelMerchants>(ModelMerchants.QueryMerchantList, null);
+
+            if (merchants.Count() <= 0)
+            {
+                foreach (var query in ModelMerchants.QueryInsertMerchants)
+                {
+                    databaseIntance.Execute(query, null);
                 }
             }
         }

@@ -21,8 +21,25 @@ namespace BarkAndBarker.Persistence.Models;
                                                             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
 
         public static readonly string QueryMerchantList = "SELECT * FROM `barker`.`merchants`;";
-        public static readonly string QueryInsertMerchants = "INSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Surgeon');\r\nINSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Woodsman');\r\nINSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_GoblinMerchant');\r\nINSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Treasurer');\r\nINSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_TheCollector');\r\nINSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Valentine');\r\nINSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Tailor');\r\nINSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Armourer');\r\nINSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Leathersmith');\r\nINSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Alchemist');\r\nINSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Weaponsmith');\r\nINSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_TavernMaster');\r\n";
 
+        public static readonly List<string> QueryInsertMerchants = new List<string>() {
+
+        "INSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Surgeon');", 
+        "INSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Woodsman');",  
+        "INSERT INTO `barker`.`merchants` (`MerchantID`, `isUnidentified`) VALUES ('DesignDataMerchant:Id_Merchant_GoblinMerchant', '1');",  
+        "INSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_TheCollector');", 
+        "INSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Treasurer');",
+        "INSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Valentine');",
+        "INSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Tailor');",
+        "INSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Armourer');", 
+        "INSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Leathersmith');",
+        "INSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Weaponsmith');",
+        "INSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Alchemist');", 
+        "INSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_TavernMaster');",
+        "INSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_PumpkinMan');", 
+        "INSERT INTO `barker`.`merchants` (`MerchantID`) VALUES ('DesignDataMerchant:Id_Merchant_Santa');", 
+
+         };
         
         public static readonly int TableCreationOrder = 101;
 
