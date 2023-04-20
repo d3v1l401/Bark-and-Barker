@@ -98,46 +98,19 @@ namespace BarkAndBarker.Network.PacketProcessor
             // Fill the inventory 
             foreach (var character in response.CharacterList)
             {
-                var items = InventoryHelpers.GetAllUserItems(session.GetDB(), character.CharacterId);
+                var items = InventoryHelpers.GetAllUserItems(session.GetDB(), character.CharacterId, false);
                 foreach (var item in items)
                 {
-                    var itemInstance = new SItem()
+                    try
                     {
-                        SlotId = (uint)item.Key.SlotID,
-                        InventoryId = (uint)item.Key.InventoryID,
-                        ItemCount = (uint)item.Key.ItemCount,
-                        ItemId = item.Key.ItemBlueprint,
-                    };
+                        character.EquipItemList.Add(InventoryHelpers.MakeSItemObject(item.Key));
 
-                    if (item.Value.Count > 4)
-                    {
-                        throw new Exception("Illegal item properties count!");
+                    } catch (Exception ex) {
+#if !DEBUG
+                        session.m_scheduledDisconnect = true;
+#endif
+                        throw new Exception(ex.Message);
                     }
-
-                    var switchArray = false;
-                    foreach (var prop in item.Value)
-                    {
-                        if (!switchArray)
-                        {
-                            itemInstance.PrimaryPropertyArray.Add(new SItemProperty()
-                            {
-                                PropertyTypeId = prop.PropertyID,
-                                PropertyValue = prop.PropertyValue
-                            });
-
-                            if (itemInstance.PrimaryPropertyArray.Count >= 2)
-                                switchArray = true;
-
-                        } else {
-                            itemInstance.SecondaryPropertyArray.Add(new SItemProperty()
-                            {
-                                PropertyTypeId = prop.PropertyID,
-                                PropertyValue = prop.PropertyValue
-                            });
-                        }
-                    }
-
-                    character.EquipItemList.Add(itemInstance);
                 }
             }
 
