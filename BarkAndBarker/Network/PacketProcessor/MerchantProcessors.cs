@@ -1,4 +1,5 @@
-﻿using DC.Packet;
+﻿using BarkAndBarker.Persistence.Models;
+using DC.Packet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,26 +19,27 @@ namespace BarkAndBarker.Network.PacketProcessor
         public static MemoryStream HandleMerchantListRes(ClientSession session, dynamic inputClass)
         {
             var response = (SS2C_MERCHANT_LIST_RES)inputClass;
+            var merchants = session.GetDB().Select<ModelMerchants>(ModelMerchants.QueryMerchantList, null);
+           
+            // Merchants list TODO: Keep their Inventory on Redist? Calculate RemainTime using UnixTimeStamps?
+            // NOTE: Most merchant items must be random for each player.
 
-            // TODO: Merchants list, store these in a DB but their inventory on Redis?
-            response.MerchantList.Add(new SMERCHANT_INFO()
+            foreach (var merchant in merchants)
             {
-                Faction = 1,
-                IsUnidentified = 0,
-                MerchantId = Guid.NewGuid().ToString(),
-                RemainTime = 0,
-            });
+                response.MerchantList.Add(new SMERCHANT_INFO()
+                {
+                    MerchantId = merchant.MerchantID,
+                    Faction = merchant.Faction,
+                    RemainTime = merchant.RemainTime,
+                    IsUnidentified = merchant.isUnidentified,
 
-            response.MerchantList.Add(new SMERCHANT_INFO()
-            {
-                Faction = 2,
-                IsUnidentified = 1,
-                MerchantId = Guid.NewGuid().ToString(),
-                RemainTime = 1092831,
-            });
+                });
 
-            var serial = new WrapperSerializer<SS2C_MERCHANT_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CAutoMatchRegRes);
+            }
+
+            var serial = new WrapperSerializer<SS2C_MERCHANT_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CMerchantListRes);
             return serial.Serialize();
+
         }
     }
 }
