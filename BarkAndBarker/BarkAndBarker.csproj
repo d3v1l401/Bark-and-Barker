@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Game\**" />
+    <EmbeddedResource Remove="Game\**" />
+    <None Remove="Game\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="Dapper.StrongName" Version="2.0.123" />
     <PackageReference Include="FluentScheduler" Version="5.5.1" />
@@ -33,11 +39,6 @@
     <None Update="settings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Game\Skills\" />
-    <Folder Include="Game\Perks\" />
   </ItemGroup>
   
   <Target Name="StrongNameAlias" BeforeTargets="FindReferenceAssembliesForReferences;ResolveReferences">
