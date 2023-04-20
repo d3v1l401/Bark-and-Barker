@@ -7,6 +7,7 @@ public class ModelCharacter : IModel
     public string Nickname;
     public string Class;
     public int Level;
+    public int Experience;
     public DateTime CreatedAt;
     public int Gender;
     public DateTime LastLogin;
