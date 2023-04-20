@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BarkAndBarker.Shared.Persistence.Models;
+using BarkAndBarker.Persistence;
 
 namespace BarkAndBarker.Network.PacketProcessor
 {
@@ -97,9 +98,7 @@ namespace BarkAndBarker.Network.PacketProcessor
             // Fill the inventory 
             foreach (var character in response.CharacterList)
             {
-                var ownerID = character.CharacterId;
-
-                var items = ModelInventoryItem.GetAllUserItems(session.GetDB(), character.CharacterId);
+                var items = InventoryHelpers.GetAllUserItems(session.GetDB(), character.CharacterId);
                 foreach (var item in items)
                 {
                     var itemInstance = new SItem()

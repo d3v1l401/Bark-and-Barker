@@ -33,22 +33,5 @@ namespace BarkAndBarker.Shared.Persistence.Models
                                                             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
 
         public static readonly int TableCreationOrder = 98;
-
-
-        // TODO: Move to another helper class, keep Models away from methods
-        public static Dictionary<ModelInventoryItem, List<ModelProperty>> GetAllUserItems(Database instance, string charId)
-        {
-            var output = new Dictionary<ModelInventoryItem, List<ModelProperty>>();
-
-            var items = instance.Select<ModelInventoryItem>(QuerySelectAllItemsForCharacter, new { OID = charId });
-            foreach (var item in items)
-            {
-                var props = instance.Select<ModelProperty>(ModelProperty.QueryGetItemProperties, new { IID = item.UniqueID });
-
-                output.Add(item, props.ToList());
-            }
-
-            return output;
-        }
     }
 }
