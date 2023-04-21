@@ -129,19 +129,20 @@ namespace BarkAndBarker.Network
 
         public List<MemoryStream> Handle(ClientSession session, MemoryStream packet)
         {
-            var deser = new WrapperDeserializer(packet);
-            
             try
             {
+                var deser = new WrapperDeserializer(packet);
 #if DEBUG
-                Console.WriteLine("< " + deser.GetPacketClass());
+                if (deser.GetPacketClass() != PacketCommand.C2SAliveReq)
+                    Console.WriteLine("< " + deser.GetPacketClass());
 #endif
                 var requestProcessor = m_requests[deser.GetPacketClass()];
                 var outputData = requestProcessor.Invoke(session, deser);
 
                 var responsePacket = deser.GetPacketClass() + 1;
 #if DEBUG
-                Console.WriteLine("> " + responsePacket);
+                if (deser.GetPacketClass() != PacketCommand.C2SAliveReq)
+                    Console.WriteLine("> " + responsePacket);
 #endif
                 var responseProcessor = m_responses[responsePacket];
 
