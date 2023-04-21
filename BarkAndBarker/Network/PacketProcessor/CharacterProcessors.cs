@@ -23,9 +23,15 @@ namespace BarkAndBarker.Network.PacketProcessor
             var userChars = session.GetDB().Select<ModelCharacter>(ModelCharacter.QuerySelectAllByUserAccount, new { AID = session.m_currentPlayer.AccountID });
 #endif
 
-            if (userChars.Count() > 7 || charsWithNickname > 0)
+            if (userChars.Count() > 7)
             {
                 response.Result = (uint)LoginResponseResult.FAIL_PASSWORD;
+                return response;
+            }
+
+            if (charsWithNickname > 0)
+            {
+                response.Result = (uint)LoginResponseResult.FAIL_LOGIN_BAN_USER_CHEATER;
                 return response;
             }
 
@@ -39,14 +45,14 @@ namespace BarkAndBarker.Network.PacketProcessor
                 CID = Guid.NewGuid().ToString(),
                 Nickname = request.NickName,
                 Class = request.CharacterClass,
-                Level = 666,
+                Level = 1,
                 request.Gender,
             });
 
             if (queryRes > 0)
                 response.Result = (uint)LoginResponseResult.SUCCESS;
             else
-                response.Result = (uint)LoginResponseResult.FAIL_PASSWORD;
+                response.Result = 0;
 
             return response;
         }
