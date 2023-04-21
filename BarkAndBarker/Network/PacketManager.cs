@@ -70,6 +70,7 @@ namespace BarkAndBarker.Network
             { PacketCommand.C2SRankingRangeReq, RankingProcessors.HandleRankingReq },
             // Gathering hall
             { PacketCommand.C2SGatheringHallChannelListReq, GatheringHallProcessors.HandleGatheringHallListReq },
+            { PacketCommand.C2SGatheringHallChannelSelectReq, GatheringHallProcessors.HandleGatheringHallChannelSelectReq },
             // Party packets
             { PacketCommand.C2SPartyInviteReq, PartyProcessors.HandlePartyInviteReq },
             { PacketCommand.C2SPartyExitReq, PartyProcessors.HandlePartyExitReq },
@@ -104,7 +105,10 @@ namespace BarkAndBarker.Network
             { PacketCommand.S2CAutoMatchRegRes, MatchmakingProcessors.HandleMatchmakingRes },
             { PacketCommand.S2CMerchantListRes, MerchantProcessors.HandleMerchantListRes },
             { PacketCommand.S2CRankingRangeRes, RankingProcessors.HandleRankingRes },
+
+            // Gathering hall
             { PacketCommand.S2CGatheringHallChannelListRes, GatheringHallProcessors.HandleGatheringHallListRes },
+            { PacketCommand.S2CGatheringHallChannelSelectRes, GatheringHallProcessors.HandleGatheringHallChannelRequestRes },
 
             { PacketCommand.S2CPartyInviteRes, PartyProcessors.HandlePartyInviteRes },
             { PacketCommand.S2CPartyExitRes, PartyProcessors.HandlePartyExitRes },

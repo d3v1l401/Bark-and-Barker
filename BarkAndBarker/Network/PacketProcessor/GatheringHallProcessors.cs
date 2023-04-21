@@ -48,5 +48,26 @@ namespace BarkAndBarker.Network.PacketProcessor
             var serial = new WrapperSerializer<SS2C_GATHERING_HALL_CHANNEL_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CGatheringHallChannelListRes);
             return serial.Serialize();
         }
+
+        public static object HandleGatheringHallChannelSelectReq(ClientSession session, dynamic deserializer)
+        {
+            var request = ((WrapperDeserializer)deserializer).Parse<SC2S_GATHERING_HALL_CHANNEL_SELECT_REQ>();
+
+            var channelIndex = request.ChannelIndex;
+
+            var response = new SS2C_GATHERING_HALL_CHANNEL_SELECT_RES();
+
+            return response;
+        }
+
+        public static MemoryStream HandleGatheringHallChannelRequestRes(ClientSession session, dynamic inputClass)
+        {
+            var response = (SS2C_GATHERING_HALL_CHANNEL_SELECT_RES)inputClass;
+
+            response.Result = 1;
+
+            var serial = new WrapperSerializer<SS2C_GATHERING_HALL_CHANNEL_SELECT_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CGatheringHallChannelSelectRes);
+            return serial.Serialize();
+        }
     }
 }
