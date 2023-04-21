@@ -6,7 +6,8 @@ using System.Net;
 using System.Net.Sockets;
 using BarkAndBarker.Persistence;
 using System.Collections.Concurrent;
-using BarkAndBarker.Persistence.Models;
+using BarkAndBarker.Shared.Persistence;
+using BarkAndBarker.Shared.Persistence.Models;
 
 namespace BarkAndBarker
 {
@@ -66,7 +67,12 @@ namespace BarkAndBarker
 
             try
             {
-                SendAsync(m_packetManager.Handle(this, inputStream).ToArray());
+                var responseQueue = m_packetManager.Handle(this, inputStream);
+                foreach (var response in responseQueue)
+                {
+                    SendAsync(response.ToArray());
+                }
+
                 if (m_scheduledDisconnect)
                     this.Disconnect();
 

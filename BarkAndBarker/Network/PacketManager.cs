@@ -14,8 +14,23 @@ namespace BarkAndBarker.Network
 {
     public class PacketManager
     {
+        // Some packets are triggered on top of other requests (*_NOT), this lists what notifications needs to be sent on top of those packets
+        private static readonly Dictionary<PacketCommand, List<Func<ClientSession, object>>> m_notificationTriggers = new Dictionary<PacketCommand, List<Func<ClientSession, object>>>()
+        {
+            /*
+                Typical structure: TriggerPacketType -> List(PacketProcessorMethods)
+            */
+
+            // For login packet, SS2C_SERVICE_POLICY_NOT is to be sent as well
+            { PacketCommand.C2SAccountLoginReq, new List<Func<ClientSession, object>>() 
+                {
+                    Notifications.ServicePolicyNotification
+                } 
+            },
+        };
+
         // Handles the request, needs a PacketCommand, a WrapperDeserializer & returns the deserialized object
-        private static readonly Dictionary<PacketCommand, Func<ClientSession, dynamic, object>> m_requests = new Dictionary<PacketCommand, Func<ClientSession, dynamic, object>>()
+        public static readonly Dictionary<PacketCommand, Func<ClientSession, dynamic, object>> m_requests = new Dictionary<PacketCommand, Func<ClientSession, dynamic, object>>()
         {
             // Heartbeat
             { PacketCommand.C2SAliveReq, MiscProcessors.HandleAliveReq },
@@ -57,7 +72,7 @@ namespace BarkAndBarker.Network
             { PacketCommand.C2SPartyChatReq, PartyProcessors.HandlePartyChatReq },
 
         };
-        private static readonly Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>> m_responses = new Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>>()
+        public static readonly Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>> m_responses = new Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>>()
         {
             { PacketCommand.S2CAliveRes, MiscProcessors.HandleAliveRes },
 
@@ -90,24 +105,62 @@ namespace BarkAndBarker.Network
 
         public PacketManager() { }
 
-        public MemoryStream Handle(ClientSession session, MemoryStream packet)
+        public bool HasOverlappingNotifications(PacketCommand packetCommand)
+        {
+            if (m_notificationTriggers.ContainsKey(packetCommand))
+                return true;
+
+            return false;
+        }
+
+        public List<MemoryStream> Handle(ClientSession session, MemoryStream packet)
         {
             var deser = new WrapperDeserializer(packet);
             
             try
             {
+#if DEBUG
                 Console.WriteLine("< " + deser.GetPacketClass());
+#endif
                 var requestProcessor = m_requests[deser.GetPacketClass()];
                 var outputData = requestProcessor.Invoke(session, deser);
 
                 var responsePacket = deser.GetPacketClass() + 1;
-
+#if DEBUG
                 Console.WriteLine("> " + responsePacket);
+#endif
                 var responseProcessor = m_responses[responsePacket];
 
-                return responseProcessor.Invoke(session, outputData);
+                var response = responseProcessor.Invoke(session, outputData);
+
+                var overlaps = this.GetOverlappingNotifications(deser.GetPacketClass(), session);
+                var responseQueue = new List<MemoryStream> { response };
+#if DEBUG
+                if (overlaps.Count > 0)
+                    Console.WriteLine("\t & " + overlaps.Count + " NOTs");
+#endif
+                responseQueue.AddRange(overlaps);
+                responseQueue.Reverse(); // Response packet last, notifications first
+
+                return responseQueue;
 
             } catch (Exception ex) { throw new Exception(ex.Message); }
+        }
+
+        public List<MemoryStream> GetOverlappingNotifications(PacketCommand packetType, ClientSession session)
+        {
+            var notificationsBuffers = new List<MemoryStream>();
+            if (this.HasOverlappingNotifications(packetType))
+            {
+                var notificationsQueue = m_notificationTriggers[packetType];
+                foreach (var notif in notificationsQueue)
+                {
+                    var buff = notif.Invoke(session) as MemoryStream;
+                    notificationsBuffers.Add(buff);
+                }
+            }
+
+            return notificationsBuffers;
         }
     }
 }

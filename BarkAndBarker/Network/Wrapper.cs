@@ -32,13 +32,17 @@ namespace BarkAndBarker.Network
 
             // Get all assemblies in the application
             var appDomainAssemblies = AppDomain.CurrentDomain.GetAssemblies();
-            // Select only client to server packets classes
+#if DEBUG
+            // Select all packets
+            var messages = typeof(IMessage).GetImplementors(appDomainAssemblies).Where(x => x.Name.StartsWith("SC2S") || x.Name.StartsWith("SS2C") || x.Name.StartsWith("IronMace"));
+#else
+            // Select all client to server packets
             var messages = typeof(IMessage).GetImplementors(appDomainAssemblies).Where(x => x.Name.StartsWith("SC2S") || x.Name.StartsWith("IronMace"));
+#endif
 
             foreach (var message in messages)
             {
-                var desc = message.GetProperty("Descriptor", BindingFlags.Public | BindingFlags.Static).GetValue(null, null) as MessageDescriptor;
-                if (desc != null)
+                if (message.GetProperty("Descriptor", BindingFlags.Public | BindingFlags.Static).GetValue(null, null) is MessageDescriptor desc)
                     CachedParsers.Add(message, desc);
                 else
                     Console.WriteLine("WARNING: " + message.Name + " does not contain the Descriptor member!");
@@ -50,6 +54,7 @@ namespace BarkAndBarker.Network
         private uint m_packetSize = 0; // 4 bytes
         private uint m_packetType = 0; // +2 bytes
         private uint m_packetSequence = 0;  // +2 bytes
+        private byte[] m_payloadBuffer = null;
 
         private BinaryReader m_stream;
         public WrapperDeserializer(MemoryStream inputStream)
@@ -107,6 +112,21 @@ namespace BarkAndBarker.Network
         public PacketCommand GetPacketClass()
             => (PacketCommand)this.m_packetType;
 
+        public uint GetPacketSize()
+            => this.m_packetSize;
+
+        public byte[] GetPayloadBuffer()
+        {
+            if (this.m_payloadBuffer != null)
+                return this.m_payloadBuffer;
+
+            if (!this.m_headerParsed)
+                this.parseHeader();
+
+            this.m_payloadBuffer = this.m_stream.ReadBytes((int)this.m_packetSize - 4 - 2 - 2);
+            return this.m_payloadBuffer;
+        }
+
         private void parseHeader()
         {
             this.m_packetSize = this.GetUInt();
@@ -125,17 +145,17 @@ namespace BarkAndBarker.Network
 
         public T Parse<T>() where T : class
         {
-
             if (!this.m_headerParsed)
                 this.parseHeader();
 
-            var protoBuffer = this.m_stream.ReadBytes((int)this.m_packetSize - 4 - 2 - 2);
+            if (this.m_payloadBuffer == null)
+                this.m_payloadBuffer = this.m_stream.ReadBytes((int)this.m_packetSize - 4 - 2 - 2);
 
             try
             {
                 MessageDescriptor? parser = null;
                 if (CachedParsers.TryGetValue(typeof(T), out parser) && parser != null)
-                    return (T)CachedParsers[typeof(T)].Parser.ParseFrom(protoBuffer);
+                    return (T)CachedParsers[typeof(T)].Parser.ParseFrom(this.m_payloadBuffer);
                 else
                     throw new Exception("Unimplemented packet MessageDescriptor: " + typeof(T).Name);
 

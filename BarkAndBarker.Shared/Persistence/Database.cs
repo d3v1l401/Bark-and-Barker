@@ -1,9 +1,8 @@
 ﻿using System.Data;
 using Dapper;
-using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
 
-namespace BarkAndBarker.Persistence
+namespace BarkAndBarker.Shared.Persistence
 {
     public class Database
     {
