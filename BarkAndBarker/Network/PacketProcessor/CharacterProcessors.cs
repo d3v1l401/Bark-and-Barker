@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BarkAndBarker.Shared.Persistence.Models;
+using BarkAndBarker.Persistence;
 
 namespace BarkAndBarker.Network.PacketProcessor
 {
@@ -19,12 +20,18 @@ namespace BarkAndBarker.Network.PacketProcessor
 #if USE_STEAM
             var userChars = session.GetDB().Select<ModelCharacter>(ModelCharacter.QuerySelectAllByUserAccount, new { AID = session.m_currentPlayer.SteamID });
 #else
-            var userChars = session.GetDB().Select<ModelCharacter>(ModelCharacter.QuerySelectAllByUserAccount, new { AID = session.m_currentPlayer.AccountID }); 
+            var userChars = session.GetDB().Select<ModelCharacter>(ModelCharacter.QuerySelectAllByUserAccount, new { AID = session.m_currentPlayer.AccountID });
 #endif
 
-            if (userChars.Count() > 7 || charsWithNickname > 0)
+            if (userChars.Count() > 7)
             {
                 response.Result = (uint)LoginResponseResult.FAIL_PASSWORD;
+                return response;
+            }
+
+            if (charsWithNickname > 0)
+            {
+                response.Result = (uint)LoginResponseResult.FAIL_LOGIN_BAN_USER_CHEATER;
                 return response;
             }
 
@@ -38,14 +45,14 @@ namespace BarkAndBarker.Network.PacketProcessor
                 CID = Guid.NewGuid().ToString(),
                 Nickname = request.NickName,
                 Class = request.CharacterClass,
-                Level = 666,
+                Level = 1,
                 request.Gender,
             });
 
             if (queryRes > 0)
                 response.Result = (uint)LoginResponseResult.SUCCESS;
             else
-                response.Result = (uint)LoginResponseResult.FAIL_PASSWORD;
+                response.Result = 0;
 
             return response;
         }
@@ -92,6 +99,26 @@ namespace BarkAndBarker.Network.PacketProcessor
                         KarmaRating = character.KarmaScore,
                     }
                 });
+            }
+
+            // Fill the inventory 
+            foreach (var character in response.CharacterList)
+            {
+                var items = InventoryHelpers.GetAllUserItems(session.GetDB(), character.CharacterId, false);
+                foreach (var item in items)
+                {
+                    try
+                    {
+                        if (item.Key.InventoryID == (uint)InventoryType.INVENTORY_CHARACTER) // Skip stash items
+                            character.EquipItemList.Add(InventoryHelpers.MakeSItemObject(item.Key));
+
+                    } catch (Exception ex) {
+#if !DEBUG
+                        session.m_scheduledDisconnect = true;
+#endif
+                        throw new Exception(ex.Message);
+                    }
+                }
             }
 
             return response;
@@ -156,6 +183,90 @@ namespace BarkAndBarker.Network.PacketProcessor
         {
             var response = (SS2C_ACCOUNT_CHARACTER_DELETE_RES)inputClass;
             var serial = new WrapperSerializer<SS2C_ACCOUNT_CHARACTER_DELETE_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CAccountCharacterListRes);
+            return serial.Serialize();
+        }
+
+        public static object HandleLobbyCharacterInfoReq(ClientSession session, dynamic deserializer)
+        {
+            var request = ((WrapperDeserializer)deserializer).Parse<SC2S_LOBBY_CHARACTER_INFO_REQ>();
+            var response = new SS2C_LOBBY_CHARACTER_INFO_RES();
+            return response;
+        }
+
+        public static object HandleCharacterSelectReq(ClientSession session, dynamic deserializer)
+        {
+            var request = ((WrapperDeserializer)deserializer).Parse<SC2S_CHARACTER_SELECT_ENTER_REQ>();
+            var response = new SS2C_CHARACTER_SELECT_ENTER_RES();
+            return response;
+        }
+
+        public static MemoryStream HandleCharacterSelectRes(ClientSession session, dynamic inputClass)
+        {
+            var response = (SS2C_CHARACTER_SELECT_ENTER_RES)inputClass;
+
+            response.Result = 1;
+
+            var serial = new WrapperSerializer<SS2C_CHARACTER_SELECT_ENTER_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CCharacterSelectEnterRes);
+            return serial.Serialize();
+        }
+
+        public static MemoryStream HandleClassEquipInfoTrigger(ClientSession session)
+        {
+            return EquipProcessors.HandleClassEquipInfoRes(session, new SS2C_CLASS_EQUIP_INFO_RES());
+        }
+
+        public static MemoryStream HandleLobbyCharacterInfoTrigger(ClientSession session)
+        {
+            return HandleLobbyCharacterInfoRes(session, new SS2C_LOBBY_CHARACTER_INFO_RES());
+        }
+
+        public static MemoryStream HandleLobbyCharacterInfoRes(ClientSession session, dynamic inputClass)
+        {
+            var response = (SS2C_LOBBY_CHARACTER_INFO_RES)inputClass;
+
+            response.Result = (uint)LoginResponseResult.SUCCESS;
+            response.CharacterDataBase = new SCHARACTER_INFO()
+            {
+                Level = (uint)session.m_currentCharacter.Level,
+                AccountId = session.m_currentPlayer.AccountID.ToString(),
+                CharacterClass = session.m_currentCharacter.Class,
+                CharacterId = session.m_currentCharacter.CharID.ToString(),
+                Gender = (uint)session.m_currentCharacter.Gender,
+                NickName = new SACCOUNT_NICKNAME()
+                {
+                    KarmaRating = session.m_currentCharacter.KarmaScore,
+                    StreamingModeNickName = session.m_currentCharacter.Nickname,
+                    OriginalNickName = session.m_currentCharacter.Nickname,
+                }
+            };
+
+            try
+            {
+                var allItems = InventoryHelpers.GetAllUserItems(session.GetDB(), session.m_currentCharacter.CharID, false);
+                foreach (var item in allItems)
+                {
+                    var clientItem = InventoryHelpers.MakeSItemObject(item.Key, true, session.GetDB());
+
+                    switch ((uint)item.Key.InventoryID)
+                    {
+                        case (uint)InventoryType.INVENTORY_CHARACTER:
+                            response.CharacterDataBase.CharacterItemList.Add(clientItem);
+                            break;
+                        case (uint)InventoryType.INVENTORY_STASH:
+                            response.CharacterDataBase.CharacterStorageItemList.Add(clientItem);
+                            break;
+                    }
+                }
+            } catch (Exception ex) {
+#if !DEBUG
+                session.m_scheduledDisconnect = true;
+#endif
+                throw new Exception(ex.Message);
+            }
+
+            Console.WriteLine(response.ToString());
+
+            var serial = new WrapperSerializer<SS2C_LOBBY_CHARACTER_INFO_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CLobbyCharacterInfoRes);
             return serial.Serialize();
         }
     }

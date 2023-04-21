@@ -19,9 +19,9 @@ namespace BarkAndBarker.Network.PacketProcessor
         {
             var response = (SS2C_CLASS_LEVEL_INFO_RES)inputClass;
 
-            // TODO: Leveling handling
+            // TODO: Leveling boundaries stuff
             response.Level = (uint)session.m_currentCharacter.Level;
-            response.Exp = 8000;
+            response.Exp = (uint)session.m_currentCharacter.Experience;
             response.ExpBegin = 1;
             response.ExpLimit = 10000;
             response.RewardPoint = 5;

@@ -7,6 +7,7 @@ public class ModelCharacter : IModel
     public string Nickname;
     public string Class;
     public int Level;
+    public int Experience;
     public DateTime CreatedAt;
     public int Gender;
     public DateTime LastLogin;
@@ -27,6 +28,7 @@ public class ModelCharacter : IModel
                                                               `Nickname` varchar(20) NOT NULL,
                                                               `Class` varchar(60) NOT NULL,
                                                               `Level` int NOT NULL DEFAULT '1',
+                                                              `Experience` INT NOT NULL DEFAULT,
                                                               `CreatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
                                                               `Gender` int NOT NULL,
                                                               `LastLogin` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -42,6 +44,7 @@ public class ModelCharacter : IModel
                                                               `Nickname` varchar(20) NOT NULL,
                                                               `Class` varchar(60) NOT NULL,
                                                               `Level` int NOT NULL DEFAULT '1',
+                                                              `Experience` INT NOT NULL DEFAULT '1',
                                                               `CreatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
                                                               `Gender` int NOT NULL,
                                                               `LastLogin` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -52,5 +55,5 @@ public class ModelCharacter : IModel
                                                             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
 #endif
 
-    public static readonly int TableCreationOrder = 10;
+    public static readonly int TableCreationOrder = 99;
 }
