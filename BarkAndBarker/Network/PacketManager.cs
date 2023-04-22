@@ -25,23 +25,28 @@ namespace BarkAndBarker.Network
             { PacketCommand.C2SAccountLoginReq, new List<Func<ClientSession, object>>() 
                 {
                     Notifications.ServicePolicyNotification
+                    
                 } 
             },
+
 
             { PacketCommand.C2SLobbyEnterReq, new List<Func<ClientSession, object>>()
                 {
                     CharacterProcessors.HandleClassEquipInfoTrigger,
-                    CharacterProcessors.HandleLobbyCharacterInfoTrigger
+                    CharacterProcessors.HandleLobbyCharacterInfoTrigger,
+                    Notifications.HandleLobbyAccountCurrencyListNot
                 } 
             },
 
             
              { PacketCommand.C2SClassLevelInfoReq, new List<Func<ClientSession, object>>()
                 {
-                    CharacterProcessors.HandleLobbyCharacterInfoTrigger
+                    CharacterProcessors.HandleLobbyCharacterInfoTrigger,
+                    Notifications.HandleLobbyAccountCurrencyListNot
                 }
             },
-            
+
+      
 
         };
 
@@ -91,6 +96,10 @@ namespace BarkAndBarker.Network
             { PacketCommand.C2SLobbyCharacterInfoReq, CharacterProcessors.HandleLobbyCharacterInfoReq },
             { PacketCommand.C2SCharacterSelectEnterReq, CharacterProcessors.HandleCharacterSelectReq },
 
+            { PacketCommand.C2SBlockCharacterListReq, CharacterProcessors.HandleBlockCharacterListReq },
+
+      
+
         };
         public static readonly Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>> m_responses = new Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>>()
         {
@@ -124,6 +133,9 @@ namespace BarkAndBarker.Network
 
             { PacketCommand.S2CLobbyCharacterInfoRes, CharacterProcessors.HandleLobbyCharacterInfoRes },
             { PacketCommand.S2CCharacterSelectEnterRes, CharacterProcessors.HandleCharacterSelectRes },
+
+            { PacketCommand.S2CBlockCharacterListRes, CharacterProcessors.HandleBlockCharacterListRes },
+
         };
 
         public PacketManager() { }

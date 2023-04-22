@@ -33,5 +33,19 @@ namespace BarkAndBarker.Network.PacketProcessor
             var ser = new WrapperSerializer<SS2C_SERVICE_POLICY_NOT>(policies, session.m_currentPacketSequence++, PacketCommand.S2CServicePolicyNot);
             return ser.Serialize();
         }
+
+        public static object HandleLobbyAccountCurrencyListNot(ClientSession session)
+        {
+            var response = new SS2C_LOBBY_ACCOUNT_CURRENCY_LIST_NOT();
+
+            response.CurrencyInfos.Add(new SACCOUNT_CURRENCY_INFO()
+            {
+                CurrencyType = 1,
+                CurrencyValue = 9999
+            });
+
+            var serial = new WrapperSerializer<SS2C_LOBBY_ACCOUNT_CURRENCY_LIST_NOT>(response, session.m_currentPacketSequence++, PacketCommand.S2CLobbyAccountCurrencyListNot);
+            return serial.Serialize();
+        }
     }
 }

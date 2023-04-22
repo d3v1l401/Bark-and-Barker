@@ -222,18 +222,22 @@ namespace BarkAndBarker.Network.PacketProcessor
             return HandleLobbyCharacterInfoRes(session, new SS2C_LOBBY_CHARACTER_INFO_RES());
         }
 
-        public static MemoryStream HandleLobbyAccountCurrencyListNotTrigger(ClientSession session)
+        public static object HandleBlockCharacterListReq(ClientSession session, dynamic deserializer)
         {
-            return HandleLobbyAccountCurrencyListNot(session, new SS2C_LOBBY_ACCOUNT_CURRENCY_LIST_NOT());
+            var request = ((WrapperDeserializer)deserializer).Parse<SC2S_BLOCK_CHARACTER_LIST_REQ>();
+            var response = new SS2C_BLOCK_CHARACTER_LIST_RES();
+             
+            return response;
+
         }
 
-        public static MemoryStream HandleLobbyAccountCurrencyListNot(ClientSession session, dynamic inputClass)
+        public static MemoryStream HandleBlockCharacterListRes(ClientSession session, dynamic inputClass)
         {
-            var response = (SS2C_LOBBY_ACCOUNT_CURRENCY_LIST_NOT)inputClass;
+            var response = (SS2C_BLOCK_CHARACTER_LIST_RES)inputClass;
 
-
-            var serial = new WrapperSerializer<SS2C_LOBBY_ACCOUNT_CURRENCY_LIST_NOT>(response, session.m_currentPacketSequence++, PacketCommand.S2CLobbyAccountCurrencyListNot);
+            var serial = new WrapperSerializer<SS2C_BLOCK_CHARACTER_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CBlockCharacterListRes);
             return serial.Serialize();
+
         }
 
 
