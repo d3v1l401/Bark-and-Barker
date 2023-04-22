@@ -34,6 +34,14 @@ namespace BarkAndBarker.Network
                     CharacterProcessors.HandleLobbyCharacterInfoTrigger
                 } 
             },
+
+             { PacketCommand.C2SClassLevelInfoReq, new List<Func<ClientSession, object>>()
+                {
+                    CharacterProcessors.HandleClassEquipInfoTrigger,
+                    CharacterProcessors.HandleLobbyCharacterInfoTrigger
+                }
+            },
+
         };
 
         // Handles the request, needs a PacketCommand, a WrapperDeserializer & returns the deserialized object

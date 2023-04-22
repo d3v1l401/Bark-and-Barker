@@ -111,6 +111,8 @@ namespace BarkAndBarker.Network.PacketProcessor
                     {
                         if (item.Key.InventoryID == (uint)InventoryType.INVENTORY_CHARACTER) // Skip stash items
                             character.EquipItemList.Add(InventoryHelpers.MakeSItemObject(item.Key));
+                        if (item.Key.InventoryID == (uint)InventoryType.INVENTORY_STASH)
+                            character.EquipItemList.Add(InventoryHelpers.MakeSItemObject(item.Key));
 
                     } catch (Exception ex) {
 #if !DEBUG
@@ -219,6 +221,21 @@ namespace BarkAndBarker.Network.PacketProcessor
         {
             return HandleLobbyCharacterInfoRes(session, new SS2C_LOBBY_CHARACTER_INFO_RES());
         }
+
+        public static MemoryStream HandleLobbyAccountCurrencyListNotTrigger(ClientSession session)
+        {
+            return HandleLobbyAccountCurrencyListNot(session, new SS2C_LOBBY_ACCOUNT_CURRENCY_LIST_NOT());
+        }
+
+        public static MemoryStream HandleLobbyAccountCurrencyListNot(ClientSession session, dynamic inputClass)
+        {
+            var response = (SS2C_LOBBY_ACCOUNT_CURRENCY_LIST_NOT)inputClass;
+
+
+            var serial = new WrapperSerializer<SS2C_LOBBY_ACCOUNT_CURRENCY_LIST_NOT>(response, session.m_currentPacketSequence++, PacketCommand.S2CLobbyAccountCurrencyListNot);
+            return serial.Serialize();
+        }
+
 
         public static MemoryStream HandleLobbyCharacterInfoRes(ClientSession session, dynamic inputClass)
         {

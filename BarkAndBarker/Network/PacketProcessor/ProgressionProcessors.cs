@@ -20,10 +20,10 @@ namespace BarkAndBarker.Network.PacketProcessor
             var response = (SS2C_CLASS_LEVEL_INFO_RES)inputClass;
 
             // TODO: Leveling boundaries stuff
-            response.Level = (uint)session.m_currentCharacter.Level;
-            response.Exp = (uint)session.m_currentCharacter.Experience;
+            response.Level = 20;
+            response.Exp = 1580;
             response.ExpBegin = 1;
-            response.ExpLimit = 10000;
+            response.ExpLimit = 1580;
             response.RewardPoint = 5;
 
             var serial = new WrapperSerializer<SS2C_CLASS_LEVEL_INFO_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CClassLevelInfoRes);
