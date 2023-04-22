@@ -240,6 +240,58 @@ namespace BarkAndBarker.Network.PacketProcessor
 
         }
 
+        public static object HandleClassSpellListReq(ClientSession session, dynamic deserializer)
+        {
+            var request = ((WrapperDeserializer)deserializer).Parse<SC2S_CLASS_SPELL_LIST_REQ>();
+            var response = new SS2C_CLASS_SPELL_LIST_RES();
+
+            return response;
+        }
+
+        public static MemoryStream HandleClassSpellListRes(ClientSession session, dynamic inputClass)
+        {
+            var response = (SS2C_CLASS_SPELL_LIST_RES)inputClass;
+
+            var serial = new WrapperSerializer<SS2C_CLASS_SPELL_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CClassSpellListRes);
+            return serial.Serialize();
+
+        }
+
+        public static object HandleClassSkillListReq(ClientSession session, dynamic deserializer)
+        {
+            var request = ((WrapperDeserializer)deserializer).Parse<SC2S_CLASS_SKILL_LIST_REQ>();
+            var response = new SS2C_CLASS_SKILL_LIST_RES();
+
+            return response;
+        }
+
+        public static MemoryStream HandleClassSkillListRes(ClientSession session, dynamic inputClass)
+        {
+            var response = (SS2C_CLASS_SKILL_LIST_RES)inputClass;
+
+            var serial = new WrapperSerializer<SS2C_CLASS_SKILL_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CClassSkillListRes);
+            return serial.Serialize();
+
+        }
+
+        public static object HandleClassPerkListReq(ClientSession session, dynamic deserializer)
+        {
+            var request = ((WrapperDeserializer)deserializer).Parse<SC2S_CLASS_PERK_LIST_REQ>();
+            var response = new SS2C_CLASS_PERK_LIST_RES();
+
+            return response;
+        }
+
+        public static MemoryStream HandleClassPerkListRes(ClientSession session, dynamic inputClass)
+        {
+            var response = (SS2C_CLASS_PERK_LIST_RES)inputClass;
+
+            var serial = new WrapperSerializer<SS2C_CLASS_PERK_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CClassPerkListRes);
+            return serial.Serialize();
+
+        }
+
+
 
         public static MemoryStream HandleLobbyCharacterInfoRes(ClientSession session, dynamic inputClass)
         {

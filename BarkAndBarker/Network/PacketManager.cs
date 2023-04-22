@@ -38,7 +38,6 @@ namespace BarkAndBarker.Network
                 } 
             },
 
-            
              { PacketCommand.C2SClassLevelInfoReq, new List<Func<ClientSession, object>>()
                 {
                     CharacterProcessors.HandleLobbyCharacterInfoTrigger,
@@ -46,7 +45,14 @@ namespace BarkAndBarker.Network
                 }
             },
 
-      
+            { PacketCommand.C2SBlockCharacterListReq, new List<Func<ClientSession, object>>()
+                {
+                    CharacterProcessors.HandleLobbyCharacterInfoTrigger
+                    
+                }
+            },
+
+
 
         };
 
@@ -96,9 +102,17 @@ namespace BarkAndBarker.Network
             { PacketCommand.C2SLobbyCharacterInfoReq, CharacterProcessors.HandleLobbyCharacterInfoReq },
             { PacketCommand.C2SCharacterSelectEnterReq, CharacterProcessors.HandleCharacterSelectReq },
 
+            // Block Character
             { PacketCommand.C2SBlockCharacterListReq, CharacterProcessors.HandleBlockCharacterListReq },
 
-      
+            // Skill List
+            { PacketCommand.C2SClassSpellListReq, CharacterProcessors.HandleClassSpellListReq },
+            { PacketCommand.C2SClassSkillListReq, CharacterProcessors.HandleClassSkillListReq },
+            { PacketCommand.C2SClassPerkListReq, CharacterProcessors.HandleClassPerkListReq },
+
+
+
+
 
         };
         public static readonly Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>> m_responses = new Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>>()
@@ -135,6 +149,10 @@ namespace BarkAndBarker.Network
             { PacketCommand.S2CCharacterSelectEnterRes, CharacterProcessors.HandleCharacterSelectRes },
 
             { PacketCommand.S2CBlockCharacterListRes, CharacterProcessors.HandleBlockCharacterListRes },
+
+            { PacketCommand.S2CClassSpellListRes, CharacterProcessors.HandleClassSpellListRes },
+            { PacketCommand.S2CClassSkillListRes, CharacterProcessors.HandleClassSkillListRes },
+            { PacketCommand.S2CClassPerkListRes, CharacterProcessors.HandleClassPerkListRes},
 
         };
 
