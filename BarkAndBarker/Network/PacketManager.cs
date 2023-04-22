@@ -35,12 +35,13 @@ namespace BarkAndBarker.Network
                 } 
             },
 
+            
              { PacketCommand.C2SClassLevelInfoReq, new List<Func<ClientSession, object>>()
                 {
-                    CharacterProcessors.HandleClassEquipInfoTrigger,
                     CharacterProcessors.HandleLobbyCharacterInfoTrigger
                 }
             },
+            
 
         };
 
