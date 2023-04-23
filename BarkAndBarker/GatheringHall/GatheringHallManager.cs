@@ -27,5 +27,19 @@
 
             return false;
         }
+
+        public static bool Leave(ClientSession client)
+        {
+            foreach (var gatheringHall in GatheringHalls)
+            {
+                if (gatheringHall.IsMember(client))
+                {
+                    gatheringHall.Leave(client);
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

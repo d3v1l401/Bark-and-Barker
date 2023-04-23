@@ -63,8 +63,13 @@ namespace BarkAndBarker.Network.PacketProcessor
         public static object HandleGatheringHallChannelExitReq(ClientSession session, dynamic deserializer)
         {
             var request = ((WrapperDeserializer)deserializer).Parse<SC2S_GATHERING_HALL_CHANNEL_EXIT_REQ>();
-            
-            var response = new SS2C_GATHERING_HALL_CHANNEL_EXIT_RES();
+
+            var leaveResult = GatheringHallManager.Leave(session);
+
+            var response = new SS2C_GATHERING_HALL_CHANNEL_EXIT_RES()
+            {
+                Result = leaveResult ? (uint)1 : 0
+            };
 
             return response;
         }
@@ -72,9 +77,7 @@ namespace BarkAndBarker.Network.PacketProcessor
         public static MemoryStream HandleGatheringHallChannelExitRes(ClientSession session, dynamic inputClass)
         {
             var response = (SS2C_GATHERING_HALL_CHANNEL_EXIT_RES)inputClass;
-
-            response.Result = 1;
-
+            
             var serial = new WrapperSerializer<SS2C_GATHERING_HALL_CHANNEL_EXIT_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CGatheringHallChannelExitRes);
             return serial.Serialize();
         }

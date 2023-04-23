@@ -24,5 +24,15 @@ namespace BarkAndBarker.GatheringHall
         {
             CurrentUsers.Add(client);
         }
+
+        public void Leave(ClientSession client)
+        {
+            CurrentUsers.Remove(client);
+        }
+
+        public bool IsMember(ClientSession client)
+        {
+            return CurrentUsers.Contains(client);
+        }
     }
 }
