@@ -3,6 +3,8 @@ using Google.Protobuf.Reflection;
 using Google.Protobuf;
 using System.Reflection;
 using BarkAndBarker.Network;
+using static Mysqlx.Crud.Order.Types;
+using System.Text;
 
 namespace BarkAndBarker.Proxy
 {
@@ -90,6 +92,30 @@ namespace BarkAndBarker.Proxy
                     PacketMapping.Add(enumVar, descriptor);
                 }
             }
+        }
+
+        public static string PrintAsHexString(byte[] byteArray, Direction direction, int length = 0)
+        {
+            if (length == 0) length = byteArray.Length;
+
+            StringBuilder sb = new StringBuilder();
+
+            switch (direction)
+            {
+                case Direction.C2S:
+                    sb.Append("C2S\n");
+                    break;
+                case Direction.S2C:
+                    sb.Append("S2C\n");
+                    break;
+            }
+
+            for (int i = 0; i < length; i++)
+            {
+                sb.AppendFormat("0x{0:X2} ", byteArray[i]);
+            }
+
+            return sb.ToString();
         }
     }
 }

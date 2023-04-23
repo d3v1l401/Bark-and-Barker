@@ -17,10 +17,11 @@ namespace BarkAndBarker.Proxy
         public LobbyProxy(string localAddress, int localPort, string remoteAddress, int remotePort)
         {
             var rawLogger = new Logger($"rawPacketLog_{DateTime.Now.Ticks}.txt", false);
+            var rawDefragLogger = new Logger($"rawDefragPacketLog_{DateTime.Now.Ticks}.txt", false);
             var analyzedLogger = new Logger($"analyPacketLog_{DateTime.Now.Ticks}.txt", false);
-            c2sAnalyzer = new PacketAnalyzer(rawLogger, analyzedLogger);
-            s2cAnalyzer = new PacketAnalyzer(rawLogger, analyzedLogger);
-
+            c2sAnalyzer = new PacketAnalyzer(rawLogger, rawDefragLogger, analyzedLogger);
+            s2cAnalyzer = new PacketAnalyzer(rawLogger, rawDefragLogger, analyzedLogger);
+                                                        
             this.localAddress = localAddress;
             this.localPort = localPort;
             this.remoteAddress = remoteAddress;
@@ -97,10 +98,10 @@ namespace BarkAndBarker.Proxy
                 switch (direction)
                 {
                     case Direction.C2S:
-                        c2sAnalyzer.Analyze(newBuffer, sb.ToString());
+                        c2sAnalyzer.Analyze(newBuffer, PacketHelpers.PrintAsHexString(buffer, direction), direction);
                         break;
                     case Direction.S2C:
-                        s2cAnalyzer.Analyze(newBuffer, sb.ToString());
+                        s2cAnalyzer.Analyze(newBuffer, PacketHelpers.PrintAsHexString(buffer, direction), direction);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException(nameof(direction), direction, null);

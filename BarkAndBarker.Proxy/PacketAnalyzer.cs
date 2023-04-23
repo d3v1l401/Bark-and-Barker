@@ -12,22 +12,24 @@ namespace BarkAndBarker.Proxy
     internal class PacketAnalyzer
     {
         private Logger rawLogger;
+        private Logger rawDefragLogger;
         private Logger analyzedLogger;
 
         private Queue<byte> internalBuffer;
 
 
-        public PacketAnalyzer(Logger rawLogger, Logger analyzedLogger)
+        public PacketAnalyzer(Logger rawLogger, Logger rawDefragLogger, Logger analyzedLogger)
         {
             internalBuffer = new Queue<byte>();
 
             this.rawLogger = rawLogger;
+            this.rawDefragLogger = rawDefragLogger;
             this.analyzedLogger = analyzedLogger;
 
             PacketHelpers.BuildPacketCommandHandlers();
         }
 
-        public void Analyze(byte[] buffer, string rawStringified)
+        public void Analyze(byte[] buffer, string rawStringified, Direction dir)
         {
             rawLogger.Log(rawStringified);
 
@@ -55,6 +57,8 @@ namespace BarkAndBarker.Proxy
                         currPacketBuffer[i] = internalBuffer.Dequeue();
                     }
 
+                    rawDefragLogger.Log(PacketHelpers.PrintAsHexString(currPacketBuffer, dir));
+
                     var memoryStream = new MemoryStream();
                     memoryStream.Write(currPacketBuffer, 0, currPacketBuffer.Length);
 
@@ -70,6 +74,7 @@ namespace BarkAndBarker.Proxy
             catch (Exception ex)
             {
                 rawLogger.Log(ex.Message);
+                rawDefragLogger.Log(ex.Message);
                 analyzedLogger.Log("UNRECOGNIZED!" + rawStringified);
             }
         }
