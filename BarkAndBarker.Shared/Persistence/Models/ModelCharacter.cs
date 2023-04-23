@@ -18,7 +18,7 @@ public class ModelCharacter : IModel
     public static readonly string QuerySelectAllNicknames = "SELECT COUNT(*) FROM barker.characters WHERE barker.characters.Nickname = @Nickname;";
     public static readonly string QuerySelectCharacterByID = "SELECT * FROM barker.characters WHERE barker.characters.CharID = @CID AND barker.characters.IsDeleted IS NULL;";
     public static readonly string QueryCreateCharacter = "INSERT INTO barker.characters (`accountID`, `CharID`, `Nickname`, `Class`, `Level`, `Gender`) VALUES (@AID, @CID, @Nickname, @Class, @Level, @Gender);";
-    public static readonly string QueryOwnerAccountForCharacterID = "SELECT barker.accounts.* FROM barker.accounts, barker.characters WHERE barker.characters.CharID = @CID"; // do not check if IsDeleted is NULL, this is used for account <-> char ownership checks.
+    public static readonly string QueryOwnerAccountForCharacterID = "SELECT barker.accounts.* FROM barker.accounts, barker.characters WHERE barker.characters.CharID = @CID AND barker.accounts.ID = barker.characters.accountId"; // do not check if IsDeleted is NULL, this is used for account <-> char ownership checks.
     public static readonly string QueryDeleteCharacter = "UPDATE barker.characters SET barker.characters.IsDeleted = CURRENT_TIMESTAMP WHERE (`accountID` = @AID) and (`CharID` = @CID);";
 
 #if USE_STEAM

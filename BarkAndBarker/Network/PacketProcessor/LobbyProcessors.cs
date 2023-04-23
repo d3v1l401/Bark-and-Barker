@@ -77,6 +77,8 @@ namespace BarkAndBarker.Network.PacketProcessor
         {
             var response = (SS2C_META_LOCATION_RES)inputClass;
 
+           
+
             var serial = new WrapperSerializer<SS2C_META_LOCATION_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CMetaLocationRes);
             return serial.Serialize();
         }

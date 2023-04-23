@@ -25,15 +25,26 @@ namespace BarkAndBarker.Network
             { PacketCommand.C2SAccountLoginReq, new List<Func<ClientSession, object>>() 
                 {
                     Notifications.ServicePolicyNotification
+                    
                 } 
             },
+
 
             { PacketCommand.C2SLobbyEnterReq, new List<Func<ClientSession, object>>()
                 {
                     CharacterProcessors.HandleClassEquipInfoTrigger,
-                    CharacterProcessors.HandleLobbyCharacterInfoTrigger
+                    CharacterProcessors.HandleLobbyCharacterInfoTrigger,
+                    Notifications.HandleLobbyAccountCurrencyListNot
                 } 
             },
+
+             { PacketCommand.C2SClassLevelInfoReq, new List<Func<ClientSession, object>>()
+                {
+                    CharacterProcessors.HandleLobbyCharacterInfoTrigger,
+                    Notifications.HandleLobbyAccountCurrencyListNot
+                }
+            },
+
         };
 
         // Handles the request, needs a PacketCommand, a WrapperDeserializer & returns the deserialized object
@@ -43,6 +54,8 @@ namespace BarkAndBarker.Network
             { PacketCommand.C2SAliveReq, MiscProcessors.HandleAliveReq },
             // Login
             { PacketCommand.C2SAccountLoginReq, AccountProcessors.HandleLoginReq },
+
+
             // Character management
             { PacketCommand.C2SAccountCharacterCreateReq, CharacterProcessors.HandleCharacterCreateReq },
             { PacketCommand.C2SAccountCharacterListReq, CharacterProcessors.HandleCharacterListReq },
@@ -59,7 +72,7 @@ namespace BarkAndBarker.Network
             // Current equipped items
             { PacketCommand.C2SClassEquipInfoReq, EquipProcessors.HandleClassEquipInfoReq },
             // Customization items 
-            { PacketCommand.C2SCustomizeItemInfoReq, EquipProcessors.HandleCustomizeItemInfoReq },
+            //{ PacketCommand.C2SCustomizeItemInfoReq, EquipProcessors.HandleCustomizeItemInfoReq },
             // Character level, exp and ability points
             { PacketCommand.C2SClassLevelInfoReq, ProgressionProcessors.HandleClassLevelInfoReq },
             // Matchmaking registration
@@ -83,6 +96,18 @@ namespace BarkAndBarker.Network
             // Lobby Character Information
             { PacketCommand.C2SLobbyCharacterInfoReq, CharacterProcessors.HandleLobbyCharacterInfoReq },
             { PacketCommand.C2SCharacterSelectEnterReq, CharacterProcessors.HandleCharacterSelectReq },
+
+            // Block Character
+            { PacketCommand.C2SBlockCharacterListReq, CharacterProcessors.HandleBlockCharacterListReq },
+
+            // Skill List
+            { PacketCommand.C2SClassSpellListReq, CharacterProcessors.HandleClassSpellListReq },
+            { PacketCommand.C2SClassSkillListReq, CharacterProcessors.HandleClassSkillListReq },
+            { PacketCommand.C2SClassPerkListReq, CharacterProcessors.HandleClassPerkListReq },
+
+
+
+
 
         };
         public static readonly Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>> m_responses = new Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>>()
@@ -121,6 +146,13 @@ namespace BarkAndBarker.Network
 
             { PacketCommand.S2CLobbyCharacterInfoRes, CharacterProcessors.HandleLobbyCharacterInfoRes },
             { PacketCommand.S2CCharacterSelectEnterRes, CharacterProcessors.HandleCharacterSelectRes },
+
+            { PacketCommand.S2CBlockCharacterListRes, CharacterProcessors.HandleBlockCharacterListRes },
+
+            { PacketCommand.S2CClassSpellListRes, CharacterProcessors.HandleClassSpellListRes },
+            { PacketCommand.S2CClassSkillListRes, CharacterProcessors.HandleClassSkillListRes },
+            { PacketCommand.S2CClassPerkListRes, CharacterProcessors.HandleClassPerkListRes},
+
         };
 
         public PacketManager() { }

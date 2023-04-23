@@ -111,6 +111,10 @@ namespace BarkAndBarker.Network.PacketProcessor
                     {
                         if (item.Key.InventoryID == (uint)InventoryType.INVENTORY_CHARACTER) // Skip stash items
                             character.EquipItemList.Add(InventoryHelpers.MakeSItemObject(item.Key));
+                        if (item.Key.InventoryID == (uint)InventoryType.INVENTORY_BAG) // Skip stash items
+                            character.EquipItemList.Add(InventoryHelpers.MakeSItemObject(item.Key));
+                        if (item.Key.InventoryID == (uint)InventoryType.INVENTORY_STASH)
+                            character.EquipItemList.Add(InventoryHelpers.MakeSItemObject(item.Key));
 
                     } catch (Exception ex) {
 #if !DEBUG
@@ -220,6 +224,77 @@ namespace BarkAndBarker.Network.PacketProcessor
             return HandleLobbyCharacterInfoRes(session, new SS2C_LOBBY_CHARACTER_INFO_RES());
         }
 
+        public static object HandleBlockCharacterListReq(ClientSession session, dynamic deserializer)
+        {
+            var request = ((WrapperDeserializer)deserializer).Parse<SC2S_BLOCK_CHARACTER_LIST_REQ>();
+            var response = new SS2C_BLOCK_CHARACTER_LIST_RES();
+             
+            return response;
+
+        }
+
+        public static MemoryStream HandleBlockCharacterListRes(ClientSession session, dynamic inputClass)
+        {
+            var response = (SS2C_BLOCK_CHARACTER_LIST_RES)inputClass;
+
+            var serial = new WrapperSerializer<SS2C_BLOCK_CHARACTER_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CBlockCharacterListRes);
+            return serial.Serialize();
+
+        }
+
+        public static object HandleClassSpellListReq(ClientSession session, dynamic deserializer)
+        {
+            var request = ((WrapperDeserializer)deserializer).Parse<SC2S_CLASS_SPELL_LIST_REQ>();
+            var response = new SS2C_CLASS_SPELL_LIST_RES();
+
+            return response;
+        }
+
+        public static MemoryStream HandleClassSpellListRes(ClientSession session, dynamic inputClass)
+        {
+            var response = (SS2C_CLASS_SPELL_LIST_RES)inputClass;
+
+            var serial = new WrapperSerializer<SS2C_CLASS_SPELL_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CClassSpellListRes);
+            return serial.Serialize();
+
+        }
+
+        public static object HandleClassSkillListReq(ClientSession session, dynamic deserializer)
+        {
+            var request = ((WrapperDeserializer)deserializer).Parse<SC2S_CLASS_SKILL_LIST_REQ>();
+            var response = new SS2C_CLASS_SKILL_LIST_RES();
+
+            return response;
+        }
+
+        public static MemoryStream HandleClassSkillListRes(ClientSession session, dynamic inputClass)
+        {
+            var response = (SS2C_CLASS_SKILL_LIST_RES)inputClass;
+
+            var serial = new WrapperSerializer<SS2C_CLASS_SKILL_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CClassSkillListRes);
+            return serial.Serialize();
+
+        }
+
+        public static object HandleClassPerkListReq(ClientSession session, dynamic deserializer)
+        {
+            var request = ((WrapperDeserializer)deserializer).Parse<SC2S_CLASS_PERK_LIST_REQ>();
+            var response = new SS2C_CLASS_PERK_LIST_RES();
+
+            return response;
+        }
+
+        public static MemoryStream HandleClassPerkListRes(ClientSession session, dynamic inputClass)
+        {
+            var response = (SS2C_CLASS_PERK_LIST_RES)inputClass;
+
+            var serial = new WrapperSerializer<SS2C_CLASS_PERK_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CClassPerkListRes);
+            return serial.Serialize();
+
+        }
+
+
+
         public static MemoryStream HandleLobbyCharacterInfoRes(ClientSession session, dynamic inputClass)
         {
             var response = (SS2C_LOBBY_CHARACTER_INFO_RES)inputClass;
@@ -234,7 +309,7 @@ namespace BarkAndBarker.Network.PacketProcessor
                 Gender = (uint)session.m_currentCharacter.Gender,
                 NickName = new SACCOUNT_NICKNAME()
                 {
-                    KarmaRating = session.m_currentCharacter.KarmaScore,
+                    //KarmaRating = session.m_currentCharacter.KarmaScore,
                     StreamingModeNickName = session.m_currentCharacter.Nickname,
                     OriginalNickName = session.m_currentCharacter.Nickname,
                 }
@@ -250,6 +325,9 @@ namespace BarkAndBarker.Network.PacketProcessor
                     switch ((uint)item.Key.InventoryID)
                     {
                         case (uint)InventoryType.INVENTORY_CHARACTER:
+                            response.CharacterDataBase.CharacterItemList.Add(clientItem);
+                            break;
+                        case (uint)InventoryType.INVENTORY_BAG:
                             response.CharacterDataBase.CharacterItemList.Add(clientItem);
                             break;
                         case (uint)InventoryType.INVENTORY_STASH:

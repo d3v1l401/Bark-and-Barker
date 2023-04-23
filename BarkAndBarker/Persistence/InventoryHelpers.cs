@@ -15,6 +15,8 @@ namespace BarkAndBarker.Persistence
         {
             var sItem = new SItem()
             {
+                ItemUniqueId = (uint)inventoryItem.UniqueID,
+                ItemContentsCount = (uint)inventoryItem.ItemContentsCount,
                 SlotId = (uint)inventoryItem.SlotID,
                 InventoryId = (uint)inventoryItem.InventoryID,
                 ItemCount = (uint)inventoryItem.ItemCount,

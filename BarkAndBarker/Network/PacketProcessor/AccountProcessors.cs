@@ -97,7 +97,7 @@ namespace BarkAndBarker.Network.PacketProcessor
 
             return loggedPlayer;
 #else
-            var loginData = ((WrapperDeserializer)deserializer).Parse<IronMace_Login>();
+            var loginData = ((WrapperDeserializer)deserializer).Parse<SC2S_ACCOUNT_LOGIN_REQ>();
 
             var loggedInAccount = session.GetDB().SelectFirst<ModelAccount>(ModelAccount.QueryLoginAccount, new
             {
@@ -114,10 +114,10 @@ namespace BarkAndBarker.Network.PacketProcessor
 
                 return loginResponseFail;
             } else {
-                var loginResponse = new IronMace_Token_Res();
+                var loginResponse = new SS2C_ACCOUNT_LOGIN_RES();
 
                 session.m_currentPlayer.AccountID = loggedInAccount.ID;
-                loginResponse.Token = session.m_currentPlayerSessionToken = Guid.NewGuid().ToString();
+                loginResponse.SessionId = loggedInAccount.ID.ToString();
 
                 return loginResponse;
             }
@@ -147,7 +147,7 @@ namespace BarkAndBarker.Network.PacketProcessor
 
         }
 #else
-            // It's a login fail
+            /*
             if (inputClass is IronMace_Login_Res)
             {
                 var responsePacket = (IronMace_Login_Res)inputClass;
@@ -161,8 +161,21 @@ namespace BarkAndBarker.Network.PacketProcessor
                 return serializer.Serialize();
             } else {
                 throw new Exception("wtf is this account response?");
-            }
+            }*/
 
+            // Fixing STASH temp or perm I don't know.
+            var responsePacket = new SS2C_ACCOUNT_LOGIN_RES()
+            {
+                AccountId = session.m_currentPlayer.AccountID.ToString(),
+                //SessionId = 0,
+                ServerLocation = 4, // TODO
+                //IsReconnect = 0, // TODO
+                //Address = "", // TODO
+                //Result = 1,
+                AccountInfo = new SLOGIN_ACCOUNT_INFO() { AccountID = session.m_currentPlayer.AccountID.ToString() }
+            };
+            var serializer = new WrapperSerializer<SS2C_ACCOUNT_LOGIN_RES>(responsePacket, session.m_currentPacketSequence++, PacketCommand.S2CAccountLoginRes);
+           return serializer.Serialize();
 #endif
         }
     }
