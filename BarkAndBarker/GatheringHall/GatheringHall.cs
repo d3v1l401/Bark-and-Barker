@@ -1,4 +1,6 @@
-﻿using BarkAndBarker.Shared.Persistence.Models;
+﻿using BarkAndBarker.Network;
+using BarkAndBarker.Shared.Persistence.Models;
+using DC.Packet;
 
 namespace BarkAndBarker.GatheringHall
 {
@@ -11,6 +13,8 @@ namespace BarkAndBarker.GatheringHall
 
         private List<ClientSession> CurrentUsers { get; set; }
 
+        private List<ChatMessage> Messages { get; set; }
+
         public GatheringHall(string channelId, uint channelIndex, uint groupIndex)
         {
             ChannelId = channelId;
@@ -18,6 +22,7 @@ namespace BarkAndBarker.GatheringHall
             GroupIndex = groupIndex;
 
             CurrentUsers = new List<ClientSession>();
+            Messages = new List<ChatMessage>();
         }
 
         public void Join(ClientSession client)
@@ -33,6 +38,23 @@ namespace BarkAndBarker.GatheringHall
         public bool IsMember(ClientSession client)
         {
             return CurrentUsers.Contains(client);
+        }
+
+        public void AddMessage(ChatMessage message)
+        {
+            Messages.Add(message);
+
+            var chatMessageNot = ChatMessage.CreateNotPacket(message);
+
+            foreach (var clientSession in CurrentUsers)
+            {
+                var chatNot = new WrapperSerializer<SS2C_GATHERING_HALL_CHANNEL_CHAT_NOT>(
+                        chatMessageNot,
+                        clientSession.m_currentPacketSequence++,
+                        PacketCommand.S2CGatheringHallChannelChatNot);
+
+                clientSession.SendAsync(chatNot.Serialize().ToArray());
+            }
         }
     }
 }

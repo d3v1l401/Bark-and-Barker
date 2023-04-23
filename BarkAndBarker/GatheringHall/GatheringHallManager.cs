@@ -41,5 +41,16 @@
 
             return false;
         }
+
+        public static void AddMessage(ChatMessage message, ClientSession client)
+        {
+            foreach (var gatheringHall in GatheringHalls)
+            {
+                if (gatheringHall.IsMember(client))
+                {
+                    gatheringHall.AddMessage(message);
+                }
+            }
+        }
     }
 }

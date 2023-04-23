@@ -86,18 +86,10 @@ namespace BarkAndBarker.Network.PacketProcessor
         {
             var request = ((WrapperDeserializer)deserializer).Parse<SC2S_GATHERING_HALL_CHANNEL_CHAT_REQ>();
 
-            var chat = request.Chat;
-            Console.WriteLine(request.ToString());
+            var message = new ChatMessage(request.Chat.ChatData.ChatDataPieceArray[0].ChatStr, ChatType.Normal, session);
+            GatheringHallManager.AddMessage(message, session);
 
             var response = new SS2C_GATHERING_HALL_CHANNEL_CHAT_RES();
-
-            var myChat = new SGATHERING_HALL_CHAT_S2C();
-            myChat.ChatIndex = 1;
-            myChat.Time = 1681949940468;
-            myChat.ChatType = chat.ChatType;
-            myChat.ChatData = chat.ChatData;
-
-            response.Chats.Add(myChat);
 
             return response;
         }
@@ -105,19 +97,7 @@ namespace BarkAndBarker.Network.PacketProcessor
         public static MemoryStream HandleGatheringHallChannelChatRes(ClientSession session, dynamic inputClass)
         {
             var response = (SS2C_GATHERING_HALL_CHANNEL_CHAT_RES)inputClass;
-
-            //var c = new SGATHERING_HALL_CHAT_S2C();
-            //response.Chats.Add(c);
-
-            var chatNotC = new SS2C_GATHERING_HALL_CHANNEL_CHAT_NOT();
-            chatNotC.Chats.Add(response.Chats[0]);
-
-            var chatNot = new WrapperSerializer<SS2C_GATHERING_HALL_CHANNEL_CHAT_NOT>(chatNotC,
-                session.m_currentPacketSequence++, PacketCommand.S2CGatheringHallChannelChatNot);
-
-            session.SendAsync(chatNot.Serialize().ToArray());
-
-
+            
             response.Result = 1;
 
             var serial = new WrapperSerializer<SS2C_GATHERING_HALL_CHANNEL_CHAT_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CGatheringHallChannelSelectRes);
