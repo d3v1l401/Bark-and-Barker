@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BarkAndBarker.GatheringHall;
 using Google.Protobuf.Collections;
 
 namespace BarkAndBarker.Network.PacketProcessor
@@ -16,29 +17,17 @@ namespace BarkAndBarker.Network.PacketProcessor
 
             // TODO
             var response = new SS2C_GATHERING_HALL_CHANNEL_LIST_RES();
-            response.Channels.Add(new SGATHERING_HALL_CHANNEL()
-            {
-                ChannelId = Guid.NewGuid().ToString(),
-                ChannelIndex = 1,
-                GroupIndex = 1,
-                MemberCount = 666,
-            });
 
-            response.Channels.Add(new SGATHERING_HALL_CHANNEL()
+            foreach (var gatheringHall in GatheringHallManager.GatheringHalls)
             {
-                ChannelId = Guid.NewGuid().ToString(),
-                ChannelIndex = 2,
-                GroupIndex = 2,
-                MemberCount = 1337,
-            });
-
-            response.Channels.Add(new SGATHERING_HALL_CHANNEL()
-            {
-                ChannelId = Guid.NewGuid().ToString(),
-                ChannelIndex = 0,
-                GroupIndex = 2,
-                MemberCount = 401,
-            });
+                response.Channels.Add(new SGATHERING_HALL_CHANNEL()
+                {
+                    ChannelId = gatheringHall.ChannelId,
+                    ChannelIndex = gatheringHall.ChannelIndex,
+                    GroupIndex = gatheringHall.GroupIndex,
+                    MemberCount = gatheringHall.MemberCount,
+                });
+            }
 
             return response;
         }

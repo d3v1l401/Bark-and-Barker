@@ -5,6 +5,7 @@ using System.Collections.Concurrent;
 using System.Globalization;
 using System.Net;
 using System.Xml.Schema;
+using BarkAndBarker.GatheringHall;
 using BarkAndBarker.Jobs;
 using BarkAndBarker.Shared.Persistence;
 using BarkAndBarker.Shared.Settings;
@@ -49,6 +50,9 @@ namespace BarkAndBarker
             Console.WriteLine("Initializing jobs...");
             var jobController = new JobController();
             jobController.Init();
+
+            Console.WriteLine("Initializing gathering halls...");
+            GatheringHallManager.Init();
             
             Console.WriteLine("Fireing up ClientManager...");
             ClientManager m_clientManager = new ClientManager(IPAddress.Parse(m_settings.LobbyAddress), m_settings.LobbyPort);
