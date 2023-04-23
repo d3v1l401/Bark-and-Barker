@@ -103,10 +103,6 @@ namespace BarkAndBarker.Network
             { PacketCommand.C2SClassSkillListReq, CharacterProcessors.HandleClassSkillListReq },
             { PacketCommand.C2SClassPerkListReq, CharacterProcessors.HandleClassPerkListReq },
 
-
-
-
-
         };
         public static readonly Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>> m_responses = new Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>>()
         {

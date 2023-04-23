@@ -40,8 +40,6 @@ namespace BarkAndBarker.Persistence
         {
             if (databaseIntance == null)
                 throw new Exception("database instance not parsed");
-
-            
            
             // Get all implementors of IModel
             // All table models should start with "Model*"
@@ -73,6 +71,24 @@ namespace BarkAndBarker.Persistence
                     databaseIntance.Execute(query, null);
                 }
             }
+
+
+            // Check & insert skill, spell and perks class presets
+            var perksList = databaseIntance.Select<ModelPresetPerkList>(ModelPresetPerkList.QueryPerkList, null);
+            if (perksList.Count() <= 0)
+                foreach (var query in ModelPresetPerkList.QueryFillPresets)
+                    databaseIntance.Execute(query, null);
+
+            var skillsList = databaseIntance.Select<ModelPresetSkillList>(ModelPresetSkillList.QuerySkillList, null);
+            if (skillsList.Count() <= 0)
+                foreach (var query in ModelPresetSkillList.QueryFillPresets)
+                    databaseIntance.Execute(query, null);
+
+            var spellsList = databaseIntance.Select<ModelPresetSpellList>(ModelPresetSpellList.QuerySpellList, null);
+            if (spellsList.Count() <= 0)
+                foreach (var query in ModelPresetSpellList.QueryFillPresets)
+                    databaseIntance.Execute(query, null);
+
         }
     }
 }

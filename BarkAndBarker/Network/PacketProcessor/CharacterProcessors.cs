@@ -247,6 +247,36 @@ namespace BarkAndBarker.Network.PacketProcessor
             var request = ((WrapperDeserializer)deserializer).Parse<SC2S_CLASS_SPELL_LIST_REQ>();
             var response = new SS2C_CLASS_SPELL_LIST_RES();
 
+
+            var allSpells = session.GetDB().Select<ModelPresetSpellList>(ModelPresetSpellList.QuerySelectClassSpells, new { CID = session.m_currentCharacter.Class });
+            //var curSpells = session.GetDB().Select<ModelPerks>(ModelPerks.QuerySelectCharacterSpells, new { CID = session.m_currentCharacter.CharID });
+
+            var spells = allSpells.ToDictionary(x => x.SpellID);
+
+            //foreach (var equippedSpell in curSpells)
+            //{
+            //    // If the skill is currently equipped
+            //    if (spells.ContainsKey(equippedSpell.SpellID))
+            //    {
+            //        spells.Remove(equippedSpell.SpellID);
+            //        continue;
+            //    }
+            //}
+
+            // TODO: Spells are handled differently
+
+            var slotIndex = (uint)0;
+            var seqIndex  = (uint)0;
+            foreach (var spell in spells)
+            {
+                response.Spells.Add(new SSpell()
+                {
+                    SequenceIndex = seqIndex++,
+                    SlotIndex = slotIndex++,
+                    SpellId = "",
+                });
+            }
+
             return response;
         }
 
@@ -264,6 +294,37 @@ namespace BarkAndBarker.Network.PacketProcessor
             var request = ((WrapperDeserializer)deserializer).Parse<SC2S_CLASS_SKILL_LIST_REQ>();
             var response = new SS2C_CLASS_SKILL_LIST_RES();
 
+            var allSkills = session.GetDB().Select<ModelPresetSkillList>(ModelPresetPerkList.QuerySelectClassPerks, new { CID = session.m_currentCharacter.Class });
+            var curSkills = session.GetDB().Select<ModelPerks>(ModelPerks.QuerySelectCharacterSkills, new { CID = session.m_currentCharacter.CharID });
+
+            var skills = allSkills.ToDictionary(x => x.SkillID);
+
+            foreach (var equippedSkill in curSkills)
+            {
+                if (equippedSkill.Type == 1) // This is a perk
+                    continue;
+
+                // If the skill is currently equipped
+                if (skills.ContainsKey(equippedSkill.EquipID))
+                {
+                    skills.Remove(equippedSkill.EquipID); 
+                    continue;
+                }
+            }
+
+            var clientFilteredList = new List<SSkill>();
+            var clientFacingIndex = (uint)1;
+            foreach (var availableSkill in skills)
+            {
+                clientFilteredList.Add(new SSkill()
+                {
+                    Index = clientFacingIndex++,
+                    SkillId = availableSkill.Key,
+                });
+            }
+
+            response.Skills.AddRange(clientFilteredList);
+
             return response;
         }
 
@@ -280,6 +341,37 @@ namespace BarkAndBarker.Network.PacketProcessor
         {
             var request = ((WrapperDeserializer)deserializer).Parse<SC2S_CLASS_PERK_LIST_REQ>();
             var response = new SS2C_CLASS_PERK_LIST_RES();
+
+            var allPerks = session.GetDB().Select<ModelPresetPerkList>(ModelPresetPerkList.QuerySelectClassPerks, new { CID = session.m_currentCharacter.Class });
+            var curPerks = session.GetDB().Select<ModelPerks>(ModelPerks.QuerySelectCharacterSkills, new { CID = session.m_currentCharacter.CharID });
+
+            var perks = allPerks.ToDictionary(x => x.PerkID);
+
+            foreach (var equippedPerk in curPerks)
+            {
+                if (equippedPerk.Type == 2) // This is a skill
+                    continue;
+
+                // If the perk is currently equipped
+                if (perks.ContainsKey(equippedPerk.EquipID))
+                {
+                    perks.Remove(equippedPerk.EquipID);
+                    continue;
+                }
+            }
+
+            var clientFilteredList = new List<SPerk>();
+            var clientFacingIndex = (uint)1;
+            foreach (var availablePerk in perks)
+            {
+                clientFilteredList.Add(new SPerk()
+                {
+                    Index = clientFacingIndex++,
+                    PerkId = availablePerk.Key,
+                });
+            }
+
+            response.Perks.AddRange(clientFilteredList);
 
             return response;
         }
