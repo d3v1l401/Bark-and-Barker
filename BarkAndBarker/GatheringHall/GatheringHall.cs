@@ -19,5 +19,10 @@ namespace BarkAndBarker.GatheringHall
 
             CurrentUsers = new List<ClientSession>();
         }
+
+        public void Join(ClientSession client)
+        {
+            CurrentUsers.Add(client);
+        }
     }
 }

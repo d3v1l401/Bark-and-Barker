@@ -12,5 +12,20 @@
             GatheringHalls.Add(new GatheringHall("So", 4, 1));
             GatheringHalls.Add(new GatheringHall("Serious", 5, 1));
         }
+
+
+        public static bool Join(ClientSession client, uint gatheringHallIndex)
+        {
+            foreach (var gatheringHall in GatheringHalls)
+            {
+                if (gatheringHall.ChannelIndex == gatheringHallIndex)
+                {
+                    gatheringHall.Join(client);
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
