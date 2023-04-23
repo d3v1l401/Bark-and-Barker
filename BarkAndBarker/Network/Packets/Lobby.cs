@@ -5,6 +5,7 @@
 #pragma warning disable 1591, 0612, 3021, 8981
 #region Designer generated code
 
+using Google.Protobuf;
 using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
@@ -711,6 +712,7 @@ namespace DC.Packet {
       if (characterDataBase_ != null) {
         output.WriteRawTag(18);
         output.WriteMessage(CharacterDataBase);
+        
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
