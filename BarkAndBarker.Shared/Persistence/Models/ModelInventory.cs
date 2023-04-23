@@ -15,6 +15,7 @@ namespace BarkAndBarker.Shared.Persistence.Models
         public int ItemCount { get; set; }
         public int InventoryID { get; set; }
         public int SlotID { get; set; }
+        public int ItemContentsCount { get; set; }
         public List<ModelProperty> Properties { get; set; }
 
 
@@ -27,6 +28,7 @@ namespace BarkAndBarker.Shared.Persistence.Models
                                                               `ItemCount` int NOT NULL DEFAULT '1',
                                                               `InventoryID` int NOT NULL,
                                                               `SlotID` int NOT NULL,
+                                                              `ItemContentsCount` int,
                                                               PRIMARY KEY (`UniqueID`),
                                                               KEY `itemOwner_idx` (`OwnerID`),
                                                               CONSTRAINT `itemOwner` FOREIGN KEY (`OwnerID`) REFERENCES `characters` (`CharID`) ON DELETE CASCADE
