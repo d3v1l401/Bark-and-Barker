@@ -84,6 +84,7 @@ namespace BarkAndBarker.Network
             // Gathering hall
             { PacketCommand.C2SGatheringHallChannelListReq, GatheringHallProcessors.HandleGatheringHallListReq },
             { PacketCommand.C2SGatheringHallChannelSelectReq, GatheringHallProcessors.HandleGatheringHallChannelSelectReq },
+            { PacketCommand.C2SGatheringHallChannelExitReq, GatheringHallProcessors.HandleGatheringHallChannelExitReq },
             { PacketCommand.C2SGatheringHallChannelChatReq, GatheringHallProcessors.HandleGatheringHallChannelChatReq },
             // Party packets
             { PacketCommand.C2SPartyInviteReq, PartyProcessors.HandlePartyInviteReq },
@@ -134,7 +135,8 @@ namespace BarkAndBarker.Network
 
             // Gathering hall
             { PacketCommand.S2CGatheringHallChannelListRes, GatheringHallProcessors.HandleGatheringHallListRes },
-            { PacketCommand.S2CGatheringHallChannelSelectRes, GatheringHallProcessors.HandleGatheringHallChannelRequestRes },
+            { PacketCommand.S2CGatheringHallChannelSelectRes, GatheringHallProcessors.HandleGatheringHallChannelSelectRes },
+            { PacketCommand.S2CGatheringHallChannelExitRes, GatheringHallProcessors.HandleGatheringHallChannelExitRes },
             { PacketCommand.S2CGatheringHallChannelChatRes, GatheringHallProcessors.HandleGatheringHallChannelChatRes },
 
             { PacketCommand.S2CPartyInviteRes, PartyProcessors.HandlePartyInviteRes },

@@ -61,13 +61,32 @@ namespace BarkAndBarker.Network.PacketProcessor
             return response;
         }
 
-        public static MemoryStream HandleGatheringHallChannelRequestRes(ClientSession session, dynamic inputClass)
+        public static MemoryStream HandleGatheringHallChannelSelectRes(ClientSession session, dynamic inputClass)
         {
             var response = (SS2C_GATHERING_HALL_CHANNEL_SELECT_RES)inputClass;
 
             response.Result = 1;
 
             var serial = new WrapperSerializer<SS2C_GATHERING_HALL_CHANNEL_SELECT_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CGatheringHallChannelSelectRes);
+            return serial.Serialize();
+        }
+
+        public static object HandleGatheringHallChannelExitReq(ClientSession session, dynamic deserializer)
+        {
+            var request = ((WrapperDeserializer)deserializer).Parse<SC2S_GATHERING_HALL_CHANNEL_EXIT_REQ>();
+            
+            var response = new SS2C_GATHERING_HALL_CHANNEL_EXIT_RES();
+
+            return response;
+        }
+
+        public static MemoryStream HandleGatheringHallChannelExitRes(ClientSession session, dynamic inputClass)
+        {
+            var response = (SS2C_GATHERING_HALL_CHANNEL_EXIT_RES)inputClass;
+
+            response.Result = 1;
+
+            var serial = new WrapperSerializer<SS2C_GATHERING_HALL_CHANNEL_EXIT_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CGatheringHallChannelExitRes);
             return serial.Serialize();
         }
 
@@ -97,6 +116,14 @@ namespace BarkAndBarker.Network.PacketProcessor
 
             //var c = new SGATHERING_HALL_CHAT_S2C();
             //response.Chats.Add(c);
+
+            var chatNotC = new SS2C_GATHERING_HALL_CHANNEL_CHAT_NOT();
+            chatNotC.Chats.Add(response.Chats[0]);
+
+            var chatNot = new WrapperSerializer<SS2C_GATHERING_HALL_CHANNEL_CHAT_NOT>(chatNotC,
+                session.m_currentPacketSequence++, PacketCommand.S2CGatheringHallChannelChatNot);
+
+            session.SendAsync(chatNot.Serialize().ToArray());
 
 
             response.Result = 1;
