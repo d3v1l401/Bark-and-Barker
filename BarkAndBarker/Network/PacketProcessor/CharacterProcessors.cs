@@ -242,11 +242,32 @@ namespace BarkAndBarker.Network.PacketProcessor
 
         }
 
+        public static MemoryStream HandleClassSpellListReqTrigger(ClientSession session)
+        {
+            return HandleClassSpellListRes(session, new SS2C_CLASS_SPELL_LIST_RES());
+        }
+
+        public static MemoryStream HandleClassSkillListReqTrigger(ClientSession session)
+        {
+            return HandleClassSkillListRes(session, new SS2C_CLASS_SKILL_LIST_RES());
+        }
+
+        public static MemoryStream HandleClassPerkListReqTrigger(ClientSession session)
+        {
+            return HandleClassPerkListRes(session, new SS2C_CLASS_PERK_LIST_RES());
+        }
+
         public static object HandleClassSpellListReq(ClientSession session, dynamic deserializer)
         {
             var request = ((WrapperDeserializer)deserializer).Parse<SC2S_CLASS_SPELL_LIST_REQ>();
             var response = new SS2C_CLASS_SPELL_LIST_RES();
 
+            return response;
+        }
+
+        public static MemoryStream HandleClassSpellListRes(ClientSession session, dynamic inputClass)
+        {
+            var response = (SS2C_CLASS_SPELL_LIST_RES)inputClass;
 
             var allSpells = session.GetDB().Select<ModelPresetSpellList>(ModelPresetSpellList.QuerySelectClassSpells, new { CID = session.m_currentCharacter.Class });
             //var curSpells = session.GetDB().Select<ModelPerks>(ModelPerks.QuerySelectCharacterSpells, new { CID = session.m_currentCharacter.CharID });
@@ -266,7 +287,7 @@ namespace BarkAndBarker.Network.PacketProcessor
             // TODO: Spells are handled differently
 
             var slotIndex = (uint)0;
-            var seqIndex  = (uint)0;
+            var seqIndex = (uint)0;
             foreach (var spell in spells)
             {
                 response.Spells.Add(new SSpell()
@@ -276,13 +297,6 @@ namespace BarkAndBarker.Network.PacketProcessor
                     SpellId = "",
                 });
             }
-
-            return response;
-        }
-
-        public static MemoryStream HandleClassSpellListRes(ClientSession session, dynamic inputClass)
-        {
-            var response = (SS2C_CLASS_SPELL_LIST_RES)inputClass;
 
             var serial = new WrapperSerializer<SS2C_CLASS_SPELL_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CClassSpellListRes);
             return serial.Serialize();
@@ -294,8 +308,15 @@ namespace BarkAndBarker.Network.PacketProcessor
             var request = ((WrapperDeserializer)deserializer).Parse<SC2S_CLASS_SKILL_LIST_REQ>();
             var response = new SS2C_CLASS_SKILL_LIST_RES();
 
-            var allSkills = session.GetDB().Select<ModelPresetSkillList>(ModelPresetPerkList.QuerySelectClassPerks, new { CID = session.m_currentCharacter.Class });
-            var curSkills = session.GetDB().Select<ModelPerks>(ModelPerks.QuerySelectCharacterSkills, new { CID = session.m_currentCharacter.CharID });
+            return response;
+        }
+
+        public static MemoryStream HandleClassSkillListRes(ClientSession session, dynamic inputClass)
+        {
+            var response = (SS2C_CLASS_SKILL_LIST_RES)inputClass;
+
+            var allSkills = session.GetDB().Select<ModelPresetSkillList>(ModelPresetSkillList.QuerySelectClassSkills, new { CID = session.m_currentCharacter.Class });
+            var curSkills = session.GetDB().Select<ModelPerks>(ModelPerks.QuerySelectCharacterSkills, new { CID = session.m_currentCharacter.CharID }).Where(x => x.Type == 2);
 
             var skills = allSkills.ToDictionary(x => x.SkillID);
 
@@ -307,7 +328,7 @@ namespace BarkAndBarker.Network.PacketProcessor
                 // If the skill is currently equipped
                 if (skills.ContainsKey(equippedSkill.EquipID))
                 {
-                    skills.Remove(equippedSkill.EquipID); 
+                    skills.Remove(equippedSkill.EquipID);
                     continue;
                 }
             }
@@ -325,13 +346,6 @@ namespace BarkAndBarker.Network.PacketProcessor
 
             response.Skills.AddRange(clientFilteredList);
 
-            return response;
-        }
-
-        public static MemoryStream HandleClassSkillListRes(ClientSession session, dynamic inputClass)
-        {
-            var response = (SS2C_CLASS_SKILL_LIST_RES)inputClass;
-
             var serial = new WrapperSerializer<SS2C_CLASS_SKILL_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CClassSkillListRes);
             return serial.Serialize();
 
@@ -341,6 +355,13 @@ namespace BarkAndBarker.Network.PacketProcessor
         {
             var request = ((WrapperDeserializer)deserializer).Parse<SC2S_CLASS_PERK_LIST_REQ>();
             var response = new SS2C_CLASS_PERK_LIST_RES();
+
+            return response;
+        }
+
+        public static MemoryStream HandleClassPerkListRes(ClientSession session, dynamic inputClass)
+        {
+            var response = (SS2C_CLASS_PERK_LIST_RES)inputClass;
 
             var allPerks = session.GetDB().Select<ModelPresetPerkList>(ModelPresetPerkList.QuerySelectClassPerks, new { CID = session.m_currentCharacter.Class });
             var curPerks = session.GetDB().Select<ModelPerks>(ModelPerks.QuerySelectCharacterSkills, new { CID = session.m_currentCharacter.CharID });
@@ -372,13 +393,6 @@ namespace BarkAndBarker.Network.PacketProcessor
             }
 
             response.Perks.AddRange(clientFilteredList);
-
-            return response;
-        }
-
-        public static MemoryStream HandleClassPerkListRes(ClientSession session, dynamic inputClass)
-        {
-            var response = (SS2C_CLASS_PERK_LIST_RES)inputClass;
 
             var serial = new WrapperSerializer<SS2C_CLASS_PERK_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CClassPerkListRes);
             return serial.Serialize();

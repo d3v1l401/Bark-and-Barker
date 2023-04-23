@@ -38,11 +38,20 @@ namespace BarkAndBarker.Network
                 } 
             },
 
-             { PacketCommand.C2SClassLevelInfoReq, new List<Func<ClientSession, object>>()
+            { PacketCommand.C2SClassLevelInfoReq, new List<Func<ClientSession, object>>()
                 {
                     CharacterProcessors.HandleLobbyCharacterInfoTrigger,
                     Notifications.HandleLobbyAccountCurrencyListNot
                 }
+            },
+
+            // On meta location == 5, client expects all the skills perks and spells list; we should probably handle this within MetaLocationRes
+            { PacketCommand.C2SMetaLocationReq, new List<Func<ClientSession, object>>()
+                {
+                    CharacterProcessors.HandleClassPerkListReqTrigger,
+                    CharacterProcessors.HandleClassSkillListReqTrigger,
+                    CharacterProcessors.HandleClassSpellListReqTrigger
+                } 
             },
 
         };

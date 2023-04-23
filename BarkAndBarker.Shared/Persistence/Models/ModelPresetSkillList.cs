@@ -11,7 +11,7 @@ namespace BarkAndBarker.Shared.Persistence.Models
         public string ClassID { get; set; }
         public string SkillID { get; set; }
 
-        public static readonly string QuerySelectClassPerks = "SELECT * FROM barker.preset_skill_list WHERE ClassID = @CID";
+        public static readonly string QuerySelectClassSkills = "SELECT * FROM barker.preset_skill_list WHERE ClassID = @CID";
         public static readonly string QuerySkillList = "SELECT * FROM barker.preset_skill_list;";
 
         public static readonly string QueryCreateTable = @"CREATE TABLE IF NOT EXISTS `barker`.`preset_skill_list` (
