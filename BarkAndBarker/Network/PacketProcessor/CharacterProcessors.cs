@@ -408,17 +408,42 @@ namespace BarkAndBarker.Network.PacketProcessor
             if (request.OldMove.Type != request.NewMove.Type) // e.g. Are we not replacing a skill with another skill?
                 response.Result = 0;
 
-            var legalClassPerks = session.GetDB().Select<ModelPresetPerkList>(ModelPresetPerkList.QuerySelectClassPerks, new { CID = session.m_currentCharacter.Class });
-            foreach (var perk in legalClassPerks)
-                if (perk.PerkID == request.NewMove.MoveId)
-                    break;
-                else
-                {
-                    response.OldMove = request.NewMove;
-                    response.NewMove = request.OldMove;
-                    response.Result = 0;
-                    break;
-                }
+            var isLegalRequest = false;
+            if (request.OldMove.Type == 1)
+            {
+                var legalClassPerks = session.GetDB().Select<ModelPresetPerkList>(ModelPresetPerkList.QuerySelectClassPerks, new { CID = session.m_currentCharacter.Class });
+                foreach (var perk in legalClassPerks)
+                    if (perk.PerkID == request.NewMove.MoveId)
+                    {
+                        isLegalRequest = true;
+                        break;
+                    }
+            } else if (request.OldMove.Type == 2)
+            {
+                var legalClassSkills = session.GetDB().Select<ModelPresetSkillList>(ModelPresetSkillList.QuerySelectClassSkills, new { CID = session.m_currentCharacter.Class });
+                foreach (var skill in legalClassSkills)
+                    if (skill.SkillID == request.NewMove.MoveId) 
+                    {
+                        isLegalRequest = true;
+                        break;
+                    }
+            } else if (request.OldMove.Type == 3) {
+                var legalClassSpells = session.GetDB().Select<ModelPresetSpellList>(ModelPresetSpellList.QuerySelectClassSpells, new { CID = session.m_currentCharacter.Class });
+                foreach (var spell in legalClassSpells)
+                    if (spell.SpellID == request.NewMove.MoveId)
+                    {
+                        isLegalRequest = true;
+                        break;
+                    }
+            }
+
+            if (!isLegalRequest)
+            {
+                response.OldMove = request.OldMove;
+                response.NewMove = request.OldMove;
+                response.Result = 0;
+                return response;
+            }
 
             var selectedSlot = session.GetDB().SelectFirst<ModelPerks>(ModelPerks.QuerySelectIndexForCharacter, new { CID = session.m_currentCharacter.CharID, Index =  request.OldMove.Index });
             if (selectedSlot != null)
@@ -432,7 +457,7 @@ namespace BarkAndBarker.Network.PacketProcessor
 
                 if (updatedRows <= 0)
                 {
-                    response.OldMove = request.NewMove;
+                    response.OldMove = request.OldMove;
                     response.NewMove = request.OldMove;
                     response.Result = 0;
                 } else {
