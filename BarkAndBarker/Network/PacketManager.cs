@@ -111,6 +111,8 @@ namespace BarkAndBarker.Network
             { PacketCommand.C2SClassSpellListReq, CharacterProcessors.HandleClassSpellListReq },
             { PacketCommand.C2SClassSkillListReq, CharacterProcessors.HandleClassSkillListReq },
             { PacketCommand.C2SClassPerkListReq, CharacterProcessors.HandleClassPerkListReq },
+            // Change perk/skill/spell 
+            { PacketCommand.C2SClassItemMoveReq, CharacterProcessors.HandleClassItemMoveReq },
 
         };
         public static readonly Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>> m_responses = new Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>>()
@@ -151,6 +153,8 @@ namespace BarkAndBarker.Network
             { PacketCommand.S2CClassSpellListRes, CharacterProcessors.HandleClassSpellListRes },
             { PacketCommand.S2CClassSkillListRes, CharacterProcessors.HandleClassSkillListRes },
             { PacketCommand.S2CClassPerkListRes, CharacterProcessors.HandleClassPerkListRes},
+
+            { PacketCommand.S2CClassItemMoveRes, CharacterProcessors.HandleClassItemMoveRes },
 
         };
 

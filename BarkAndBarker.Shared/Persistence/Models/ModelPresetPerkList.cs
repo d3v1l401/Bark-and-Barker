@@ -20,7 +20,6 @@ namespace BarkAndBarker.Shared.Persistence.Models
                                                           PRIMARY KEY (`ClassID`, `PerkID`));
                                                         ";
 
-
         public static readonly List<string> QueryFillPresets = new List<string>()
         {
             // Fighter
@@ -80,8 +79,6 @@ namespace BarkAndBarker.Shared.Persistence.Models
             "INSERT INTO `barker`.`preset_perk_list` (`ClassID`, `PerkID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Ranger', 'DesignDataPerk:Id_Perk_Chase');",
             "INSERT INTO `barker`.`preset_perk_list` (`ClassID`, `PerkID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Ranger', 'DesignDataPerk:Id_Perk_TrapMastery');",
             // Wizard
-            "INSERT INTO `barker`.`preset_perk_list` (`ClassID`, `PerkID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Wizard', 'DesignDataPerk:Id_Perk_ArcaneFeedback');",
-            "INSERT INTO `barker`.`preset_perk_list` (`ClassID`, `PerkID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Wizard', 'DesignDataPerk:Id_Perk_ArcaneMastery');",
             "INSERT INTO `barker`.`preset_perk_list` (`ClassID`, `PerkID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Wizard', 'DesignDataPerk:Id_Perk_ArcaneFeedback');",
             "INSERT INTO `barker`.`preset_perk_list` (`ClassID`, `PerkID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Wizard', 'DesignDataPerk:Id_Perk_ArcaneMastery');",
             "INSERT INTO `barker`.`preset_perk_list` (`ClassID`, `PerkID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Wizard', 'DesignDataPerk:Id_Perk_FireMastery');",

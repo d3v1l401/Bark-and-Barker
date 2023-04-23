@@ -399,7 +399,58 @@ namespace BarkAndBarker.Network.PacketProcessor
 
         }
 
+        public static object HandleClassItemMoveReq(ClientSession session, dynamic deserializer)
+        {
+            var request = ((WrapperDeserializer)deserializer).Parse<SC2S_CLASS_ITEM_MOVE_REQ>();
+            var response = new SS2C_CLASS_ITEM_MOVE_RES();
 
+            // Perk = 1, Skill = 2
+            if (request.OldMove.Type != request.NewMove.Type) // e.g. Are we not replacing a skill with another skill?
+                response.Result = 0;
+
+            var legalClassPerks = session.GetDB().Select<ModelPresetPerkList>(ModelPresetPerkList.QuerySelectClassPerks, new { CID = session.m_currentCharacter.Class });
+            foreach (var perk in legalClassPerks)
+                if (perk.PerkID == request.NewMove.MoveId)
+                    break;
+                else
+                {
+                    response.OldMove = request.NewMove;
+                    response.NewMove = request.OldMove;
+                    response.Result = 0;
+                    break;
+                }
+
+            var selectedSlot = session.GetDB().SelectFirst<ModelPerks>(ModelPerks.QuerySelectIndexForCharacter, new { CID = session.m_currentCharacter.CharID, Index =  request.OldMove.Index });
+            if (selectedSlot != null)
+            {
+                var updatedRows = session.GetDB().Execute(ModelPerks.QueryUpdateSlot, new
+                {
+                    NEID = request.NewMove.MoveId,
+                    OID = session.m_currentCharacter.CharID,
+                    Index = selectedSlot.Index,
+                });
+
+                if (updatedRows <= 0)
+                {
+                    response.OldMove = request.NewMove;
+                    response.NewMove = request.OldMove;
+                    response.Result = 0;
+                } else {
+                    response.OldMove = request.OldMove;
+                    response.NewMove = request.NewMove;
+                    response.Result = 1;
+                }
+            }
+
+            return response;
+        }
+
+        public static MemoryStream HandleClassItemMoveRes(ClientSession session, dynamic inputClass)
+        {
+            var response = (SS2C_CLASS_ITEM_MOVE_RES)inputClass;
+            var serial = new WrapperSerializer<SS2C_CLASS_ITEM_MOVE_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CClassItemMoveRes);
+            return serial.Serialize();
+        }
 
         public static MemoryStream HandleLobbyCharacterInfoRes(ClientSession session, dynamic inputClass)
         {
