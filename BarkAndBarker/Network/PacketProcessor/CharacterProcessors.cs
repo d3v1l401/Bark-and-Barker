@@ -342,8 +342,6 @@ namespace BarkAndBarker.Network.PacketProcessor
                 throw new Exception(ex.Message);
             }
 
-            Console.WriteLine(response.ToString());
-
             var serial = new WrapperSerializer<SS2C_LOBBY_CHARACTER_INFO_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CLobbyCharacterInfoRes);
             return serial.Serialize();
         }
