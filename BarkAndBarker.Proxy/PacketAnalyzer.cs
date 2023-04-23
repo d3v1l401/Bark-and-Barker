@@ -16,88 +16,6 @@ namespace BarkAndBarker.Proxy
 
         private Queue<byte> internalBuffer;
 
-        private static Dictionary<PacketCommand, MessageDescriptor> packetMapping = new Dictionary<PacketCommand, MessageDescriptor>();
-
-        private static string GetRelativePacketClass(PacketCommand command)
-        {
-            var finalClassName = "";
-            var directionalPrefix = "SC2S";
-
-            var packetCommandName = Enum.GetName(command);
-            if (packetCommandName.StartsWith("C2S"))
-                directionalPrefix = "SC2S";
-            else if (packetCommandName.StartsWith("S2C"))
-                directionalPrefix = "SS2C";
-            else
-            {
-                Console.WriteLine("Unknown PacketCommand prefix '" + packetCommandName + "'");
-                return null;
-            }
-
-            finalClassName += directionalPrefix;
-
-            packetCommandName = packetCommandName.Substring(3);
-            foreach (var character in packetCommandName)
-            {
-                if (char.IsUpper(character))
-                {
-                    finalClassName += "_";
-                    finalClassName += char.ToUpper(character);
-                } else
-                    finalClassName += char.ToUpper(character);
-            }
-
-            return finalClassName;
-        }
-
-        private static MessageDescriptor GetMessageDescriptor(string className)
-        {
-            // Get all assemblies in the application
-            var appDomainAssemblies = AppDomain.CurrentDomain.GetAssemblies();
-            // Select all packets find the one we want
-            var message = typeof(IMessage).GetImplementors(appDomainAssemblies).Where(x => x.Name == className).FirstOrDefault();
-
-            if (message == null)
-            {
-                Console.WriteLine("Unable to find '" + className + "' descriptor.");
-                return null;
-            }
-
-            // Get the descriptor class
-            var descriptor = message.GetProperty("Descriptor", BindingFlags.Public | BindingFlags.Static).GetValue(null, null) as MessageDescriptor;
-            if (descriptor == null)
-            {
-                Console.WriteLine("Unable to find '" + className + "' descriptor property");
-                return null;
-            }
-
-            return descriptor;
-        }
-
-        private static void BuildPacketCommandHandlers()
-        {
-            if (packetMapping.Count <= 0)
-            {
-                var packetCommandList = typeof(PacketCommand).GetFields(BindingFlags.Public | BindingFlags.Static).ToList();
-                foreach (var command in packetCommandList)
-                {
-                    if (command.Name.StartsWith("Min") || command.Name.StartsWith("Max") || command.Name == "PacketNone")
-                        continue;
-
-                    var enumVar = (PacketCommand)command.GetRawConstantValue();
-
-                    var className = GetRelativePacketClass(enumVar);
-                    if (className == null)
-                        continue;
-
-                    var descriptor = GetMessageDescriptor(className);
-                    if (descriptor == null)
-                        continue;
-
-                    packetMapping.Add(enumVar, descriptor);
-                }
-            }
-        }
 
         public PacketAnalyzer(Logger rawLogger, Logger analyzedLogger)
         {
@@ -106,7 +24,7 @@ namespace BarkAndBarker.Proxy
             this.rawLogger = rawLogger;
             this.analyzedLogger = analyzedLogger;
 
-            BuildPacketCommandHandlers();
+            PacketHelpers.BuildPacketCommandHandlers();
         }
 
         public void Analyze(byte[] buffer, string rawStringified)
@@ -159,7 +77,7 @@ namespace BarkAndBarker.Proxy
         private void HandleCommand(WrapperDeserializer deserializer, PacketCommand command)
         {
             MessageDescriptor descrParser = null;
-            if (packetMapping.TryGetValue(command, out descrParser))
+            if (PacketHelpers.PacketMapping.TryGetValue(command, out descrParser))
             {
                 var decodedPacket = descrParser.Parser.ParseFrom(deserializer.GetPayloadBuffer());
                 analyzedLogger.Log(decodedPacket.ToString());
