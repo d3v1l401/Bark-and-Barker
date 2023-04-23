@@ -9,6 +9,7 @@ namespace BarkAndBarker.Network
     public enum InventoryType : uint
     {
         INVENTORY_NONE = 0,
+        INVENTORY_BAG = 2,
         INVENTORY_CHARACTER = 3,
         INVENTORY_STASH = 4,
     }

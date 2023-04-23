@@ -111,6 +111,8 @@ namespace BarkAndBarker.Network.PacketProcessor
                     {
                         if (item.Key.InventoryID == (uint)InventoryType.INVENTORY_CHARACTER) // Skip stash items
                             character.EquipItemList.Add(InventoryHelpers.MakeSItemObject(item.Key));
+                        if (item.Key.InventoryID == (uint)InventoryType.INVENTORY_BAG) // Skip stash items
+                            character.EquipItemList.Add(InventoryHelpers.MakeSItemObject(item.Key));
                         if (item.Key.InventoryID == (uint)InventoryType.INVENTORY_STASH)
                             character.EquipItemList.Add(InventoryHelpers.MakeSItemObject(item.Key));
 
@@ -323,6 +325,9 @@ namespace BarkAndBarker.Network.PacketProcessor
                     switch ((uint)item.Key.InventoryID)
                     {
                         case (uint)InventoryType.INVENTORY_CHARACTER:
+                            response.CharacterDataBase.CharacterItemList.Add(clientItem);
+                            break;
+                        case (uint)InventoryType.INVENTORY_BAG:
                             response.CharacterDataBase.CharacterItemList.Add(clientItem);
                             break;
                         case (uint)InventoryType.INVENTORY_STASH:
