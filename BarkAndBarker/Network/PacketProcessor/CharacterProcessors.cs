@@ -309,7 +309,7 @@ namespace BarkAndBarker.Network.PacketProcessor
                 Gender = (uint)session.m_currentCharacter.Gender,
                 NickName = new SACCOUNT_NICKNAME()
                 {
-                    //KarmaRating = session.m_currentCharacter.KarmaScore,
+                    KarmaRating = session.m_currentCharacter.KarmaScore,
                     StreamingModeNickName = session.m_currentCharacter.Nickname,
                     OriginalNickName = session.m_currentCharacter.Nickname,
                 }

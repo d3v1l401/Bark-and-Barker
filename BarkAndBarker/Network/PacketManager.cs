@@ -103,6 +103,15 @@ namespace BarkAndBarker.Network
             { PacketCommand.C2SClassSkillListReq, CharacterProcessors.HandleClassSkillListReq },
             { PacketCommand.C2SClassPerkListReq, CharacterProcessors.HandleClassPerkListReq },
 
+            // Merchant Stock
+
+            { PacketCommand.C2SMerchantStockBuyItemListReq, MerchantProcessors.HandleMerchantStockBuyItemListReq },
+
+            // Inventory
+
+            { PacketCommand.C2SInventoryMoveReq, InventoryProcessors.HandleInventoryMoveReq },
+            { PacketCommand.C2SInventorySingleUpdateReq, InventoryProcessors.HandleInventorySingleUpdateReq }
+
 
 
 
@@ -146,6 +155,11 @@ namespace BarkAndBarker.Network
             { PacketCommand.S2CClassSpellListRes, CharacterProcessors.HandleClassSpellListRes },
             { PacketCommand.S2CClassSkillListRes, CharacterProcessors.HandleClassSkillListRes },
             { PacketCommand.S2CClassPerkListRes, CharacterProcessors.HandleClassPerkListRes},
+
+            { PacketCommand.S2CMerchantStockBuyItemListRes, MerchantProcessors.HandleMerchantStockBuyItemListRes },
+
+            { PacketCommand.S2CInventoryMoveRes, InventoryProcessors.HandleInventoryMoveRes },
+            { PacketCommand.S2CInventorySingleUpdateRes, InventoryProcessors.HandleInventorySingleUpdateRes }
 
         };
 
