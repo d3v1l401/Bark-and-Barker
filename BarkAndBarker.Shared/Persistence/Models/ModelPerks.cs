@@ -15,9 +15,9 @@ namespace BarkAndBarker.Shared.Persistence.Models
         public string EquipID { get; set; }
         public int Type { get; set; } // 1 - Perk; 2 - Skill
         // UPDATE `barker`.`character_perks` SET `EquipID` = 'DesignDataPerk:Id_Perk_Counterattack1' WHERE (`OwnerID` = '7b37ebca-eab2-4256-80fd-b66c3d312887') and (`Index` = '2');
-        public static readonly string QuerySelectCharacterSkills = "SELECT * FROM barker.character_perks WHERE OwnerID = @CID";
-        public static readonly string QuerySelectIndexForCharacter = "SELECT * FROM barker.character_perks WHERE OwnerID = @CID AND Index = @Index";
-        public static readonly string QueryUpdateSlot = "UPDATE barker.character_perks SET barker.character_perks.EquipID = @NEID WHERE (OwnerID = @OID) and (Index = @Index);";
+        public static readonly string QuerySelectCharacterSkills = "SELECT * FROM barker.character_perks WHERE barker.character_perks.OwnerID = @CID";
+        public static readonly string QuerySelectIndexForCharacter = "SELECT * FROM barker.character_perks WHERE barker.character_perks.OwnerID = @CID AND barker.character_perks.Index = @Index";
+        public static readonly string QueryUpdateSlot = "UPDATE barker.character_perks SET barker.character_perks.EquipID = @NEID WHERE (barker.character_perks.OwnerID = @OID) and (barker.character_perks.Index = @Index);";
 
         public static readonly string QueryCreateTable = @"CREATE TABLE IF NOT EXISTS `barker`.`character_perks` (
                                                           `OwnerID` VARCHAR(45) NOT NULL,
