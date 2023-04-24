@@ -38,6 +38,9 @@ namespace BarkAndBarker.Network.PacketProcessor
 
             var response = new SS2C_INVENTORY_SINGLE_UPDATE_RES();
 
+            // Checks should be inserted here I believe.
+            // Database should also be updated if the result = 1 (success).
+
             Console.WriteLine(request.ToString());
 
             response.Result = 1;
