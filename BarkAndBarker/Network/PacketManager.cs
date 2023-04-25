@@ -91,6 +91,10 @@ namespace BarkAndBarker.Network
             { PacketCommand.C2SPartyReadyReq, PartyProcessors.HandlePartyReadyReq },
             { PacketCommand.C2SPartyChatReq, PartyProcessors.HandlePartyChatReq },
 
+            // Map Selection
+            { PacketCommand.C2SLobbyGameDifficultySelectReq, LobbyProcessors.HandleLobbyGameDifficultySelectReq },
+
+
             // Lobby Character Information
             { PacketCommand.C2SLobbyCharacterInfoReq, CharacterProcessors.HandleLobbyCharacterInfoReq },
             { PacketCommand.C2SCharacterSelectEnterReq, CharacterProcessors.HandleCharacterSelectReq },
@@ -137,6 +141,10 @@ namespace BarkAndBarker.Network
             { PacketCommand.S2CPartyMemberKickRes, PartyProcessors.HandlePartyMemberKickRes },
             { PacketCommand.S2CPartyReadyRes, PartyProcessors.HandlePartyReadyRes },
             { PacketCommand.S2CPartyChatRes, PartyProcessors.HandlePartyChatRes },
+
+
+            { PacketCommand.S2CLobbyGameDifficultySelectRes, LobbyProcessors.HandleLobbyGameDifficultySelectRes },
+
 
             { PacketCommand.S2CLobbyCharacterInfoRes, CharacterProcessors.HandleLobbyCharacterInfoRes },
             { PacketCommand.S2CCharacterSelectEnterRes, CharacterProcessors.HandleCharacterSelectRes },
