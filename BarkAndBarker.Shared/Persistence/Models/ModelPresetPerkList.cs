@@ -20,6 +20,7 @@ namespace BarkAndBarker.Shared.Persistence.Models
                                                           PRIMARY KEY (`ClassID`, `PerkID`));
                                                         ";
 
+
         public static readonly List<string> QueryFillPresets = new List<string>()
         {
             // Fighter

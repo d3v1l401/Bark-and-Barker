@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BarkAndBarker.Shared.Persistence.Models;
 using BarkAndBarker.Persistence;
+using BarkAndBarker.Game;
 
 namespace BarkAndBarker.Network.PacketProcessor
 {
@@ -35,6 +36,7 @@ namespace BarkAndBarker.Network.PacketProcessor
                 return response;
             }
 
+            var newCharID = Guid.NewGuid().ToString();
             var queryRes = session.GetDB().Execute(ModelCharacter.QueryCreateCharacter, new
             {
 #if USE_STEAM
@@ -42,7 +44,7 @@ namespace BarkAndBarker.Network.PacketProcessor
 #else
                 AID = session.m_currentPlayer.AccountID,
 #endif
-                CID = Guid.NewGuid().ToString(),
+                CID = newCharID,
                 Nickname = request.NickName,
                 Class = request.CharacterClass,
                 Level = 1,
@@ -53,6 +55,17 @@ namespace BarkAndBarker.Network.PacketProcessor
                 response.Result = (uint)LoginResponseResult.SUCCESS;
             else
                 response.Result = 0;
+
+            var newCharacter = session.GetDB().SelectFirst<ModelCharacter>(ModelCharacter.QuerySelectCharacterByID, new { CID = newCharID });
+            if (newCharacter != null)
+            {
+                if (ClassHelpers.OnCharacterCreation(newCharacter, session.GetDB()))
+                    response.Result = (uint)LoginResponseResult.SUCCESS;
+                else
+                    response.Result = 0;
+            } else
+                response.Result = 0;
+
 
             return response;
         }
@@ -371,6 +384,10 @@ namespace BarkAndBarker.Network.PacketProcessor
             foreach (var equippedPerk in curPerks)
             {
                 if (equippedPerk.Type == 2) // This is a skill
+                    continue;
+
+                // empty perk slot, comes when you're low level
+                if (equippedPerk.EquipID == null)
                     continue;
 
                 // If the perk is currently equipped

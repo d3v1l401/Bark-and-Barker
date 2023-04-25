@@ -18,13 +18,15 @@ namespace BarkAndBarker.Shared.Persistence.Models
         public static readonly string QuerySelectCharacterSkills = "SELECT * FROM barker.character_perks WHERE barker.character_perks.OwnerID = @CID";
         public static readonly string QuerySelectIndexForCharacter = "SELECT * FROM barker.character_perks WHERE barker.character_perks.OwnerID = @CID AND barker.character_perks.Index = @Index";
         public static readonly string QueryUpdateSlot = "UPDATE barker.character_perks SET barker.character_perks.EquipID = @NEID WHERE (barker.character_perks.OwnerID = @OID) and (barker.character_perks.Index = @Index);";
+        public static readonly string QueryCreateSlots = "INSERT INTO `barker`.`character_perks` (barker.character_perks.OwnerID, barker.character_perks.Index, barker.character_perks.IsAvailableSlot, barker.character_perks.RequiredLevel, barker.character_perks.EquipID, barker.character_perks.Type) VALUES " +
+            "                                                     (@CID, @Index, '1', @MinLevel, @PerkID, @Type);";
 
         public static readonly string QueryCreateTable = @"CREATE TABLE IF NOT EXISTS `barker`.`character_perks` (
                                                           `OwnerID` VARCHAR(45) NOT NULL,
                                                           `Index` INT NOT NULL,
                                                           `IsAvailableSlot` INT NOT NULL DEFAULT 1,
                                                           `RequiredLevel` INT NOT NULL DEFAULT 1,
-                                                          `EquipID` VARCHAR(100) NOT NULL,
+                                                          `EquipID` VARCHAR(100) DEFAULT NULL,
                                                           `Type` INT NOT NULL DEFAULT 1,
                                                           PRIMARY KEY (`OwnerID`, `Index`),
                                                           CONSTRAINT `ownerChar`

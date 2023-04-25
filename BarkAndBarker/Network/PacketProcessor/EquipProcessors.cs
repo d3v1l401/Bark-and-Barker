@@ -24,11 +24,15 @@ namespace BarkAndBarker.Network.PacketProcessor
             var perksAndSkills = session.GetDB().Select<ModelPerks>(ModelPerks.QuerySelectCharacterSkills, new { CID = session.m_currentCharacter.CharID });
             foreach (var ability in perksAndSkills)
             {
+                var slotIsAvailable = (uint)ability.IsAvailableSlot;
+                if (session.m_currentCharacter.Level < ability.RequiredLevel)
+                    slotIsAvailable = 0;
+
                 response.Equips.Add(new SCLASS_EQUIP_INFO()
                 {
                     Index = (uint)ability.Index,
-                    EquipId = ability.EquipID,
-                    IsAvailableSlot = (uint)ability.IsAvailableSlot,
+                    EquipId = ability.EquipID != null ? ability.EquipID : "",
+                    IsAvailableSlot = slotIsAvailable,
                     RequiredLevel = (uint)ability.RequiredLevel,
                     Type = (uint)ability.Type,
                 });
