@@ -75,10 +75,21 @@ namespace BarkAndBarker.Proxy
                 Console.WriteLine($"Packet data: {packetData}");
 
                 JObject json = null;
+                int bytesBeforeJson = -1;
 
                 try
                 {
-                    json = JObject.Parse(packetData);
+                    var startIndex = packetData.IndexOf('{');
+                    var endIndex = packetData.IndexOf('}');
+
+                    if (startIndex != -1 && endIndex != -1)
+                    {
+
+                        var jsonStringOnly = packetData.Substring(startIndex, endIndex + 1 - startIndex);
+                        bytesBeforeJson = startIndex-1;
+
+                        json = JObject.Parse(jsonStringOnly);
+                    }
                 }
                 catch (JsonReaderException ex)
                 {
@@ -99,7 +110,7 @@ namespace BarkAndBarker.Proxy
 
                         var t = new Thread(() =>
                         {
-                            var lobbyProxy = new LobbyProxy("127.0.0.1", port, ipAddress, port);
+                            var lobbyProxy = new LobbyProxy("127.0.0.1", 3443, ipAddress, port);
                             lobbyProxy.Start();
                         });
                         t.Start();
@@ -107,14 +118,21 @@ namespace BarkAndBarker.Proxy
                         Thread.Sleep(50);
                         
                         json["ipAddress"] = "127.0.0.1";
+                        json["port"] = 3443;
                         string modifiedPacketData = json.ToString(Formatting.None);
                         Console.WriteLine($"Modified packet data: {modifiedPacketData}");
 
                         int paddingLength = bytesRead - modifiedPacketData.Length;
                         modifiedPacketData = modifiedPacketData.PadRight(modifiedPacketData.Length + paddingLength);
 
-                        writeBuffer = Encoding.UTF8.GetBytes(modifiedPacketData);
-                        bytesRead = writeBuffer.Length;
+                        
+                        var addBuffer = Encoding.UTF8.GetBytes(modifiedPacketData);
+                        for (int i = 0; i < addBuffer.Length; i++)
+                        {
+                            writeBuffer[bytesBeforeJson + i + 1] = addBuffer[i];
+                        }
+
+                        bytesRead = bytesBeforeJson + addBuffer.Length;
                     }
                 }
 
