@@ -26,12 +26,78 @@ namespace BarkAndBarker.GatheringHall
 
         public void Join(ClientSession client)
         {
+            var clientUpdateNot = new SS2C_GATHERING_HALL_CHANNEL_USER_UPDATE_NOT();
+
+            var joinUpdate = new SGATHERING_HALL_USER_UPDATE_INFO
+            {
+                UpdateFlag = 1, // 1 = join
+                Info = new SCHARACTER_GATHERING_HALL_INFO
+                {
+                    AccountId = client.m_currentPlayer.AccountID.ToString(),
+                    NickName = new SACCOUNT_NICKNAME()
+                    {
+                        OriginalNickName = client.m_currentCharacter.Nickname,
+                        StreamingModeNickName = client.m_currentCharacter.Nickname,
+                        KarmaRating = client.m_currentCharacter.KarmaScore
+                    },
+                    CharacterClass = client.m_currentCharacter.Class,
+                    CharacterId = client.m_currentCharacter.CharID,
+                    Gender = (uint)client.m_currentCharacter.Gender,
+                    Level = (uint)client.m_currentCharacter.Level
+                }
+            };
+
+            clientUpdateNot.Updates.Add(joinUpdate);
+
+            foreach (var clientSession in CurrentUsers)
+            {
+                var joinNot = new WrapperSerializer<SS2C_GATHERING_HALL_CHANNEL_USER_UPDATE_NOT>(
+                    clientUpdateNot,
+                    clientSession.m_currentPacketSequence++,
+                    PacketCommand.S2CGatheringHallChannelUserUpdateNot);
+
+                clientSession.SendAsync(joinNot.Serialize().ToArray());
+            }
+
             CurrentUsers.Add(client);
         }
 
         public void Leave(ClientSession client)
         {
             CurrentUsers.Remove(client);
+
+            var clientUpdateNot = new SS2C_GATHERING_HALL_CHANNEL_USER_UPDATE_NOT();
+
+            var leaveUpdate = new SGATHERING_HALL_USER_UPDATE_INFO
+            {
+                UpdateFlag = 3, // 3 = leave
+                Info = new SCHARACTER_GATHERING_HALL_INFO
+                {
+                    AccountId = client.m_currentPlayer.AccountID.ToString(),
+                    NickName = new SACCOUNT_NICKNAME()
+                    {
+                        OriginalNickName = client.m_currentCharacter.Nickname,
+                        StreamingModeNickName = client.m_currentCharacter.Nickname,
+                        KarmaRating = client.m_currentCharacter.KarmaScore
+                    },
+                    CharacterClass = client.m_currentCharacter.Class,
+                    CharacterId = client.m_currentCharacter.CharID,
+                    Gender = (uint)client.m_currentCharacter.Gender,
+                    Level = (uint)client.m_currentCharacter.Level
+                }
+            };
+
+            clientUpdateNot.Updates.Add(leaveUpdate);
+
+            foreach (var clientSession in CurrentUsers)
+            {
+                var joinNot = new WrapperSerializer<SS2C_GATHERING_HALL_CHANNEL_USER_UPDATE_NOT>(
+                    clientUpdateNot,
+                    clientSession.m_currentPacketSequence++,
+                    PacketCommand.S2CGatheringHallChannelUserUpdateNot);
+
+                clientSession.SendAsync(joinNot.Serialize().ToArray());
+            }
         }
 
         public bool IsMember(ClientSession client)

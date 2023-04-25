@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using BarkAndBarker.Persistence;
 using System.Collections.Concurrent;
+using BarkAndBarker.GatheringHall;
 using BarkAndBarker.Shared.Persistence;
 using BarkAndBarker.Shared.Persistence.Models;
 
@@ -52,6 +53,8 @@ namespace BarkAndBarker
 
         protected override void OnDisconnected()
         {
+            GatheringHallManager.Leave(this);
+
             Console.WriteLine($"Client {Id} disconnected.");
         }
 
