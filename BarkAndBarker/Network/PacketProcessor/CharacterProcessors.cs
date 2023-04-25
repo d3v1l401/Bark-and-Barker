@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BarkAndBarker.Shared.Persistence.Models;
 using BarkAndBarker.Persistence;
+using BarkAndBarker.Game;
 
 namespace BarkAndBarker.Network.PacketProcessor
 {
@@ -35,6 +36,7 @@ namespace BarkAndBarker.Network.PacketProcessor
                 return response;
             }
 
+            var newCharID = Guid.NewGuid().ToString();
             var queryRes = session.GetDB().Execute(ModelCharacter.QueryCreateCharacter, new
             {
 #if USE_STEAM
@@ -42,7 +44,7 @@ namespace BarkAndBarker.Network.PacketProcessor
 #else
                 AID = session.m_currentPlayer.AccountID,
 #endif
-                CID = Guid.NewGuid().ToString(),
+                CID = newCharID,
                 Nickname = request.NickName,
                 Class = request.CharacterClass,
                 Level = 1,
@@ -53,6 +55,17 @@ namespace BarkAndBarker.Network.PacketProcessor
                 response.Result = (uint)LoginResponseResult.SUCCESS;
             else
                 response.Result = 0;
+
+            var newCharacter = session.GetDB().SelectFirst<ModelCharacter>(ModelCharacter.QuerySelectCharacterByID, new { CID = newCharID });
+            if (newCharacter != null)
+            {
+                if (ClassHelpers.OnCharacterCreation(newCharacter, session.GetDB()))
+                    response.Result = (uint)LoginResponseResult.SUCCESS;
+                else
+                    response.Result = 0;
+            } else
+                response.Result = 0;
+
 
             return response;
         }
@@ -242,6 +255,21 @@ namespace BarkAndBarker.Network.PacketProcessor
 
         }
 
+        public static MemoryStream HandleClassSpellListReqTrigger(ClientSession session)
+        {
+            return HandleClassSpellListRes(session, new SS2C_CLASS_SPELL_LIST_RES());
+        }
+
+        public static MemoryStream HandleClassSkillListReqTrigger(ClientSession session)
+        {
+            return HandleClassSkillListRes(session, new SS2C_CLASS_SKILL_LIST_RES());
+        }
+
+        public static MemoryStream HandleClassPerkListReqTrigger(ClientSession session)
+        {
+            return HandleClassPerkListRes(session, new SS2C_CLASS_PERK_LIST_RES());
+        }
+
         public static object HandleClassSpellListReq(ClientSession session, dynamic deserializer)
         {
             var request = ((WrapperDeserializer)deserializer).Parse<SC2S_CLASS_SPELL_LIST_REQ>();
@@ -253,6 +281,37 @@ namespace BarkAndBarker.Network.PacketProcessor
         public static MemoryStream HandleClassSpellListRes(ClientSession session, dynamic inputClass)
         {
             var response = (SS2C_CLASS_SPELL_LIST_RES)inputClass;
+
+            var allSpells = session.GetDB().Select<ModelPresetSpellList>(ModelPresetSpellList.QuerySelectClassSpells, new { CID = session.m_currentCharacter.Class });
+            //var curSpells = session.GetDB().Select<ModelPerks>(ModelPerks.QuerySelectCharacterSpells, new { CID = session.m_currentCharacter.CharID });
+
+            var spells = allSpells.ToDictionary(x => x.SpellID);
+
+            
+
+            //foreach (var equippedSpell in curSpells)
+            //{
+            //    // If the skill is currently equipped
+            //    if (spells.ContainsKey(equippedSpell.SpellID))
+            //    {
+            //        spells.Remove(equippedSpell.SpellID);
+            //        continue;
+            //    }
+            //}
+
+            // TODO: Spells are handled differently
+
+            var slotIndex = (uint)0;
+            var seqIndex = (uint)0;
+            foreach (var spell in spells)
+            {
+                response.Spells.Add(new SSpell()
+                {
+                    SequenceIndex = seqIndex++,
+                    SlotIndex = slotIndex++,
+                    SpellId = spell.Value.SpellID,
+                });
+            }
 
             var serial = new WrapperSerializer<SS2C_CLASS_SPELL_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CClassSpellListRes);
             return serial.Serialize();
@@ -271,6 +330,37 @@ namespace BarkAndBarker.Network.PacketProcessor
         {
             var response = (SS2C_CLASS_SKILL_LIST_RES)inputClass;
 
+            var allSkills = session.GetDB().Select<ModelPresetSkillList>(ModelPresetSkillList.QuerySelectClassSkills, new { CID = session.m_currentCharacter.Class });
+            var curSkills = session.GetDB().Select<ModelPerks>(ModelPerks.QuerySelectCharacterSkills, new { CID = session.m_currentCharacter.CharID }).Where(x => x.Type == 2);
+
+            var skills = allSkills.ToDictionary(x => x.SkillID);
+
+            foreach (var equippedSkill in curSkills)
+            {
+                if (equippedSkill.Type == 1) // This is a perk
+                    continue;
+
+                // If the skill is currently equipped
+                if (skills.ContainsKey(equippedSkill.EquipID))
+                {
+                    skills.Remove(equippedSkill.EquipID);
+                    continue;
+                }
+            }
+
+            var clientFilteredList = new List<SSkill>();
+            var clientFacingIndex = (uint)1;
+            foreach (var availableSkill in skills)
+            {
+                clientFilteredList.Add(new SSkill()
+                {
+                    Index = clientFacingIndex++,
+                    SkillId = availableSkill.Key,
+                });
+            }
+
+            response.Skills.AddRange(clientFilteredList);
+
             var serial = new WrapperSerializer<SS2C_CLASS_SKILL_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CClassSkillListRes);
             return serial.Serialize();
 
@@ -288,12 +378,129 @@ namespace BarkAndBarker.Network.PacketProcessor
         {
             var response = (SS2C_CLASS_PERK_LIST_RES)inputClass;
 
+            var allPerks = session.GetDB().Select<ModelPresetPerkList>(ModelPresetPerkList.QuerySelectClassPerks, new { CID = session.m_currentCharacter.Class });
+            var curPerks = session.GetDB().Select<ModelPerks>(ModelPerks.QuerySelectCharacterSkills, new { CID = session.m_currentCharacter.CharID });
+
+            var perks = allPerks.ToDictionary(x => x.PerkID);
+
+            foreach (var equippedPerk in curPerks)
+            {
+                if (equippedPerk.Type == 2) // This is a skill
+                    continue;
+
+                // empty perk slot, comes when you're low level
+                if (equippedPerk.EquipID == null)
+                    continue;
+
+                // If the perk is currently equipped
+                if (perks.ContainsKey(equippedPerk.EquipID))
+                {
+                    perks.Remove(equippedPerk.EquipID);
+                    continue;
+                }
+            }
+
+            var clientFilteredList = new List<SPerk>();
+            var clientFacingIndex = (uint)1;
+            foreach (var availablePerk in perks)
+            {
+                clientFilteredList.Add(new SPerk()
+                {
+                    Index = clientFacingIndex++,
+                    PerkId = availablePerk.Key,
+                });
+            }
+
+            response.Perks.AddRange(clientFilteredList);
+
             var serial = new WrapperSerializer<SS2C_CLASS_PERK_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CClassPerkListRes);
             return serial.Serialize();
 
         }
 
+        public static object HandleClassItemMoveReq(ClientSession session, dynamic deserializer)
+        {
+            var request = ((WrapperDeserializer)deserializer).Parse<SC2S_CLASS_ITEM_MOVE_REQ>();
+            var response = new SS2C_CLASS_ITEM_MOVE_RES();
 
+            // Perk = 1, Skill = 2
+            if (request.OldMove.Type != request.NewMove.Type) // e.g. Are we not replacing a skill with another skill?
+                response.Result = 0;
+
+            var isLegalRequest = false;
+            if (request.OldMove.Type == 1 || request.OldMove.Type == 0) // 0 = empty
+            {
+                var legalClassPerks = session.GetDB().Select<ModelPresetPerkList>(ModelPresetPerkList.QuerySelectClassPerks, new { CID = session.m_currentCharacter.Class });
+                foreach (var perk in legalClassPerks)
+                    if (perk.PerkID == request.NewMove.MoveId)
+                    {
+                        // Check if character can access this slot
+                        var levelRequiredForSlot = request.NewMove.Index > 1 ? ((request.NewMove.Index - 1) * 5) : 1;
+                        if (session.m_currentCharacter.Level < levelRequiredForSlot)
+                            isLegalRequest = false;
+                        else
+                            isLegalRequest = true;
+                        break;
+                    }
+            } else if (request.OldMove.Type == 2)
+            {
+                var legalClassSkills = session.GetDB().Select<ModelPresetSkillList>(ModelPresetSkillList.QuerySelectClassSkills, new { CID = session.m_currentCharacter.Class });
+                foreach (var skill in legalClassSkills)
+                    if (skill.SkillID == request.NewMove.MoveId) 
+                    {
+                        isLegalRequest = true;
+                        break;
+                    }
+            } else if (request.OldMove.Type == 3) {
+                var legalClassSpells = session.GetDB().Select<ModelPresetSpellList>(ModelPresetSpellList.QuerySelectClassSpells, new { CID = session.m_currentCharacter.Class });
+                foreach (var spell in legalClassSpells)
+                    if (spell.SpellID == request.NewMove.MoveId)
+                    {
+                        isLegalRequest = true;
+                        break;
+                    }
+            }
+
+            if (!isLegalRequest)
+            {
+                response.OldMove = request.OldMove;
+                response.NewMove = request.OldMove;
+                response.Result = 0;
+                return response;
+            }
+
+            var requestedIndex = request.NewMove.Index != 0 ? request.NewMove.Index : 1; // Empty slot -> new perk
+            var selectedSlot = session.GetDB().SelectFirst<ModelPerks>(ModelPerks.QuerySelectIndexForCharacter, new { CID = session.m_currentCharacter.CharID, Index = requestedIndex });
+            if (selectedSlot != null)
+            {
+                var updatedRows = session.GetDB().Execute(ModelPerks.QueryUpdateSlot, new
+                {
+                    NEID = request.NewMove.MoveId,
+                    OID = session.m_currentCharacter.CharID,
+                    Index = selectedSlot.Index,
+                });
+
+                if (updatedRows <= 0)
+                {
+                    response.OldMove = request.OldMove;
+                    response.NewMove = request.OldMove;
+                    response.Result = 0;
+                } else {
+                    response.OldMove = request.OldMove;
+                    response.NewMove = request.NewMove;
+                    response.Result = 1;
+                }
+            }
+
+            return response;
+        }
+
+        public static MemoryStream HandleClassItemMoveRes(ClientSession session, dynamic inputClass)
+        {
+            var response = (SS2C_CLASS_ITEM_MOVE_RES)inputClass;
+            var serial = new WrapperSerializer<SS2C_CLASS_ITEM_MOVE_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CClassItemMoveRes);
+            return serial.Serialize();
+        }
 
         public static MemoryStream HandleLobbyCharacterInfoRes(ClientSession session, dynamic inputClass)
         {

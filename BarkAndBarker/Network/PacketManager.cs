@@ -38,11 +38,20 @@ namespace BarkAndBarker.Network
                 } 
             },
 
-             { PacketCommand.C2SClassLevelInfoReq, new List<Func<ClientSession, object>>()
+            { PacketCommand.C2SClassLevelInfoReq, new List<Func<ClientSession, object>>()
                 {
                     CharacterProcessors.HandleLobbyCharacterInfoTrigger,
                     Notifications.HandleLobbyAccountCurrencyListNot
                 }
+            },
+
+            // On meta location == 5, client expects all the skills perks and spells list; we should probably handle this within MetaLocationRes
+            { PacketCommand.C2SMetaLocationReq, new List<Func<ClientSession, object>>()
+                {
+                    CharacterProcessors.HandleClassPerkListReqTrigger,
+                    CharacterProcessors.HandleClassSkillListReqTrigger,
+                    CharacterProcessors.HandleClassSpellListReqTrigger
+                } 
             },
 
         };
@@ -94,6 +103,10 @@ namespace BarkAndBarker.Network
             { PacketCommand.C2SPartyReadyReq, PartyProcessors.HandlePartyReadyReq },
             { PacketCommand.C2SPartyChatReq, PartyProcessors.HandlePartyChatReq },
 
+            // Map Selection
+            { PacketCommand.C2SLobbyGameDifficultySelectReq, LobbyProcessors.HandleLobbyGameDifficultySelectReq },
+
+
             // Lobby Character Information
             { PacketCommand.C2SLobbyCharacterInfoReq, CharacterProcessors.HandleLobbyCharacterInfoReq },
             { PacketCommand.C2SCharacterSelectEnterReq, CharacterProcessors.HandleCharacterSelectReq },
@@ -105,10 +118,8 @@ namespace BarkAndBarker.Network
             { PacketCommand.C2SClassSpellListReq, CharacterProcessors.HandleClassSpellListReq },
             { PacketCommand.C2SClassSkillListReq, CharacterProcessors.HandleClassSkillListReq },
             { PacketCommand.C2SClassPerkListReq, CharacterProcessors.HandleClassPerkListReq },
-
-
-
-
+            // Change perk/skill/spell 
+            { PacketCommand.C2SClassItemMoveReq, CharacterProcessors.HandleClassItemMoveReq },
 
         };
         public static readonly Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>> m_responses = new Dictionary<PacketCommand, Func<ClientSession, dynamic, MemoryStream>>()
@@ -146,6 +157,10 @@ namespace BarkAndBarker.Network
             { PacketCommand.S2CPartyReadyRes, PartyProcessors.HandlePartyReadyRes },
             { PacketCommand.S2CPartyChatRes, PartyProcessors.HandlePartyChatRes },
 
+
+            { PacketCommand.S2CLobbyGameDifficultySelectRes, LobbyProcessors.HandleLobbyGameDifficultySelectRes },
+
+
             { PacketCommand.S2CLobbyCharacterInfoRes, CharacterProcessors.HandleLobbyCharacterInfoRes },
             { PacketCommand.S2CCharacterSelectEnterRes, CharacterProcessors.HandleCharacterSelectRes },
 
@@ -154,6 +169,8 @@ namespace BarkAndBarker.Network
             { PacketCommand.S2CClassSpellListRes, CharacterProcessors.HandleClassSpellListRes },
             { PacketCommand.S2CClassSkillListRes, CharacterProcessors.HandleClassSkillListRes },
             { PacketCommand.S2CClassPerkListRes, CharacterProcessors.HandleClassPerkListRes},
+
+            { PacketCommand.S2CClassItemMoveRes, CharacterProcessors.HandleClassItemMoveRes },
 
         };
 

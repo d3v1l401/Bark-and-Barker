@@ -32,6 +32,8 @@ namespace BarkAndBarker.Persistence
                 if (props.Count() > 4)
                     throw new Exception("Illegal item properties count (" + inventoryItem.UniqueID + ")");
 
+
+                // TODO: This is wrong
                 for (var i = 0; i < props.Count(); i++)
                 {
                     if (i < 2)
