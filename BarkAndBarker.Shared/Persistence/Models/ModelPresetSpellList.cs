@@ -22,7 +22,32 @@ namespace BarkAndBarker.Shared.Persistence.Models
 
         public static readonly List<string> QueryFillPresets = new List<string>()
         {
+            // Wizard
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Wizard', 'DesignDataSpell:Id_Spell_Zap');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Wizard', 'DesignDataSpell:Id_Spell_Light');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Wizard', 'DesignDataSpell:Id_Spell_Lazy');", // Slow?
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Wizard', 'DesignDataSpell:Id_Spell_IceBolt');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Wizard', 'DesignDataSpell:Id_Spell_Ignite');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Wizard', 'DesignDataSpell:Id_Spell_MagicMissile');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Wizard', 'DesignDataSpell:Id_Spell_Haste');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Wizard', 'DesignDataSpell:Id_Spell_LightningStrike');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Wizard', 'DesignDataSpell:Id_Spell_Invisibility');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Wizard', 'DesignDataSpell:Id_Spell_Fireball');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Wizard', 'DesignDataSpell:Id_Spell_ChainLightning');",
+            // Cleric
             
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Cleric', 'DesignDataSpell:Id_Spell_Protection');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Cleric', 'DesignDataSpell:Id_Spell_Bless');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Cleric', 'DesignDataSpell:Id_Spell_DivineStrike');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Cleric', 'DesignDataSpell:Id_Spell_Cleanse');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Cleric', 'DesignDataSpell:Id_Spell_LesserHeal');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Cleric', 'DesignDataSpell:Id_Spell_BindEvil');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Cleric', 'DesignDataSpell:Id_Spell_HolyStrike');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Cleric', 'DesignDataSpell:Id_Spell_HolyLight');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Cleric', 'DesignDataSpell:Id_Spell_Sanctuary');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Cleric', 'DesignDataSpell:Id_Spell_Resurrection');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Cleric', 'DesignDataSpell:Id_Spell_LocustsSwarm');",
+            "INSERT INTO `barker`.`preset_spell_list` (`ClassID`, `SpellID`) VALUES ('DesignDataPlayerCharacter:Id_PlayerCharacter_Cleric', 'DesignDataSpell:Id_Spell_Earthquake');",
         };
 
         public static readonly int TableCreationOrder = 93;

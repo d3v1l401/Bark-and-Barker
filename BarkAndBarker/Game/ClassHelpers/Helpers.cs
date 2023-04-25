@@ -32,7 +32,7 @@ namespace BarkAndBarker.Game
             {
                 var minLevelSlot = 1;
                 if (perkIndex != 1)
-                    minLevelSlot = perkIndex * 5;
+                    minLevelSlot = (perkIndex - 1) * 5;
 
                 var createdSlotInstances = dbInstance.Execute(ModelPerks.QueryCreateSlots, new
                 {

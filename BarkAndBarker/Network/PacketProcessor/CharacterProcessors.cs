@@ -287,6 +287,8 @@ namespace BarkAndBarker.Network.PacketProcessor
 
             var spells = allSpells.ToDictionary(x => x.SpellID);
 
+            
+
             //foreach (var equippedSpell in curSpells)
             //{
             //    // If the skill is currently equipped
@@ -307,7 +309,7 @@ namespace BarkAndBarker.Network.PacketProcessor
                 {
                     SequenceIndex = seqIndex++,
                     SlotIndex = slotIndex++,
-                    SpellId = "",
+                    SpellId = spell.Value.SpellID,
                 });
             }
 
@@ -426,13 +428,18 @@ namespace BarkAndBarker.Network.PacketProcessor
                 response.Result = 0;
 
             var isLegalRequest = false;
-            if (request.OldMove.Type == 1)
+            if (request.OldMove.Type == 1 || request.OldMove.Type == 0) // 0 = empty
             {
                 var legalClassPerks = session.GetDB().Select<ModelPresetPerkList>(ModelPresetPerkList.QuerySelectClassPerks, new { CID = session.m_currentCharacter.Class });
                 foreach (var perk in legalClassPerks)
                     if (perk.PerkID == request.NewMove.MoveId)
                     {
-                        isLegalRequest = true;
+                        // Check if character can access this slot
+                        var levelRequiredForSlot = request.NewMove.Index > 1 ? ((request.NewMove.Index - 1) * 5) : 1;
+                        if (session.m_currentCharacter.Level < levelRequiredForSlot)
+                            isLegalRequest = false;
+                        else
+                            isLegalRequest = true;
                         break;
                     }
             } else if (request.OldMove.Type == 2)
@@ -462,7 +469,8 @@ namespace BarkAndBarker.Network.PacketProcessor
                 return response;
             }
 
-            var selectedSlot = session.GetDB().SelectFirst<ModelPerks>(ModelPerks.QuerySelectIndexForCharacter, new { CID = session.m_currentCharacter.CharID, Index =  request.OldMove.Index });
+            var requestedIndex = request.NewMove.Index != 0 ? request.NewMove.Index : 1; // Empty slot -> new perk
+            var selectedSlot = session.GetDB().SelectFirst<ModelPerks>(ModelPerks.QuerySelectIndexForCharacter, new { CID = session.m_currentCharacter.CharID, Index = requestedIndex });
             if (selectedSlot != null)
             {
                 var updatedRows = session.GetDB().Execute(ModelPerks.QueryUpdateSlot, new
