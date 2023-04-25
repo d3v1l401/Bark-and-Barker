@@ -103,5 +103,31 @@ namespace BarkAndBarker.Network.PacketProcessor
             var serial = new WrapperSerializer<SS2C_GATHERING_HALL_CHANNEL_CHAT_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CGatheringHallChannelSelectRes);
             return serial.Serialize();
         }
+
+        public static MemoryStream HandleChannelUserListTrigger(ClientSession session)
+        {
+            var response = new SS2C_GATHERING_HALL_CHANNEL_USER_LIST_RES();
+
+            var userList = GatheringHallManager.GetUserList(session);
+            foreach (var user in userList)
+            {
+                var character = new SCHARACTER_GATHERING_HALL_INFO();
+                character.AccountId = user.m_currentPlayer.AccountID.ToString();
+                character.NickName = new SACCOUNT_NICKNAME()
+                {
+                    OriginalNickName = user.m_currentCharacter.Nickname,
+                    StreamingModeNickName = user.m_currentCharacter.Nickname,
+                    KarmaRating = user.m_currentCharacter.KarmaScore
+                };
+                character.CharacterClass = user.m_currentCharacter.Class;
+                character.CharacterId = user.m_currentCharacter.CharID;
+                character.Gender = (uint)user.m_currentCharacter.Gender;
+                character.Level = (uint)user.m_currentCharacter.Level;
+                response.Characters.Add(character);
+            }
+
+            var serial = new WrapperSerializer<SS2C_GATHERING_HALL_CHANNEL_USER_LIST_RES>(response, session.m_currentPacketSequence++, PacketCommand.S2CGatheringHallChannelUserListRes);
+            return serial.Serialize();
+        }
     }
 }

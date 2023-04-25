@@ -54,6 +54,13 @@ namespace BarkAndBarker.Network
                 } 
             },
 
+            //Gathering hall
+            { PacketCommand.C2SGatheringHallChannelSelectReq, new List<Func<ClientSession, object>>()
+                {
+                    GatheringHallProcessors.HandleChannelUserListTrigger,
+                }
+            },
+
         };
 
         // Handles the request, needs a PacketCommand, a WrapperDeserializer & returns the deserialized object

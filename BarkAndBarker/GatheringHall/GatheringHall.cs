@@ -10,8 +10,7 @@ namespace BarkAndBarker.GatheringHall
         public uint ChannelIndex { get; set; }
         public uint GroupIndex { get; set; }
         public uint MemberCount => (uint)CurrentUsers.Count;
-
-        private List<ClientSession> CurrentUsers { get; set; }
+        public List<ClientSession> CurrentUsers { get; set; }
 
         private List<ChatMessage> Messages { get; set; }
 

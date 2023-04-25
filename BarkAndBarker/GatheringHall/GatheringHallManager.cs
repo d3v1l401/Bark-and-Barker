@@ -52,5 +52,18 @@
                 }
             }
         }
+
+        public static List<ClientSession> GetUserList(ClientSession client)
+        {
+            foreach (var gatheringHall in GatheringHalls)
+            {
+                if (gatheringHall.IsMember(client))
+                {
+                    return gatheringHall.CurrentUsers;
+                }
+            }
+
+            return Enumerable.Empty<ClientSession>().ToList();
+        }
     }
 }
