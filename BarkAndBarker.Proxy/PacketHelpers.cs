@@ -112,7 +112,7 @@ namespace BarkAndBarker.Proxy
 
             for (int i = 0; i < length; i++)
             {
-                sb.AppendFormat("0x{0:X2} ", byteArray[i]);
+                sb.AppendFormat("{0:X2} ", byteArray[i]);
             }
 
             return sb.ToString();
