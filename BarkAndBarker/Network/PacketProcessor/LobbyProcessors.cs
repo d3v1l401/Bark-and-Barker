@@ -68,7 +68,10 @@ namespace BarkAndBarker.Network.PacketProcessor
             var request = ((WrapperDeserializer)deserializer).Parse<SC2S_LOBBY_GAME_DIFFICULTY_SELECT_REQ>();
             var response = new SS2C_LOBBY_GAME_DIFFICULTY_SELECT_RES();
 
-            if (request.GameDifficultyTypeIndex <= 3)
+            // Switch Case / Enum? Might be over kill, depends on what's required in the future.
+            // For now, result = 1 if the map is valid.
+
+            if (request.GameDifficultyTypeIndex <= 4 && request.GameDifficultyTypeIndex != 0)
             {
                 response.Result = 1;
             } else
