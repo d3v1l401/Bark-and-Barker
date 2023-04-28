@@ -67,6 +67,15 @@ namespace BarkAndBarker.Network.PacketProcessor
                    goldcount = item.ItemCount;
                 }
 
+                var queryGoldCountNEW = session.GetDB().Select<ModelInventoryItem>(ModelInventoryItem.QueryInventoryGold, new { UniqueID = newItem.ItemUniqueId });
+                int newGoldCount = 0;
+
+                foreach (var item in queryGoldCountNEW)
+                {
+                    newGoldCount = item.ItemCount;
+                }
+
+
                 if (goldcount - newItem.ItemCount <= 0)
                 {
                     Console.WriteLine("Gold has depleted and will be deleting.");
@@ -78,10 +87,15 @@ namespace BarkAndBarker.Network.PacketProcessor
 
                     });
 
+                    newGoldCount = newGoldCount + (int)newItem.ItemCount;
+
+                    // This is bugged, should update the new coin value, for example 2 stacks of 5 Coins
+                    // Should update to 1 Stack of 10 Coins. Instead it updates to 1 stack of 5 Coins.
+
                     var queryUpdateGold = session.GetDB().Execute(ModelInventoryItem.QueryUpdateInventoryGold, new
                     {
-                        UniqueID = oldItem.ItemUniqueId,
-                        ItemCount = newItem.ItemCount + goldcount,
+                        UniqueID = newItem.ItemUniqueId,
+                        ItemCount = newGoldCount,
                         SlotID = newItem.SlotId
                     }); 
                 }
